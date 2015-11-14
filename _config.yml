@@ -1,0 +1,22 @@
+permalink: /:year/:month/:day/:title.html
+
+highlighter: pygments
+markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
+kramdown:
+  input:         GFM
+  auto_ids:      true
+
+# 作者信息
+author: 欧阳湘粤
+name: Owen
+email: 469564715@qq.com
+link: http://numerhero.github.io
+#weibo: 
+github: http://github.com/NumerHero
+
+# 站点信息
+title: 信管创业基地 
+description: 信管创业基地官方博客
+url: http://xgcyjd2014.github.io
+rss_url: /pages/atom.xml
+
