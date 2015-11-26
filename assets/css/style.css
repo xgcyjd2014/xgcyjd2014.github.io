@@ -1,1 +1,79 @@
 /*信管创业基地官网css*/
+html{width:100%; height:auto; outline: none;}
+body{width:100%; height: auto; overflow: hidden;}
+img{margin:0; padding:0px;}
+a{text-decoration: none;}
+#container{width: 100%; cursor:url(../img/cursor.png),default;}
+#container header{width:100%; height: 75px; position:fixed;background: #323436;}
+
+#wrap{width:1300px; height: 100%;  margin: 0 auto; 
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+	#move-logo{width:520px; height: 100%; opacity: .7; float: left;}
+	#move-logo img:nth-of-type(1){margin-right: 8px;}
+
+	#header-menu-list{width:730px; height: calc(100% - 10px); float:right; margin:0 5px 10px 5px;}
+	.header-ico{width:140px;height: 100%; margin-right: 5px; background: url(../img/header-ico-bg.png) no-repeat -10px 13px; float: left; position: relative;}
+	.header-ico .header-ico-content{position: absolute;bottom: 20%; left: 42%; color:#fff; font:500 20px/23px "微软雅黑"; z-index: 3; transition:.5s; opacity: .7;}
+	.header-ico:nth-of-type(1) .header-ico-content{ left: 55%;}
+	.header-ico:nth-of-type(2) .header-ico-content{ left: 55%;}
+	.header-ico:nth-of-type(4) .header-ico-content{ left: 55%;}
+	
+	.header-ico-bg{width:150px; height:55px;display: block; position: absolute; top:30%; left:18%;background:url(../img/header-ico-hover-bg.png) no-repeat; opacity: 0; 
+			transform: translateY(-30px) translateX(25px) skew(-2deg);
+			-webkit-transform:translateY(-30px) translateX(25px) skew(-2deg);
+			z-index: 1;
+			transition:.5s;
+		}
+	.header-ico:hover .header-ico-bg{
+			transform: translateY(-20px) translateX(10px) skew(-2deg);
+			-webkit-transform:translateY(-20px) translateX(10px) skew(-2deg);
+			opacity:.7;
+		}
+	.header-ico:hover .header-ico-content{opacity: 1;}
+
+	.header-ico .header-ico-active{opacity: 1; color:#61A2FB;}
+
+
+
+
+
+/*动画帧*/
+@keyframes movefont{
+	0%{transform:translateY(0px);}
+	50%{ transform:translateY(8px);}
+	100%{ transform:translateY(-8px);}
+}
+
+@-webkit-keyframes movefont{
+	0%{-webkit-transform:translateY(0px);}
+	50%{ -webkit-transform:translateY(8px);}
+	100%{ -webkit-transform:translateY(-8px);}
+}
+
+@keyframes movelogo{
+	0%{transform:rotateX(0deg) rotateY(0deg);}
+	25%{transform: rotateX(180deg);}
+	35%{transform: rotateX(180deg);}
+	50%{transform: rotateX(180deg) rotateY(-180deg);}
+	60%{ transform: rotateX(180deg) rotateY(-180deg);}
+	70%{ transform: rotateX(180deg) rotateY(0deg);}
+	90%{ transform: rotateX(0deg) rotateY(0deg);}
+	100%{ transform: rotateX(0deg) rotateY(0deg);}
+}
+
+@-webkit-keyframes movelogo{
+	0%{-webkit-transform:rotateX(0deg) rotateY(0deg);}
+	25%{-webkit-transform: rotateX(180deg);}
+	35%{-webkit-transform: rotateX(180deg);}
+	50%{-webkit-transform: rotateX(180deg) rotateY(-180deg);}
+	60%{ -webkit-transform: rotateX(180deg) rotateY(-180deg);}
+	70%{ -webkit-transform: rotateX(180deg) rotateY(0deg);}
+	90%{ -webkit-transform: rotateX(0deg) rotateY(0deg);}
+	100%{ -webkit-transform: rotateX(0deg) rotateY(0deg);}
+}
