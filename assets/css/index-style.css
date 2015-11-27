@@ -20,7 +20,8 @@ a{text-decoration: none;}
 
 	#header-menu-list{width:730px; height: calc(100% - 10px); float:right; margin:0 5px 10px 5px;}
 	.header-ico{width:140px;height: 100%; margin-right: 5px; background: url(../img/header-ico-bg.png) no-repeat -10px 13px; float: left; position: relative;}
-	.header-ico .header-ico-content{position: absolute;bottom: 20%; left: 42%; color:#fff; font:500 20px/23px "微软雅黑"; z-index: 3; transition:.5s; opacity: .7;}
+	.header-ico .header-ico-content{position: absolute;bottom: 20%; left: 42%; color:#fff; font:500 20px/23px "微软雅黑"; z-index: 3; 
+		transition:.5s; -webkit-transition:.5s; opacity: .7;}
 	.header-ico:nth-of-type(1) .header-ico-content{ left: 55%;}
 	.header-ico:nth-of-type(2) .header-ico-content{ left: 55%;}
 	.header-ico:nth-of-type(4) .header-ico-content{ left: 55%;}
@@ -30,6 +31,7 @@ a{text-decoration: none;}
 			-webkit-transform:translateY(-30px) translateX(25px) skew(-2deg);
 			z-index: 1;
 			transition:.25s;
+			-webkit-transition:.25s;
 		}
 
 	.header-ico:hover .header-ico-content{opacity: 1;}
@@ -157,7 +159,7 @@ a{text-decoration: none;}
 	100%{transform:scaleY(1);}
 }
 @-webkit-keyframes actionBth{
-	0%{transform:scaleY(1) ;}
-	50%{transform:scaleY(1.2) scaleX(1.1);}
-	100%{transform:scaleY(1);}
+	0%{-webkit-transform:scaleY(1) ;}
+	50%{-webkit-transform:scaleY(1.2) scaleX(1.1);}
+	100%{-webkit-transform:scaleY(1);}
 }
