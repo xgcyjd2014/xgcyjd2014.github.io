@@ -1,11 +1,11 @@
 /*信管创业基地官网 宣传页css*/
 html{width:100%; outline: none;}
-body{width:100%; height: auto; overflow: hidden; }
+body{width:100%; height: auto; overflow: hidden; margin: 0;padding: 0;}
 ul{margin: 0;padding: 0;}
 img{margin:0; padding:0px;}
 a{text-decoration: none;}
 #container{width: 100%; cursor:url(../img/cursor.png),default !important;}
-#container header{width:100%; height: 75px; position:fixed;background: #323436;  z-index: 3;}
+#container header{width:100%; height: 45px; position:fixed;background: rgba(50,52,54,.7);  z-index: 3; margin-top:30px;}
 
 #wrap{width:1300px; height: 100%;  margin: 0 auto; 
 	-webkit-touch-callout: none;
@@ -15,20 +15,21 @@ a{text-decoration: none;}
 	-ms-user-select: none;
 	user-select: none;
 }
-	#move-logo{width:520px; height: 100%;  float: left;}
-	#move-logo img:nth-of-type(1){margin-right: 8px;}
+	#move-logo{width:550px; height: 50px;  float: left; }
+	#move-logo img:nth-of-type(1){margin: -14px 8px 0 0; float: left;}
 
-	#header-menu-list{width:730px; height: calc(100% - 10px); float:right; margin:0 5px 10px 5px;}
-	.header-ico{width:140px;height: 100%; margin-right: 5px; background: url(../img/header-ico-bg.png) no-repeat -10px 13px; float: left; position: relative;}
-	.header-ico .header-ico-content{position: absolute;bottom: 20%; left: 42%; color:#fff; font:500 20px/23px "微软雅黑"; z-index: 3; 
+
+	#header-menu-list{width:730px; height: 100%; float:right; }
+	.header-ico{width:140px;height: 100%; margin: -5px 5px 0 0; background: url(../img/header-ico-bg.png) no-repeat -10px 13px; float: left; position: relative;}
+	.header-ico .header-ico-content{position: absolute;bottom: 14%; right:-10%; color:#fff; font:500 20px/23px "微软雅黑"; z-index: 3; 
 		transition:.5s; -webkit-transition:.5s; opacity: .7;}
-	.header-ico:nth-of-type(1) .header-ico-content{ left: 55%;}
-	.header-ico:nth-of-type(2) .header-ico-content{ left: 55%;}
-	.header-ico:nth-of-type(4) .header-ico-content{ left: 55%;}
+	.header-ico:nth-of-type(1) .header-ico-content{ right:5%;}
+	.header-ico:nth-of-type(2) .header-ico-content{ right:5%;}
+	.header-ico:nth-of-type(4) .header-ico-content{ right:5%;}
 	
 	.header-ico-bg{width:150px; height:55px;display: block; position: absolute; top:30%; left:18%;background:url(../img/header-ico-hover-bg.png) no-repeat; opacity: 0; 
-			transform: translateY(-30px) translateX(25px) skew(-2deg);
-			-webkit-transform:translateY(-30px) translateX(25px) skew(-2deg);
+			transform: translateY(-30px) translateX(30px) skew(10deg);
+			-webkit-transform:translateY(-30px) translateX(30px) skew(10deg);
 			z-index: 1;
 			transition:.25s;
 			-webkit-transition:.25s;
@@ -38,22 +39,35 @@ a{text-decoration: none;}
 
 	.header-ico .header-ico-active{opacity: 1; color:#61A2FB; }
 	.header-ico-bg-show{
-		transform: translateY(-20px) translateX(10px) skew(-2deg);
-		-webkit-transform:translateY(-20px) translateX(10px) skew(-2deg);
+		transform: translateY(-10px) translateX(15px) skew(10deg);
+		-webkit-transform:translateY(-10px) translateX(15px) skew(10deg);
 		opacity:1;
 	}
 
-#page-lists{width: 100%;  list-style: none; margin: 0 auto;}
-	#page-lists li{width: 100%; height: 900px; margin: 0 auto;}
+#page-lists{width: 100%;  list-style: none; margin: 0 auto; position: absolute; top:0;
+	transition:1.5s cubic-bezier(0.86,0,0.07,1);
+	-webkit-transition:1.5s cubic-bezier(0.86,0,0.07,1);}
 	
+	#page-lists li{width: 100%; height: 800px; margin: 0 auto;}
+	
+	
+	
+
 	#page-lists li:nth-of-type(1){position: relative; margin: 0 auto; 
-		perspective:500px;-webkit-perspective:500px;}
+		perspective:500px;-webkit-perspective:500px; background: url(../img/page-bg1.jpg);}
+	
+	#page-lists li:nth-of-type(2){background: #663399;}
+	#page-lists li:nth-of-type(3){background: blue;}
+	#page-lists li:nth-of-type(4){background: black;}
+	#page-lists li:nth-of-type(5){background: pink;}
+
 	#page-lists li:nth-of-type(1) img{width:100%; height: 100%;}
+
 	.page1-content{
 		width:200px;
 		height: auto;
 		position: absolute;
-		top:20%;
+		top:18%;
 		left: 43%;
 		margin: 0 auto;
 		transform-style:preserve-3d;
@@ -116,7 +130,7 @@ a{text-decoration: none;}
 
 .slideborder{width:25px;height:140px; position: fixed; right: 5%;top:50%; border-radius: 10px;}
 	.slideborder a{display: block; width: 15px; height: 15px; border-radius:50%;  border:1px solid #fff; margin: 10px 5px 10px 5px; cursor:url(../img/cursor.png),default !important; transition:.5s;}
-.pagecount-active{transform:scale(1.5);-webkit-transform:scale(1.3); background: #ccc;}
+.pagecount-active{transform:scale(1.5);-webkit-transform:scale(1.3); background: #f4f4f4;}
 
 /*动画帧*/
 @keyframes movefont{

@@ -13,7 +13,7 @@ $(document).ready(function(){
 	var oImg  = $(".page1-content img");
 	var font1 = $(".page1-content-font1");
  	var font2 = $(".page1-content-font2");
- 	var actionBtn = $(".actionBtn");
+ 	var actionBtn = $(".actionBtn"); 
 
  	oImg.css("transform","translateZ(0) scale(1)");
  	oImg.css("webkTransform","translateZ(0) scale(1)");
@@ -35,8 +35,18 @@ $(document).ready(function(){
  		actionBtn.css("webkitTransform","translateY(0px)");
  		actionBtn.css("opacity","1");
  	},2000);
- 	
-});
+
+ 	// 禁止用户缩放
+ 	// $(document).on("scroll",scrollFunc);
+
+ 	// $(window).on("resize",function(){
+ 	// 	var h = document.documentElement.clientHeight;
+ 	// 	console.log(h)
+ 	// 	$(".page-lists li").height(h);
+ 	// }); 
+      
+});  
+
 
 // logo动画
 $(function(){
@@ -70,13 +80,145 @@ $(function(){
 	})
 });
 
-// 滚轮
+// 滚轮 + 列表点击 + header切换
 $(function(){
+	var iNow = 0;
+
+	var boff = true;
+	var oPageLists = $("#page-lists");
+	var oH = $("#page-lists li").outerHeight();
+	
+	var oHeaderIcoContent = $('.header-ico-content');
+	var oHeaderIcoBg = $('.header-ico-bg');
+	var oSlideA = $(".slideborder a");
+	var actionBtn = $(".actionBtn");
+
+	$(document).mousewheel(function(event , delta){
+		// delta 大于0向上 小于0向下
+		if(boff)
+		{
+			boff = false;
+			if(delta > 0)
+			{
+				up();
+			}else{
+				down();
+			}
+		}else{
+			return;
+		}
+	});
+
+	function up()
+	{
+		if(iNow == 0)
+		{
+			boff = true;
+			return;
+		}else{
+			iNow--;
+		}
+		
+		oPageLists.css("top",-iNow*oH);
+		Change();
+		oPageLists.on("transitionend",function(){
+			boff = true;
+		});
+	}
+
+	function down()
+	{
+		if(iNow == $("#page-lists li").length -1 )
+		{
+			boff = true;
+			return;
+		}else{
+			iNow++;
+		}
+		oPageLists.css("top",-iNow*oH);
+		Change();
+		oPageLists.on("transitionend",function(){
+			boff = true;
+		});
+	}
+
+	oHeaderIcoContent.on("click" , function(){
+		if(boff)
+		{
+			boff = false;
+			iNow = oHeaderIcoContent.index($(this));
+			oPageLists.css("top",-iNow*oH);
+			Change();
+			oPageLists.on("transitionend",function(){
+				boff = true;
+			});
+		}else{
+			return;
+		}
+	});
+
+	oSlideA.on("click" , function(){
+		if(boff)
+		{
+
+			boff = false;
+			iNow = oSlideA.index($(this));
+			oPageLists.css("top",-iNow*oH);
+			Change();
+			oPageLists.on("transitionend",function(){
+				boff = true;
+			});
+		}else{
+			return;
+		}
+	})
+
+	actionBtn.on("click" , function(){
+		if(boff){
+			iNow = 1;
+			oPageLists.css("top",-iNow*oH);
+			Change();
+			oPageLists.on("transitionend",function(){
+			boff = true;
+		});
+		}else{
+			return;
+		}
+		
+	})
+	// scrollFunc();
+
+	function Change()
+	{
+		oHeaderIcoContent.each(function(i , value){
+			$(this).removeClass("header-ico-active");
+		});
+		oHeaderIcoContent.eq(iNow).addClass("header-ico-active");
+		
+		oHeaderIcoBg.each(function(i , value){
+			$(this).removeClass("header-ico-bg-show");
+		})
+		oHeaderIcoBg.eq(iNow).addClass("header-ico-bg-show");
+
+		oSlideA.each(function(i , value){
+			$(this).removeClass("pagecount-active");
+		})
+		oSlideA.eq(iNow).addClass("pagecount-active");
+	}
+
 
 });
 
 
-// 列表点击
-$(function(){
 
-});
+function scrollFunc(ev){ 
+	ev = ev || window.event; 
+	if(ev.wheelDelta && ev.ctrlKey) //IE/Opera/Chrome 
+	{
+		console.log(1);
+		ev.returnValue=false;
+	}else if(ev.detail && ev.ctrlKey)  //Firefox
+	{ 
+		ev.returnValue=false; 
+	} 
+}  
