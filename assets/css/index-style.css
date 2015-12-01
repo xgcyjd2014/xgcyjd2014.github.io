@@ -5,25 +5,37 @@
 							      Github:http://github.com/numerhero
 							\*--------------------------------------------*/
 
+@font-face{
+	font-family:'Yuppy';
+	src:url('../font/YuppySC-Regular-Roman.eot');
+	src:url('../font/YuppySC-Regular-Roman.eot') format('embedded-opentype'),
+	url('../font/YuppySC-Regular-Roman.woff') format('woff'),
+	url('../font/YuppySC-Regular-Roman.ttf') format('truetype'),
+	url('../font/YuppySC-Regular-Roman.svg') format('svg');font-weight:normal;font-style:normal
+}
+
+
 html{width:100%; outline: none;}
 body{width:100%; height: auto; overflow: hidden; margin: 0;padding: 0;}
-ul{margin: 0;padding: 0;}
-img{margin:0; padding:0px;}
+ul{margin: 0;padding: 0; list-style: none;}
+h1{margin: 0;padding: 0;}
+img{margin:0; padding:0;}
+p{margin: 0;}
 a{text-decoration: none;}
 #container{width: 100%; cursor:url(../img/cursor.png),default !important;}
-#container header{width:100%; height: 45px; position:fixed;background: rgba(50,52,54,.7);  z-index: 3; margin-top:30px;}
+#container header{width:100%; height: 45px; position:fixed;background: rgba(50,52,54,.7);  z-index: 3; margin-top:15px;}
 
 
 #wrap{width:1300px; height: 100%;  margin: 0 auto; 
-	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
-	#move-logo{width:550px; height: 50px;  float: left; }
-	#move-logo img:nth-of-type(1){margin: -14px 8px 0 0; float: left;}
+	#move-logo{width:390px; height: 50px;  float: left;}
+	#move-logo img{margin-top: 4px;}
+	#move-logo img:nth-of-type(1){margin: 2px 8px 0 0; float: left;}
 
 
 	#header-menu-list{width:730px; height: 100%; float:right; }
@@ -56,19 +68,19 @@ a{text-decoration: none;}
 	transition:1.5s cubic-bezier(0.86,0,0.07,1);
 	-webkit-transition:1.5s cubic-bezier(0.86,0,0.07,1);}
 	
-	#page-lists li{width: 100%; height: 800px; margin: 0 auto;}
-	#page-lists li:nth-of-type(2){background: #663399;}
-	#page-lists li:nth-of-type(3){background: blue;}
-	#page-lists li:nth-of-type(5){background: pink;}
+	.page-lists-lis{width: 100%; height: 800px; margin: 0 auto; overflow: hidden;}
+
+	.page-lists-lis:nth-of-type(3){background: blue;}
+	
 	
 	
 /* 愿景页样式 */
-	#page-lists li:nth-of-type(1){position: relative; margin: 0 auto; 
+	.page-lists-lis:nth-of-type(1){position: relative; margin: 0 auto; 
 		perspective:500px;-webkit-perspective:500px; background: url(../img/page-bg1.jpg);}
 	
 
 
-	#page-lists li:nth-of-type(1) img{width:100%; height: 100%;}
+	.page-lists-lis:nth-of-type(1) img{width:100%; height: 100%;}
 
 	.page1-content{
 		width:200px;
@@ -127,7 +139,6 @@ a{text-decoration: none;}
 		-webkit-transition:2s;
 	}
 	.actionBtn{width:50px; height: 50px; background: #61A2FB; border-radius:50%; color:#fff; text-align: center; font-size: 50px; line-height: 57px; position: absolute; bottom: -60%; left:37%; transition:.5s; -webkit-transition:.5s; opacity: 0; transform:translateY(-10px); -webkit-transform:translateY(-10px);
-			-webkit-touch-callout: none;
 			-webkit-user-select: none;
 			-khtml-user-select: none;
 			-moz-user-select: none;
@@ -139,15 +150,44 @@ a{text-decoration: none;}
 	.slideborder a{display: block; width: 15px; height: 15px; border-radius:50%;  border:1px solid #fff; margin: 10px 5px 10px 5px; cursor:url(../img/cursor.png),default !important; transition:.5s;}
 .pagecount-active{transform:scale(1.5);-webkit-transform:scale(1.3); background: #f4f4f4;}
 
+/* 介绍页面 */
+.page-lists-lis:nth-of-type(2){  position: relative; margin: 0;  }
+#introduction{ height: 600px; padding:6% 8% 0 12%;  float: left; margin: 2em auto 0;  position: relative; left: .5em; box-sizing:padding-box; 
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#introduction img{  float: left; margin-left:3em;}
+.introduction-content{width:400px; height: auto;  float: right; font:400 15px/25px "微软雅黑",Arial;  vertical-align: baseline; color: rgb(119, 119, 119); margin:0 10em 2em 0; 
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+.introduction-title{font:100 54px/30px "Yuppy"; text-align: center; margin-bottom: 30px;  }
+#introduction h2{ font:100 30px/25px "Yuppy"; color:#ccc; text-align: center; margin-bottom: 40px;}
 
+#introduction-list{width:600px; height: auto;  float: right; margin-right: -3em;}
+
+.introduction-list-options { width:360px; height:30px;outline: none;  margin: 5px 0 30px 0; }
+.introduction-list-options span{width:30px; height:30px; cursor:url(../img/cursor.png),default !important; border:2px solid #ccc;  border-radius: 50%; float: left; font-size: 20px; line-height:30px;display: block;  color:#7D8B99; text-align: center; transition:.5s; -webkit-transition:.5s;}
+.introduction-list-options a{ display:block; width:auto;height:30px; margin:0px 0 0 5px; color:#ccc;text-align; line-height:35px;border-bottom: 1px dashed #ccc; float: left; transition:.5s; -webkit-transition:.5s;}
+
+.introduction-list-options:nth-of-type(1):hover span{color:#398BFB; box-shadow: 0 0 2px 2px #ECEEF0;}
+.introduction-list-options:nth-of-type(2):hover span{color:#D40220; box-shadow: 0 0 2px 2px #ECEEF0;}
+.introduction-list-options:nth-of-type(3):hover span{color:#F8CE81; box-shadow: 0 0 2px 2px #ECEEF0;}
+.introduction-list-options:nth-of-type(4):hover span{color:#ff00de; box-shadow: 0 0 2px 2px #ECEEF0;}
+.introduction-list-options:hover a{color:#398BFB;}
 
 
 /* 报名页样式 */
 
-#page-lists li:nth-of-type(4){background: black; position: relative; perspective:1200px; -webkit-perspective:1200px;}
-	#enroll-bg{ width:100%; height:674px; background: url(../img/enroll-bg.png) -110px no-repeat; opacity: .7; transform-style:preserve-3d; -webkit-transform-style:preserve-3d;position: relative;}
+.page-lists-lis:nth-of-type(4){background: #ECEEF0; position: relative; perspective:1200px; -webkit-perspective:1200px;}
+	#enroll-bg{ width:100%; height:674px; background: url(../img/enroll-bg.png) no-repeat; transform-style:preserve-3d; -webkit-transform-style:preserve-3d;position: relative; margin: 70px auto 0; float: left; opacity: 0; transform:translateX(-20px) scale(0); -webkit-transform:translateX(-20px) scale(0); transition:1s;}
 	.enroll-show-elements{width:630px; height: 300px; position: absolute;  top:28%; left: 30%;
-			-webkit-touch-callout: none;
 			-webkit-user-select: none;
 			-khtml-user-select: none;
 			-moz-user-select: none;
@@ -166,24 +206,36 @@ a{text-decoration: none;}
 	.enroll-show-elements:nth-of-type(5){ transform:translateX(3200px) translateZ(400px) rotateY(-80deg) ; -webkit-transform:translateX(3200px) translateZ(400px) rotateY(-80deg) ;opacity: 0; background: #f90;}
 
 
-	#enroll-show-list{ width:630px; height: 1px; background: #AA978F; position: absolute; bottom:180px; left:50%; margin-left:-315px; }
-	.enroll-show-list-arrow{font-size: 60px; color:rgba(249,247,236,1); transition:.35s; -webkit-transition:.35s;}
-	.enroll-show-list-arrow:nth-of-type(1){position: absolute; top:-35px; left: -5%;}
-	.enroll-show-list-arrow:nth-of-type(2){position: absolute; top:-35px; right: -5%;}
+	#enroll-show-list{ width:630px; height: 1px; background: #AA978F; position: absolute; bottom:15%; left:50%; margin-left:-20%;  transform:scale(0); transition:1s; -webkit-transform:scale(0); -webkit-transition:1s;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.enroll-show-list-arrow{font-size: 60px; color:#30A9C6; transition:.35s; -webkit-transition:.35s;}
+	
+	.enroll-show-list-arrow:nth-of-type(1){position: absolute; bottom:-0.6em; left: -6%;}
+	.enroll-show-list-arrow:nth-of-type(2){position: absolute; bottom:-0.6em; right: -6%;}
 
-	.enroll-show-list-arrow:hover{  color:#30A9C6; text-shadow:0 0 5px #f5f5f5;}
+	.enroll-show-list-arrow:hover{ text-shadow:0 0 5px #f5f5f5;}
+
+/* 资源页 */
+	.page-lists-lis:nth-of-type(5){}
+	
+
 
 /*动画帧*/
 @keyframes movefont{
 	0%{transform:translateY(0px);}
-	50%{ transform:translateY(8px);}
-	100%{ transform:translateY(-8px);}
+	50%{ transform:translateY(6px);}
+	100%{ transform:translateY(-6px);}
 }
 
 @-webkit-keyframes movefont{
 	0%{-webkit-transform:translateY(0px);}
-	50%{ -webkit-transform:translateY(8px);}
-	100%{ -webkit-transform:translateY(-8px);}
+	50%{ -webkit-transform:translateY(6px);}
+	100%{ -webkit-transform:translateY(-6px);}
 }
 
 @keyframes movelogo{

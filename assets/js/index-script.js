@@ -47,7 +47,6 @@ $(document).ready(function(){
       
 });  
 
-
 // logo动画
 $(function(){
 	var oMoveLogo = $("#move-logo");
@@ -80,18 +79,31 @@ $(function(){
 	})
 });
 
-// 滚轮 + 列表点击 + header切换
+// 滚轮 + 列表点击 + header切换 + 各页面的开场动画
 $(function(){
 	var iNow = 0;
 
 	var boff = true;
 	var oPageLists = $("#page-lists");
-	var oH = $("#page-lists li").outerHeight();
-	
+	var oH = $(".page-lists-lis").outerHeight();
+
+	$(window).on("resize" , function(){
+
+ 		$(".page-lists-lis").css("height" , viewHeight());
+ 		$(".page-lists-lis").css("width" , viewWidth());
+ 		oH = viewHeight();
+ 		oPageLists.css("top",-iNow*oH);
+
+ 	})
+	// 愿景页
 	var oHeaderIcoContent = $('.header-ico-content');
 	var oHeaderIcoBg = $('.header-ico-bg');
 	var oSlideA = $(".slideborder a");
 	var actionBtn = $(".actionBtn");
+
+	// 报名页
+	var oEnrollShowList = $("#enroll-show-list");
+	var oEnrollBg       = $("#enroll-bg");
 
 	$(document).mousewheel(function(event , delta){
 		// delta 大于0向上 小于0向下
@@ -107,6 +119,7 @@ $(function(){
 		}else{
 			return;
 		}
+
 	});
 
 	function up()
@@ -128,7 +141,7 @@ $(function(){
 
 	function down()
 	{
-		if(iNow == $("#page-lists li").length -1 )
+		if(iNow == $(".page-lists-lis").length -1 )
 		{
 			boff = true;
 			return;
@@ -137,6 +150,7 @@ $(function(){
 		}
 		oPageLists.css("top",-iNow*oH);
 		Change();
+		enrollResponsive();
 		oPageLists.on("transitionend",function(){
 			boff = true;
 		});
@@ -149,6 +163,7 @@ $(function(){
 			iNow = oHeaderIcoContent.index($(this));
 			oPageLists.css("top",-iNow*oH);
 			Change();
+			enrollResponsive();
 			oPageLists.on("transitionend",function(){
 				boff = true;
 			});
@@ -160,11 +175,11 @@ $(function(){
 	oSlideA.on("click" , function(){
 		if(boff)
 		{
-
 			boff = false;
 			iNow = oSlideA.index($(this));
 			oPageLists.css("top",-iNow*oH);
 			Change();
+			enrollResponsive();
 			oPageLists.on("transitionend",function(){
 				boff = true;
 			});
@@ -186,7 +201,7 @@ $(function(){
 		}
 		
 	})
-	// scrollFunc();
+	
 
 	function Change()
 	{
@@ -205,7 +220,32 @@ $(function(){
 		})
 		oSlideA.eq(iNow).addClass("pagecount-active");
 	}
+
+	// 报名页开场动画
+	function enrollResponsive()
+	{
+		if( iNow == 3 )
+		{
+			setTimeout(function(){
+				oEnrollBg.css("opacity" , ".7");
+				oEnrollBg.css("transform" , "translateX(0px) scale(1)");
+				oEnrollBg.css("webkitTransform" , "translateX(0px) scale(1)");
+			},800);
+			setTimeout(function(){
+				oEnrollShowList.css("transform" , "scale(1)");
+				oEnrollShowList.css("webkitTransform" , "scale(1)");
+			},1800)
+			
+		}
+	}
 });
+
+function viewHeight() {
+	return window.innerHeight || document.documentElement.clientHeight; //兼容标准浏览器和非标准浏览器
+}
+function viewWidth() {
+		return window.innerWidth || document.documentElement.clientWidth; //兼容标准浏览器和非标准浏览器
+}
 
 // 报名页
 $(function(){
