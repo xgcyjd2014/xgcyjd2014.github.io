@@ -101,10 +101,6 @@ $(function(){
 	var oSlideA = $(".slideborder a");
 	var actionBtn = $(".actionBtn");
 
-	// 报名页
-	var oEnrollShowList = $("#enroll-show-list");
-	var oEnrollBg       = $("#enroll-bg");
-
 	$(document).mousewheel(function(event , delta){
 		// delta 大于0向上 小于0向下
 		if(boff)
@@ -150,7 +146,7 @@ $(function(){
 		}
 		oPageLists.css("top",-iNow*oH);
 		Change();
-		enrollResponsive();
+		Responsive();
 		oPageLists.on("transitionend",function(){
 			boff = true;
 		});
@@ -163,7 +159,7 @@ $(function(){
 			iNow = oHeaderIcoContent.index($(this));
 			oPageLists.css("top",-iNow*oH);
 			Change();
-			enrollResponsive();
+			Responsive();
 			oPageLists.on("transitionend",function(){
 				boff = true;
 			});
@@ -179,7 +175,7 @@ $(function(){
 			iNow = oSlideA.index($(this));
 			oPageLists.css("top",-iNow*oH);
 			Change();
-			enrollResponsive();
+			Responsive();
 			oPageLists.on("transitionend",function(){
 				boff = true;
 			});
@@ -221,9 +217,32 @@ $(function(){
 		oSlideA.eq(iNow).addClass("pagecount-active");
 	}
 
-	// 报名页开场动画
-	function enrollResponsive()
+	// 各个页的响应式开场动画
+	function Responsive()
 	{
+		// 报名页
+		var oEnrollShowList = $("#enroll-show-list");
+		var oEnrollBg       = $("#enroll-bg");
+
+		// 发展页
+		var oDevelopmentHead= $("#development-head");
+		var oDevelopmentList= $("#development-list");
+
+		if( iNow == 2 )
+		{
+			setTimeout(function()
+			{
+				oDevelopmentHead.css("opacity" , "1");
+				oDevelopmentHead.css("transform" , "translateY(0px)");
+				oDevelopmentHead.css("webTransform" , "translateY(0px)");	
+			},800);
+			setTimeout(function(){
+				oDevelopmentList.css("opacity" , "1");
+				oDevelopmentList.css("transform" , "translateY(0px)");
+				oDevelopmentList.css("webkitTransform" , "translateY(0px)");
+			},1600);
+		}
+
 		if( iNow == 3 )
 		{
 			setTimeout(function(){
