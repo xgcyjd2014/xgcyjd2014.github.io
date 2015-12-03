@@ -130,6 +130,7 @@ $(function(){
 		
 		oPageLists.css("top",-iNow*oH);
 		Change();
+		Responsive();
 		oPageLists.on("transitionend",function(){
 			boff = true;
 		});
@@ -220,6 +221,9 @@ $(function(){
 	// 各个页的响应式开场动画
 	function Responsive()
 	{
+		// 介绍页
+		var oIntroduction   = $("#introduction");
+		var oLongLine       = $(".long-line");
 		// 报名页
 		var oEnrollShowList = $("#enroll-show-list");
 		var oEnrollBg       = $("#enroll-bg");
@@ -228,6 +232,21 @@ $(function(){
 		var oDevelopmentHead= $("#development-head");
 		var oDevelopmentList= $("#development-list");
 
+		// 资源页
+		var oResource= $("#resource");
+
+		if( iNow == 1)
+		{
+			setTimeout(function(){
+				oIntroduction.css("opacity" , "1");
+				oIntroduction.css("transform" , "translateY(0)");
+				oIntroduction.css("webkitTransform" , "translateY(0)");
+			},800);
+			setTimeout(function(){
+				oLongLine.css("transform" , "scale(1,1)");
+				oLongLine.css("webkitTransform" , "scale(1,1)");
+			},1600);
+		}
 		if( iNow == 2 )
 		{
 			setTimeout(function()
@@ -247,14 +266,24 @@ $(function(){
 		{
 			setTimeout(function(){
 				oEnrollBg.css("opacity" , ".7");
-				oEnrollBg.css("transform" , "translateX(0px) scale(1)");
-				oEnrollBg.css("webkitTransform" , "translateX(0px) scale(1)");
+				oEnrollBg.css("transform" , "translateY(0px) scale(1)");
+				oEnrollBg.css("webkitTransform" , "translateY(0px) scale(1)");
 			},800);
 			setTimeout(function(){
 				oEnrollShowList.css("transform" , "scale(1)");
 				oEnrollShowList.css("webkitTransform" , "scale(1)");
 			},1800)
 			
+		}
+
+		if( iNow == 4 )
+		{
+			setTimeout(function(){
+				oResource.css("opacity" , "1");
+				oResource.css("transform","translateY(0)");
+				oResource.css("webkitTransform","translateY(0)");
+				
+			},1300);
 		}
 	}
 });
@@ -340,6 +369,101 @@ $(function(){
 
 });
 
+// 资源页
+$(function(){
+	
+	// 资源列表
+	var oShowResourceList= $("#show-resource-list");
+
+	// Ul 控制滚动
+	var oUl= $("#show-resource-list ul");
+
+	// 电脑屏幕
+	var oShowResourceScreen = $("#show-resource-screen");
+	
+	// 资源列表Li
+	var oShowResourceLis = $(".show-resource-lis");
+	var oLisheight = oShowResourceLis.length * (oShowResourceLis.outerHeight() + 8);
+	
+	// 滚轴按钮
+	var oParacllxMousemove = $("#paracllx-mousemove");
+	
+	// 滚动轴
+	var oShowResourceListParacllx = $("#show-resource-list-paracllx");
+
+	if(oLisheight > 400)
+	{
+		var oPercentage =  parseFloat(oShowResourceScreen.height() / oLisheight);
+		var oMouseMoveHeight =  oShowResourceListParacllx.height() * oPercentage;
+
+		oParacllxMousemove.css("height" , oMouseMoveHeight);
+
+		oParacllxMousemove.on("mousedown" , function(ev){
+
+			var disY = ev.clientY;
+			$(this).css("background" , "#2E6DA4");
+			$(document).on("mousemove" , function(ev)
+			{
+				 var oY=ev.clientY;
+				 var oT=disY - oY;
+				 var d
+				 var old_PmT = parseInt(oParacllxMousemove.css("top"));
+				 var old_UlT = parseInt(oUl.css("top"));
+				 
+				 // 往上拉
+				 if(oT > 0)
+				 {	
+				 	d = 1;
+				 }else{
+				 	d = -1;
+				 }
+
+				 oParacllxMousemove.css("top" , old_PmT-d*2);
+				 oUl.css("top" , -(old_UlT+d*2 / oPercentage));
+				 
+				 if(parseInt(oParacllxMousemove.css("top")) <= 2)
+				 {
+				 	oParacllxMousemove.css("top" , 2);
+				 	oUl.css("top", 10);
+				 }else if(parseInt(oParacllxMousemove.css("top")) + parseInt(oParacllxMousemove.css("height"))  >= oShowResourceListParacllx.height()){
+				 	oParacllxMousemove.css("top" , oShowResourceListParacllx.height() - oMouseMoveHeight - 2 );
+				 	oUl.css("top" , -(oShowResourceListParacllx.height() - oMouseMoveHeight - 2) / oPercentage);
+				 }
+			});
+
+			$(document).on("mouseup" , function(ev)
+			{
+				$(document).off("mousemove");
+				oParacllxMousemove.off("mouseup");
+				oParacllxMousemove.css("background" , "#383B4A");	
+			});	
+			return false; 
+		});
+	}else{
+		oShowResourceListParacllx.css("display" , "none");
+	}
+	
+
+	oShowResourceScreen.mousewheel(function(event , delta){
+		console.log(delta)
+		var old_PmT = parseInt(oParacllxMousemove.css("top"));
+		var old_UlT = parseInt(oUl.css("top"));
+
+		oParacllxMousemove.css("top" , old_PmT-delta*10);
+		oUl.css("top" , ( old_UlT+delta*10/ oPercentage));
+
+
+		 if(parseInt(oParacllxMousemove.css("top")) <= 2)
+		 {
+		 	oParacllxMousemove.css("top" , 2);
+		 	oUl.css("top", 10);
+		 }else if(parseInt(oParacllxMousemove.css("top")) + parseInt(oParacllxMousemove.css("height"))  >= oShowResourceListParacllx.height()){
+		 	oParacllxMousemove.css("top" , oShowResourceListParacllx.height() - oMouseMoveHeight - 2 );
+		 	oUl.css("top" , -(oShowResourceListParacllx.height() - oMouseMoveHeight - 2 / oPercentage));
+		 }
+		return false;
+	});
+});	
 
 // 禁止用户缩放视窗
 function scrollFunc(ev){ 
