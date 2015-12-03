@@ -345,7 +345,6 @@ button{cursor:url(../img/cursor.png),default !important;}
 	}
 	.resource-content{width: 440px;height: 90px;  margin:0px 20px 50px; font:600 18px/30px "微软雅黑"; color:#fff; letter-spacing: 1px; text-align: center; padding-top: 20px; } 
 	.stress{
-		color:red;
 		background-image: linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
 		background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
 		text-fill-color: transparent;
