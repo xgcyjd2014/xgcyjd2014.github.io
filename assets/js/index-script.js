@@ -226,7 +226,7 @@ $(function(){
 		var oLongLine       = $(".long-line");
 		// 报名页
 		var oEnrollShowList = $("#enroll-show-list");
-		var oEnrollBg       = $("#enroll-bg");
+		var oEnroll       = $("#enroll-3d-show-stage");
 
 		// 发展页
 		var oDevelopmentHead= $("#development-head");
@@ -265,9 +265,9 @@ $(function(){
 		if( iNow == 3 )
 		{
 			setTimeout(function(){
-				oEnrollBg.css("opacity" , ".7");
-				oEnrollBg.css("transform" , "translateY(0px) scale(1)");
-				oEnrollBg.css("webkitTransform" , "translateY(0px) scale(1)");
+				oEnroll.css("opacity" , ".7");
+				oEnroll.css("transform" , "translateY(0px) scale(1)");
+				oEnroll.css("webkitTransform" , "translateY(0px) scale(1)");
 			},800);
 			setTimeout(function(){
 				oEnrollShowList.css("transform" , "scale(1)");
