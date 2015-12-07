@@ -192,6 +192,7 @@ $(function(){
 			iNow = 1;
 			oPageLists.css("top",-iNow*oH);
 			Change();
+			Responsive();
 			oPageLists.on("transitionend",function(){
 			boff = true;
 		});
