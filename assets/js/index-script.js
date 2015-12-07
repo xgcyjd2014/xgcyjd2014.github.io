@@ -36,6 +36,7 @@ $(document).ready(function(){
  		actionBtn.css("opacity","1");
  	},2000);
 
+
  	// 禁止用户缩放
  	// $(document).on("scroll",scrollFunc);
 
@@ -88,13 +89,13 @@ $(function(){
 	var oH = $(".page-lists-lis").outerHeight();
 
 	$(window).on("resize" , function(){
+		$(".page-lists-lis").css("height" , viewHeight());
+		$(".page-lists-lis").css("width" , viewWidth());
+		oH = viewHeight();
+		oPageLists.css("top",-iNow*oH);
+ 	});
 
- 		$(".page-lists-lis").css("height" , viewHeight());
- 		$(".page-lists-lis").css("width" , viewWidth());
- 		oH = viewHeight();
- 		oPageLists.css("top",-iNow*oH);
 
- 	})
 	// 愿景页
 	var oHeaderIcoContent = $('.header-ico-content');
 	var oHeaderIcoBg = $('.header-ico-bg');
@@ -102,6 +103,7 @@ $(function(){
 	var actionBtn = $(".actionBtn");
 
 	$(document).mousewheel(function(event , delta){
+		
 		// delta 大于0向上 小于0向下
 		if(boff)
 		{
@@ -292,7 +294,7 @@ function viewHeight() {
 	return window.innerHeight || document.documentElement.clientHeight; //兼容标准浏览器和非标准浏览器
 }
 function viewWidth() {
-		return window.innerWidth || document.documentElement.clientWidth; //兼容标准浏览器和非标准浏览器
+	return window.innerWidth || document.documentElement.clientWidth; //兼容标准浏览器和非标准浏览器
 }
 
 // 报名页
@@ -445,7 +447,7 @@ $(function(){
 	
 
 	oShowResourceScreen.mousewheel(function(event , delta){
-		console.log(delta)
+		
 		var old_PmT = parseInt(oParacllxMousemove.css("top"));
 		var old_UlT = parseInt(oUl.css("top"));
 
@@ -470,7 +472,6 @@ function scrollFunc(ev){
 	ev = ev || window.event; 
 	if(ev.wheelDelta && ev.ctrlKey) //IE/Opera/Chrome 
 	{
-		console.log(1);
 		ev.returnValue=false;
 	}else if(ev.detail && ev.ctrlKey)  //Firefox
 	{ 
