@@ -88,7 +88,7 @@ button{cursor:url(../img/cursor.png),default !important;}
 		width:200px;
 		height: auto;
 		position: absolute;
-		top: 50%;
+		top: 52%;
 		left: 50%;
 		margin-left: -100px;
 		margin-top: -163.5px;
@@ -142,7 +142,7 @@ button{cursor:url(../img/cursor.png),default !important;}
 		-webkit-transition:2s;
 	}
 
-	.actionBtn{width:50px; height: 50px; background: #61A2FB; border-radius:50%; color:#fff; text-align: center; font-size: 50px; line-height: 57px; position: absolute; bottom: -60%; left:32%; transition:.5s; -webkit-transition:.5s; opacity: 0; transform:translateY(-10px); -webkit-transform:translateY(-10px);
+	.actionBtn{width:50px; height: 50px; background: #61A2FB; border-radius:50%; color:#fff; text-align: center; font-size: 50px; line-height: 57px; position: absolute; bottom: -65%; left:32%; transition:.5s; -webkit-transition:.5s; opacity: 0; transform:translateY(-10px); -webkit-transform:translateY(-10px);
 			-webkit-user-select: none;
 			-khtml-user-select: none;
 			-moz-user-select: none;
@@ -210,7 +210,7 @@ button{cursor:url(../img/cursor.png),default !important;}
 /* 发展方向页 样式 */
 .page-lists-lis:nth-of-type(3){background: url(../img/page-bg3.jpg);}
 #development {width:100%; height: auto; position: absolute;
-	top: 45%;
+	top: 54%;
 	left: 50%;
 	margin-left: -800px;
 	margin-top: -357px; 
@@ -228,7 +228,7 @@ button{cursor:url(../img/cursor.png),default !important;}
 	opacity: 0;
 }
 
-#development-title{color:#fff; font:500 40px/40px "Yuppy","微软雅黑"; padding-top:100px; text-align: center;}
+#development-title{color:#fff; font:500 40px/40px "Yuppy","微软雅黑"; text-align: center;}
 .line{width:40px; height: 2px; margin:20px auto 0; background: #fff; }
 
 #development-head-content{color: #f5f5f5; text-align: center; font:200 20px/20px "微软雅黑";}
