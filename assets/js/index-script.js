@@ -36,6 +36,8 @@ $(document).ready(function(){
  		actionBtn.css("opacity","1");
  	},2000);
 
+ 	// console.log(screen.availWidth);
+ 	// console.log(screen.availHeight);
 
  	// 禁止用户缩放
  	// $(document).on("scroll",scrollFunc);
@@ -303,16 +305,49 @@ $(function(){
 	var moveElements = $(".enroll-show-elements");
 	var X = 800;
 	var Z = 400;
-	var EnrollInow = 0;
+	var EnrollInow           = 0;
+	var oEnrollShowListA     = $(".list-btns");
+	var oEnrollShowListTitle = $(".list-btns span");
+	var oEnrollShowListI     = $(".list-btns i");
 
-	var enrollShowListArrow = $(".enroll-show-list-arrow");
+	var enrollShowListArrow  = $(".enroll-show-list-arrow");
 
+	oEnrollShowListA.on("click" , function() {
+		var Index = $(this).index();
+		if( Index - 1 == EnrollInow )
+		{
+			return;
+		}
+		var t = Index - EnrollInow - 1;
+		for(var i = 0 ; i < Math.abs(t); i++)
+		{
+			if(t > 0) {
+				nextPage();
+			}else {
+				lastPage();
+			}
+		}
+	});
 	enrollShowListArrow.eq(0).on("click" , function(){
 		if(EnrollInow == 0)
 		{
 			return;
 		}
+		lastPage();
+		
+	});
 
+	enrollShowListArrow.eq(1).on("click" , function(){
+		if(EnrollInow == moveElements.length - 1)
+		{
+			return;
+		}
+
+		nextPage();
+	});
+
+
+	function lastPage() {
 		moveElements.eq(EnrollInow).css("transform" , "translateX("+X+"px) translateZ("+Z+"px) rotateY(-80deg)");
 		moveElements.eq(EnrollInow).css("webkitTransform" , "translateX("+X+"px) translateZ("+Z+"px) rotateY(-80deg)");
 		
@@ -337,14 +372,10 @@ $(function(){
 			moveElements.eq(i).css("transform" , "translateX("+ (i - EnrollInow) *X +"px) translateZ("+Z+"px) rotateY(-80deg)")
 			moveElements.eq(i).css("webkitTransform" , "translateX("+ (i - EnrollInow) *X +"px) translateZ("+Z+"px) rotateY(-80deg)")
 		}
-	});
+		active();
+	}
 
-	enrollShowListArrow.eq(1).on("click" , function(){
-		if(EnrollInow == moveElements.length - 1)
-		{
-			return;
-		}
-
+	function nextPage() {
 		for(var i = 0; i<EnrollInow; i++)
 		{
 			moveElements.eq(i).css("transform" , "translateX(-"+(EnrollInow + 1 -i)*X+"px) translateZ("+Z+"px) rotateY(80deg)");
@@ -368,8 +399,16 @@ $(function(){
 			moveElements.eq(i).css("webkitTransform" , "translateX("+ (i - EnrollInow) *X +"px) translateZ("+Z+"px) rotateY(-80deg)")
 		
 		}
-	});
+		active();
+	}
+	
+	function active() {
+		oEnrollShowListI.removeClass("active-i");
+		oEnrollShowListTitle.removeClass("active-title");
 
+		oEnrollShowListI.eq(EnrollInow).addClass("active-i");
+		oEnrollShowListTitle.eq(EnrollInow).addClass("active-title");
+	}
 });
 
 // 资源页
@@ -393,6 +432,13 @@ $(function(){
 	
 	// 滚动轴
 	var oShowResourceListParacllx = $("#show-resource-list-paracllx");
+
+	// 跳转按钮
+	var oResourceButton = $("#resource-button");
+
+	// 复制链接
+	var oResourceCloudButton = $("#resource-cloud button");
+	var oResourceCloud       = $("#resource-cloud span");
 
 	if(oLisheight > 400)
 	{
@@ -466,16 +512,26 @@ $(function(){
 		 }
 		return false;
 	});
+
+	oResourceButton.on("click" , function() {
+		window.open("http://pan.baidu.com/s/1mgO1n2g");
+	});
+
+	// 复制链接
+	new Clipboard('.clip');
 });	
 
 // 禁止用户缩放视窗
-function scrollFunc(ev){ 
-	ev = ev || window.event; 
-	if(ev.wheelDelta && ev.ctrlKey) //IE/Opera/Chrome 
-	{
-		ev.returnValue=false;
-	}else if(ev.detail && ev.ctrlKey)  //Firefox
-	{ 
-		ev.returnValue=false; 
-	} 
-}  
+// function scrollFunc(ev){ 
+// 	ev = ev || window.event; 
+// 	if(ev.wheelDelta && ev.ctrlKey) //IE/Opera/Chrome 
+// 	{
+// 		ev.returnValue=false;
+// 	}else if(ev.detail && ev.ctrlKey)  //Firefox
+// 	{ 
+// 		ev.returnValue=false; 
+// 	} 
+// }  
+
+
+
