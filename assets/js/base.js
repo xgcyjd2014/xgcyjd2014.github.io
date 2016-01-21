@@ -1,5 +1,5 @@
 						/*--------------------------------------------*\
-
+										xgjd base js
 						   		   Design And Build By Owen
 						      Github:http://github.com/numerhero
 

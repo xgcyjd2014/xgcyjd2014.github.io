@@ -1,0 +1,143 @@
+/*信管创业基地官网 base css*/
+/* reset */
+body { min-width: 332px;}
+img { vertical-align: top;}
+ul { list-style: none; padding: 0; margin: 0;}
+button { outline: none; border: none;}
+::-webkit-scrollbar {
+	width:13px;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color:#f5f5f5;
+	border-left:1px solid #d2d2d2;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color:#3385FF;
+	background-clip:padding-box;
+	border:1px solid #979797;
+	min-height:28px;
+	border-radius: 3px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+	border:1px solid #636363;
+	background-color:#317EF3;
+
+}
+
+::-webkit-scrollbar-thumb:active {
+	border:1px solid #636363;
+	background-color:#3075DC;
+}
+
+
+/* 头部导航 */
+#header-wrap {
+	height: 70px;
+}
+
+
+
+
+
+
+#md-logo {
+	position: absolute;
+	left: 50%;
+	margin-left: -135px;
+	text-align: center;
+}
+
+@media (max-width: 991px) {
+	#logo {
+		height: 325px;
+		background: url(../img/base/sm-logo.png) no-repeat 50% 0,#f5f5f5;
+		position: relative;
+	}
+
+	#md-logo {
+		display: none;
+	}
+
+	.btns {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 10px;
+		border-radius: 20%;
+		font-size: 30px;
+	}
+
+	#list-btn {
+		right: 10px;
+		color: #61B3E6;
+		box-shadow: inset 
+	}
+
+	#share-to-weibo {
+		right: 70px;
+		color: #DF2029;
+	}
+
+	/*#share-to-twitter {
+		right: 130px;
+	}*/
+}
+
+@media (min-width: 993px) {
+	#logo {
+		height: 100%;
+		float: left;
+		position: relative;
+		margin-bottom: 20px; 
+	}
+
+	#md-logo {
+		display: block;
+	}
+
+	.btns {
+		display: none;	
+	}
+}
+
+#header-btns-list {
+	height: 100%;
+}
+
+#header-btns-list li {
+	display: block;
+	width: 150px;
+	height: 70px;
+	float: left;
+	
+	text-align: center;
+}
+#header-btns-wrap {
+	float: left;
+	height: 100%;
+}
+
+
+
+
+/* 底部 */
+.footer-map {
+
+}
+
+.footer-msg {
+	background: #2C3038;
+	height: 80px;
+}
+
+.footer-msg-content {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+	background: yellow;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% include header.html %}
+</head>
+
+<body>
+	<header class="container-fluid">
+
+		<div class="row" id="header-wrap">
+			<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="logo" >
+				<img id="md-logo" src="../assets/img/base/logo.png" alt="信管基地">
+				<button class="btns" id="list-btn"><i class="fa fa-bars"></i></button>
+				<button class="btns" id="share-to-weibo" alt="分享到微博"><i class="fa fa-weibo"></i></button>
+				<!-- <button class="btns" id="share-to-twitter"></button>	 -->
+			</div>
+
+			<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12" id="header-btns-wrap">
+				<ul id="header-btns-list">
+
+					<li>照片墙</li>
+					<li>加入我们</li>
+					<li>留言区</li>
+					<li>时间线</li>
+					<li>关于我们</li>
+				</ul>
+			</div>
+		</div>
+	
+	</header>
+	
+	<!-- 平铺大背景轮播 -->
+	<nav class="container-fluid">
+		
+	</nav>
+
+	<!-- 嵌入内容 -->
+	<article class="container" id="content">
+	<br>
+	<br>
+	<br>
+	<br>
+		{{ content }}
+	</article>
+
+
+	<!-- foot 底部信息 -->
+	<footer class="container-fluid">
+
+		<div class="row">
+			<img class="col-sm-12 col-xs-12 footer-map" src="../assets/img/base/footer-map-min.png" alt="地理位置">	
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 footer-msg">
+				<div class="footer-msg-content">
+					
+				</div>
+			</div>
+		</div>
+	</footer>
+	{% include footer.html %}
+</body>
+</html>
