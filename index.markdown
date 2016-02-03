@@ -15,5 +15,5 @@ title: 首页
 			</a>
 		</li>
 		{% endif %}
-	{% endif %}
+	{% endfor %}
 </ul>
