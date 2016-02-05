@@ -3,7 +3,7 @@ layout: post
 title: HelloWorld  
 author: Owen
 tag: other
-tagpic: helloworld
+tagpic: helloworld.jpg
 description: 用心铸造卓越Offer
 ---
 
@@ -11,13 +11,13 @@ description: 用心铸造卓越Offer
 
 ImWeb 是黑龙江大学信息管理学院「信管创业基地」的简称吧， 分别取自「information」 和 「management」的首字母
 
- * 我们是一群充满活力朝气蓬勃的年轻人
- * 我们是一群喜欢研究新技术的<s>技术宅</s> 职场新秀
- * 我们是一群不甘平庸，追求卓越Offer的
- * 我们是一群，
+ * 我们是一群充满活力朝气蓬勃的大学生
+ * 我们是一群喜欢研究新技术的<s>技术宅</s> 布道者
+ * 我们是一群不甘平庸，追求卓越Offer的职场新秀
+ * 我们是一群热爱生活，享受生活的年轻人
 
 我们的网址：[http://xgcyjd2014.github.io](http://xgcyjd2014.github.io)   
-我们的微信公众帐号：
+我们的微信公众帐号：HDxgcyjd
 
 ## 愿景
 
