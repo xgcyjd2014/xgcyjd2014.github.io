@@ -18,4 +18,48 @@ $(function() {
 	if( authorName.html() == "Owen" ) {
 		authorName.addClass("owen");
 	}
+
+
+	// 地图
+	var map = new BMap.Map("allmap");
+	
+	// 地图中心点
+	var mapPoint = new BMap.Point(126.627000,45.714530);
+	map.centerAndZoom(mapPoint, 18);
+
+	var pointA = new BMap.Point(126.628400,45.715200);
+	var markerA = new BMap.Marker(pointA); 
+	            
+	
+	var pointB = new BMap.Point(126.630938,45.713444)
+	var markerB = new BMap.Marker(pointB);
+	map.addOverlay(markerA);
+	map.addOverlay(markerB);
+
+	var opts = [{
+	  width : 200,     // 信息窗口宽度
+	  height: 100,     // 信息窗口高度
+	  title : "黑龙江大学汇文楼" , // 信息窗口标题
+	  enableMessage:false,//设置允许信息窗发送短息
+	  message:"新生培训基地"
+	},
+	{
+	  width : 200,     // 信息窗口宽度
+	  height: 100,     // 信息窗口高度
+	  title : "黑龙江大学地下创业园" , // 信息窗口标题
+	  enableMessage:false,//设置允许信息窗发送短息
+	  message: "老生研究场所"
+	}];
+
+	var infoWindowA = new BMap.InfoWindow("地址：汇文楼625", opts[0]);  // 创建信息窗口对象 
+	var infoWindowB = new BMap.InfoWindow("地址：地下创业园b8", opts[1]);
+	
+	// markerA.addEventListener("click", function(){          
+	// 	map.openInfoWindow(infoWindowA,pointA); //开启信息窗口
+	// });
+
+	// markerB.addEventListener("click", function(){          
+	// 	map.openInfoWindow(infoWindowB,pointB); //开启信息窗口
+	// });
+
 }); 

@@ -1,13 +1,14 @@
-permalink: /:year/:month/:day/:title.html
+﻿permalink: /:year/:month/:day/:title.html
 
 highlighter: pygments
+
 markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
 kramdown:
   input:         GFM
   auto_ids:      true
 
 # 作者信息
-author: 欧阳湘粤
+author: Owen
 name: Owen
 email: 469564715@qq.com
 link: http://numerhero.github.io

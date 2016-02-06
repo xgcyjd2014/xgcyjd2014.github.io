@@ -2,13 +2,14 @@
 layout: base
 title: 首页
 ---
-<!-- 平铺大背景轮播 -->
-<nav>
-		
+<!-- 基地介绍 -->
+<nav class="introduce">
+	<h1 class="introduce-title">博文聚合</h1>
+	<h1 class="introduce-title-en">Article Aggregate</h1>
 </nav>
 <!-- 首页内容 -->
 
-<section class="clearfix">
+<section class="index-box clearfix">
 	<!-- 不用在html 中添加li 每发表一篇博文就会自动添加一个li -->
 	<ul id="post-list" >
 	{% for post in site.posts %}
@@ -53,13 +54,48 @@ title: 首页
 	<!-- 分类列表 点击获得所有的相关博文 -->
 		<ul id="classify-list" >
 			{{ site.postes }}
-				<li class="classify-lis">
-					<a href="javascript:;">{{ post.tag }}</a>
-				</li>
+			<li class="classify-lis">
+				<a href="javascript:;">{{ post.tag }}</a>
+			</li>
 		</ul>
 		<div class="line"></div>
 		<div id="base-Quick-Response">
 			<div class="base-Quick-img"></div>
 		</div>
 	</section>
+	
+	
 </section>
+
+<section id="map">
+	<div id="allmap"></div>
+	<div id="mark-map"></div>
+	<canvas id="path-text" width="600" height="200"></canvas>
+	<canvas id="content-us"></canvas>
+	<div id="map-content">
+		<ul id="map-content-list">
+			<li>
+				<a href="https://github.com/xgcyjd2014">
+					<i class="fa fa-github fa-2x"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/xgcyjd2014">
+					<i class="fa fa-envelope-o fa-2x"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://github.com/xgcyjd2014">
+					<i class="fa fa-github fa-2x"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+
+<script src="/assets/js/easeljs-0.8.2.min.js"></script>
+<script src="/assets/js/EasePack.min.js"></script>
+<script src="/assets/js/TweenLite.min.js"></script>
+<script src="/assets/js/requestAnimationFrame.js"></script>
+<script src="/assets/js/text-pixel.js"></script>
