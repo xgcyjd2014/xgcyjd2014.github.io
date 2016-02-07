@@ -75,19 +75,21 @@ title: 首页
 	<div id="map-content">
 		<ul id="map-content-list">
 			<li>
-				<a href="https://github.com/xgcyjd2014">
-					<i class="fa fa-github fa-2x"></i>
+				<a href="https://github.com/xgcyjd2014" target="_blank">
+					<i class="fa fa-github"></i>
 				</a>
 			</li>
 			<li>
-				<a href="https://github.com/xgcyjd2014">
-					<i class="fa fa-envelope-o fa-2x"></i>
+				<a href="javascript:;">
+					<i class="fa fa-envelope-o"></i>
 				</a>
+				<div class="directions">hdxgcyjd1314@163.com</div>
 			</li>
 			<li>
-				<a href="https://github.com/xgcyjd2014">
-					<i class="fa fa-github fa-2x"></i>
+				<a href="javascript:;">
+					<i class="fa fa-phone"></i>
 				</a>
+				<!-- <div class="directions"></div> -->
 			</li>
 		</ul>
 	</div>

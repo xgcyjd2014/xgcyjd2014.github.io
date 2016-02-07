@@ -14,10 +14,14 @@ window.console && console.log && console.log("\n      欢迎加入信管创业�
 $(function() {
 	var authorName = $(".remark a");
 
-	// 设置自己的专属颜色
+	/* 设置自己的专属颜色 */ 
 	if( authorName.html() == "Owen" ) {
 		authorName.addClass("owen");
 	}
+
+	/* 按钮间补 */ 
+	var oBtn = $("#map-content-list li a");
+	var oDir = $("#map-content-list .directions");
 
 
 	// 地图

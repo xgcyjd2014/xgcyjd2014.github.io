@@ -446,8 +446,7 @@ html {font-size: 100px !important;}
         
     }
     75% {
-        clip: rect(0rem, 3.096rem, 3.096rem, 2.996rem);
-        
+        clip: rect(0rem, 3.096rem, 3.096rem, 2.996rem);        
     }
 }
 
@@ -515,6 +514,7 @@ html {font-size: 100px !important;}
 }
 
 #map-content-list li {
+	position: relative;
 	float: left;
 	width: 1.25rem;
 	height: 1.25rem;
@@ -522,9 +522,114 @@ html {font-size: 100px !important;}
 	margin: 0.2rem;
 	border-radius: 50%;
 	background: #fff;
-	
+	text-align: center;
+}	
+
+#map-content-list a {
+	display: block;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
 }
 
+#map-content-list li::after {
+	content: "";
+
+	display: block;
+	
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+#map-content-list li:nth-of-type(1) {
+	background: rgba(228,104,77,1);
+}
+#map-content-list li:nth-of-type(1) i{
+	font-size: 1.25rem;
+	line-height: 1.22rem;
+	color: #FCEFC7;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(1):hover::after {
+	animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(2) {
+	background: #2EA6C8;
+}
+#map-content-list li:nth-of-type(2) i{
+	font-size: 1rem;
+	line-height: 1.23rem;
+	color: #235775;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(2):hover::after {
+	animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(3) {
+	background: #B2E3D7;
+}
+
+#map-content-list li:nth-of-type(3) i{
+	font-size: 1rem;
+	line-height: 1.28rem;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(3):hover::after {
+	animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+
+@keyframes btnA{
+	0%{ box-shadow:0 0 0 0 rgba(228,104,77,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(228,104,77,0);}
+}
+
+@keyframes btnB{
+	0%{ box-shadow:0 0 0 0 rgba(46,166,200,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(46,166,200,0);}
+}
+
+@keyframes btnC{
+	0%{ box-shadow:0 0 0 0 rgba(34,190,151,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(34,190,151,0);}
+}
+
+
+.directions {
+	position: absolute;
+	
+
+	background: red;
+	border-radius: 0.1rem;
+	
+	width: 4rem;
+	height: 0.8rem;
+
+	font: 500 0.3rem/0.75rem "Yuppy";
+	text-align: center;
+	transition: 0.75s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-transition: 0.75s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(2) .directions {
+	bottom: -1rem;
+	left: -1.2rem; 
+}
 
 /* 底部 */
 
