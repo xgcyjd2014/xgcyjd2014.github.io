@@ -80,7 +80,7 @@ window.onload = function() {
         for( var i = pixel.length; i>=0 ;i-=4 ) {
         	if( pixel[i] != 0 ) {
         		var x = (i / 4) % CanvasWidth;
-        		var y = M.floor(M.floor(i/CanvasWidth)/4);
+        		var y = M.floor(M.floor(i/4)/CanvasWidth);
 
         		// 减少一些像素点
         		if((x && x%6 == 0) && (y && y%6 == 0)) {

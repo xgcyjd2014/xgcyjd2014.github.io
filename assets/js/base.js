@@ -19,6 +19,7 @@ $(function() {
 		authorName.addClass("owen");
 	}
 
+
 	/* 按钮间补 */ 
 	var oBtn = $("#map-content-list li a");
 	var oDir = $("#map-content-list .directions");

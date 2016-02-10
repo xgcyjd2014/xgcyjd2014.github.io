@@ -35,6 +35,9 @@ title: 首页
 					{% endif %}
 					{% if post.tag == "html" %}
 						<a class="html-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+					{% endif %}
+					{% if post.tag == "javascript"%}
+						<a class="js-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
 					{% endif %} 
 					{% if post.tag == "other"%}
 						<a class="other-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
@@ -53,10 +56,17 @@ title: 首页
 	<section id="page-sidebar">
 	<!-- 分类列表 点击获得所有的相关博文 -->
 		<ul id="classify-list" >
-			{{ site.postes }}
-			<li class="classify-lis">
-				<a href="javascript:;">{{ post.tag }}</a>
-			</li>
+			{% for category in site.categories %}
+			<li class="classify-lis clearfix">
+				<a href="javascript:;" target="_blank">{{ category[0] }}</a>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>	
+			{% endfor %}
 		</ul>
 		<div class="line"></div>
 		<div id="base-Quick-Response">

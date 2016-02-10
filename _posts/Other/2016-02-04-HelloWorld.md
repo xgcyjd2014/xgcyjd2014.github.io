@@ -5,11 +5,14 @@ author: Owen
 tag: other
 tagpic: helloworld.jpg
 description: 用心铸造卓越Offer
+category: 其他
 ---
 
 ## HelloWorld
 
-ImWeb 是黑龙江大学信息管理学院「信管创业基地」的简称吧， 分别取自「information」 和 「management」的首字母
+ImWeb 是黑龙江大学信息管理学院「信管创业基地」的简称， 分别取自「information」 和 「management」的首字母
+
+![photo](/assets/img/imweb.png)
 
  * 我们是一群充满活力朝气蓬勃的大学生
  * 我们是一群喜欢研究新技术的<s>技术宅</s> 布道者
@@ -32,10 +35,11 @@ ImWeb 是黑龙江大学信息管理学院「信管创业基地」的简称吧�
 
 ## 团队文化与价值观
 
-代码改变生活，科技决定创新 
+代码改变生活，科技决定创新，技术决定品质 
 
  * 我们有强烈的自学能力和工作自驱能力。
  * 我们将每个技术知识务实的应用于实际项目中。  
+ * 低调做人，高调做事  
  * 「stay hungry stay foolish」
   
 如果你也是这样的同学，欢迎 [加入我们](http://xgcyjd2014.github.io/pages/enroll-page.html)。
