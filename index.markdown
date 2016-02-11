@@ -4,8 +4,8 @@ title: 首页
 ---
 <!-- 基地介绍 -->
 <nav class="introduce">
-	<h1 class="introduce-title">博文聚合</h1>
-	<h1 class="introduce-title-en">Article Aggregate</h1>
+	<h1 class="introduce-title clear-select">博文聚合</h1>
+	<h1 class="introduce-title-en clear-select">Article Aggregate</h1>
 </nav>
 <!-- 首页内容 -->
 
@@ -43,8 +43,8 @@ title: 首页
 	{% endfor %}
 	</ul>
 	<section id="page-sidebar">	
-		<h1 class="classify-list-title">分类标签</h1>
-		<h1 class="classify-list-title-en">Tags Of Posts-List</h1>
+		<h1 class="classify-list-title clear-select">分类标签</h1>
+		<h1 class="classify-list-title-en clear-select">Tags Of Posts-List</h1>
 		<!-- 分类列表 点击获得所有的相关博文 -->
 		<ul id="classify-list" >
 			<li class="classify-lis clearfix">
@@ -72,7 +72,8 @@ title: 首页
 		<div id="base-Quick-Response">
 			<div class="base-Quick-img"></div>
 		</div>
-		<h1>扫一扫微信公众号码，获知更多IT知识</h1>
+		<h1 class="QR-introduce clear-select">扫一扫微信公众号，获知更多IT知识</h1>
+		<h1 class="QR-id text-stress clear-select">HDxgcyjd</h1>
 	</section>
 	
 	
@@ -84,7 +85,7 @@ title: 首页
 	<canvas id="path-text" width="600" height="200"></canvas>
 	<canvas id="content-us"></canvas>
 	<div id="map-content">
-		<ul id="map-content-list">
+		<ul id="map-content-list" class="clear-select">
 			<li>
 				<a href="https://github.com/xgcyjd2014" target="_blank">
 					<i class="fa fa-github"></i>

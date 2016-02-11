@@ -74,9 +74,30 @@ html {font-size: 100px !important;}
 	background-color:#3075DC;
 }
 
+/* 流光文字特效init */
+.text-stress {
+	text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	background-size: 200% 100%;
+	-webkit-background-size: 200% 100%;
+}
+
+/* 文本禁止选取 */
+.clear-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
 /* 清浮动 */
 .clearfix {
-	display: block;
+	display: table;
 	zoom: 1;
 }
 
@@ -298,7 +319,6 @@ html {font-size: 100px !important;}
 	width: 2.92rem;
 	height: 1.25rem;
 	padding: 0.05rem;
-	font: 500 0.16rem/0.2rem;
 	color: #C3C1C6;
 }
 
@@ -409,7 +429,7 @@ html {font-size: 100px !important;}
 	padding: 0 0.05rem;
 }
 
-#classify-list>h1 {
+#page-sidebar h1 {
 	width: 100%;
 	height: 0.3rem;
 	text-align: center;
@@ -570,6 +590,29 @@ html {font-size: 100px !important;}
     75% {
         clip: rect(0rem, 3.096rem, 3.096rem, 2.996rem);        
     }
+}
+
+.QR-introduce {
+	font: 600 0.20rem/0.3rem "Montserrat","微软雅黑";
+}
+
+.QR-id {
+	font: 500 0.18rem/0.25rem "Montserrat";
+	color: #2E6DA4;
+	background-image: -webkit-linear-gradient(left, #D91C73, #79C6D9 25%, #D91C73 50%, #79C6D9 75%, #D91C73);
+	background-image: gradient(left, #D91C73, #79C6D9 25%, #D91C73 50%, #79C6D9 75%, #D91C73);
+	animation: masked-QR-id 4s infinite linear;
+    -webkit-animation: masked-QR-id 4s infinite linear;
+}
+
+@keyframes masked-QR-id {
+	 0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
+}
+
+@-webkit-keyframes masked-QR-id {
+	 0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
 }
 
 #map {
