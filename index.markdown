@@ -30,21 +30,10 @@ title: 首页
 			<div class="post-tag-description">
 				<h1 class="post-tag-title">
 					<!-- 不同tag类型使用不同颜色 -->
-					{% if post.tag == "css" %}
-						<a class="css-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-					{% endif %}
-					{% if post.tag == "html" %}
-						<a class="html-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-					{% endif %}
-					{% if post.tag == "javascript"%}
-						<a class="js-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-					{% endif %} 
-					{% if post.tag == "other"%}
-						<a class="other-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-					{% endif %}
+					<a class="{{ post.category }}-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
 				</h1>
 				<h2 class="post-tag-author-date">
-					<span class="remark"><a href="javascript:;" target="_blank">{{ post.author }}</a> 发布于{{ post.date | %Y%M | date_to_string }}</span>
+					<span class="remark"><a href="javascript:;" class='{{ post.author }}' target="_blank">{{ post.author }}</a> 发布于{{ post.date | %Y%M | date_to_string }}</span>
 				</h2>
 				<div class="post-tag-short-line"></div>
 				<p>{{ post.description }}</p>
@@ -53,9 +42,20 @@ title: 首页
 		{% endif %}
 	{% endfor %}
 	</ul>
-	<section id="page-sidebar">
-	<!-- 分类列表 点击获得所有的相关博文 -->
+	<section id="page-sidebar">	
+		<h1 class="classify-list-title">分类标签</h1>
+		<h1 class="classify-list-title-en">Tags Of Posts-List</h1>
+		<!-- 分类列表 点击获得所有的相关博文 -->
 		<ul id="classify-list" >
+			<li class="classify-lis clearfix">
+				<a href="javascript:;" target="_blank">全部</a>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
 			{% for category in site.categories %}
 			<li class="classify-lis clearfix">
 				<a href="javascript:;" target="_blank">{{ category[0] }}</a>
@@ -72,6 +72,7 @@ title: 首页
 		<div id="base-Quick-Response">
 			<div class="base-Quick-img"></div>
 		</div>
+		<h1>扫一扫微信公众号码，获知更多IT知识</h1>
 	</section>
 	
 	
@@ -92,8 +93,8 @@ title: 首页
 			<li>
 				<a href="javascript:;">
 					<i class="fa fa-envelope-o"></i>
+					<div class="directions">hdxgcyjd1314@163.com</div>
 				</a>
-				<div class="directions">hdxgcyjd1314@163.com</div>
 			</li>
 			<li>
 				<a href="javascript:;">
@@ -104,7 +105,6 @@ title: 首页
 		</ul>
 	</div>
 </section>
-
 
 <script src="/assets/js/easeljs-0.8.2.min.js"></script>
 <script src="/assets/js/EasePack.min.js"></script>

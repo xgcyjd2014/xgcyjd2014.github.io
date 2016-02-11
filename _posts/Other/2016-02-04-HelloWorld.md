@@ -2,10 +2,9 @@
 layout: post
 title: HelloWorld  
 author: Owen
-tag: other
 tagpic: helloworld.jpg
 description: 用心铸造卓越Offer
-category: 其他
+category: other
 ---
 
 ## HelloWorld
