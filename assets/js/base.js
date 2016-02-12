@@ -124,7 +124,7 @@ $(function() {
 }); 
 
 
-/* tag分类 */
+/* 博文聚合 */
 $(function() {
 	var oClassifyList = $("#classify-list");
 	var oLis          = $("#classify-list li");
