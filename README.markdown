@@ -1,4 +1,4 @@
-﻿											<!-- create and design By Owen -->
+﻿											<!-- compose By Owen -->
 										  <!-- github: github.com/numerhero -->
 # xgcyjd2014.github.io
 2014信管创业教育基地官方博客
@@ -33,8 +33,6 @@ sitemap     是配置SEO 的文件
 # 撰写博文
 
 如果需要撰写博文，首先需要填写一些简单文章信息
-
-{% highlight html %}
 ---
 layout: post
 title: HelloWorld  
@@ -43,7 +41,6 @@ tagpic: helloworld.jpg
 description: 用心铸造卓越Offer
 category: other
 ---
-{% endhighlight %}
 
 layout      : 命令博文基于 post 布局，将写好的文章嵌入post.html 中
 title       : 文章标题
