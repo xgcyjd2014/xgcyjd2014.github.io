@@ -44,25 +44,25 @@ category: other <br/>
 ---<br/>
 
 
-layout      : 命令博文基于 post 布局，将写好的文章嵌入post.html 中
-title       : 文章标题
-author      : 作者名称（作者姓名开头大写）
-tagpic      : 文章配图名（__包含后缀名称__）
-description : 关于文章的简单描述（5 - 20个字）
-category    : 文章类型（如不清楚分类，缺省为other类）
+layout      : 命令博文基于 post 布局，将写好的文章嵌入post.html 中<br/>
+title       : 文章标题<br/>
+author      : 作者名称（作者姓名开头大写）<br/>
+tagpic      : 文章配图名（__包含后缀名称__）<br/>
+description : 关于文章的简单描述（5 - 20个字）<br/>
+category    : 文章类型（如不清楚分类，缺省为other类）<br/>
 
 __以上都是必须填写__
 
 如需撰写博文，首先和我（Owen）提交一下一个固定的作者名，我将作者名与css高亮文件匹配一下，就能开始撰写博文了
 
 文章配图需要将图片裁切成 280 * 250，裁切好的图片添加到`/assets/img/index/post-list-imgs`文件夹
-类型名称一定要同一（关系到css类名匹配）
+类型名称一定要统一（关系到css类名匹配）
 例如：
 
-css
-html
-js
-other
+css<br/>
+html<br/>
+js<br/>
+other<br/>
 
 等等
 
