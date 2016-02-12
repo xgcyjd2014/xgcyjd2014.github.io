@@ -1,6 +1,6 @@
 /*信管创业基地官网 base css*/
 /* reset */
-body { min-width: 332px; margin: 0; padding: 0; }
+body { min-width: 332px; margin: 0; padding: 0; background: #F8F8F8; }
 img { vertical-align: top;}
 ul { list-style: none; padding: 0; margin: 0;}
 button { outline: none; border: none;}
@@ -46,7 +46,7 @@ html {font-size: 100px !important;}
 }
 
 ::-webkit-scrollbar {
-	width: 7px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -55,7 +55,7 @@ html {font-size: 100px !important;}
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color:#3385FF;
+	background-color: rgba(0,0,0,.6);
 	background-clip:padding-box;
 	border:1px solid #979797;
 	min-height:28px;
@@ -65,13 +65,13 @@ html {font-size: 100px !important;}
 
 ::-webkit-scrollbar-thumb:hover {
 	border:1px solid #636363;
-	background-color:#317EF3;
+	background-color: rgba(0,0,0,.8);
 
 }
 
 ::-webkit-scrollbar-thumb:active {
 	border:1px solid #636363;
-	background-color:#3075DC;
+	background-color: rgba(0,0,0,1);
 }
 
 /* 流光文字特效init */
@@ -94,6 +94,15 @@ html {font-size: 100px !important;}
 	user-select: none;
 }
 
+/* 仅允许选中文本 */
+.just-select-text {
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-khtml-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
 
 /* 清浮动 */
 .clearfix {
@@ -110,8 +119,21 @@ html {font-size: 100px !important;}
 	height: 0;
 }
 
+.block-line {
+	width: 12rem;
+	height: 0.2rem;
+	margin: 0 auto;
+}
+.line {
+	width: 100%;
+	height: 0.01rem;
 
-
+	background: #ccc;
+	padding: 0 0.15rem;
+	margin: 0.05rem 0;
+	-webkit-background-clip: content-box;
+	background-clip: content-box;
+}
 /* 头部导航 */
 #header-wrap {
 	height: 70px;
@@ -208,9 +230,8 @@ html {font-size: 100px !important;}
 	height: 100%;
 }
 
-
 .index-box {
- 	width: 14rem;
+ 	width: 12rem;
  	margin: 0 auto;
  	padding: 0.3rem 0 0.1rem;
 }
@@ -221,7 +242,7 @@ html {font-size: 100px !important;}
 	height: 1.59rem;
 	
 	margin: 0 auto;
-	background: url(../img/index/introduce.jpg) no-repeat;
+	background: url(../img/index/introduce.png) no-repeat -0.1rem 0;
 	font: 500 0.3rem/0.6rem "Yuppy","微软雅黑";
 	text-align: center;
 }
@@ -304,16 +325,6 @@ html {font-size: 100px !important;}
 	width: 100%;
 	height: 100%;
 }
-.line {
-	width: 100%;
-	height: 0.01rem;
-
-	background: #ccc;
-	padding: 0 0.15rem;
-	margin: 0.05rem 0;
-	-webkit-background-clip: content-box;
-	background-clip: content-box;
-}
 
 #post-list .post-tag-description {
 	width: 2.92rem;
@@ -334,10 +345,16 @@ html {font-size: 100px !important;}
 }
 
 /* 根据标签添加专属色 */
+.other-title {
+	color: #C4086C;
+}
+.post-list-li:hover .other-title {
+	color: #6A0A40;
+}
 .css-title {
 	color: #6EA474;
 }
-.css-title:hover {
+.post-list-li:hover .css-title {
 	color: #A6E22C;
 }
 
@@ -345,7 +362,7 @@ html {font-size: 100px !important;}
 	color: #AE81FF;
 }
 
-.html-title:hover {
+.post-list-li:hover .html-title {
 	color: #036217;
 }
 
@@ -353,7 +370,7 @@ html {font-size: 100px !important;}
 	color: #E6A968;
 }
 
-.js-title:hover {
+.post-list-li:hover .js-title {
 	color: #9D550F;
 }
 
@@ -416,6 +433,28 @@ html {font-size: 100px !important;}
 	color: #337AB7;
 }
 
+.getmore { 
+	width: 100%;
+	float: left;
+	margin-top: 0.15rem;
+	font: 600 0.2rem/0.25rem "Montserrat","微软雅黑";
+}
+
+.getmore a { 
+	display: block; 
+	border: 1px solid #dddddd; 
+	border-radius: 2px; 
+	height: 30px; 
+	line-height: 30px; 
+	color: #666666; 
+	background: #f3f3f3; 
+	text-align: center; 
+}
+.getmore a:hover { 
+	background: #dddddd; 
+	color: #497490; 
+}
+
 /* 标签 */
 #page-sidebar {
 	float: left;
@@ -425,8 +464,7 @@ html {font-size: 100px !important;}
 
 #classify-list {
 	width: 100%;
-	height: 3rem;
-	padding: 0 0.05rem;
+	padding: 0 0.1rem;
 }
 
 #page-sidebar h1 {
@@ -435,11 +473,11 @@ html {font-size: 100px !important;}
 	text-align: center;
 }
 
-.classify-list-title {
+.page-sidebar-title {
 	font: 600 0.2rem/0.25rem "微软雅黑";
 }
 
-.classify-list-title-en {
+.page-sidebar-title-en {
 	font: 600 0.2rem/0.25rem "Fredericka-the-Great";
 }
 
@@ -448,15 +486,16 @@ html {font-size: 100px !important;}
 	display: block;
 	padding: 0.05rem;
 
-	width: 0.8rem;
-	height: 0.4rem;
+	width: 0.6rem;
+	height: 0.3rem;
 
 	background-image: -webkit-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -moz-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -o-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
 	background-image: linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
 	
 	float: left;
 	text-align: center;
-	
 
 	margin: 0.1rem;
 }
@@ -468,8 +507,8 @@ html {font-size: 100px !important;}
 	left: 0;
 	right: 0;
 
-	width: 0.9rem;
-	height: 0.5rem;
+	width: 0.7rem;
+	height: 0.4rem;
 
 	margin-top: -0.05rem;
 	margin-left: -0.05rem;
@@ -488,7 +527,9 @@ html {font-size: 100px !important;}
 	box-shadow: inset 0px 0px 0px 2px #66D9EF;
 	z-index: -1;
 }
-
+.classify-lis:hover a {
+	color: #369AE4;
+}
 .classify-lis ul li {
 	position: absolute;
 	width: 0.15rem;
@@ -530,26 +571,28 @@ html {font-size: 100px !important;}
 	height: 100%;
 	display: block;
 	color: #f5f5f5;
-	font: 500 0.25rem/0.4rem "Montserrat","微软雅黑";
+	font: 500 0.17rem/0.3rem "Montserrat","微软雅黑";
 	z-index: 3;
+	transition: 0.5s;
+	-webkit-transition: 0.5s;
 }
 
 #base-Quick-Response {
 	width: 100%;
-	height: 3.18rem;
+	height: 2.28rem;
 	
-	padding: 0.3rem 0;
+	padding: 0.15rem 0;
 }
 
 .base-Quick-img {
-	width: 2.58rem;
-	height: 2.58rem;
+	width: 2.0rem;
+	height: 2.0rem;
 
 	margin: 0 auto;
 	position: relative;
 	
 	border: 1px solid #69ca62;
-	background: url(../img/base/base-Quick-Response.jpg) no-repeat;
+	background: url(../img/index/base-Quick-Response.jpg) no-repeat;
 }
 
 .base-Quick-img::after , .base-Quick-img::before{
@@ -564,7 +607,7 @@ html {font-size: 100px !important;}
 	right: 0;
 	bottom: 0;
 
-	margin: -10%;
+	margin: -5%;
 	
 	 z-index: -1;
 	 color: #5CD9EF;
@@ -577,23 +620,21 @@ html {font-size: 100px !important;}
 
 @keyframes baseQuick {
 	0%, 100% {
-         clip: rect(0rem, 3.096rem, 0.1rem, 0rem);
+         clip: rect(0rem, 2.20rem, 0.04rem, 0rem);
     }
     25% {
-        clip: rect(0rem, 0.1rem, 3.096rem, 0rem);
-         
+        clip: rect(0rem, 0.04rem, 2.20rem, 0rem); 
     }
     50% {
-        clip: rect(2.996rem, 3.096rem, 3.096rem, 0rem);
-        
+        clip: rect(2.16rem, 2.20rem, 2.20rem, 0rem);
     }
     75% {
-        clip: rect(0rem, 3.096rem, 3.096rem, 2.996rem);        
+        clip: rect(0rem, 2.20rem, 2.20rem, 2.16rem);
     }
 }
 
 .QR-introduce {
-	font: 600 0.20rem/0.3rem "Montserrat","微软雅黑";
+	font: 600 0.15rem/0.3rem "Montserrat","微软雅黑";
 }
 
 .QR-id {
@@ -603,6 +644,15 @@ html {font-size: 100px !important;}
 	background-image: gradient(left, #D91C73, #79C6D9 25%, #D91C73 50%, #79C6D9 75%, #D91C73);
 	animation: masked-QR-id 4s infinite linear;
     -webkit-animation: masked-QR-id 4s infinite linear;
+}
+
+.last-comment {
+	width: 100%;
+
+	transition: none !important;
+	font: 600 0.2rem/0.25rem "Montserrat","微软雅黑";
+
+	padding: 0.1rem 0 0 0.2rem;
 }
 
 @keyframes masked-QR-id {
@@ -615,15 +665,29 @@ html {font-size: 100px !important;}
     100% { background-position: -100% 0;}
 }
 
+#map-title {
+	width: 12rem;
+	height: 1.6rem;
+	position: relative;
+	margin: 0 auto;
+	clear: both;
+}
+
+#path-text {
+	position: absolute;
+	left: 0;
+}
+
+#content-us {
+	background: transparent;
+}
+
+
 #map {
-	float: left;
 	width: 100%;
 	height: 3.97rem;
-	
-	margin-top: 0.3rem;
-
 	clear: both;
-
+	font: 500 0.16rem/0.2rem "Montserrat","微软雅黑";
 	position: relative;
 }
 
@@ -645,19 +709,6 @@ html {font-size: 100px !important;}
 	transform: skewX(-30deg);
 }
 
-#path-text {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#content-us {
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	background: transparent;
-}
 
 #map-content {
 	position: absolute;
@@ -668,7 +719,7 @@ html {font-size: 100px !important;}
 	height: 65%;
 
 	z-index: 3;
-	border: 1px solid #fff;
+	border: 0.01rem solid #fff;
 }
 
 #map-content-list {
@@ -798,15 +849,55 @@ html {font-size: 100px !important;}
 
 /* 底部 */
 
-.footer-msg {
-	background: #2C3038;
-	height: 0.80rem;
+#footer {
+	position: relative;
+	width: 100%;
+	background: rgba(0,0,0,0.7);
+	overflow: hidden;
+
 }
 
-.footer-msg-content {
+.footer-content {
+	position: static;
+	width: 12rem;
+	height: 8.4rem;
+	margin: 0 auto;
+}
+
+.full-background {
+	position: absolute;
+	z-index: -1;
 	width: 100%;
 	height: 100%;
+	background: url(../img/base/heida.jpg) no-repeat 50% 0;
+	background-size: cover;
+} 
+
+.Im-logo {
+	width: 100%;
+
+	padding: 0.3rem 0;
 	margin: 0 auto;
-	padding: 0 0.15rem;
-	background: yellow;
+	background-color: rgba(0,0,0,0.6);
+}
+
+.logo-img {
+	width: 6.4rem;
+	margin: 0 auto;
+}
+
+.Im-logo img {
+	opacity: .15;
+}
+
+.copyright {
+	padding: 0.3rem 0;
+	background-color: rgba(0,0,0,.95);
+	text-align: center;
+	font: 500 0.16rem/0.20rem "Montserrat","微软雅黑";
+	color: #4b4b4c;
+}
+
+.copyright span {
+	color: #0F86D1;
 }

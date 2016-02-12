@@ -4,8 +4,8 @@ title: 首页
 ---
 <!-- 基地介绍 -->
 <nav class="introduce">
-	<h1 class="introduce-title clear-select">博文聚合</h1>
-	<h1 class="introduce-title-en clear-select">Article Aggregate</h1>
+	<h1 class="clear-select">博文聚合</h1>
+	<h1 class="clear-select">Article Aggregate</h1>
 </nav>
 <!-- 首页内容 -->
 
@@ -43,12 +43,12 @@ title: 首页
 	{% endfor %}
 	</ul>
 	<section id="page-sidebar">	
-		<h1 class="classify-list-title clear-select">分类标签</h1>
-		<h1 class="classify-list-title-en clear-select">Tags Of Posts-List</h1>
+		<h1 class="page-sidebar-title clear-select">分类标签</h1>
+		<h1 class="page-sidebar-title-en clear-select">Tags Of Posts-List</h1>
 		<!-- 分类列表 点击获得所有的相关博文 -->
-		<ul id="classify-list" >
+		<ul id="classify-list" class="clearfix">
 			<li class="classify-lis clearfix">
-				<a href="javascript:;" target="_blank">全部</a>
+				<a href="javascript:;">全部</a>
 				<ul>
 					<li></li>
 					<li></li>
@@ -58,7 +58,7 @@ title: 首页
 			</li>
 			{% for category in site.categories %}
 			<li class="classify-lis clearfix">
-				<a href="javascript:;" target="_blank">{{ category[0] }}</a>
+				<a href="javascript:;">{{ category[0] }}</a>
 				<ul>
 					<li></li>
 					<li></li>
@@ -72,18 +72,33 @@ title: 首页
 		<div id="base-Quick-Response">
 			<div class="base-Quick-img"></div>
 		</div>
-		<h1 class="QR-introduce clear-select">扫一扫微信公众号，获知更多IT知识</h1>
+		<h1 class="QR-introduce clear-select">扫一扫微信二维码，获知更多IT知识</h1>
 		<h1 class="QR-id text-stress clear-select">HDxgcyjd</h1>
+		<div class="line"></div>
+		<h1 class="page-sidebar-title clear-select">最新评论</h1>
+		<h1 class="page-sidebar-title-en clear-select">Recent Comments</h1>
+		{% include last-duoshuo.html %}
+		<div class="line"></div>
 	</section>
-	
-	
+	{% for post in site.posts %}
+    {% if forloop.index == 12 && forloop.length > 12 %}
+    <!-- Pagination links -->
+        <div class="getmore">
+            <a href="/post.html">查看更多 | View More</a>
+        </div>
+      {% endif %}
+  {% endfor %}
 </section>
-
-<section id="map">
+<section id="map-title">
+	<canvas id="path-text" width="1200" height="160"></canvas>
+	<canvas id="content-us"></canvas>
+</section>
+<section class="block-line contenctUs-line">
+	<div class="line"></div>
+</section>
+<section id="map" class="clear-select">
 	<div id="allmap"></div>
 	<div id="mark-map"></div>
-	<canvas id="path-text" width="600" height="200"></canvas>
-	<canvas id="content-us"></canvas>
 	<div id="map-content">
 		<ul id="map-content-list" class="clear-select">
 			<li>
@@ -106,7 +121,6 @@ title: 首页
 		</ul>
 	</div>
 </section>
-
 <script src="/assets/js/easeljs-0.8.2.min.js"></script>
 <script src="/assets/js/EasePack.min.js"></script>
 <script src="/assets/js/TweenLite.min.js"></script>

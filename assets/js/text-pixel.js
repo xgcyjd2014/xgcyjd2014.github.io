@@ -3,13 +3,13 @@ window.onload = function() {
 	var M = Math;
 	var ran = Math.random;
 	var oStage = new c.Stage("content-us");
-	var mapBox = document.querySelector("#map"); 
-	var CanvasWidth = window.innerWidth;
-	var CanvasHeight = mapBox.clientHeight;
+	var mapBox = document.querySelector("#map-title");
+	var CanvasWidth = mapBox.clientWidth;
+	var CanvasHeight = mapBox.offsetHeight;
 
-	var colors = ['#B2949D', '#FFF578', '#FF5F8D', '#37A9CC', '#188EB2']; // 彩球颜色
+	var colors = ['#66D9EF', '#B2E3D7', '#ccc']; // 彩球颜色
 
-	oStage.canvas.width = CanvasWidth * 0.56;
+	oStage.canvas.width = CanvasWidth;
 	oStage.canvas.height = CanvasHeight;
 
     function animate() {
@@ -26,7 +26,7 @@ window.onload = function() {
     function ball( path ) {
         for(var i=0; i<path.length; i++) {
             var circle = new createjs.Shape();
-            var r = 3;
+            var r = 5;
             var x = CanvasWidth*ran();
             var y = CanvasHeight*ran();
             var color = colors[Math.floor(ran()*colors.length)];
@@ -58,7 +58,7 @@ window.onload = function() {
     function createText() {
     	var textStageW = CanvasWidth;
     	var textStageH = CanvasHeight;
-    	var t = "Contect Us";
+    	var t = "联 系 我 们";
 
     	var textPixels = [];
     	var fontSize = 860/(t.length);
@@ -67,10 +67,10 @@ window.onload = function() {
     	var textStage = new c.Stage("path-text");
 
     	// 这里颜色一定要设置，不然就getImageData 就无法获取到像素点
-    	var text = new c.Text(t, "900 "+ fontSize +"px Arial", "#eee");
+    	var text = new c.Text(t, "900 "+ fontSize +"px 微软雅黑", "#eee");
     	text.textAlign = 'center';
-    	text.x = CanvasWidth * 0.2;
-        text.y = CanvasHeight * 0.01;
+    	text.x = 600;
+        text.y = 0;
         textStage.addChild(text);
         textStage.update();
 
@@ -83,7 +83,7 @@ window.onload = function() {
         		var y = M.floor(M.floor(i/4)/CanvasWidth);
 
         		// 减少一些像素点
-        		if((x && x%6 == 0) && (y && y%6 == 0)) {
+        		if((x && x%10 == 0) && (y && y%10 == 0)) {
         			textPixels.push({
         				x : x,
         				y : y
