@@ -1,4 +1,4 @@
-﻿											<!-- compose By Owen -->
+﻿												<!-- compose By Owen -->
 										  <!-- github: github.com/numerhero -->
 # xgcyjd2014.github.io
 2014信管创业教育基地官方博客
@@ -9,8 +9,8 @@
 
 首先基于jekyll 语法，在根目录下一定要放一个名为`index.html` 的首页，而其他的页面则放在`pages`文件夹
 
-本站所有的Css 都在 /assets/css/ 中
-本站所有的Js  都在 /assets/js/  中
+本站所有的Css 都在 `/assets/css/` 中
+本站所有的Js  都在 `/assets/js/`  中
 
 _config.yml 是本站的配置文件，已经配置完成，如需要folk 参考 请自行修改
 
@@ -33,14 +33,16 @@ sitemap     是配置SEO 的文件
 # 撰写博文
 
 如果需要撰写博文，首先需要填写一些简单文章信息
----
-layout: post
-title: HelloWorld  
-author: Owen
-tagpic: helloworld.jpg
-description: 用心铸造卓越Offer
-category: other
----
+
+---<br/>
+layout: post <br/>
+title: HelloWorld <br/>
+author: Owen <br/>
+tagpic: helloworld.jpg <br/>
+description: 用心铸造卓越Offer <br/>
+category: other <br/>
+---<br/>
+
 
 layout      : 命令博文基于 post 布局，将写好的文章嵌入post.html 中
 title       : 文章标题
