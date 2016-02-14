@@ -1,0 +1,601 @@
+										/*--------------------------------------------*\
+														xgjd index css
+										   		   Design And Build By Owen
+										      Github:http://github.com/numerhero
+
+										\*--------------------------------------------*/
+.index-box {
+ 	width: 12rem;
+ 	margin: 0 auto;
+ 	padding: 0.3rem 0 0.1rem;
+}
+
+
+/* 主内容列表 */
+#post-list {
+	float: left;
+	width: 9.375rem;
+	height: auto;
+	min-height: 16.80rem;
+	box-shadow: inset -1px 0 0 0 #ccc;
+}
+
+.post-list-li {
+	width: 2.925rem;
+	height: 4rem;
+
+	float: left;
+	margin: .1rem;
+	position: relative;
+}
+.post-list-li::after,.post-list-li::before {
+	content: ""; 
+	display: block;
+
+	position: absolute; 
+	top:0; 
+	bottom:0; 
+	right:0; 
+	left: 0;
+	transition:.75s;
+	-webkit-transition:.75s;
+	z-index: -1;
+}
+
+.post-list-li::after {
+	border-top: 0.02rem solid #58B8CF;
+	border-bottom: 0.02rem solid #58B8CF;
+	
+	opacity: 0;
+	transform: scale(0,1);
+	-webkit-transform: scale(0,1);
+} 
+
+.post-list-li::before {
+	border-left: 0.02rem solid #58B8CF;
+	border-right: 0.02rem solid #58B8CF;
+
+	opacity: 0;
+	transform: scale(1,0);
+	-webkit-transform: scale(1,0);
+}
+
+.post-list-li:hover::after {
+	border-top: 0.02rem solid #58B8CF;
+	border-bottom: 0.02rem solid #58B8CF;
+	transform: scale(1,1);
+	-webkit-transform:scale(1,1);
+	opacity: .7;
+}
+
+.post-list-li:hover::before {
+	border-left: 0.02rem solid #58B8CF;
+	border-right: 0.02rem solid #58B8CF;
+	transform: scale(1,1);
+	-webkit-transform:scale(1,1);
+	opacity: .7;
+}
+
+.post-tag {
+	width: 100%;
+	height: 2.60rem;
+	padding: 0.05rem;
+	font-family: "Montserrat","微软雅黑";
+	overflow: hidden;
+}
+.post-tag a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#post-list .post-tag-description {
+	width: 2.92rem;
+	height: 1.25rem;
+	padding: 0.05rem;
+	color: #C3C1C6;
+}
+
+#post-list .post-tag-title {
+	width: 100%;
+	height: 0.40rem;
+	position: relative;
+	
+	padding: 0 0 0.05rem 0;
+	clear: both;
+	font: 500 0.30rem/0.35rem "Montserrat","微软雅黑";
+	text-indent: 0.10rem;
+}
+
+/* 根据标签添加专属色 */
+.other-title {
+	color: #C4086C;
+}
+.post-list-li:hover .other-title {
+	color: #6A0A40;
+}
+.css-title {
+	color: #6EA474;
+}
+.post-list-li:hover .css-title {
+	color: #A6E22C;
+}
+
+.html-title {
+	color: #AE81FF;
+}
+
+.post-list-li:hover .html-title {
+	color: #036217;
+}
+
+.js-title {
+	color: #E6A968;
+}
+
+.post-list-li:hover .js-title {
+	color: #9D550F;
+}
+
+#post-list .post-tag-author-date {
+	width: 100%;
+	height: 0.12rem;
+	margin-top: 0.05rem;
+}
+.post-tag-short-line {
+	width: 0.30rem;
+	height: 0.02rem;
+
+	border-radius: 0.05rem;
+	background: #f5f5f5;
+	margin: 0.08rem auto;
+	transition: .75s;
+	-webkit-transition: .75s;
+}
+
+.post-list-li:hover .post-tag-short-line {
+	transform: scale(2,1);
+	-webkit-transform: scale(2,1);
+	background: #42A5DD;
+}
+
+.remark {
+	float: right;
+	text-align: right;
+	font-size: 0.12rem;
+	font-weight: 400;
+}
+
+/* 添加自己专属颜色 */
+.Owen {
+	color: #23527c !important;
+}
+
+.Allenyang {
+	color: #395692 !important;
+}
+
+/* 如不添加，默认色 */
+.remark a {
+	color: #E34A22;
+	font-family: "Yuppy" , "微软雅黑";
+}
+
+.post-tag-description p {
+	text-indent: 0.10rem;
+	width: 100%;
+	height: 0.48rem;
+	margin: 0;
+	font-size: 0.14rem;
+	text-overflow: ellipsis;
+	transition: .75s;
+	-webkit-transition: .75s;
+}
+
+.post-list-li:hover .post-tag-description p {
+	color: #337AB7;
+}
+
+.getmore { 
+	width: 100%;
+	float: left;
+	margin-top: 0.15rem;
+	font: 600 0.2rem/0.25rem "Montserrat","微软雅黑";
+}
+
+.getmore a { 
+	display: block; 
+	border: 1px solid #dddddd; 
+	border-radius: 2px; 
+	height: 30px; 
+	line-height: 30px; 
+	color: #666666; 
+	background: #f3f3f3; 
+	text-align: center; 
+}
+.getmore a:hover { 
+	background: #dddddd; 
+	color: #497490; 
+}
+
+/* 标签 */
+#page-sidebar {
+	float: left;
+	width: calc(100% - 9.375rem);
+	height: auto;
+}
+
+#classify-list {
+	width: 100%;
+	padding: 0 0.1rem;
+}
+
+#page-sidebar h1 {
+	width: 100%;
+	height: 0.3rem;
+	text-align: center;
+}
+
+.page-sidebar-title {
+	font: 600 0.2rem/0.25rem "微软雅黑";
+}
+
+.page-sidebar-title-en {
+	font: 600 0.2rem/0.25rem "Fredericka-the-Great";
+}
+
+.classify-lis {
+	position: relative;
+	display: block;
+	padding: 0.05rem;
+
+	width: 0.6rem;
+	height: 0.3rem;
+
+	background-image: -webkit-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -moz-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -o-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	
+	float: left;
+	text-align: center;
+
+	margin: 0.1rem;
+}
+
+.classify-lis ul {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	width: 0.7rem;
+	height: 0.4rem;
+
+	margin-top: -0.05rem;
+	margin-left: -0.05rem;
+	z-index: -1;
+	transition: 0.8s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-transition: 0.8s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+.classify-lis:hover ul{
+	-webkit-transform: scale(0.95);
+	transform: scale(0.95);
+	z-index: -1;
+}
+.classify-lis:hover ul li{
+	-webkit-transform: scale(0.95);
+	transform: scale(0.95);
+	box-shadow: inset 0px 0px 0px 2px #66D9EF;
+	z-index: -1;
+}
+.classify-lis:hover a {
+	color: #369AE4;
+}
+.classify-lis ul li {
+	position: absolute;
+	width: 0.15rem;
+	height: 0.15rem;
+	box-shadow: inset 0px 0px 0px 2px #66D9EF;
+	transition: 0.8s cubic-bezier(0.150, 0.775, 0.000, 1);
+	z-index: -1;
+}
+
+.classify-lis ul li:nth-of-type(1) {
+	left: 0;
+    top: 0;
+    clip: rect( 0 , 0.13rem , 0.13rem , 0 );
+}
+
+.classify-lis ul li:nth-of-type(2) {
+	left: 0;
+    bottom: 0;
+    clip: rect( 0.02rem , 0.13rem , 0.15rem , 0 );
+}
+
+.classify-lis ul li:nth-of-type(3) {
+    right: 0;
+    bottom: 0;
+    clip: rect( 0.02rem , 0.15rem , 0.15rem , 0.02rem);
+}
+
+.classify-lis ul li:nth-of-type(4) {
+	right: 0;
+    top: 0;
+    clip: rect( 0 , 0.15rem , 0.13rem , 0.02rem );
+}
+
+.classify-lis a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #f5f5f5;
+	font: 500 0.17rem/0.3rem "Montserrat","微软雅黑";
+	z-index: 3;
+	transition: 0.5s;
+	-webkit-transition: 0.5s;
+}
+
+#base-Quick-Response {
+	width: 100%;
+	height: 2.28rem;
+	
+	padding: 0.15rem 0;
+}
+
+.base-Quick-img {
+	width: 2.0rem;
+	height: 2.0rem;
+
+	margin: 0 auto;
+	position: relative;
+	
+	border: 1px solid #69ca62;
+	background: url(../img/index/base-Quick-Response.jpg) no-repeat;
+}
+
+.base-Quick-img::after , .base-Quick-img::before{
+	content: "";
+	display: block;
+
+	box-shadow: inset 0 0 0 2px; 
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	margin: -5%;
+	
+	 z-index: -1;
+	 color: #5CD9EF;
+	animation: baseQuick 8s linear infinite;
+}
+
+.base-Quick-img::before {
+	animation-delay: -4s;
+}
+
+@keyframes baseQuick {
+	0%, 100% {
+         clip: rect(0rem, 2.20rem, 0.04rem, 0rem);
+    }
+    25% {
+        clip: rect(0rem, 0.04rem, 2.20rem, 0rem); 
+    }
+    50% {
+        clip: rect(2.16rem, 2.20rem, 2.20rem, 0rem);
+    }
+    75% {
+        clip: rect(0rem, 2.20rem, 2.20rem, 2.16rem);
+    }
+}
+
+.QR-introduce {
+	font: 600 0.15rem/0.3rem "Montserrat","微软雅黑";
+}
+
+.QR-id {
+	font: 500 0.18rem/0.25rem "Montserrat";
+	color: #2E6DA4;
+	background-image: -webkit-linear-gradient(left, #D91C73, #79C6D9 25%, #D91C73 50%, #79C6D9 75%, #D91C73);
+	background-image: gradient(left, #D91C73, #79C6D9 25%, #D91C73 50%, #79C6D9 75%, #D91C73);
+	animation: masked 4s infinite linear;
+    -webkit-animation: masked 4s infinite linear;
+}
+
+.last-comment {
+	width: 100%;
+
+	transition: none !important;
+	font: 600 0.2rem/0.25rem "Montserrat","微软雅黑";
+
+	padding: 0.1rem 0 0 0.2rem;
+}
+
+
+
+#map-title {
+	width: 12rem;
+	height: 1.6rem;
+	position: relative;
+	margin: 0 auto;
+	clear: both;
+}
+
+#path-text {
+	position: absolute;
+	left: 0;
+}
+
+#content-us {
+	background: transparent;
+}
+
+
+#map {
+	width: 100%;
+	height: 3.97rem;
+	clear: both;
+	font: 500 0.16rem/0.2rem "Montserrat","微软雅黑";
+	position: relative;
+}
+
+#allmap {
+	width: 100%;
+	height: 3.97rem;
+}
+
+#mark-map {
+	position: absolute;
+	top: 0;
+	left: -10%;
+
+	width: 60%;
+	height: 3.97rem;
+
+	background: #2E2E2E;
+
+	transform: skewX(-30deg);
+}
+
+
+#map-content {
+	position: absolute;
+
+	bottom: 5%;
+	left: 1%;
+	width: 45%;
+	height: 65%;
+	z-index: 3;
+}
+
+#map-content-list {
+	width: 100%;
+	height: 100%;
+
+	padding: 0.05rem;
+}
+
+#map-content-list li {
+	position: relative;
+	float: left;
+	width: 1.25rem;
+	height: 1.25rem;
+	
+	margin: 0.2rem;
+	border-radius: 50%;
+	background: #fff;
+	text-align: center;
+}	
+
+#map-content-list a {
+	display: block;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+}
+
+#map-content-list li::after {
+	content: "";
+
+	display: block;
+	
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+#map-content-list li:nth-of-type(1) {
+	background: rgba(228,104,77,1);
+}
+#map-content-list li:nth-of-type(1) i{
+	font-size: 1.25rem;
+	line-height: 1.22rem;
+	color: #FCEFC7;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(1):hover::after {
+	animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(2) {
+	background: #2EA6C8;
+}
+#map-content-list li:nth-of-type(2) i{
+	font-size: 1rem;
+	line-height: 1.23rem;
+	color: #235775;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(2):hover::after {
+	animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(3) {
+	background: #B2E3D7;
+}
+
+#map-content-list li:nth-of-type(3) i{
+	font-size: 1rem;
+	line-height: 1.28rem;
+	z-index: -1;
+}
+
+#map-content-list li:nth-of-type(3):hover::after {
+	animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+
+@keyframes btnA{
+	0%{ box-shadow:0 0 0 0 rgba(228,104,77,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(228,104,77,0);}
+}
+
+@keyframes btnB{
+	0%{ box-shadow:0 0 0 0 rgba(46,166,200,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(46,166,200,0);}
+}
+
+@keyframes btnC{
+	0%{ box-shadow:0 0 0 0 rgba(34,190,151,1);}
+	100%{ box-shadow:0 0 0 0.12rem rgba(34,190,151,0);}
+}
+
+
+.directions {
+	position: absolute;
+	
+
+	background: red;
+	border-radius: 0.1rem;
+	
+	width: 4rem;
+	height: 0.8rem;
+
+	font: 500 0.3rem/0.75rem "Yuppy";
+	text-align: center;
+	transition: 0.75s cubic-bezier(0.150, 0.775, 0.000, 1);
+	-webkit-transition: 0.75s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+#map-content-list li:nth-of-type(2) .directions {
+	bottom: -1rem;
+	left: -1.2rem; 
+}

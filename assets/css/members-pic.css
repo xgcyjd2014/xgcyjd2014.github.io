@@ -1,0 +1,96 @@
+										/*--------------------------------------------*\
+													 xgjd members-pic css
+										   		   Design And Build By Owen
+										      Github:http://github.com/numerhero
+
+										\*--------------------------------------------*/
+.books {
+	position: relative;
+	width: 100%;
+	height: 2.5rem;
+	background: rgba(0,0,0,0.6);
+}
+
+.parallax-book {
+	background: url(../img/members-pic/background-books.jpg) no-repeat 50% 0, rgba(248,248,248,0.7);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#pic-show-stage {
+	width: 12rem;
+	height: auto;
+	margin: 0 auto;
+}
+
+.show-pic {
+	float: right;
+	width: 7.2rem;
+	height: 6.3rem;
+}
+
+/* 图片列表 */
+#list-stage {
+	width: 100%;	
+	background: #2E2E2E;
+	box-shadow: 0 0 0.45rem rgba(0,0,0,.6);
+}
+
+#members-pics {
+	position: relative;
+	
+	width: 12rem;
+
+	margin: 0 auto 0.6rem;
+	padding: 0.5rem 1.57rem 0.3rem;
+}
+
+#members-pics li {
+	float: left;
+	width: 1.67rem;
+	height: 1.94rem;
+	background: yellow;
+	margin: -0.1rem 0.05rem 0;
+	background: url(/assets/img/members-pic/members-pics/AllenYang/AllenYang-tall-pic.png) no-repeat;
+	background-size: cover;
+	
+	transition: 0.75s;
+	-webkit-transition: 0.75s;
+}
+#members-pics p {
+	float: left;
+	width: 1.67rem;
+	height: 1.94rem;
+	font: 400 0.35rem/0.45rem "Montserrat","微软雅黑";
+	text-align: center;
+	margin: -0.1rem 0.05rem;
+	padding: 0.4rem 0;
+	color: #6793B9;
+}
+
+.st1 {
+	background-image: linear-gradient(left, #9AFE17, #1168A7 25%, #9AFE17 50%, #1168A7 75%, #9AFE17);
+	background-image: -webkit-linear-gradient(left, #9AFE17, #1168A7 25%, #9AFE17 50%, #1168A7 75%, #9AFE17);
+	animation: masked 4s infinite linear;
+    -webkit-animation: masked 4s infinite linear;
+}
+
+.st2 {
+	background-image: linear-gradient(left, #F5A994, #F9B5FE 25%, #F5A994 50%, #F9B5FE 75%, #F5A994);
+	background-image: -webkit-linear-gradient(left, #F5A994, #F9B5FE 25%, #F5A994 50%, #F9B5FE 75%, #F5A994);
+	animation: masked 4s infinite linear;
+    -webkit-animation: masked 4s infinite linear;
+}
+
+#members-pics li:nth-of-type(6) , #members-pics li:nth-of-type(14), #members-pics li:nth-of-type(23){
+    margin-left: 0.9rem;
+}
+
+
+#members-pics .zhao {
+
+	/*clear: both;*/
+	width: 3.54rem;
+	height: 4.08rem;
+	background: red;
+}
