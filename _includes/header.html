@@ -19,7 +19,7 @@
 <!-- 私有css 判断 -->
 {% assign path = page.url | split:"/" %}
 
-{% if path == "localhost:4000" || "xgcyjd2014.github.io" %}
+{% if path[1] == "index.html" && path[2] != "pages" %}
 <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 {% endif %}
 
