@@ -9,8 +9,7 @@
 <!-- 私有Js 判断 -->
 {% assign path = page.url | split:"/" %}
 
-{% if path[1] == "index.html" %}
-{% assign dir  = path[1] | replace:".html","" %}
+{% if path == "localhost:4000" || "xgcyjd2014.github.io" %}
 <script src="/assets/js/index.js"></script>
 {% endif %}
 
