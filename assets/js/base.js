@@ -59,13 +59,12 @@ $.fn.Parallax = function( xpos , speed ) {
 		return ({
 			update: function() {
 				firstTop = $this.offset().top;
-				pos      = $window.scrollTop();
-
+				pos      = $window.scrollTop();	
 				$this.css("backgroundPosition" , xpos + " " + M.round(((firstTop - pos) * speed)) + "px");
 			},
 			init: function() {
 				this.update();
-				$window.on("scroll" , this.update);
+				$window.on("scroll.parallax" , this.update);
 			}
 		}.init());
 	});
