@@ -9,9 +9,11 @@
 <!-- 私有Js 判断 -->
 {% assign path = page.url | split:"/" %}
 
+{% if page.name == "index.html" %}
 <script src="/assets/js/index.js"></script>
+{% endif %}
 
-{% if path[1] != "index.html" && path[2] == "pages" %}
+{% if page.name != "index.html" && path[1] == "pages" %}
 {% assign dir  = path[2] | replace:".html","" %}
 <script src="/assets/js/{{ dir }}.js"></script>
 {% endif %}
