@@ -19,7 +19,9 @@
 <!-- 私有css 判断 -->
 {% assign path = page.url | split:"/" %}
 
+{% if page.name == "index.html" %}
 <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+{% endif %}
 
 {% if path[1] != "index.html" && path[2] == "pages" %}
 {% assign dir  = path[2] | replace:".html","" %}
