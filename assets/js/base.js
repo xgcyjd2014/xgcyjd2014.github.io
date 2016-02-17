@@ -43,8 +43,6 @@ $(function() {
 	$(".full-background").Parallax("center" , 0.4);
 });
 
-
-// jQ原型方法
 $.fn.Parallax = function( xpos , speed ) {
 	var firstTop;  // 每个对象到document 顶端的距离
 	var pos;       // 滚动轴距离
@@ -64,8 +62,126 @@ $.fn.Parallax = function( xpos , speed ) {
 			},
 			init: function() {
 				this.update();
-				$window.on("scroll.parallax" , this.update);
+				$window.on("scroll.Parallax" , this.update);
 			}
 		}.init());
 	});
+}
+
+/* 绘制logo */ 
+$(function() {
+	var c = createjs;
+	var oStage = new c.Stage("logo-c");
+	var CanvasWidth = 1200;
+	var CanvasHeight = 700;
+
+	oStage.canvas.width = CanvasWidth;
+	oStage.canvas.height = CanvasHeight;
+
+	var run1 = [
+		{x : 510, y : 270},
+		{x : 410, y : 213},
+		{x : 95, y : 392},
+		{x : 95, y : 300},
+		{x : 420, y : 116},
+		{x : 684, y : 270},
+		{x : 0, y : 658},
+		{x : 0, y : 715},
+		{x : 420, y : 950},
+		{x : 840, y : 720},
+		{x : 840, y : 400},
+		{x : 318, y : 690},
+	];
+
+	var run2 = [
+		{x : 318, y : 690},
+		{x : 420, y : 750},
+		{x : 737, y : 568},
+		{x : 737, y : 660},
+		{x : 420, y : 840},
+		{x : 152, y : 685},
+		{x : 840, y : 297},
+		{x : 840, y : 240},
+		{x : 420, y : 0},
+		{x : 0, y : 240},
+		{x : 0, y : 568},
+		{x : 510, y : 270}
+	];
+
+	var runm = run1.concat(run2);
+	var mp   = [];
+	for( var i = 0; i<runm.length; i++ ) {
+		mp.push(new c.Point(runm[i].x,runm[i].y));
+	}
+
+	var logoShape = new c.Shape();
+	var Lg        = logoShape.graphics;
+	oStage.addChild(logoShape);
+
+	logoShape.x = CanvasWidth * 0.13;
+	logoShape.y = CanvasHeight * 0.28;
+
+	for( var i = 0; i<mp.length; i++ ) {
+		mp[i] = dSacle(mp[i] , 0.24);
+	}
+	
+	for( var i = 0 ; i<mp.length ; i++  ) {
+		if( i == 0 ) {
+			Lg.setStrokeStyle(3).beginStroke("rgba(255,255,255,0.8)").mt(mp[0].x , mp[0].y);
+		} else {
+			Lg.lt(mp[i].x , mp[i].y);
+		}
+	}
+
+	var text          = new c.Text();
+	text.text      = "IM WEB";
+	text.font         = "bold 180px Arial";
+	text.textBaseline = "alphabetic";
+	text.outline      = 3;
+	text.color        = "rgba(255,255,255,0.8)";
+	text.shadow       = "#000000,5,5,10";
+	text.x            = CanvasWidth * 0.62;
+	text.y            = CanvasHeight * 0.54;
+	text.textAlign    = "center";
+	oStage.addChild(text);
+	oStage.update();
+
+	function dSacle(o , scale) {
+		var newPoint = o.clone();
+			newPoint.x *= scale;
+			newPoint.y *= scale;
+
+			return newPoint;
+	}	
+});
+
+/* header滚动 */
+$(function() {
+	var iNow = 0;
+	$("#header").headerScroll();
+	
+});
+
+$.fn.headerScroll = function() {
+	var $self     = $(this);
+	var oHeader   = $("#header");
+	var oHeaderUl = $("#guide-list");
+	var oAs       = $("#guide-list li>a");
+	return ({
+		update: function() {
+			var pos = $window.scrollTop();
+			if( pos !== 0 ) {
+				oHeader.addClass("header-transparent");
+				oHeaderUl.addClass("tall-guide-list");
+				oAs.addClass("tall-a");
+			}else {
+				oHeader.removeClass("header-transparent");
+				oHeaderUl.removeClass("tall-guide-list");
+				oAs.removeClass("tall-a");
+			}
+		},
+		init: function() {
+			$window.on("scroll.headerScroll" , this.update)
+		}
+	}.init());
 }

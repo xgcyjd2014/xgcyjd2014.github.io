@@ -7,33 +7,32 @@
 </head>
 
 <body>
-	<h1>页面施工中哦，请新生们跳转到</h1>
+	<!-- <h1>页面施工中哦，请新生们跳转到</h1>
 	<a href="http://xgcyjd2014.github.io/pages/enroll-page.html">这里</a>
-	<p>暂时只支持PC</p>
-	<!-- <header class="container-fluid">
-
-		<div class="row" id="header-wrap">
-			<div  id="logo" >
-				<div id="sm-logo"></div>
-				<img id="md-logo" src="../assets/img/base/logo.png" alt="信管基地">
-				<button class="btns" id="list-btn"><i class="fa fa-bars"></i></button>
-				<button class="btns" id="share-to-weibo" alt="分享到微博"><i class="fa fa-weibo"></i></button>
-				 <button class="btns" id="share-to-twitter"></button>	 
-			</div>
-
-			<div class="col-lg-9 col-md-8 col-sm-12 col-xs-12" id="header-btns-wrap">
-				<ul id="header-btns-list">
-					<li>照片墙</li>
-					<li>加入我们</li>
-					<li>留言区</li>
-					<li>时间线</li>
-					<li>关于我们</li>
-				</ul>
-			</div>
+	<p>暂时只支持PC</p> -->
+	<header id="header">
+		<div id="header-wrap">
+			<ul id="guide-list">
+				<li class="li-active">
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">成员墙</a>
+				</li>
+				<li>
+					<a href="http://xgcyjd2014.github.io/pages/enroll-page.html" target="_blank">加入我们</a>
+				</li>
+			</ul>
 		</div>
-	
-	</header> -->
-
+	</header>
+	<nav id="header-bg">
+		<div id="logo-stage">
+			<canvas id="logo-c"></canvas>
+		</div>
+		<div id="low-poly-container">
+			<div id="output"></div>
+		</div> 
+	</nav>
 	<!-- 嵌入内容 -->
 	<article id="content">
 		{{ content }}

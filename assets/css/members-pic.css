@@ -4,6 +4,14 @@
 										      Github:http://github.com/numerhero
 
 										\*--------------------------------------------*/
+/* 标题 */
+.section-title {
+	font: 100 0.6rem/0.7rem "微软雅黑";
+	color: #1C86D1;
+	text-align: center;
+	padding: 0.5rem;
+}
+
 .books {
 	position: relative;
 	width: 100%;
@@ -18,9 +26,12 @@
 }
 
 #pic-show-stage {
+	position: relative;
 	width: 12rem;
 	height: auto;
 	margin: 0 auto;
+
+	overflow: hidden;
 }
 
 #show-pic {
@@ -28,6 +39,7 @@
 	float: right;
 	width: 7.2rem;
 	height: 6.3rem;
+
 }
 
 #show-pic>li {
@@ -44,6 +56,7 @@
 	height: 0.1rem;
 	opacity: 0;
 }
+
 /* 图片列表 */
 #list-stage {
 	width: 100%;	
@@ -108,15 +121,15 @@
 }
 
 .st1 {
-	background-image: linear-gradient(left, #9AFE17, #1168A7 25%, #9AFE17 50%, #1168A7 75%, #9AFE17);
-	background-image: -webkit-linear-gradient(left, #9AFE17, #1168A7 25%, #9AFE17 50%, #1168A7 75%, #9AFE17);
+	background-image: linear-gradient(left, #D0D0D0, #535856 25%, #D0D0D0 50%, #535856 75%, #D0D0D0);
+	background-image: -webkit-linear-gradient(left, #D0D0D0, #535856 25%, #D0D0D0 50%, #535856 75%, #D0D0D0);
 	animation: masked 4s infinite linear;
     -webkit-animation: masked 4s infinite linear;
 }
 
 .st2 {
-	background-image: linear-gradient(left, #9362de, #5986e2 25%, #9362de 50%, #5986e2 75%, #9362de);
-	background-image: -webkit-linear-gradient(left, #9362de, #5986e2 25%, #9362de 50%, #5986e2 75%, #9362de);
+	background-image: linear-gradient(left, #9BF0F2, #263E70 25%, #9BF0F2 50%, #263E70 75%, #9BF0F2);
+	background-image: -webkit-linear-gradient(left, #9BF0F2, #263E70 25%, #9BF0F2 50%, #263E70 75%, #9BF0F2);
 	animation: masked 4s infinite linear;
     -webkit-animation: masked 4s infinite linear;
 }
@@ -136,22 +149,76 @@
 	padding-left: 1.1rem; 
 }
 
-.con-container .ability {
+.ability {
 	width: 100%;
 	height: 3rem;	
+}
+
+.con-box {
+	position: relative;
+	padding: 0.25rem 0.3rem;
+	border-left: 1px solid #c8d2df;
+}
+
+.timeline {
+	position: absolute;
+	top: 0.05rem;
+	left: -1.05rem;
+	width: 1.25rem;
+	height: 0.18rem;
+
+	font: 400 0.16rem/0.18rem "Consolas","微软雅黑";
+
+}
+
+.timeline span {
+	display: inline-block;
+	width: 0.15rem;
+	height: 0.15rem;
+
+	background: #fff;
+	border: 1px solid #206DFB;
+	border-radius: 50%;
+
+	transition: 0.35s;
+	-webkit-transition: 0.35s;
+}
+
+.ability-title {
+	font: 500 0.25rem/0.25rem "Consolas","微软雅黑";
+	text-align: center;
+	background: url(/assets/img/members-pic/con-bg.png) repeat;
+	
+	margin-bottom: 0.2rem;
+	
+	padding: 0.1rem 0;
+	overflow: hidden;
+}
+
+.ability-con {
+	font: 300 0.14rem/0.25rem "Consolas","微软雅黑";
+	text-align: center;
+	border-radius: 0.05rem;
+
+	border: 1px solid #66A36F;
+	padding: 0.1rem;
+
+	color: #ccc;
+	transition: 0.35s;
+	-webkit-transition: 0.35s;
+}
+
+.con-box:hover .timeline span{
+	border: 1px solid #66D9EF;
+}
+.con-box:hover .ability-title {
+	color: #66D9EF;
 }
 
 /* 加入我们 */
 .join-us {
 	width: 12rem;
 	margin: 0 auto;
-}
-
-.join-us h1 {
-	font: 100 0.6rem/0.7rem "微软雅黑";
-	color: #1C86D1;
-	text-align: center;
-	padding: 0.5rem;
 }
 
 .join-us p {
@@ -166,9 +233,11 @@
 	padding: 0.2rem 0;
 }
 .let-join a {
+	display: block;
 	width: 100%;
 	height: 100%;
-	color: #f5f5f5;
+	color: rgba(255,255,255,.6);
+	font: 200 0.3rem/0.74rem "Montserrat";
 }
 
 .join-btn {
@@ -178,9 +247,6 @@
 
 	overflow: hidden;
 	background: url(/assets/img/members-pic/low-ploy-btn-bg.png);
-	font: 200 0.3rem/0.35rem "Montserrat";
-	
-	cursor: pointer;
 	
 	border-radius: 0.05rem;
 	margin: 0 auto;
@@ -189,5 +255,5 @@
 }
 
 .join-btn:hover a{
-	color: #2932E1;
+	color: #fff;
 }

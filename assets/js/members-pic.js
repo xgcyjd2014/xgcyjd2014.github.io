@@ -9,7 +9,89 @@ var oMembersInfo = [
 	{
 		"name" : "AllenYang", 
 		"duties" : "2014基地总负责人",
-		"introduction" : "介绍"
+		"introduction" : "介绍",
+		"joinJdTime" : "2014-3-5"
+
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
+	},{
+		"name" : "Owen",
+		"duties" : "前端组成员",
+		"introduction" : "喜欢研究新技术"
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
@@ -65,7 +147,7 @@ $.fn.loadPicInit = function () {
 					$selfB.attr("data-load" , "true");
 					$selfB.css("background","url(/assets/img/members-pic/members-pics/"+ obj[shoX]["name"] +"/"+ obj[shoX]["name"] +".png)");
 					$selfB.css("backgroundPosition","0% -"+ idx*0.1 + "rem");
-					$selfB.css("transition" , "0.35s "+ idx*0.045 +"s ease-out");	
+					$selfB.css("transition" , "0.1s "+ idx*0.03 +"s ease-out");	
 				}
 				setTimeout(function() {	
 					$selfB.css("opacity" , "1");
@@ -77,6 +159,7 @@ $.fn.loadPicInit = function () {
 			if(thisIdx === iNow) {
 				return;
 			};
+			this.toPicPos();
 			var hidX = iNow;
 			iNow = thisIdx;
 			var oB = $("#show-pic li:eq("+ hidX +") div b");
@@ -85,6 +168,12 @@ $.fn.loadPicInit = function () {
 				$selfB.css("opacity" , "0");
 			});
 			this.show( obj , thisIdx );
+
+		},
+		toPicPos: function () {
+			var speed = 200;
+			var pos = $("#pic-show-stage").offset().top;
+			$("body,html").animate({ scrollTop : pos },speed);
 		},
 		scrollTopEffect: function ( obj , shoX ) {
 			var mySelf = this;
@@ -92,7 +181,6 @@ $.fn.loadPicInit = function () {
 				var oTop = $window.scrollTop();
 				if( oTop > $self.offset().top - $self.outerHeight() * 0.2 ) {
 					$window.off("scroll.PicsShow");
-					console.log(mySelf);
 					mySelf.show( obj , 0 );
 				}
 			});
