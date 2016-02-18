@@ -114,6 +114,7 @@
 .post-list-li:hover .other-title {
 	color: #6A0A40;
 }
+
 .css-title {
 	color: #6EA474;
 }
@@ -132,7 +133,6 @@
 .js-title {
 	color: #E6A968;
 }
-
 .post-list-li:hover .js-title {
 	color: #9D550F;
 }
@@ -234,14 +234,15 @@
 	width: 100%;
 	height: 0.3rem;
 	text-align: center;
+	color: #1C86D1;
 }
 
 .page-sidebar-title {
-	font: 600 0.2rem/0.25rem "微软雅黑";
+	font: 100 0.2rem/0.25rem "微软雅黑";
 }
 
 .page-sidebar-title-en {
-	font: 600 0.2rem/0.25rem "Fredericka-the-Great";
+	font: 100 0.2rem/0.25rem "Fredericka-the-Great";
 }
 
 .classify-lis {

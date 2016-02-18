@@ -4,14 +4,6 @@
 										      Github:http://github.com/numerhero
 
 										\*--------------------------------------------*/
-/* 标题 */
-.section-title {
-	font: 100 0.6rem/0.7rem "微软雅黑";
-	color: #1C86D1;
-	text-align: center;
-	padding: 0.5rem;
-}
-
 .books {
 	position: relative;
 	width: 100%;
@@ -60,8 +52,6 @@
 /* 图片列表 */
 #list-stage {
 	width: 100%;	
-	background: #2E2E2E;
-	box-shadow: 0 0 0.45rem rgba(0,0,0,.6);
 }
 
 #members-pics-list {
@@ -69,6 +59,8 @@
 	
 	width: 12rem;
 
+	box-shadow: 0 0 0.45rem rgba(0,0,0,.6);
+	background: #2E2E2E;
 	margin: 0 auto 0.6rem;
 	padding: 0.5rem 1.57rem 0.3rem;
 }

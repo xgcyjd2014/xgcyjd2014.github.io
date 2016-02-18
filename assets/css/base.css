@@ -11,7 +11,7 @@ ul { list-style: none; padding: 0; margin: 0;}
 button { outline: none; border: none;}
 p { margin: 0;}
 a { text-decoration: none !important; color: #497490;outline: none;}
-h1,h2,h3,h4,h5,h6{margin: 0 !important;}
+h1,h2,h3,h4,h5,h6{margin: 0 !important; font-weight: 100;}
 a{ transition: .8s; -webkit-transition: .8s;}
 html {font-size: 100px !important;}
 * { box-sizing: border-box;}
@@ -19,6 +19,10 @@ html {font-size: 100px !important;}
 	padding-left: 0 !important;
 }
 
+*::selection {
+	background: transparent;
+	color: #1C86D1;
+}
 
 /* Montserrat */
 @font-face {
@@ -169,16 +173,25 @@ html {font-size: 100px !important;}
 	padding: 0 5rem;
 }
 
-/* 标题背景 */
+/* 大标题 */
 .page-title {
 	width: 5.2rem;
 	height: 1.59rem;
 	margin: 0 auto;
+	padding: 0.3rem 0;
 	background: url(../img/base/page-title-bg.png) no-repeat -0.1rem 0;
-	font: 500 0.3rem/0.8rem "Yuppy","微软雅黑";
+	font: 100 0.3rem/0.5rem "Yuppy","微软雅黑";
+	color: rgb(28, 134, 209);
 	text-align: center;
 }
 
+/* 小标题 */
+.section-title {
+	font: 100 0.6rem/0.7rem "微软雅黑";
+	color: #1C86D1;
+	text-align: center;
+	padding: 0.5rem;
+}
 /* 视差滚动公用css */
 .full-background {
 	position: absolute;
@@ -227,7 +240,7 @@ html {font-size: 100px !important;}
 }
 
 #header {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	
@@ -240,7 +253,7 @@ html {font-size: 100px !important;}
 	-webkit-transition: .8s ease;
 }
 .header-transparent {
-	position: fixed !important;
+	
 	height: 0.5rem !important;
 	background: #1C86D1 !important;
 }
@@ -250,7 +263,6 @@ html {font-size: 100px !important;}
 
 	margin: 0 auto;
 }
-
 
 #guide-list {
 	float: right;

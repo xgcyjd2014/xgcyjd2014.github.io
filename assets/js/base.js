@@ -119,7 +119,7 @@ $(function() {
 	oStage.addChild(logoShape);
 
 	logoShape.x = CanvasWidth * 0.13;
-	logoShape.y = CanvasHeight * 0.28;
+	logoShape.y = CanvasHeight * 0.3;
 
 	for( var i = 0; i<mp.length; i++ ) {
 		mp[i] = dSacle(mp[i] , 0.24);
@@ -141,7 +141,7 @@ $(function() {
 	text.color        = "rgba(255,255,255,0.8)";
 	text.shadow       = "#000000,5,5,10";
 	text.x            = CanvasWidth * 0.62;
-	text.y            = CanvasHeight * 0.54;
+	text.y            = CanvasHeight * 0.56;
 	text.textAlign    = "center";
 	oStage.addChild(text);
 	oStage.update();
@@ -181,6 +181,7 @@ $.fn.headerScroll = function() {
 			}
 		},
 		init: function() {
+			this.update();
 			$window.on("scroll.headerScroll" , this.update)
 		}
 	}.init());
