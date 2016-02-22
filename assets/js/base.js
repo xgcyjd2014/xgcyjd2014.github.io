@@ -118,33 +118,43 @@ $(function() {
 	var Lg        = logoShape.graphics;
 	oStage.addChild(logoShape);
 
-	logoShape.x = CanvasWidth * 0.13;
-	logoShape.y = CanvasHeight * 0.3;
+	logoShape.x = CanvasWidth * 0.32;
+	logoShape.y = CanvasHeight * 0.22;
 
 	for( var i = 0; i<mp.length; i++ ) {
-		mp[i] = dSacle(mp[i] , 0.24);
+		mp[i] = dSacle(mp[i] , 0.5);
 	}
 	
-	for( var i = 0 ; i<mp.length ; i++  ) {
+	for( var i = 0 ; i<mp.length ; i++ ) {
 		if( i == 0 ) {
-			Lg.setStrokeStyle(3).beginStroke("rgba(255,255,255,0.8)").mt(mp[0].x , mp[0].y);
+			Lg.setStrokeStyle(8).beginStroke("#66D9B1").mt(mp[0].x , mp[0].y);
 		} else {
 			Lg.lt(mp[i].x , mp[i].y);
 		}
 	}
 
-	var text          = new c.Text();
-	text.text      = "IM WEB";
+	logoShape.alpha = 0;
+	var text = new c.Text();
+	text.text      	  = "IM WEB";
 	text.font         = "bold 180px Arial";
 	text.textBaseline = "alphabetic";
 	text.outline      = 3;
-	text.color        = "rgba(255,255,255,0.8)";
+	text.color        = "#66D9B1";
 	text.shadow       = "#000000,5,5,10";
-	text.x            = CanvasWidth * 0.62;
-	text.y            = CanvasHeight * 0.56;
+	text.x            = CanvasWidth * 0.58;
+	text.y            = CanvasHeight * 0.54;
 	text.textAlign    = "center";
+	text.alpha        = 0;
+	
 	oStage.addChild(text);
-	oStage.update();
+
+
+	TweenLite.to(logoShape , 1.5 , { alpha:1,x:CanvasWidth * 0.12 , y:CanvasWidth * 0.17 , scaleX: 0.5 , scaleY:0.5 , ease:Quad.easeInOut , onComplete:function(){
+		TweenLite.to(text , 0.8 , { y: CanvasHeight * 0.56 , alpha:1 , ease:Quad.easeInOut,onComplete:function(){
+			c.Ticker.removeEventListener("tick" , Update);
+		}});
+
+	}});
 
 	function dSacle(o , scale) {
 		var newPoint = o.clone();
@@ -152,7 +162,13 @@ $(function() {
 			newPoint.y *= scale;
 
 			return newPoint;
-	}	
+	}
+
+	c.Ticker.setFPS(60);
+    c.Ticker.addEventListener("tick" , Update);
+    function Update() {
+    	oStage.update();
+    }	
 });
 
 /* header滚动 */

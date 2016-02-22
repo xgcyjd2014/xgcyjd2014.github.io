@@ -13,17 +13,15 @@ window.onload = function() {
 	oStage.canvas.width = CanvasWidth;
 	oStage.canvas.height = CanvasHeight;
 
-    function animate() {
+    c.Ticker.setFPS(60);
+    c.Ticker.addEventListener("tick" , function() {
         oStage.update();
-        requestAnimationFrame(animate);
-    }
-
+    });
 
     var path = createText();
 
     initball( path );
 
-    animate();
     function initball( path ) {
         for(var i=0; i<path.length; i++) {
             var circle = new createjs.Shape();
@@ -34,7 +32,14 @@ window.onload = function() {
             circle.id    = i;
             circle.alpha = 1;
             circle.radius = r;
-            circle.graphics.beginFill(color).drawCircle(0, 0, r);
+            switch(M.floor(ran()*2)) {
+                case 0:
+                    circle.graphics.beginFill(color).drawCircle(0, 0, r);
+                    break;
+                case 1:
+                    circle.graphics.beginStroke(color).drawCircle(0, 0, r);   
+                    break;
+            }
             // 注意这里不能设置xy  否则Tween 会自动赋值！！！
             circle.x = x;
             circle.y = y;
@@ -78,13 +83,13 @@ window.onload = function() {
                     }});
                 break;
             case "out": 
-                c.tween = TweenLite.to(c, 0.8, {x: window.innerWidth*Math.random(), y: window.innerHeight*Math.random(), ease:Quad.easeInOut, alpha: 0.2 + Math.random()*0.5, scaleX: 1, scaleY: 1, onComplete: function() {
+                c.tween = TweenLite.to(c, 0.8, {x: CanvasWidth*ran(), y: CanvasHeight*ran(), ease:Quad.easeInOut, alpha: 0.2 + Math.random()*0.5, scaleX: 1, scaleY: 1, onComplete: function() {
                     c.movement = 'float';
                     tweenCircle(c);
                 }});
                 break;
             case "in":
-                c.tween = TweenLite.to(c, 0.4, {x: c.originX, y: c.originY, ease:Quad.easeInOut,scaleX: 0.6, scaleY: 0.6, alpha: 1, radius: 5 , onComplete: function() {
+                c.tween = TweenLite.to(c, 0.8, {x: c.originX, y: c.originY, ease:Quad.easeInOut,scaleX: 0.8, scaleY: 0.8, alpha: 1, radius: 5 , onComplete: function() {
                     c.movement = 'jiggle';
                     tweenCircle(c);
                 }});

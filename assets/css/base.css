@@ -369,11 +369,43 @@ html {font-size: 100px !important;}
 	opacity: .15;
 }
 
+.footer-logo-list {
+	width: 3rem;
+	height: 0.4rem;
+	margin: 0 auto 0.1rem;
+}
+
+.footer-logo-list span {
+	display: block;
+	float: left;
+	width: 0.4rem;
+	height: 0.4rem;
+	margin: 0 0.1rem;
+	font-size: 0.3rem;
+	border-radius: 0.05rem;
+}
+
+.footer-logo-list span i {
+	color: #ccc;
+}
+
+.footer-logo-list span:nth-of-type(1) i {
+	line-height: 0.4rem;
+}
+
+.footer-logo-list span:nth-of-type(2) i {
+	line-height: 0.32rem;
+}
+
+.footer-logo-list span:nth-of-type(3) i {
+	line-height: 0.36rem;
+}
+
 .copyright {
 	padding: 0.3rem 0;
 	background-color: rgba(0,0,0,.95);
 	text-align: center;
-	font: 500 0.12rem/0.20rem "Montserrat","微软雅黑";
+	font: 500 0.11rem/0.20rem "Montserrat","微软雅黑";
 	color: #4b4b4c;
 }
 
