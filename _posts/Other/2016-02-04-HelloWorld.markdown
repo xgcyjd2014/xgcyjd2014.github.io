@@ -1,7 +1,6 @@
-
 ---
 layout: post
-title: HelloWorld  
+title: HelloWorld 
 author: Owen
 tagpic: helloworld.jpg
 description: 用心铸造卓越Offer
