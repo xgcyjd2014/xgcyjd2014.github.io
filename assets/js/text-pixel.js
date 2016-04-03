@@ -1,5 +1,4 @@
 window.onload = function() {
-	var c = createjs;
 	var M = Math;
 	var ran = Math.random;
 	var oStage = new c.Stage("content-us");

@@ -37,6 +37,9 @@ M       = Math;
 Cos     = M.cos;
 Sin     = M.Sin;
 random  = M.random;
+dPI = M.PI * 2;
+pr = window.devicePixelRatio || 1;
+c = createjs;
 
 /* 滚动视差 */ 
 $(function() {

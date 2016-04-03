@@ -4,106 +4,218 @@
 										      Github:http://github.com/numerhero
 
 										\*--------------------------------------------*/
+
+
 /* 对应文件夹名 22 */ 
 var oMembersInfo = [
 	{
 		"name" : "AllenYang", 
 		"duties" : "2014基地总负责人",
 		"introduction" : "介绍",
-		"joinJdTime" : "2014-3-5"
-
+		"joinJdTime" : "2014-3-5",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Snow",
 		"duties" : "前端组成员",
-		"introduction" : "个人爱好：听音乐，读书，看电影，运动"
+		"introduction" : "个人爱好：听音乐，读书，看电影，运动",
+				"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Snow/Snow.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "喜欢研究新技术",
+		"Pic" : (function() {
+			var img = new Image();
+			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			return img;
+		}())
 	}];
+
 
 iNow      = 0;
 /* 图片选择列表加载 */
 $(function () {
 	var oMembersPicsList = $("#members-pics-list");
 	var oShowPic  = $("#show-pic");
-	var oBHeight = 10;
+	var oBHeight = 30;
 	
 	// 加载小头像列表
 	oMembersPicsList.loadTallPics( oMembersInfo );
@@ -123,6 +235,88 @@ $(function () {
 
 });
 
+/* show our youth */ 
+$(function () {
+	var listStage  = $("#list-stage");
+	var oStage = new c.Stage("show-our-youth");
+
+		init();
+		function init() {
+			var CanvasWidth = listStage.width();
+			var CanvasHeight = listStage.height();
+			
+			var num = 3;
+			var f = 90;
+			var r = -90;
+
+			oStage.canvas.width = CanvasWidth;
+			oStage.canvas.height = CanvasHeight;
+			oStage.alpha = 0.7;
+
+			var Shape = new c.Shape();
+
+			function render() {
+				var randomY = (random()*0.5 + 0.2).toFixed(1);
+				var Point = [
+					{ x : 0 , y : CanvasHeight * randomY + f}, 
+					{ x : 0 , y : CanvasHeight * randomY - f}
+				];
+				while( Point[1].x < CanvasWidth + f ) {
+					draw( Point );
+				}
+				oStage.addChild(Shape);
+				oStage.update();
+			}
+
+			function judge(parameter) {
+				var t = parameter + (random()*2 - 1.1) * f;
+				return (t > CanvasHeight || t<0 ) ? judge(parameter) : t;
+			}
+
+
+			function draw( Point ) {
+				var randomColor = "#" + (Cos(r) * 127 + 128 << 16 | Cos(r + dPI/3) * 127 + 128 <<8 | Cos(r + dPI/3 * 2) * 127 + 128).toString(16);
+				Shape.graphics.setStrokeStyle(1).beginFill(randomColor).mt(Point[0].x , Point[0].y)
+				.lt(Point[1].x , Point[1].y);
+
+				var p = {};				
+				p.x = Point[1].x + (random()*2 - 0.25) * f;
+				p.y = judge(Point[1].y);
+				Shape.graphics.lt(p.x , p.y);
+				Shape.graphics.closePath();
+
+				r -= dPI/-50;
+
+				Point[0] = Point[1];
+				Point[1] = p;
+			}
+
+			for( var i = 0 ; i<num ;i++ ) {
+				render();
+			}
+
+			listStage.on("click" , ".members-pics-mask" , function (ev) {
+				Shape.graphics.clear();
+				oStage.update();
+				for( var i = 0 ; i<num ;i++ ) {
+					render();
+				}	
+			});
+			$(window).on("resize" , function () {
+				CanvasWidth = listStage.width();
+				CanvasHeight = listStage.height();
+				oStage.canvas.width = CanvasWidth;
+				oStage.canvas.height = CanvasHeight;
+				Shape.graphics.clear();
+				oStage.update();
+				for( var i = 0 ; i<num ;i++ ) {
+					render();
+				}
+			});
+		}		
+})
+
+
 $.fn.loadPicInit = function () {
 	var $self = $(this);
 
@@ -136,7 +330,7 @@ $.fn.loadPicInit = function () {
 					var aB = $('<b data-load="false"></b>').appendTo(aDiv);
 				}
 			});
-			this.scrollTopEffect( obj , 0 );
+			this.show( obj , iNow );
 		},	
 		show: function ( obj , shoX ) {
 			var oB = $("#show-pic li:eq("+ shoX +") div b");
@@ -145,8 +339,9 @@ $.fn.loadPicInit = function () {
 				var boff   = $selfB.attr("data-load");
 				if(!!boff) {
 					$selfB.attr("data-load" , "true");
-					$selfB.css("background","url(/assets/img/members-pic/members-pics/"+ obj[shoX]["name"] +"/"+ obj[shoX]["name"] +".png)");
-					$selfB.css("backgroundPosition","0% -"+ idx*0.1 + "rem");
+					
+					$selfB.css("background", "url("+obj[shoX]["Pic"].src+")");
+					$selfB.css("backgroundPosition","0% -"+ idx*0.3 + "rem");
 					$selfB.css("transition" , "0.1s "+ idx*0.03 +"s ease-out");	
 				}
 				setTimeout(function() {	
@@ -175,16 +370,6 @@ $.fn.loadPicInit = function () {
 			var pos = $("#pic-show-stage").offset().top;
 			$("body,html").animate({ scrollTop : pos },speed);
 		},
-		scrollTopEffect: function ( obj , shoX ) {
-			var mySelf = this;
-			$window.on("scroll.PicsShow" , function() {
-				var oTop = $window.scrollTop();
-				if( oTop > $self.offset().top - $self.outerHeight() * 0.2 ) {
-					$window.off("scroll.PicsShow");
-					mySelf.show( obj , 0 );
-				}
-			});
-		}
 	});
 }
 
@@ -199,7 +384,7 @@ $.fn.loadTallPics = function ( obj ) {
 				aLi.css("backgroundSize" , "cover");
 				aLi.css("opacity" , "0");
 				if( idx == 10) {
-					$('<p id="special" class="clear-select"><span class="st1 text-stress">基地成员</span> <span class="st2 text-stress">Members</span></p>').appendTo($self);
+					$('<p id="special" class="clear-select"><span class="str text-stress">基地成员</span> <span class="str text-stress">Members</span></p>').appendTo($self);
 				}
 			});
 			this.show();
@@ -211,7 +396,7 @@ $.fn.loadTallPics = function ( obj ) {
 				$window.off("scroll.TallPicsShow" , this.show);
 				$("#members-pics-list li").each(function (idx , value) {
 					var ValueSelf = $(value);
-					ValueSelf.css("transition" , "1s "+ idx*0.1 +"s linear");
+					ValueSelf.css("transition" , "1s "+ idx*0.05 +"s linear");
 					ValueSelf.css("opacity" , "1");
 					
 					if( idx == 10 ) {
