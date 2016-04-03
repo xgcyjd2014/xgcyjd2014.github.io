@@ -17,9 +17,9 @@ var oMembersInfo = [
 		"duties" : "前端组成员",
 		"introduction" : "喜欢研究新技术"
 	},{
-		"name" : "Owen",
+		"name" : "Snow",
 		"duties" : "前端组成员",
-		"introduction" : "喜欢研究新技术"
+		"introduction" : "个人爱好：听音乐，读书，看电影，运动"
 	},{
 		"name" : "Owen",
 		"duties" : "前端组成员",

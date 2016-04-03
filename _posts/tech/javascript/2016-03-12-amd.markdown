@@ -1,0 +1,548 @@
+---
+layout: post
+title: requireJs使用心得 
+author: Owen
+tagpic: requireJs.png
+description: 关于requreJS的基本使用方法和插件管理
+category: js
+keywords: 技术,amd,requirejs
+---
+
+## 为什么要用requireJS？
+
+### 模块化
+
+写过java 或者 C的同学都知道这么几条语句
+
+{% highlight Java %}
+import java.util.XXX
+{% endhighlight %}
+
+或者是C的
+
+{% highlight C %}
+#include <stdio.h>
+{% endhighlight %}
+
+当然新出的ecmascript6 也有相应的模块机制
+{% highlight Javascript %}
+import xxx from './xx.js'
+{% endhighlight %}
+
+很简单，将一些模块（轮子、库、框架、组件、balabala）导入当前编写的文件中，方便我们更好的开发
+
+### 问题1：依赖关系混乱
+
+在现在比较通用的es5中，是没有模块化机制的，所以如果要使用js的话
+以前我们应该都是这么干
+{% highlight html %}
+<script src="xxx.js"></script>
+{% endhighlight %}
+
+如果，我有一个c.js想要用到的一个b库的话，就需要在引用c前先引入b
+{% highlight html %}
+<script src="b.js"></script>
+<script src="c.js"></script>
+{% endhighlight %}
+
+如果很多页面都需要b库呢？
+
+传统方式，只能是每个页面都引用一次b.js了，对吧
+
+如果现在b.js，再次改进，b.js也需要另一个类库a.js
+
+那么没办法，只能在每个页面又再次引用一遍a.js了，对吧
+
+![img](http://numerhero.github.io/assets/img/require-problem.png)
+
+当然，还没完，如果突然，说产品要改进了，不需要旧的b库了，要新的d库了,
+
+没办法了，又只能把所有的页面删了b，然后换d，估计你现在已经差不多要抓狂了
+
+还没完，突然如果d库又改进了，再次需要引入a库，你又要回到每一个页面去加a库...
+
+### 问题2：命名冲突
+
+如果你和同事被分别派去写 a.js 和 b.js ，同时声明了一个函数
+`find()`,当然同时功能还不相同，那么当写好后合一起的时候，就会发现
+
+命名冲突了，b.js 中的find把a.js中的find 函数覆盖了 。。gg 又要重新回去改函数名，并且把所有引用过的函数全部都改一遍
+
+当然，上面的问题也许，对你来说可能无所谓，无非就是改改删删名字的事儿
+但是，如果是一个团队一起开发复杂的application,那就比较麻烦了，分工合作之间就有可能隐藏大漏洞
+
+所以，我们就需要一种规范，来保证协同分工合作之间，配合默契
+
+### AMD规范
+
+James Burke 这个人，就首先提出了这种规范，就是AMD规范（Asynchronous Module Definition）
+
+大家不要被什么规范啊，英文吓到了，因为AMD规范只有一句话...
+
+{% highlight Javascript %}
+define([module-name?], [array-of-dependencies?], [module-factory-or-object]);
+{% endhighlight %}
+
+什么意思呢？
+
+module-name 就是规定这个文件的模块名,如果没填，默认是文件路径<br>
+
+array-of-dependencies 就是规定这个文件，所依赖的文件，例如b需要a库的支持，我们就说b依赖a(dependencies 英:依赖)<br>
+
+module-factory-or-object 模块工程或对象，很简单，就是这个模块要实现的功能，
+如果不实现功能，而是有返回值的，那么就以对象的形式传出 <br>
+
+根据这个约定的规范，还是James Burke 就开始主导开发了requireJs 来实现这个规范 
+
+## Use
+
+require的目的就是要解决js的引用和依赖关系冲突的问题，所以我们要从引用路径这方面开始下手
+
+### 根目录
+
+什么是根目录呢？就是require所定位一个位置，而其他的Js文件就依照这个根位置填写相对路径
+
+例如如下目录结构
+{% highlight Javascript %}
+test.html             
+js                    
+ |_                   
+ |	main.js           
+ |_                   
+ |	a.js              
+ |_                   
+ |	tool              
+ |	   |_             
+ |	   	  require.js  
+ |_                   
+    common            
+         |_           
+         |  jquery.js 
+         |_           
+         |  jquery.pjax.js 
+		 |_                
+		    util.js       
+{% endhighlight %}
+main.js就是这个项目的主函数，类比C函数的主函数
+
+有3中方式设置根路径
+
+①. 首先如果我们没有设置`data-main`那么默认的根路径就是在test.html所在的目录下
+
+②. 如果设置了`data-main=js/main`那么默认根目录路径就是main.js所在的路径
+也就是js文件夹下
+
+{% highlight Html %}
+<script data-main="js/main" src="js/require.js"></script>
+{% endhighlight %}
+
+③. 如果我们硬性的设定根目录的位置也是可以的
+在main模块__开头__我们这样设置
+{% highlight Javascript %}
+require.config({
+	baseUrl : "xxx/xxx/xx"
+});
+{% endhighlight %}
+
+__caveat :__ require.config 是requireJS给我们设置的一个配置接口通过传入一个对象来对一些参数配置，关于一些其他的参数配置，我们留在下文介绍
+
+### 如何使用加载的模块
+
+熟悉了根目录后，我们就来做点东西吧
+
+还是上文的文件目录
+
+假设我们在a.js下完成了一些计算，并要将计算的值返回到main主函数
+
+怎么做呢？
+
+我们使用 require下给我们提供的define函数
+
+在define中，我们可以定义一个符合AMD规范的模块，并且用return可以吧结果输出来
+
+{% highlight Javascript %}
+define(function () {
+	/* 计算后结果假设等于1 */
+	var calcresult = 1;
+
+	return {
+		r : calcresult
+	}
+});
+{% endhighlight %}
+
+然后我们在main函数中，将a.js导入，首先先根据根节点来获取a
+
+__caveat: __ 每个模块中define函数有且只能有一个~！
+
+路径的话，全部默认的是.js文件，所以我们不用自己加后缀，也不能加后缀
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"a" : ["a"], // 不能加.js后缀
+	}, 
+});
+
+require( ["a"] , function (a) {
+	console.log(a.r);
+});
+{% endhighlight %}
+
+## 第三方组件模块化
+
+之前我们是模拟了a.js，然后手动的进行了模块化，但是如果一些已经写好的组件，比如(jquery,underscore)这样的第三方组件，我们应该如何以AMD的规范将他们模块化呢？
+
+require 给我们提供了一个shim函数,可以将未进行模块化的组件模块化
+
+例如一个本人自己写的小框架[util.js](https://github.com/NumerHero/tool.js)（厚脸皮求star(*^__^*) ）
+
+在主函数main中我们这样写
+(shim: 垫子 ，加个垫子，能让这个component够得着的意思么？)
+
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"util"  : ["common/util"]
+	}, 
+	shim : {
+		"util" : {
+            exports : "u"
+        }
+	}
+});
+
+require( ["a" , "jquery" , "util"] , function ( u ) {
+	 o = new u();
+	 console.log(o.getToday()); // 2016-03-12
+});
+{% endhighlight %}
+
+这样我们就完成了将util.js的模块化并使用
+
+而jquery在函数内部已经为我们实现了AMD规范了,所以我们可以直接正常使用
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"util"  : ["common/util"],
+		"jquery" : ["common/common/jquery"]
+	}, 
+	shim : {
+		"util" : {
+            exports : "u"
+        }
+	}
+});
+
+require( ["jquery" , "util"] , function ($ , u ) {
+	 o = new u();
+	 console.log(o.getToday()); // 2016-03-12
+
+	 console.log($); // jquery init
+});
+{% endhighlight %}
+
+
+但是基于jQuery的很多第三方插件并没有AMD规范化的，他们又和jquery有依赖关系，怎么办呢？
+
+还是shim来解决
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"util"  : ["common/util"],
+		"jquery" : ["common/jquery"],
+		"jqueryPjax" : ["common/jquery.pjax"]
+	}, 
+	shim : {
+		"util" : {
+            exports : "u"
+        },
+        "pjax" : {
+			deps : ["jquery"]
+    	}
+	}
+});
+
+require( ["jquery" , "util" , "jqueryPjax"] , function ( $ , u ) {
+	 o = new u();
+	 console.log(o.getToday()); // 2016-03-12
+	 console.log($); // jquery init
+	 console.log($.pjax)
+});
+{% endhighlight %}
+
+也可以简写为： 
+{% highlight Javascript %}
+"pjax" : ["jquery"]
+{% endhighlight %}
+
+这样，最基本的requireJs 功能我们就懂了，快去和小伙伴们试试吧
+
+## Define
+
+上面我们，已经简单的使用过了define函数，现在我们详细的来介绍下它
+
+define 函数可以将一个js文件内的js代码模块化
+
+当然js代码不一定是标准的，也可以是单纯的json
+{% highlight Javascript %}
+define({
+	"Owen" : {
+		"age"  : "20",
+		"gender" : "boy"
+	},
+	"Zyz" : {
+		"age"  : "21",
+		"gender" : "girl"	
+	}
+})
+{% endhighlight %}
+
+再来我们来看看如何引入依赖
+
+例如，在主函数中已经使用了require.config(只要是使用主函数加载的js都能使用) 配置好了util.js了路径，之后我们就可以直接在其他模块中填写好依赖，并使用了
+
+我们来看个栗子
+
+main.js:
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"util" : ["common/util"],
+		"data" : ["common/data"]
+	}
+})
+
+require(["data"] , function (D) {
+	console.log(D.r); // 2016-03-13
+});
+
+{% endhighlight %}
+
+data.js中调用主函数中已经确定好了依赖，获取今天的日期，并返回
+{% highlight Javascript %}
+define(["util"] , function (u) {
+	var $ = new u();
+	return {
+		r : $.getToday()
+	}
+});
+{% endhighlight %}
+
+
+caveat: 一个js文件里面只能有一个define函数,不然会提示`Mismatched anonymous define() module:`
+
+
+## Plugins
+
+RequireJS 还为我们提供了很多[插件](https://github.com/millermedeiros/requirejs-plugins),便于我们去开发
+
+### domReady
+
+类似Jq 的`$(document).ready()` 当在dom加载完毕后执行里面的函数
+
+[下载该插件](http://requirejs.org/docs/download.html#domReady)
+
+我们可以在body前面插入一个`alert`来测试domReady
+
+{% highlight Html %}
+<script>alert("owen love zyz!")</script>		
+{% endhighlight %}
+
+当alert执行时，dom还未加载，执行后，完成加载，并在console.log中打印出内容
+
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"domReady" : ["tool/domready"]
+	}
+});
+
+require(["domReady"] , function (domReady) {
+	
+	domReady(function () {
+		/* dom加载完后执行的操作 */
+		console.info("I will run after dom is ready!");
+	});
+
+});
+{% endhighlight %}
+
+这里还有一个作者留的小技巧
+
+如果不设置paths参数，并且吧domready.js保存在根目录下，那么就能像这样直接使用
+{% highlight Javascript %}
+require(["domReady!"] , function (Doc) {
+	console.log(Doc);
+	console.log("I will run after dom is ready!");
+
+});
+{% endhighlight %}
+
+注意这是带个感叹号的，返回值是`document`
+
+如果你希望把domreadyjs保存在其他目录下， 例如`tool/domready`
+你也可以使用这个感叹号的方法
+
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"dr" : "根目录/tool/domready"
+	}
+});
+
+require(["dr!"] , function (Doc) {
+	console.log(Doc);
+	console.log("I will run after dom is ready!");
+});
+{% endhighlight %}
+
+### text
+
+[下载该插件](https://github.com/requirejs/text)
+
+text plugin 是一个用来加载文本的插件，底层采用的还是Ajax
+和domready 不太一样， text貌似只能使用！的方式加载
+{% highlight Javascript %}
+require.config({
+	paths : {
+		"t" : ["tool/text"]
+	}
+});
+
+require(["t!review.txt"] , function (review) {
+	console.log(review);
+});
+{% endhighlight %}
+
+流程是先根据paths路径找到text.js 然后在__该路径下__找到review.txt
+
+review 即是返回的文本内容
+
+caveats : <br>
+① text.js 底层是依靠Ajax的所以一定要保证在服务器环境下执行  <br>
+② 加载完text.js后， 会在该目录下找review.text 所以最好就是重写路径，或者把text.js放在同一文件下 <br>
+
+当然JSON也可以
+{% highlight Javascript %}
+require(["text!../text/foo.json"],function (foo) { 
+	console.log(Object.prototype.toString.call(foo));
+	console.log(JSON.parse(foo))
+});
+{% endhighlight %}
+
+但是JSON数据会出现同名缓存的问题，解决这个问题，我们可以使用!bust参数
+
+{% highlight Javascript %}
+require(["text!../text/foo.json" , "text!../text/foo.json!bust"],function (foo , foo1) { 
+	console.log(foo);
+	console.log(foo1)
+	console.log(JSON.parse(foo) == JSON.parse(foo1));
+});
+{% endhighlight %}
+
+### Image
+
+[下载地址](https://github.com/millermedeiros/requirejs-plugins)
+
+图片插件就的使用image.js了
+
+使用方法和text差不多
+{% highlight Javascript %}
+require.config({
+	paths : {
+		image : "tool/image"
+	}
+});
+
+require(["image!img/cat.jpg"] , function (cat) {
+	console.log(cat);
+});
+{% endhighlight %}
+
+
+但是和text.js不同的是，加载imagejs后所返回的路径并不是当前js文件的路径
+而是html文件所在的路径，
+
+作者原话：
+
+`Image paths are relative to the HTML file by default.`
+
+造成这样的原因有两点:
+① 两个plugin是由不同作者开发 <br>
+② 一般img图片文件夹都是在html文件下的 <br>
+
+所以注意一下就好了
+
+对于图片浏览器是会产生缓存的，如果不希望加载的图片缓存，image.js还提供了`bust`随机蔟
+
+只要在引入的图片中加bust参数就好
+
+栗子酱：
+{% highlight Javascript %}
+require.config({
+	paths : {
+		image : "tool/image"
+	}
+});
+
+require(["image!img/cat.jpg!bust" , "image!img/cat.jpg!bust"] , function (cat1 , cat2) {
+	console.log(cat1 === cat2); //false
+});
+{% endhighlight %}
+
+从上文来看 虽然加载的图片路径相同的，但是cat1明显不等于cat2 说明两张图片是不同的
+
+作者原话：
+`Appending !bust to the file name will avoid caching the image.`
+
+
+如果带!rel 参数，图片的加载路径就会以相对于BaseUrl的路径或者模块路径进行加载，也就是说不再默认为html文件下的路径了
+
+作者原话：
+`Appending !rel to the file name will load image realtive to baseUrl or module path.`
+
+
+### markdown
+
+[下载地址](https://github.com/millermedeiros/requirejs-plugins)
+
+这个插件是markdown的加载插件，需要配合markdown的转换插件使用
+
+也就是说，我们可以使用这个插件加载markdown格式的文件，并且这个插件内部依赖markdown的另一个转换插件`markdownConverter`
+
+流程很简单：
+先加载markdown 转换成html 之后以参数的形式回调
+
+所以如果我们需要把本地的markdown文件加载到主页面中的话，需要这么做
+
+栗子：
+{% highlight Javascript %}
+require.config({
+	"text" : [tool/text],
+	"md" : ["tool/mdown"],
+	"markdownConverter" : ["tool/Markdown.Converter"]
+});
+
+require(["md!../text/foo.md"] , function (foo) {
+	document.getElementsByTagName("body")[0].innerHTML = foo;
+})
+{% endhighlight %}
+
+如果单纯只是需要markdown的原文件而不需要转换成html
+只需要加一个参数就行
+
+细心同学可能也会发现，为什么我还要加载一个text.js呢？
+md这个插件实际上就是将text和markdownConverter这两个插件结合在一起
+
+也就是说这个插件必须依赖text 和 markdownConverter，才能运行
+
+另外，这个插件，无法使用`!bust`...真的很奇怪，明明也是基于text.js的，却无法禁止缓存
+
+大致上常用的就这么几种吧，如果还需要更多插件，可以上requirejs官网上去查看
+
+## 感谢
+
+[miaov](http://www.miaov.com)
+
+[JS模块化工具requirejs教程(二)：基本知识](http://www.runoob.com/w3cnote/requirejs-tutorial-2.html)
+

@@ -108,7 +108,7 @@
 	
 	padding: 0 0 0.05rem 0;
 	clear: both;
-	font: 500 0.30rem/0.35rem "Montserrat","微软雅黑";
+	font: 500 0.20rem/0.35rem "Montserrat","微软雅黑";
 	text-indent: 0.10rem;
 	-ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -182,6 +182,11 @@
 .Allenyang {
 	color: #395692 !important;
 }
+
+.Snow {
+	color: #AAF5F5 !important;
+}
+
 
 /* 如不添加，默认色 */
 .remark a {
