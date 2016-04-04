@@ -1,9 +1,9 @@
-										/*--------------------------------------------*\
-														xgjd members-pic js
-										   		   Design And Build By Owen
-										      Github:http://github.com/numerhero
+/*--------------------------------------------*\
+				xgjd members-pic js
+   		   Design And Build By Owen
+      Github:http://github.com/numerhero
 
-										\*--------------------------------------------*/
+\*--------------------------------------------*/
 
 
 /* 对应文件夹名 22 */ 
@@ -13,6 +13,7 @@ var oMembersInfo = [
 		"duties" : "2014基地总负责人",
 		"introduction" : "介绍",
 		"joinJdTime" : "2014-3-5",
+		"luckColor" : "pink",
 		"Pic" : (function() {
 			var img = new Image();
 			img.src = "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png";
@@ -22,6 +23,8 @@ var oMembersInfo = [
 		"name" : "Owen",
 		"duties" : "前端组成员",
 		"introduction" : "喜欢研究新技术",
+		"joinJdTime" : "2014-3-5",
+		"luckColor" : "#23527c",
 		"Pic" : (function() {
 			var img = new Image();
 			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
@@ -31,7 +34,9 @@ var oMembersInfo = [
 		"name" : "Snow",
 		"duties" : "前端组成员",
 		"introduction" : "个人爱好：听音乐，读书，看电影，运动",
-				"Pic" : (function() {
+		"joinJdTime" : "2014-3-5",
+		"luckColor" : "#AAF5F5",
+		"Pic" : (function() {
 			var img = new Image();
 			img.src = "/assets/img/members-pic/members-pics/Snow/Snow.png";
 			return img;
@@ -256,7 +261,7 @@ $(function () {
 			var Shape = new c.Shape();
 
 			function render() {
-				var randomY = (random()*0.5 + 0.2).toFixed(1);
+				var randomY = (random()*0.8 + 0.19).toFixed(1);
 				var Point = [
 					{ x : 0 , y : CanvasHeight * randomY + f}, 
 					{ x : 0 , y : CanvasHeight * randomY - f}
@@ -316,10 +321,29 @@ $(function () {
 		}		
 })
 
+var picShowStage   = $("#pic-show-stage");
+var Con            = $("#con");
+var oLi            = $(".con-time-line li");
+var branchLine     = $(".con-time-line li .branch-line");
+var branchLineNode = $(".con-time-line li .branch-line .branch-line-node")
+var branchShewLine = $(".branch-shew-line");
+var branchShewLtl  = $(".branch-shew-ltl");
+var branchShewLineNode = $(".branch-shew-ltl .branch-shew-line-node");
 
+
+function renderTree ( obj , shoX ) {
+	picShowStage.css("background",obj[shoX]["luckColor"]);
+	Con.css("background" , obj[shoX]["luckColor"]);
+	oLi.css("background" , obj[shoX]["luckColor"]);
+	branchLine.css("background" , obj[shoX]["luckColor"]);
+	branchLineNode.css("background" , obj[shoX]["luckColor"]);
+	branchShewLine.css("background" , obj[shoX]["luckColor"]);
+	branchShewLtl.css("background" , obj[shoX]["luckColor"]);
+	branchShewLineNode.css("background" , obj[shoX]["luckColor"]);
+
+}
 $.fn.loadPicInit = function () {
 	var $self = $(this);
-
 	return ({
 		createFrameWork: function ( obj , bnum ) {
 			var oTop = $window.scrollTop();
@@ -333,6 +357,7 @@ $.fn.loadPicInit = function () {
 			this.show( obj , iNow );
 		},	
 		show: function ( obj , shoX ) {
+			renderTree( obj , shoX );
 			var oB = $("#show-pic li:eq("+ shoX +") div b");
 			oB.each(function (idx , value) {
 				var $selfB = $(value);

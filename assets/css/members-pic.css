@@ -1,9 +1,9 @@
-										/*--------------------------------------------*\
-													 xgjd members-pic css
-										   		   Design And Build By Owen
-										      Github:http://github.com/numerhero
+/*--------------------------------------------*\
+			 xgjd members-pic css
+   		   Design And Build By Owen
+      Github:http://github.com/numerhero
 
-										\*--------------------------------------------*/
+\*--------------------------------------------*/
 .books {
 	position: relative;
 	width: 100%;
@@ -19,35 +19,17 @@
 
 #pic-show-stage {
 	position: relative;
-	width: 12rem;
+	width: 100%;
 	height: auto;
 	margin: 0 auto;
-
+	
+	-webkit-transition: 0.8s ease;
+	-o-transition: 0.8s ease;
+	transition: 0.8s ease;
 	overflow: hidden;
 }
 
-#show-pic {
-	position: relative;
-	float: right;
-	width: 7.2rem;
-	height: 6.3rem;
 
-}
-
-#show-pic>li {
-	position: absolute;
-	
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-}
-
-#show-pic>li b {
-	display: block;
-	width: 100%;
-	height: 0.3rem;
-	opacity: 0;
-}
 
 /* 图片列表 */
 #list-stage {
@@ -128,81 +110,301 @@
     margin-left: 0.9rem;
 }
 
-#con {
+.show-pic-stage {
 	width: 12rem;
-	height: auto;
 	margin: 0 auto;
 }
 
-.con-container {
+#Menbers-resume {
+	width: calc(12rem - 7.2rem);
+	height: 6.3rem;
+	float: left;
+	padding: 0.5rem 0 0 0;
+}
+
+.mrlists-box {
 	width: 100%;
-	padding-left: 1.1rem; 
+	height: 5rem;
+	padding-left: 1.4rem;
+
 }
 
-.ability {
+.mrlists {
 	width: 100%;
-	height: 3rem;	
+	height: 0.45rem;
+	margin-bottom: 0.15rem;
 }
 
-.con-box {
-	position: relative;
-	padding: 0.25rem 0.3rem;
-	border-left: 1px solid #c8d2df;
-}
-
-.timeline {
-	position: absolute;
-	top: 0.05rem;
-	left: -1.05rem;
-	width: 1.25rem;
-	height: 0.18rem;
-
-	font: 400 0.16rem/0.18rem "Consolas","微软雅黑";
-
-}
-
-.timeline span {
+.mrlists span {
 	display: inline-block;
-	width: 0.15rem;
-	height: 0.15rem;
+	font-size: 0.2rem;
+	border-bottom: 2px double #fff;
+	text-align: center;
+	margin-left: 0.2rem;
+	color: #fff;
+	padding: 0.2rem 0 0 0;
+}
 
-	background: #fff;
-	border: 1px solid #206DFB;
+.motto {
+	float: left;
+	width: 100%;
+	height: 0.8rem;
+	font: 400 0.25rem/0.25rem "Montserrat","微软雅黑";
+	text-align: center;
+	color: #9BF0F2;
+	background-image: linear-gradient(left, #9BF0F2, #263E70 25%, #9BF0F2 50%, #263E70 75%, #9BF0F2);
+	background-image: -webkit-linear-gradient(left, #9BF0F2, #263E70 25%, #9BF0F2 50%, #263E70 75%, #9BF0F2);
+	animation: masked 8s infinite linear;
+    -webkit-animation: masked 8s infinite linear;
+}
+
+#show-pic {
+	position: relative;
+	float: right;
+	width: 7.2rem;
+	height: 6.3rem;
+}
+
+#show-pic>li {
+	position: absolute;
+	
+	width: 100%;
+	height: 100%;
+}
+
+#show-pic>li b {
+	display: block;
+	width: 100%;
+	height: 0.3rem;
+	opacity: 0;
+}
+
+#con {
+	width: 12rem;
+	margin: 0 auto;
+	-webkit-transition: 0.8s ease;
+	-o-transition: 0.8s ease;
+	transition: 0.8s ease;
+	
+	padding-bottom: 0.05rem;
+}
+
+.con-blank {
+	float: left;
+	width: 100%;
+	height: 0.05rem;
+}
+
+.ct-center {
+	width: 5.95rem !important;
+}
+
+.ctlw-center {
+	width: 6rem !important
+}
+
+.con-time-line-wrap {
+	float: left;
+	position: relative;
+	width: 3rem;
+	height: 5rem;
+
+	background: #f8f8f8;
+	margin-right: 0.05rem;
+	border-radius: 0 0.4rem 0.4rem 0/0 0.5rem 0.5rem 0;
+}
+
+.con-time-line {
+	position: absolute;
+	top: 0.45rem;
+	right: -0.05rem;
+
+	width: 0.05rem;
+	height: calc(100% - 0.45rem);
+}
+
+.con-time-line-opt {
+	position: absolute;
+	top: 0.2rem;
+	left: -0.17rem; 
+	width: 0.4rem;
+	height: 0.4rem;
 	border-radius: 50%;
-
-	transition: 0.35s;
-	-webkit-transition: 0.35s;
-}
-
-.ability-title {
-	font: 500 0.25rem/0.25rem "Consolas","微软雅黑";
-	text-align: center;
-	background: url(/assets/img/members-pic/con-bg.png) repeat;
-	
-	margin-bottom: 0.2rem;
-	
-	padding: 0.1rem 0;
-	overflow: hidden;
-}
-
-.ability-con {
-	font: 300 0.14rem/0.25rem "Consolas","微软雅黑";
-	text-align: center;
-	border-radius: 0.05rem;
-
-	border: 1px solid #66A36F;
+	background: #395692;
 	padding: 0.1rem;
-
-	color: #ccc;
-	transition: 0.35s;
-	-webkit-transition: 0.35s;
 }
 
-.con-box:hover .timeline span{
-	border: 1px solid #66D9EF;
+.branch-point {
+	display: block;
+	width: 0.2rem;
+	height: 0.2rem;
+	
+	border-radius: 50%;
+	background: #f8f8f8;
 }
-.con-box:hover .ability-title {
-	color: #66D9EF;
+.con-time-line-opt:nth-of-type(2) {
+	top: 1.2rem;
+}
+
+.con-time-line-opt:nth-of-type(3) {
+	top: 2.2rem;
+}
+
+.con-time-line-opt:nth-of-type(4) {
+	top: 3.2rem;
+}
+
+.branch-line {
+	position: absolute;
+	top: 0.2rem;
+	left: -2.55rem;
+	height: 0.03rem;
+	width: 2.6rem;
+	background: #395692;
+}
+
+.branch-line-context {
+	position: absolute;
+	top: -0.18rem;
+	left: 0.13rem;
+	font: 400 20px/20px arial,"微软雅黑";
+	background-image: linear-gradient(left, #34015F, #4299F2 25%, #34015F 50%, #4299F2 75%, #34015F);
+	background-image: -webkit-linear-gradient(left, #34015F, #4299F2 25%, #34015F 50%, #4299F2 75%, #34015F);
+	animation: masked 4s infinite linear;
+    -webkit-animation: masked 4s infinite linear;
+}
+
+.branch-line-node {
+	position: absolute;
+	top: -0.06rem;
+	left: -0.06rem;
+	width: 0.12rem;
+	height: 0.12rem;
+	border-radius: 50%;
+	background: #395692;
+}
+
+.con-time-line-opt .ctlo-title {
+	position: absolute;
+	left: 0.6rem;
+	top: 0;
+}
+
+/* 右树枝 */
+.con-time-line-opt .blr  {
+	left: 0.4rem;
+}
+
+.con-time-line-opt .blr .branch-line-node {
+	left: 2.6rem;
+}
+
+.con-time-line-opt .blr .branch-line-context {
+	left: 1.5rem;
+}
+
+/* 斜切树枝 */
+.branch-shew-line {
+	position: absolute;
+	top: 0.22rem;
+	right: -0.44rem;
+	width: 0.45rem;
+	height: 0.03rem;
+	
+	background: #395692;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform-origin: left;
+	-moz-transform-origin: left;
+	-ms-transform-origin: left;
+	-o-transform-origin: left;
+	transform-origin: left;
+}
+
+.branch-shew-ltl {
+	position: absolute;
+	top: 0;
+	left: 0.45rem;
+	width: 2rem;
+	height: 0.03rem;
+	background: #395692;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transform-origin: left;
+	-moz-transform-origin: left;
+	-ms-transform-origin: left;
+	-o-transform-origin: left;
+	transform-origin: left;
+}
+
+.branch-shew-line-node {
+	position: absolute;
+	top: -0.06rem;
+	right: -0.06rem;
+	width: 0.12rem;
+	height: 0.12rem;
+	border-radius: 50%;
+	background: #395692;
+}
+
+.bsln-con {
+	position: absolute;
+	top: -0.1rem;
+	left: 0.2rem;
+	display: inline-block;
+	width: 3rem;
+	height: 0.3rem;
+	font-size: 0.3rem;
+	line-height: 0.3rem;
+	color: #395692;
+}
+
+.con-time-line-opt .bsl-left {
+	left: -0.45rem;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transform-origin: right;
+	-moz-transform-origin: right;
+	-ms-transform-origin: right;
+	-o-transform-origin: right;
+	transform-origin: right;
+}
+
+.con-time-line-opt .bsl-left .branch-shew-ltl {
+	width: 0.4rem;
+	left: -0.4rem;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform-origin: right;
+	-moz-transform-origin: right;
+	-ms-transform-origin: right;
+	-o-transform-origin: right;
+	transform-origin: right;
+}
+
+.con-time-line-opt .bsl-left .branch-shew-ltl .branch-shew-line-node {
+	left: -0.06rem;
+}
+
+.con-time-line-opt .bsl-left .branch-shew-ltl .branch-shew-line-node .bsln-con {
+	left: -3.2rem;
+	text-align: right;
+}
+
+.con-talent {
+	float: left;
+	width: 8.95rem;
+	height: 5rem;
+	background: #f8f8f8;
+	border-radius: 0.4rem 0 0 0.4rem/0.5rem 0 0 0.5rem;
 }
 
 /* 加入我们 */
