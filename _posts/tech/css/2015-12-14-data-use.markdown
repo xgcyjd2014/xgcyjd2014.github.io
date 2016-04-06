@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 通过控制data属性，为游戏小人显示得分 
-author: Snow
+author: Owen
 tagpic: littleman.png
 description: 控制小人显现游戏分数得失
 category: css

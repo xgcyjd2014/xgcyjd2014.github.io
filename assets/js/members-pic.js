@@ -13,7 +13,7 @@ var oMembersInfo = [
 		"duties" : "2014基地总负责人",
 		"introduction" : "介绍",
 		"joinJdTime" : "2014-3-5",
-		"luckColor" : "pink",
+		"luckColor" : "#51b9c5",
 		"Pic" : (function() {
 			var img = new Image();
 			img.src = "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png";
@@ -42,30 +42,34 @@ var oMembersInfo = [
 			return img;
 		}())
 	},{
-		"name" : "Owen",
-		"duties" : "前端组成员",
+		"name" : "YanLong",
+		"duties" : "Web组成员",
 		"introduction" : "喜欢研究新技术",
+		"joinJdTime" : "2014-3-5",
+		"luckColor" : "#5dccdd",
 		"Pic" : (function() {
 			var img = new Image();
-			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			img.src = "/assets/img/members-pic/members-pics/YanLong/YanLong.png";
 			return img;
 		}())
 	},{
-		"name" : "Owen",
+		"name" : "Niklaus",
 		"duties" : "前端组成员",
 		"introduction" : "喜欢研究新技术",
+		"joinJdTime" : "2014-3-5",
+		"luckColor" : "#8e95af",
 		"Pic" : (function() {
 			var img = new Image();
-			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			img.src = "/assets/img/members-pic/members-pics/Niklaus/Niklaus.png";
 			return img;
 		}())
 	},{
-		"name" : "Owen",
-		"duties" : "前端组成员",
+		"name" : "lianghongchao",
+		"duties" : "安卓组成员",
 		"introduction" : "喜欢研究新技术",
 		"Pic" : (function() {
 			var img = new Image();
-			img.src = "/assets/img/members-pic/members-pics/Owen/Owen.png";
+			img.src = "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao.png";
 			return img;
 		}())
 	},{
@@ -251,15 +255,14 @@ $(function () {
 			var CanvasHeight = listStage.height();
 			
 			var num = 3;
-			var f = 90;
-			var r = -90;
+			var f = 120;
+			var r = -60;
 
 			oStage.canvas.width = CanvasWidth;
 			oStage.canvas.height = CanvasHeight;
 			oStage.alpha = 0.7;
 
 			var Shape = new c.Shape();
-
 			function render() {
 				var randomY = (random()*0.8 + 0.19).toFixed(1);
 				var Point = [
@@ -272,13 +275,10 @@ $(function () {
 				oStage.addChild(Shape);
 				oStage.update();
 			}
-
 			function judge(parameter) {
-				var t = parameter + (random()*2 - 1.1) * f;
+				var t = parameter + (random()*2 - 0.8) * f;
 				return (t > CanvasHeight || t<0 ) ? judge(parameter) : t;
 			}
-
-
 			function draw( Point ) {
 				var randomColor = "#" + (Cos(r) * 127 + 128 << 16 | Cos(r + dPI/3) * 127 + 128 <<8 | Cos(r + dPI/3 * 2) * 127 + 128).toString(16);
 				Shape.graphics.setStrokeStyle(1).beginFill(randomColor).mt(Point[0].x , Point[0].y)

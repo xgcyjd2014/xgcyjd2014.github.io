@@ -27,14 +27,17 @@
 	-o-transition: 0.8s ease;
 	transition: 0.8s ease;
 	overflow: hidden;
-}
 
+	will-change: background;
+}
 
 
 /* 图片列表 */
 #list-stage {
 	position: relative;
-	width: 100%;	
+	width: 100%;
+
+	will-change: background;	
 }
 
 #show-our-youth {
@@ -170,6 +173,7 @@
 	
 	width: 100%;
 	height: 100%;
+	will-change: background , transition;
 }
 
 #show-pic>li b {
@@ -177,6 +181,7 @@
 	width: 100%;
 	height: 0.3rem;
 	opacity: 0;
+	will-change: background , transition;
 }
 
 #con {
@@ -432,7 +437,7 @@
 	font: 200 0.3rem/0.74rem "Montserrat";
 }
 
-.join-btn {
+.let-join .join-btn {
 	display: block;
 	width: 2.5rem;
 	height: 0.8rem;
@@ -442,10 +447,11 @@
 	
 	border-radius: 0.05rem;
 	margin: 0 auto;
+	text-align: center;
 	transition: 0.75s ease;
 	-webkit-transition: 0.75s ease;
 }
 
-.join-btn:hover a{
+.join-btn:hover {
 	color: #fff;
 }
