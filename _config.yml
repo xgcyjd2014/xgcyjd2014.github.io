@@ -1,10 +1,10 @@
-﻿permalink: /:year/:month/:day/:title.html
-
-highlighter: rouge
-markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
+﻿highlighter: rouge
+markdown: kramdown 
 kramdown:
   input:         GFM
+  syntax_highlighter: rouge
   auto_ids:      true
+
 
 # 作者信息
 author: Owen
