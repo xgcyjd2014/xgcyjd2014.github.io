@@ -100,7 +100,7 @@ other<br/>
 `{% highlight xxx %}`
 
 而采用 kramdown 独有的写法<br>
-\`\`\`xxx
+\`\`\`xxx<br>
     // 高亮部分   
 \`\`\`
 #### Caveat 
