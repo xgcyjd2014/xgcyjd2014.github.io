@@ -99,12 +99,10 @@ other<br/>
 
 `{% highlight xxx %}`
 
-而采用 kramdown 独有的写法
-```xxx <br>
-  
+而采用 kramdown 独有的写法<br>
+\`\`\`xxx
     // 高亮部分   
-
-```
+\`\`\`
 #### Caveat 
 
 `① 注意，代码与上下文之间必须有一行空行！！`
