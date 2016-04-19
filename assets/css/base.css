@@ -281,10 +281,6 @@ html {font-size: 100px !important;}
 	float: left;
 }
 
-#guide-list .li-active {
-	background: rgba(28,134,209,.6);
-}
-
 #guide-list li:hover {
 	background: rgba(28,134,209,.6);
 }
