@@ -1,0 +1,484 @@
+/*--------------------------------------------*\
+          xgjd training-program css
+           Design And Build By Owen
+      Github:http://github.com/numerhero
+
+\*--------------------------------------------*/
+
+.tp-wrap {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wobble-title {
+    text-align: center;
+    font: 200 70px/120px "Fredericka-the-Great","微软雅黑";
+    width: 100%;
+    display: inline-block;
+    margin: 50px 0 0;
+    color: #1C86D1;
+}
+
+
+.circle-wrap {
+  position: relative;
+  height: 600px;
+}
+
+
+.circle-stage {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  height: 300px;
+  perspective: 800px;
+  transition: 1s ease;
+  will-change: transform;
+}
+
+.circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    will-change: transform;
+    opacity: 0.6;
+    transform: scale(0,0);
+}
+
+.circle-show {
+    will-change: transform;
+    transform: scale(1,1) !important;
+    animation: 5s wobble linear
+}
+
+.circle::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  transition: 1s linear;
+}
+
+.circle .con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+  text-align: center;
+  font: 200 40px/35px "微软雅黑";
+  white-space: nowrap;
+  color: #f5f5f5;
+  transition: 0.8s cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+.circle-stage .shadow {
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 50%;
+  transform: rotateX(90deg) translateZ(-150px);
+  background: radial-gradient(circle at 50% 50% , rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.1) 40% , rgba(0,0,0,0.05) 45% , rgba(0,0,0,0) 50%);
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 0.1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 0,#fff , rgba(255,255,255,0) 60%);
+    -webkit-fliter: blur(100px);
+}
+
+.front-end-tp .circle {
+  background: radial-gradient(circle at 100px 100px,#FCC5D8 75%, rgba(0,0,0,0.1) 100%);
+}
+
+.circle-stage:hover {
+  transform: translate(-50% ,-50%) scale(1.1,1.1); 
+}
+
+.circle-stage:hover .circle {
+  opacity: 1;
+}
+
+.front-end-tp:hover .circle::after {
+  animation: 2s fe-circle-active cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+.front-end-tp:hover .circle .con {
+  color: rgba(3,58,39,1);
+}
+
+.back-end-tp .circle {
+  background: radial-gradient(circle at 100px 100px,#9DED67 75% , rgba(0,0,0,.1) 100%);
+}
+
+.back-end-tp:hover .circle::after {
+  animation: 2s be-circle-active cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+.back-end-tp:hover .circle .con {
+  color: rgba(98,18,152,1);
+}
+
+.cpp-tp .circle {
+  background: radial-gradient(circle at 100px 100px,#6EEFFF 75% , rgba(0,0,0,0.1) 100%);
+}
+
+.cpp-tp:hover .circle::after {
+  animation: 2s c-circle-active cubic-bezier(0.150, 0.775, 0.000, 1);
+}
+
+.cpp-tp:hover .circle .con {
+  color: rgba(145,16,0,1);
+}
+
+.cpp-tp-position {
+  top: 20%;
+  left: 25%;
+}
+
+.back-end-tp-position {
+  top: 20%;
+  left: 75%;
+}
+
+.mod {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -3;
+  opacity: 0;
+  transition: 0.8s;
+  background: rgba(0,0,0,0.8);
+}
+
+.mod-show {
+  z-index: 9999;
+  opacity: 1;
+}
+
+.mod-con {
+  width: 900px;
+  height: 700px;
+  margin: 30px auto 0;
+  background: rgba(255,255,255,0.8);
+  border-radius: 5px;
+  padding: 30px;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+}
+
+
+.mod-con h2 {
+  text-indent: 15px;
+  height: 30px;
+  margin: 20px 0;
+  line-height: 35px;
+  border-left: 5px solid #2F8DD1;
+}
+
+.mod-con ol {
+  padding-left: 40px;
+  margin-left: -2px;
+}
+
+.mod-con ol li {
+  font: 200 20px/22px "Montserrat","微软雅黑";
+  margin: 20px;
+}
+
+.mod-con ol li p a::before{
+    content: "\A";
+    white-space: pre;
+}
+
+.mod-con ol h3 {
+  color: #2F8DD1;
+}
+
+.img-box {
+  margin-top: 20px;
+}
+
+@keyframes fe-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(252,197,216,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(252,197,216,0);
+  }
+}
+
+@keyframes be-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(157,237,103,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(157,237,103,0);
+  }
+}
+
+@keyframes c-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(110,239,255,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(110,239,255,0);
+  }
+}
+@keyframes wobble {
+  0% {
+    -webkit-transform: scale(0 , 0);
+            transform: scale(0 , 0);
+  }
+  1% {
+    -webkit-transform: scale(0.08648, 0.17943);
+            transform: scale(0.08648, 0.17943);
+  }
+  2% {
+    -webkit-transform: scale(0.29255, 0.54538);
+            transform: scale(0.29255, 0.54538);
+  }
+  3% {
+    -webkit-transform: scale(0.54538, 0.8944);
+            transform: scale(0.54538, 0.8944);
+  }
+  4% {
+    -webkit-transform: scale(0.78855, 1.12038);
+            transform: scale(0.78855, 1.12038);
+  }
+  5% {
+    -webkit-transform: scale(0.98584, 1.20515);
+            transform: scale(0.98584, 1.20515);
+  }
+  6% {
+    -webkit-transform: scale(1.12038, 1.18481);
+            transform: scale(1.12038, 1.18481);
+  }
+  7% {
+    -webkit-transform: scale(1.19105, 1.1134);
+            transform: scale(1.19105, 1.1134);
+  }
+  8% {
+    -webkit-transform: scale(1.20745, 1.03725);
+            transform: scale(1.20745, 1.03725);
+  }
+  9% {
+    -webkit-transform: scale(1.18481, 0.98331);
+            transform: scale(1.18481, 0.98331);
+  }
+  10% {
+    -webkit-transform: scale(1.13967, 0.95915);
+            transform: scale(1.13967, 0.95915);
+  }
+  11% {
+    -webkit-transform: scale(1.08677, 0.95921);
+            transform: scale(1.08677, 0.95921);
+  }
+  12% {
+    -webkit-transform: scale(1.03725, 0.97253);
+            transform: scale(1.03725, 0.97253);
+  }
+  13% {
+    -webkit-transform: scale(0.99801, 0.9888);
+            transform: scale(0.99801, 0.9888);
+  }
+  14% {
+    -webkit-transform: scale(0.97203, 1.00138);
+            transform: scale(0.97203, 1.00138);
+  }
+  15% {
+    -webkit-transform: scale(0.95915, 1.00783);
+            transform: scale(0.95915, 1.00783);
+  }
+  16% {
+    -webkit-transform: scale(0.95714, 1.00882);
+            transform: scale(0.95714, 1.00882);
+  }
+  17% {
+    -webkit-transform: scale(0.96274, 1.00649);
+            transform: scale(0.96274, 1.00649);
+  }
+  18% {
+    -webkit-transform: scale(0.97253, 1.00309);
+            transform: scale(0.97253, 1.00309);
+  }
+  19% {
+    -webkit-transform: scale(0.98355, 1.00022);
+            transform: scale(0.98355, 1.00022);
+  }
+  20% {
+    -webkit-transform: scale(0.9936, 0.99857);
+            transform: scale(0.9936, 0.99857);
+  }
+  21% {
+    -webkit-transform: scale(1.00138, 0.99813);
+            transform: scale(1.00138, 0.99813);
+  }
+  22% {
+    -webkit-transform: scale(1.00637, 0.9985);
+            transform: scale(1.00637, 0.9985);
+  }
+  23% {
+    -webkit-transform: scale(1.00868, 0.99919);
+            transform: scale(1.00868, 0.99919);
+  }
+  24% {
+    -webkit-transform: scale(1.00882, 0.99983);
+            transform: scale(1.00882, 0.99983);
+  }
+  25% {
+    -webkit-transform: scale(1.00749, 1.00024);
+            transform: scale(1.00749, 1.00024);
+  }
+  26% {
+    -webkit-transform: scale(1.00538, 1.00039);
+            transform: scale(1.00538, 1.00039);
+  }
+  27% {
+    -webkit-transform: scale(1.00309, 1.00034);
+            transform: scale(1.00309, 1.00034);
+  }
+  28% {
+    -webkit-transform: scale(1.00106, 1.0002);
+            transform: scale(1.00106, 1.0002);
+  }
+  29% {
+    -webkit-transform: scale(0.99953, 1.00006);
+            transform: scale(0.99953, 1.00006);
+  }
+  30% {
+    -webkit-transform: scale(0.99857, 0.99996);
+            transform: scale(0.99857, 0.99996);
+  }
+  31% {
+    -webkit-transform: scale(0.99817, 0.99992);
+            transform: scale(0.99817, 0.99992);
+  }
+  32% {
+    -webkit-transform: scale(0.99819, 0.99992);
+            transform: scale(0.99819, 0.99992);
+  }
+  33% {
+    -webkit-transform: scale(0.9985, 0.99995);
+            transform: scale(0.9985, 0.99995);
+  }
+  34% {
+    -webkit-transform: scale(0.99895, 0.99998);
+            transform: scale(0.99895, 0.99998);
+  }
+  35% {
+    -webkit-transform: scale(0.99942, 1);
+            transform: scale(0.99942, 1);
+  }
+  36% {
+    -webkit-transform: scale(0.99983, 1.00001);
+            transform: scale(0.99983, 1.00001);
+  }
+  37% {
+    -webkit-transform: scale(1.00014, 1.00002);
+            transform: scale(1.00014, 1.00002);
+  }
+  38% {
+    -webkit-transform: scale(1.00032, 1.00001);
+            transform: scale(1.00032, 1.00001);
+  }
+  39% {
+    -webkit-transform: scale(1.00039, 1.00001);
+            transform: scale(1.00039, 1.00001);
+  }
+  40% {
+    -webkit-transform: scale(1.00037, 1);
+            transform: scale(1.00037, 1);
+  }
+  41% {
+    -webkit-transform: scale(1.0003, 1);
+            transform: scale(1.0003, 1);
+  }
+  42% {
+    -webkit-transform: scale(1.0002, 1);
+            transform: scale(1.0002, 1);
+  }
+  43% {
+    -webkit-transform: scale(1.00011, 1);
+            transform: scale(1.00011, 1);
+  }
+  44% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  45% {
+    -webkit-transform: scale(0.99996, 1);
+            transform: scale(0.99996, 1);
+  }
+  46% {
+    -webkit-transform: scale(0.99993, 1);
+            transform: scale(0.99993, 1);
+  }
+  47% {
+    -webkit-transform: scale(0.99992, 1);
+            transform: scale(0.99992, 1);
+  }
+  48% {
+    -webkit-transform: scale(0.99992, 1);
+            transform: scale(0.99992, 1);
+  }
+  49% {
+    -webkit-transform: scale(0.99994, 1);
+            transform: scale(0.99994, 1);
+  }
+  50% {
+    -webkit-transform: scale(0.99996, 1);
+            transform: scale(0.99996, 1);
+  }
+  51% {
+    -webkit-transform: scale(0.99998, 1);
+            transform: scale(0.99998, 1);
+  }
+  52% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  53% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  54% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  55% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  56% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  57% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  58% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}

@@ -1,9 +1,9 @@
-										/*--------------------------------------------*\
-														xgjd base css
-										   		   Design And Build By Owen
-										      Github:http://github.com/numerhero
+/*--------------------------------------------*\
+				xgjd base css
+   		   Design And Build By Owen
+      Github:http://github.com/numerhero
 
-										\*--------------------------------------------*/
+\*--------------------------------------------*/
 /* reset */
 body { min-width: 332px; margin: 0; padding: 0; background: #F8F8F8; cursor: url(/assets/img/cursor.png),default; -webkit-font-smoothing: antialiased; font: 200 0.18rem/0.18rem "Montserrat","微软雅黑";}
 img { vertical-align: top;}
@@ -14,6 +14,7 @@ a { text-decoration: none !important; color: #497490;outline: none;}
 h1,h2,h3,h4,h5,h6{margin: 0 !important; font-weight: 100;}
 a{ transition: .8s; -webkit-transition: .8s;}
 html {font-size: 100px !important;}
+figure {margin: 0;}
 * { box-sizing: border-box;}
 .container {
 	padding-left: 0 !important;
@@ -148,6 +149,10 @@ html {font-size: 100px !important;}
 	height: 0;
 }
 
+.none {
+	display: none;
+}
+
 /* 线 */
 .block-line {
 	width: 12rem;
@@ -200,6 +205,7 @@ html {font-size: 100px !important;}
 	height: 100%;
 	
 }
+
 .parallax-overlay {
 	position: absolute;
     z-index: 0;
@@ -266,8 +272,7 @@ html {font-size: 100px !important;}
 
 #guide-list {
 	float: right;
-
-	width: 5rem;
+	width: 6rem;
 	height: 100%;
 	font: 300 0.16rem/0.3rem "微软雅黑";
 	transition: .8s ease;
