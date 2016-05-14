@@ -97,8 +97,6 @@
     height: 90%;
     border-radius: 50%;
     background: radial-gradient(circle at 50% 0,#fff , rgba(255,255,255,0) 60%);
-    -webkit-fliter: blur(100px);
-    fliter: blur(100px);
 }
 
 .front-end-tp .circle {
