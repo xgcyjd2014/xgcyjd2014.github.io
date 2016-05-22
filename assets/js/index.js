@@ -171,3 +171,57 @@ $(function (){
         });
     }
 });
+
+
+// 记数
+$(function () {
+    var nums = $(".nums"),
+        sR   = $("#map").offset().top
+    
+    nums.eq(0).Count( 300, sR);
+    nums.eq(1).Count( 100, sR);
+    nums.eq(2).Count( 30, sR);
+    nums.eq(3).Count( 55, sR);
+
+});
+
+$.fn.Count = function (target , scrollRange , speed) {
+    speed = speed || 5;
+    var $self = $(this),
+        timer = null
+
+    return ({
+        update: function () {
+            var pos = $window.scrollTop(),
+                val = ~~$self.html()
+
+            if (pos >= scrollRange) {
+                timer = setTimeout(animationCount,speed);
+            }
+
+            function animationCount() {
+                if (val < target) {
+                    $self.html(++val);
+                    switch(true) {
+                        case val < (target - 5): 
+                            timer = setTimeout(animationCount,speed);
+                            break;
+                        case val >= (target - 5) && val < (target - 3):
+                            timer = setTimeout(animationCount,speed+120);
+                            break;
+                        case val >= (target - 3) && val < (target - 1):
+                            timer = setTimeout(animationCount,speed+240);
+                            break;
+                        case val >= (target - 1) && val < target:
+                            timer = setTimeout(animationCount,speed+360);
+                    }
+                }
+            }
+            
+        },
+        init: function () {
+            this.update();
+            $window.on("scroll.Count" , this.update);
+        }
+    }.init());
+}

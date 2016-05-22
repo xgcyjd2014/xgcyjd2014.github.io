@@ -483,8 +483,8 @@
 #map-content {
 	position: absolute;
 
-	bottom: 5%;
-	left: 1%;
+	top: 5%;
+	left: 10%;
 	width: 45%;
 	height: 65%;
 	z-index: 3;
@@ -493,111 +493,147 @@
 #map-content-list {
 	width: 100%;
 	height: 100%;
-
-	padding: 0.05rem;
+	font-size: 0;
+	padding: 0.25rem 0 0 0.08rem ;
 }
 
-#map-content-list li {
-	position: relative;
-	float: left;
-	width: 1.25rem;
-	height: 1.25rem;
-	
-	margin: 0.2rem;
-	border-radius: 50%;
+.map-content-list-contact-us {
+	display: inline-block;
+	width: 5.5rem;
+	height: 0.45rem;
+	background: #1C86D1;
+}
+
+.map-content-list-contact-us .l-f {
+	display: inline-block;
+	width: 0.45rem;
+	height: 0.45rem;
 	background: #fff;
-	text-align: center;
-}	
+	vertical-align: top;
+	padding: 0.1rem 0rem 0.05rem 0.08rem;
+}
 
-#map-content-list a {
-	display: block;
+.map-content-list-contact-us .l-f i {
+	font-size: 0.25rem;
+	color: #1C86D1;
+}
 
+.map-content-list-contact-us .contact-us-con {
+	display: inline-block;
+	width: calc(100% - 0.45rem);
+	height: 100%;
+
+	padding: 0.12rem 0.3rem 0.1rem;
+	font-size: 0.22rem;
+	font-weight: 100;
+	color: #fff;
+
+}
+
+#map-content-list ul {
+	width: 5rem;
+	height: auto;
+	padding-left: 0.30rem;
+	margin-top: 0.3rem;
+}
+
+#map-content-list ul li {
+	width: 100%;
+	height: 0.35rem;
+	padding-left: 0.45rem;
+}
+
+#map-content-list ul li span {
+	font-size: 0.20rem;
+	color: #fff;
+}
+
+#map-content-list .call-us {
+	width: 5rem;
+	height: 0.64rem;
+	font-size: 0;
+	margin-top: 0.15rem;
+}
+
+#map-content-list .call-us span {
+	display: inline-block;
+	width: calc(100% - 0.64rem);
+	height: 100%;
+
+	color: #fff;
+	font: 100 0.45rem/0.64rem "Montserrat";
+	padding-left: 0.2rem; 	
+}
+
+
+.counts {
+	position: relative;
+	width: 100%;
+	height: 2.5rem;
+	margin: 0.2rem 0;
+	overflow: hidden;
+}
+
+.parallax-counts {
+	background: url(/assets/img/index/counts-bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.counts .counts-wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
+	right: 0;
+	bottom: 0;
+
+	width: 12rem;
+	height: 100%;
+	margin: auto;
+	z-index: 100;
+}
+
+.counts-wrap .counts-list {
 	width: 100%;
 	height: 100%;
-	z-index: 3;
 }
 
-#map-content-list li::after {
-	content: "";
+.counts-wrap .counts-list li {
+	float: left;
+	width: 2.925rem;
+	height: 100%;
 
-	display: block;
-	
-	border-radius: 50%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-}
-#map-content-list li:nth-of-type(1) {
-	background: rgba(228,104,77,1);
-}
-#map-content-list li:nth-of-type(1) i{
-	font-size: 1.25rem;
-	line-height: 1.22rem;
-	color: #FCEFC7;
-	z-index: -1;
+	padding-top: 0.5rem;
 }
 
-#map-content-list li:nth-of-type(1):hover::after {
-	animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
-	-webkit-animation: btnA 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
+.counts-wrap .counts-list .m-10 {
+	margin-right: 0.1rem;
 }
 
-#map-content-list li:nth-of-type(2) {
-	background: #2EA6C8;
-}
-#map-content-list li:nth-of-type(2) i{
-	font-size: 1rem;
-	line-height: 1.23rem;
-	color: #235775;
-	z-index: -1;
-}
+.counts-wrap .counts-list li p {
+	display: inline-block;
+	width: 100%;
+	height: 0.7rem;
+	color: #fff;
 
-#map-content-list li:nth-of-type(2):hover::after {
-	animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
-	-webkit-animation: btnB 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
-}
+	text-align: center;
+	font-size: 0.7rem;
+	font-weight: 500;
+	line-height: 0.7rem;
 
-#map-content-list li:nth-of-type(3) {
-	background: #B2E3D7;
+	margin-bottom: 0.4rem;
 }
 
-#map-content-list li:nth-of-type(3) i{
-	font-size: 1rem;
-	line-height: 1.28rem;
-	z-index: -1;
-}
-
-#map-content-list li:nth-of-type(3):hover::after {
-	animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
-	-webkit-animation: btnC 2.0s cubic-bezier(0.150, 0.775, 0.000, 1);
-}
-
-
-@keyframes btnA{
-	0%{ box-shadow:0 0 0 0 rgba(228,104,77,1);}
-	100%{ box-shadow:0 0 0 0.12rem rgba(228,104,77,0);}
-}
-
-@keyframes btnB{
-	0%{ box-shadow:0 0 0 0 rgba(46,166,200,1);}
-	100%{ box-shadow:0 0 0 0.12rem rgba(46,166,200,0);}
-}
-
-@keyframes btnC{
-	0%{ box-shadow:0 0 0 0 rgba(34,190,151,1);}
-	100%{ box-shadow:0 0 0 0.12rem rgba(34,190,151,0);}
+.counts-wrap .counts-list li .nums-title {
+	height: 0.35rem;
+	font-size: 0.28rem;
+	line-height: 0.35rem;
+	font-weight: 200;
 }
 
 
 .directions {
 	position: absolute;
-	
-
 	background: red;
 	border-radius: 0.1rem;
 	

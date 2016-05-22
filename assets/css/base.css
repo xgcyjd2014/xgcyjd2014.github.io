@@ -8,14 +8,14 @@
 body { min-width: 332px; margin: 0; padding: 0; background: #F8F8F8; cursor: url(/assets/img/cursor.png),default; -webkit-font-smoothing: antialiased; font: 200 0.18rem/0.18rem "Montserrat","微软雅黑";}
 img { vertical-align: top;}
 ul { list-style: none; padding: 0; margin: 0;}
-button { outline: none; border: none;}
+button { outline: none; border: none; background: none;}
 p { margin: 0;}
 a { text-decoration: none !important; color: #497490;outline: none;}
 h1,h2,h3,h4,h5,h6{margin: 0 !important; font-weight: 100;}
 a{ transition: .8s; -webkit-transition: .8s;}
 html {font-size: 100px !important;}
 figure {margin: 0;}
-* { box-sizing: border-box;}
+* { box-sizing: border-box; font-family: "Consolas","微软雅黑";}
 .container {
 	padding-left: 0 !important;
 }
@@ -203,7 +203,6 @@ figure {margin: 0;}
 	z-index: -1;
 	width: 100%;
 	height: 100%;
-	
 }
 
 .parallax-overlay {
