@@ -45,11 +45,13 @@ $(function () {
         oMod.addClass("mod-show");
     });
 
-    oMod.on("click" , function () {
+    oMod.on("click" , function (ev) {
         feCon.addClass("none");
         beCon.addClass("none");
         cppCon.addClass("none");
         oMod.removeClass("mod-show");
+
+        ev.stopPropagation();
     });
 
     $window.on("scroll.circle-move" , scrollfunc);
@@ -68,7 +70,6 @@ $(function () {
                 feC.addClass("circle-show");
             });
         });
-        
      }   
 
      function cppshow(callback) {
