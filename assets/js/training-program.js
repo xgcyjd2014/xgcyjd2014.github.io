@@ -5,8 +5,6 @@
 
 \*--------------------------------------------*/
 
-
-
 $(function () {
     var $window = $(window),
         title = $(".wobble-title"),
@@ -30,6 +28,10 @@ $(function () {
         oMod.css("height" , innerHeight);
     },false);
 
+    modCon.on("click" , function (event) {
+        event.stopPropagation()
+    })
+
     fe.on("click" , function (event) {
         feCon.removeClass("none");
         oMod.addClass("mod-show");
@@ -50,8 +52,6 @@ $(function () {
         beCon.addClass("none");
         cppCon.addClass("none");
         oMod.removeClass("mod-show");
-
-        ev.stopPropagation();
     });
 
     $window.on("scroll.circle-move" , scrollfunc);
