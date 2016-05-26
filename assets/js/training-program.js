@@ -28,6 +28,10 @@ $(function () {
         oMod.css("height" , innerHeight);
     },false);
 
+    modCon.on("click" , function (event) {
+        event.stopPropagation();
+    })
+
     fe.on("click" , function (event) {
         feCon.removeClass("none");
         oMod.addClass("mod-show");
