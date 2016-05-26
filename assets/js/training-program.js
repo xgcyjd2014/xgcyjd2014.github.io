@@ -29,7 +29,7 @@ $(function () {
     },false);
 
     modCon.on("click" , function (event) {
-        event.stopPropagation()
+        event.stopPropagation();
     })
 
     fe.on("click" , function (event) {
@@ -47,11 +47,10 @@ $(function () {
         oMod.addClass("mod-show");
     });
 
-    oMod.on("click" , function (ev) {
-        feCon.addClass("none");
-        beCon.addClass("none");
-        cppCon.addClass("none");
+    oMod.on("click" , function (event) {
+        modCon.addClass("none");
         oMod.removeClass("mod-show");
+        event.stopPropagation();
     });
 
     $window.on("scroll.circle-move" , scrollfunc);
