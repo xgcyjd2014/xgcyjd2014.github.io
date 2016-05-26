@@ -45,10 +45,6 @@ $(function () {
         oMod.addClass("mod-show");
     });
 
-    modCon.on("click" , function () {
-        return false;
-    })
-
     oMod.on("click" , function () {
         feCon.addClass("none");
         beCon.addClass("none");
