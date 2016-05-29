@@ -121,6 +121,7 @@ var obj = new Proxy({} , {
 });
 
 ⑥ 字面量简设
+
 var bat = 1,
     key = 2
 
@@ -132,6 +133,54 @@ var obj = {
     },
     ["abc"]: 123
 }
+
+⑦ class 语法糖
+
+class Cat {
+    constructor(name, color, size, age) {
+        this.name = name;
+        this.color = color;
+        this.size = size;
+        this.age = age;
+    }
+
+    miaul() {
+        console.log("喵呜~");
+    }
+
+    eatFish() {
+        let $self = this;
+        console.log(`${$self.name}最喜欢吃鱼了`);
+    }
+}
+
+let dahuang = new Cat("大黄", "yello", "big", 5);
+
+console.log(dahuang);
+console.log(dahuang.__proto__);
+console.log(Object.getOwnPropertyNames(dahuang));
+
+dahuang.eatFish();
+
+class dog extends Cat {
+    constructor(tail) {
+        super("大黑", "blank", "big", 9);
+        this.tail = tail;
+    }
+
+    bark() {
+        console.log("汪汪汪");
+    }
+}
+
+
+let dagou = new dog("黑色卷毛尾");
+
+dagou.bark();
+console.log("\n");
+
+console.log(dagou);
+console.log(dagou.constructor.prototype);
 ```
 上面当是我的一些总结，学了一年的前端，对象的理解应该就这样了
 
