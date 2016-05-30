@@ -7,12 +7,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <title>Web开发 | 2014信管创业基地官方博客 | 愿景:用心铸造卓越offer | {{ page.title }}</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico">
-    
+    <link rel="stylesheet" href="/assets/css/blog-post.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
 </head>
 	
 <body>
-	<article>
-		{{ content }}
-	</article>
+	<section class="bg-wrap">
+        <img src="" alt="bg">
+
+        <h1 id="article-title">
+            {{ page.title }}         
+        </h1>
+    </section>
+    <div class="container">
+        <article>
+            <section class="article-box">
+                {{ content }}
+
+                {% include duoshuo.html %}
+            </section>
+            
+            <section class="tree-list-wrap clear-select">
+                <div class="tree-section tree-list-title">
+                    <span>
+                        书签目录
+                    </span>
+                </div>
+                <div class="tree-list-box tree-list-box-hidden">
+                    <ul class="tree-list "></ul>
+                    <div class="scroll-bar-box">
+                        <div class="scroll-bar"></div>
+                    </div>    
+                </div>
+                <div class="tree-section tree-list-bottom"></div>
+            </section>
+        </article>
+    </div>
+    
+    <section class="pic-show-wrap pic-show-hidden">
+        <img src="" alt="showPic">
+    </section>
+
+
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/blog-post.js"></script>
 </body>
 </html>
