@@ -36,6 +36,7 @@ var picNum = 3,
 var rN = Math.floor(Math.random()*picNum) +1;
 oPicBg[0].src = "/assets/img/blog-post/bg"+ rN +".jpg";
 
+// /assets/img/blog-post
 
 $.fn.Drag = function (callback) {
     var $self = this;
@@ -131,7 +132,49 @@ var oArticle = $("article"),
     oTreeListBoxHeight = 556,
     oTreeList = $(".tree-list"),
     oScrollBarBox = $(".scroll-bar-box"),
-    oScrollBar = $(".scroll-bar")
+    oScrollBar = $(".scroll-bar"),
+    oBtnsListWrap = $(".btns-list-wrap"),
+    oPlaneWarp = $(".plane-wrap"),
+    oBtBtn = $(".back-top-btn"),
+    oPlane = $(".plane")
+
+// 按钮列表Js 
+$(function () {
+    oBtnsListWrap.css("right" , 0.16*innerWidth);
+
+
+    oPlaneWarp.hover(function () {
+        oBtBtn.addClass("back-top-btn-active");
+        oPlane.css("bottom" , "14px");
+    },function () {
+        oBtBtn.removeClass("back-top-btn-active");
+        oPlane.css("bottom" , "-80px");
+    });
+
+    oPlaneWarp.on("click" , function () {
+        oBtBtn.removeClass("back-top-btn-active");
+        oBtnsListWrap.css("opacity" , "0");
+        oPlaneWarp.animate({top : "-5000px"},500, function () {
+            oPlaneWarp.css("top" , "-5px");
+        });
+        
+        $('html,body').animate({scrollTop : "0"},800);
+    });
+
+    $window.on("scroll.btnList" , function () {
+        var oTop = $window.scrollTop();
+        if (oTop >= 600) {
+            oBtnsListWrap.css("display","block");
+            oBtnsListWrap.css("opacity" , "1");
+        } else {
+            oBtnsListWrap.css("opacity" , "0");
+            setTimeout(function () {
+                oBtnsListWrap.css("display","none");
+            },500);
+        }
+    });
+});
+
 
 // 图片弹出层
 $(function () {
@@ -180,7 +223,7 @@ $(function () {
         H3Num = 0
     
     var cW = innerWidth,
-        treeWrapRadio = 0.2
+        treeWrapRadio = 0.14
 
     if(innerWidth < 1200) {
         cW = 1200;

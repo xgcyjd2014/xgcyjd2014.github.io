@@ -40,7 +40,6 @@
         <article>
             <section class="article-box">
                 {{ content }}
-
                 {% include duoshuo.html %}
             </section>
             
@@ -64,7 +63,32 @@
     <section class="pic-show-wrap pic-show-hidden">
         <img src="" alt="showPic">
     </section>
+    
+    <section class="btns-list-wrap">
+        <ul class="btns-list">
+            <li class="back-top">
+                <button class="back-top-btn"></button>
+                <div class="plane-wrap">
+                    <i class="plane"></i>
+                </div>
+            </li>
+            <li class="qr-code">
+                <button class="qr-code-btn"></button>
+                <div class="qr-table">
+                    <div class="qr-code-pic">
+                    </div>
 
+                    <p>
+                        扫码关注微信号
+                    </p>
+
+                    <p>
+                        时刻掌握最新Web资讯
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
 
     <script src="/assets/js/jquery-1.11.3.min.js"></script>
     <script src="/assets/js/blog-post.js"></script>
