@@ -98,12 +98,7 @@ other<br/>
  
 如果我们需要使用代码高亮，可以使用markdown语法
 
-在代码开头这样写
- 
->  ```javascript
-
-
-再以3个` 加 语言类型（如JavaScript）
+以3个` 加 语言类型（如JavaScript）开头
    
 再以3个`结尾
 
