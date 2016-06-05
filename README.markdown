@@ -1,4 +1,4 @@
-﻿												<!-- compose By Owen -->
+												<!-- compose By Owen -->
 										  <!-- github: github.com/numerhero -->
 # xgcyjd2014.github.io
 
@@ -92,18 +92,48 @@ other<br/>
 博文撰写就比较自由了，基于markdown 语法（不熟悉可以去百度了解下，很简单）<br/>
 如果懒得学，直接打文字也行了，编码为__utf-8__
 
-### 关于代码高亮
+## 博文样式
 
-由于近期，github 已经将 jekyll 从 2.x 升级到了 3.0
-所以，所有的代码高亮已经不支持原来那种写法了
+### 代码高亮
+ 
+如果我们需要使用代码高亮，可以使用markdown语法
 
-`{% highlight xxx %}`
+在代码开头这样写
+ 
+>  ```javascript
 
-而采用 kramdown 独有的写法<br>
-\`\`\`xxx<br>
-    // 高亮部分   
-\`\`\`
-#### Caveat 
+
+再以
+
+> ```
+   
+结尾
+
+中间写你需要高亮的代码
+
+
+
+高亮样式
+
+![screenshoot](/assets/img/ReadMe/highlight.png)
+
+缩进标准为 tab-size: 2
+
+### 引用样式
+
+如果需要引用，可以用一个 > ，并在这个> 下写需要引用的东西 ，可以换行，但是一个代码块有且只有一个>
+
+引用样式
+
+![screenshoot](/assets/img/ReadMe/quote.png)
+
+### 图片
+
+![alt](路径)
+
+图片点击可以放大
+
+### Caveat 
 
 `① 注意，代码与上下文之间必须有一行空行！！`
 
