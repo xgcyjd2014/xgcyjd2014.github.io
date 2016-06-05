@@ -3,7 +3,7 @@ layout: post
 title: Es6 对象Proxy 
 author: Owen
 tagpic: js.jpg
-description: 关于Es6 Promise api 详解 和 一些栗子
+description: 关于Es6 Proxy api 详解 和 一些栗子
 category: js
 keywords: 技术,Proxy,es6
 ---
