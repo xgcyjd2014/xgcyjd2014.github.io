@@ -38,6 +38,16 @@
         </nav>
 
         <article>
+            <section class="article-info">
+                <p>
+                    <i class="publish-time"></i>
+                    <span>{{ page.date | %Y%M | date_to_string }}</span>
+                </p>
+                <p>
+                    <i class="author"></i>
+                    <span>{{ page.author }}</span>
+                </p>
+            </section>
             <section class="article-box">
                 {{ content }}
                 {% include duoshuo.html %}

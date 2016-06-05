@@ -306,7 +306,7 @@ $(function () {
                 target = $("#"+flags[tIndex].cName);
                 t = target.position().top;
                 if(tIndex == 0) {
-                    t += 285; // 弥补背景卷上去的高度差
+                    t += 270; // 弥补背景卷上去的高度差
                 } 
             }
 

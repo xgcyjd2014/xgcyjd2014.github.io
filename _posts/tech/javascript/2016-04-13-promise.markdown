@@ -617,7 +617,8 @@ Promise.all(p).then(function (val) {
 });
 ```
 
-> 摘录[阮一峰 Promise对象]： Promise.all方法的参数可以不是数组，但必须具有Iterator接口
+> 摘录[阮一峰 Promise对象]： 
+  Promise.all方法的参数可以不是数组，但必须具有Iterator接口
 
 > Process.race 的话，会监听到底哪个参数率先变化了状态，并将那个变化状态了的promise 返回给then
 
