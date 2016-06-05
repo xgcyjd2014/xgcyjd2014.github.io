@@ -3,7 +3,7 @@ layout: post
 title: create方法和new方法的异同 
 author: Owen
 tagpic: js.jpg
-description: 关于Es6 Promise api 详解 和 一些栗子
+description: 关于比较create方法和new 方法之间的异同，并对创建对象进行一些总结
 category: js
 keywords: 技术,Object.create,new
 ---
