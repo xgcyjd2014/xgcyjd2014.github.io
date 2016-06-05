@@ -103,14 +103,11 @@ other<br/>
 >  ```javascript
 
 
-再以
-
-> ```
+再以3个` 加 语言类型（如JavaScript）
    
-结尾
+再以3个`结尾
 
 中间写你需要高亮的代码
-
 
 
 高亮样式
@@ -148,8 +145,6 @@ other<br/>
 ![screenshoot](/assets/img/ReadMe/quote.png)
 
 ### 图片
-
-![alt](路径)
 
 图片点击可以放大
 
