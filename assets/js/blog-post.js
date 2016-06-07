@@ -91,6 +91,7 @@ $.fn.Scroll = function (callback) {
 
     if(dH <= 0) {
         scrollBox.css("display","none"); 
+        return;
     } else {
         scrollBar.css("height" , barRH); 
     }
