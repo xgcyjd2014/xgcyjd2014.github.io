@@ -31,9 +31,9 @@ let oMembersInfo = [
         "duties" : "安卓组成员",
         "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao-tall-pic.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "willow",
+        "duties" : "C++组成员",
+        "pic" : "/assets/img/members-pic/members-pics/willow/willow.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
