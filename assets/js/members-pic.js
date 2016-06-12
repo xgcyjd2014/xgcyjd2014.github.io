@@ -37,7 +37,7 @@ let oMembersInfo = [
     },{
         "name" : "QingFeng",
         "duties" : "安卓组成员",
-        "pic" : "/assets/img/members-pic/members-pics/qingfeng/qingfeng.png"
+        "pic" : "/assets/img/members-pic/members-pics/QingFeng/qingfeng.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
