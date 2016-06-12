@@ -9,35 +9,35 @@ let oMembersInfo = [
     {
         "name" : "AllenYang", 
         "duties" : "2014基地总负责人",
-        "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang-tall-pic.png"
+        "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png"
     },{
         "name" : "Owen",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Owen/Owen-tall-pic.png"        
+        "pic" : "/assets/img/members-pic/members-pics/Owen/Owen.png"        
     },{
         "name" : "Snow",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Snow/Snow-tall-pic.png"
+        "pic" : "/assets/img/members-pic/members-pics/Snow/Snow.png"
     },{
         "name" : "YanLong",
         "duties" : "Web组成员",
-        "pic" : "/assets/img/members-pic/members-pics/YanLong/YanLong-tall-pic.png"
+        "pic" : "/assets/img/members-pic/members-pics/YanLong/YanLong.png"
     },{
         "name" : "Niklaus",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Niklaus/Niklaus-tall-pic.png"
+        "pic" : "/assets/img/members-pic/members-pics/Niklaus/Niklaus.png"
     },{
         "name" : "lianghongchao",
         "duties" : "安卓组成员",
-        "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao-tall-pic.png"
+        "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao.png"
     },{
         "name" : "willow",
         "duties" : "C++组成员",
         "pic" : "/assets/img/members-pic/members-pics/willow/willow.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "QingFeng",
+        "duties" : "安卓组成员",
+        "pic" : "/assets/img/members-pic/members-pics/qingfeng/qingfeng.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
