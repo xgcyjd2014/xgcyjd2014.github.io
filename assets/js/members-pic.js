@@ -256,6 +256,8 @@ $(function () {
                 setTimeout(function () {
                     oCircles.addClass("none");
                     oImWebLogo.addClass("wobble");
+
+                    oJoinUs.removeClass("none");
                 },1900);
             })
             .then(() => {
