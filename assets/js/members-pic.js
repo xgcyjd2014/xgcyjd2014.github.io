@@ -9,43 +9,43 @@ let oMembersInfo = [
     {
         "name" : "AllenYang", 
         "duties" : "2014基地总负责人",
-        "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png"
+        "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang-tall-pic.png"
     },{
         "name" : "Owen",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Owen/Owen.png"        
+        "pic" : "/assets/img/members-pic/members-pics/Owen/Owen-tall-pic.png"        
     },{
         "name" : "Snow",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Snow/Snow.png"
+        "pic" : "/assets/img/members-pic/members-pics/Snow/Snow-tall-pic.png"
     },{
         "name" : "YanLong",
         "duties" : "Web组成员",
-        "pic" : "/assets/img/members-pic/members-pics/YanLong/YanLong.png"
+        "pic" : "/assets/img/members-pic/members-pics/YanLong/YanLong-tall-pic.png"
     },{
         "name" : "Niklaus",
         "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Niklaus/Niklaus.png"
+        "pic" : "/assets/img/members-pic/members-pics/Niklaus/Niklaus-tall-pic.png"
     },{
         "name" : "lianghongchao",
         "duties" : "安卓组成员",
-        "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao.png"
+        "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao-tall-pic.png"
     },{
-        "name" : "willow",
-        "duties" : "C++组成员",
-        "pic" : "/assets/img/members-pic/members-pics/willow/willow.png"
+        "name" : "期待你的加入",
+        "duties" : "",
+        "pic" : "/assets/img/members-pic/members-pics/noman.png"
     },{
-        "name" : "QingFeng",
-        "duties" : "安卓组成员",
-        "pic" : "/assets/img/members-pic/members-pics/QingFeng/qingfeng.png"
+        "name" : "期待你的加入",
+        "duties" : "",
+        "pic" : "/assets/img/members-pic/members-pics/noman.png"
     },{
-        "name" : "DemoCiMo",
-        "duties" : "Web组成员",
-        "pic" : "/assets/img/members-pic/members-pics/DemoCiMo/democimo.png"
+        "name" : "期待你的加入",
+        "duties" : "",
+        "pic" : "/assets/img/members-pic/members-pics/noman.png"
     },{
-        "name" : "Claire",
-        "duties" : "前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/Claire/Claire.png"
+        "name" : "期待你的加入",
+        "duties" : "",
+        "pic" : "/assets/img/members-pic/members-pics/noman.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
@@ -260,7 +260,7 @@ $(function () {
             })
             .then(() => {
                 setTimeout(function (){
-                    oImWebLogo.css("top","-350px");
+                    oImWebLogo.css("top","-250px");
                     oImWebFont.removeClass("hidden");
                     oImWebFont.addClass("wobble");
                     oJoinUs.removeClass("hidden")
