@@ -258,7 +258,7 @@ $(function () {
                     oImWebLogo.addClass("wobble");
 
                     oJoinUs.removeClass("none");
-                },2100);
+                },2300);
             })
             .then(() => {
                 setTimeout(function (){
@@ -266,7 +266,7 @@ $(function () {
                     oImWebFont.removeClass("hidden");
                     oImWebFont.addClass("wobble");
                     oJoinUs.removeClass("hidden")
-                },2400);
+                },2600);
             }) 
     });
 
