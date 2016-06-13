@@ -250,7 +250,7 @@ $(function () {
 
                     oCircles.css("transform" ,"rotate(0) translateY(0)");
                     oCircles.addClass("hidden");
-                },600);
+                },800);
             })
             .then(() => {
                 setTimeout(function () {
