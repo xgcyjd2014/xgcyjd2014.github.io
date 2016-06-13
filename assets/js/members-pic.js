@@ -250,7 +250,7 @@ $(function () {
 
                     oCircles.css("transform" ,"rotate(0) translateY(0)");
                     oCircles.addClass("hidden");
-                },800);
+                },600);
             })
             .then(() => {
                 setTimeout(function () {
@@ -258,7 +258,7 @@ $(function () {
                     oImWebLogo.addClass("wobble");
 
                     oJoinUs.removeClass("none");
-                },1900);
+                },2100);
             })
             .then(() => {
                 setTimeout(function (){
@@ -266,7 +266,7 @@ $(function () {
                     oImWebFont.removeClass("hidden");
                     oImWebFont.addClass("wobble");
                     oJoinUs.removeClass("hidden")
-                },2200);
+                },2400);
             }) 
     });
 
