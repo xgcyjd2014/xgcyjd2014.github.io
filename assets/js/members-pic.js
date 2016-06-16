@@ -176,6 +176,18 @@ $(function () {
         iNow = 1;
         changeScreen();   
     });
+
+    function changeScreen () {
+        if(iNow === 1) {
+            oSecondStage.css("transform","scale(1,1)");
+            oSecondStage.css("opacity" , "1");
+            oCircles.removeAttr("style");
+            setTimeout(function () {
+                oImWeb.css("transform","scale(1,1)");
+            },2000);
+        }
+        oScrollWrap.css("marginTop", iNow * -oH);
+    }
 });
 
 // 展示效果
@@ -277,14 +289,3 @@ $(function () {
 
 
 
-function changeScreen () {
-    if(iNow === 1) {
-        oSecondStage.css("transform","scale(1,1)");
-        oSecondStage.css("opacity" , "1");
-        oCircles.removeAttr("style");
-        setTimeout(function () {
-            oImWeb.css("transform","scale(1,1)");
-        },2000);
-    }
-    oScrollWrap.css("marginTop", iNow * -oH);
-}
