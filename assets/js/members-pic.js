@@ -31,21 +31,21 @@ let oMembersInfo = [
         "duties" : "安卓组成员",
         "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "willow",
+        "duties" : "C++组成员",
+        "pic" : "/assets/img/members-pic/members-pics/willow/willow.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "QingFeng",
+        "duties" : "安卓组成员",
+        "pic" : "/assets/img/members-pic/members-pics/QingFeng/qingfeng.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "DemoCiMo",
+        "duties" : "Web组成员",
+        "pic" : "/assets/img/members-pic/members-pics/DemoCiMo/democimo.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Claire",
+        "duties" : "前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Claire/Claire.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
