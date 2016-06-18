@@ -13,36 +13,7 @@ title: 首页
 </section>
 <section class="index-box clearfix">
 	<!-- 不用在html 中添加li 每发表一篇博文就会自动添加一个li -->
-	<ul id="post-list" >
-	{% for post in site.posts %}
-		{% assign count=count | plus:1 %}
-		{% assign num = 12 %}
-		{% if count <= num %}
-		<li class="post-list-li">
-			<div class="post-tag">
-			<!-- post.id /Y/M/D/name -->
-			{% assign paths = post.id | split: '/' %}
-			 	<!-- tagpic要给对，图片裁切成 280*250 -->
-			 	<!-- tagpic（带后缀名） -->
-				<a href="{{ post.url }}" target="_blank">
-					<img src="/assets/img/index/post-list-imgs/{{ post.tagpic }}" alt="{{ paths[4] }}">
-				</a>
-			</div>
-			<div class="line"></div>
-			<div class="post-tag-description">
-				<h1 class="post-tag-title">
-					<a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-				</h1>
-				<h2 class="post-tag-author-date">
-					<span class="remark"><a href="javascript:;" target="_blank">{{ post.author }}</a> 发布于{{ post.date | %Y%M | date_to_string }}</span>
-				</h2>
-				<div class="post-tag-short-line"></div>
-				<p>{{ post.description }}</p>
-			</div>
-		</li>
-		{% endif %}
-	{% endfor %}
-	</ul>
+	<ul id="post-list" ></ul>
 	<section id="page-sidebar">	
 		<h1 class="page-sidebar-title clear-select">分类标签</h1>
 		<h1 class="page-sidebar-title-en clear-select">Tags Of Posts-List</h1>

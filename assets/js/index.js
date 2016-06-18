@@ -11,16 +11,19 @@ $(function() {
         oClassifyList = $("#classify-list"),
 	    oAs           = $("#classify-list li a"),
 	    PaginationNum = 12;
-        
-        console.log(posts);
-
+    
+    oId('all');
     oClassifyList.delegate('a', 'click', function (ev) {
         var oId = ev.target.dataset.id,
             showNum = PaginationNum,
             html = '',
             filterArr = posts;
 
-            if(!(oId === "all")) {
+            render(oId);
+    })
+
+    function render(oId) {
+        if(!(oId === "all")) {
                 filterArr = posts.filter(function(value, idx) {
                     return value.category === oId;
                 });
@@ -56,7 +59,7 @@ $(function() {
             oPostList.html(html);
             oPostList.removeClass("hidden")
         },350)
-    })
+    }
 });
 
 /* baidu map */
