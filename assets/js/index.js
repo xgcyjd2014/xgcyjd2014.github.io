@@ -14,15 +14,15 @@ $(function() {
     
     render('all');
     oClassifyList.delegate('a', 'click', function (ev) {
-        var oId = ev.target.dataset.id,
-            showNum = PaginationNum,
-            html = '',
-            filterArr = posts;
-
+        var oId = ev.target.dataset.id;
             render(oId);
     })
 
     function render(oId) {
+        var showNum = PaginationNum,
+            filterArr = posts,
+            html = '',
+
         if(!(oId === "all")) {
                 filterArr = posts.filter(function(value, idx) {
                     return value.category === oId;
