@@ -12,7 +12,7 @@ $(function() {
 	    oAs           = $("#classify-list li a"),
 	    PaginationNum = 12;
     
-    oId('all');
+    render('all');
     oClassifyList.delegate('a', 'click', function (ev) {
         var oId = ev.target.dataset.id,
             showNum = PaginationNum,
@@ -27,7 +27,7 @@ $(function() {
                 filterArr = posts.filter(function(value, idx) {
                     return value.category === oId;
                 });
-            }
+        }
             
         (filterArr.length <= PaginationNum) ? showNum = filterArr.length : 1;
 
