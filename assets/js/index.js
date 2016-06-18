@@ -1,9 +1,9 @@
-										/*--------------------------------------------*\
-														xgjd index js
-										   		   Design And Build By Owen
-										      Github:http://github.com/numerhero
+/*--------------------------------------------*\
+				xgjd index js
+   		   Design And Build By Owen
+      Github:http://github.com/numerhero
 
-										\*--------------------------------------------*/
+\*--------------------------------------------*/
 
 /* 博文聚合 */
 $(function() {

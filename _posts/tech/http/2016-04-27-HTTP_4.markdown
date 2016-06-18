@@ -4,7 +4,7 @@ title: 浏览器缓存(4)
 author: YanLong
 tagpic: http.jpg
 description: 关于Http 系列的基础知识
-category: js
+category: http
 keywords: 技术,http
 ---
 

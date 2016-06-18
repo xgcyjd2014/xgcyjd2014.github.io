@@ -116,11 +116,11 @@
 }
 
 .post-tag-title a {
-	color: #C4086C;
+	color: #1C86D1;
 }
 
 .post-list-li:hover .post-tag-title a {
-	color: #6A0A40;
+	color: #3485FB;
 }
 
 #post-list .post-tag-author-date {
@@ -153,9 +153,8 @@
 	font-weight: 400;
 }
 
-/* 如不添加，默认色 */
 .remark a {
-	color: #23527c;
+	color: #1C86D1;
 	font-family: "Yuppy" , "微软雅黑";
 }
 
