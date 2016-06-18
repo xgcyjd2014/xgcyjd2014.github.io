@@ -11,6 +11,8 @@ $(function() {
         oClassifyList = $("#classify-list"),
 	    oAs           = $("#classify-list li a"),
 	    PaginationNum = 12;
+        
+        console.log(posts);
 
     oClassifyList.delegate('a', 'click', function (ev) {
         var oId = ev.target.dataset.id,
@@ -37,10 +39,10 @@ $(function() {
                 +   '<div class="line"></div>'
                 +   '<div class="post-tag-description">'
                 +     '<h1 class="post-tag-title">'
-                +       '<a href="'+filterArr[i].url+'" target="_blank"></a>'
+                +       '<a href="'+filterArr[i].url+'" target="_blank">'+filterArr[i].title+'</a>'
                 +     '</h1>'
                 +     '<h2 class="post-tag-author-date">'
-                +       '<span class="remark"><a href="javascript:;" target="_blank">Owen</a> 发布于22 May 2016</span>'
+                +       '<span class="remark"><a href="javascript:;" target="_blank">'+filterArr[i].author+'</a> 发布于'+filterArr[i].date+'</span>'
                 +     '</h2>'
                 +     '<div class="post-tag-short-line"></div>'
                 +     '<p>'+filterArr[i].description+'</p>'
