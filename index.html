@@ -49,7 +49,7 @@ title: 首页
 		<!-- 分类列表 点击获得所有的相关博文 -->
 		<ul id="classify-list" class="clearfix">
 			<li class="classify-lis clearfix">
-				<a href="javascript:;">全部</a>
+				<a href="javascript:;" data-id="all" >全部</a>
 				<ul>
 					<li></li>
 					<li></li>
@@ -59,7 +59,7 @@ title: 首页
 			</li>
 			{% for category in site.categories %}
 			<li class="classify-lis clearfix">
-				<a href="javascript:;">{{ category[0] }}</a>
+				<a href="javascript:;" data-id={{category[0]}} >{{ category[0] }}</a>
 				<ul>
 					<li></li>
 					<li></li>

@@ -7,42 +7,54 @@
 
 /* 博文聚合 */
 $(function() {
-	var oClassifyList = $("#classify-list");
-	var oLis          = $("#classify-list li");
-	var oAs           = $("#classify-list li a");
-	var PaginationNum = 12;
+	var oPostList     = $("#post-list"), 
+        oClassifyList = $("#classify-list"),
+	    oAs           = $("#classify-list li a"),
+	    PaginationNum = 12;
 
-	for(var i = 1 ;i<oAs.length; i++) {
-		oAs[i].addEventListener("click" ,function() {
-			var aTagname = $(this).html();
-			var aLis      = [];
-			posts.forEach(function( post ) {
-				if( post.category == aTagname ) {
-						aLis.push(post);
-				}
-			});
-			var pageNum = 0;
-			aLis.length >= PaginationNum ? pageNum = PaginationNum : pageNum = aLis.length;
-			document.getElementById("post-list").innerHTML = '';
-			for(var j = 0 ;j<pageNum; j++) {
-				var aLi = document.createElement("li");
-				aLi.className = "post-list-li";
-				aLi.innerHTML = '<div class="post-tag"><a href="'+ aLis[j]["url"] +'" target="_blank"><img src="/assets/img/index/post-list-imgs/'+ aLis[j]["tagpic"] +'" alt="'+ aLis[j]["title"] +'"></a></div><div class="line"></div><div class="post-tag-description"><h1 class="post-tag-title"><a class="'+ aLis[j]["category"] +'-title" href="'+ aLis[j]["url"] +'" target="_blank">'+  aLis[j]["title"] +'</a></h1><h2 class="post-tag-author-date"><span class="remark"><a href="javascript:;" class="'+ aLis[j]["author"] +'" target="_blank">'+ aLis[j]["author"] +'</a> 发布于'+ aLis[j]["date"] +'</span></h2><div class="post-tag-short-line"></div><p>'+ aLis[j]["description"] +'</p></div>';
-				document.getElementById("post-list").appendChild(aLi);
-			}
-		});
-	}
-	oAs[0].addEventListener("click" , function() {
-		document.getElementById("post-list").innerHTML = '';
-		var pageNum = 0;
-		posts.length >= PaginationNum ? pageNum = PaginationNum : pageNum = posts.length;
-		for(var j = 0;j<pageNum;j++) {
-			var aLi = document.createElement("li");
-			aLi.className = "post-list-li";
-			aLi.innerHTML = '<div class="post-tag"><a href="'+ posts[j]["url"] +'" target="_blank"><img src="/assets/img/index/post-list-imgs/'+ posts[j]["tagpic"] +'" alt="'+ posts[j]["title"] +'"></a></div><div class="line"></div><div class="post-tag-description"><h1 class="post-tag-title"><a class="'+ posts[j]["category"] +'-title" href="'+ posts[j]["url"] +'" target="_blank">'+  posts[j]["title"] +'</a></h1><h2 class="post-tag-author-date"><span class="remark"><a href="javascript:;" class="'+ posts[j]["author"] +'" target="_blank">'+ posts[j]["author"] +'</a> 发布于'+ posts[j]["date"] +'</span></h2><div class="post-tag-short-line"></div><p>'+ posts[j]["description"] +'</p></div>';
-			document.getElementById("post-list").appendChild(aLi);
-		}
-	});
+    oClassifyList.delegate('a', 'click', function (ev) {
+        var oId = ev.target.dataset.id,
+            showNum = PaginationNum,
+            html = '',
+            filterArr = posts;
+
+            if(!(oId === "all")) {
+                filterArr = posts.filter(function(value, idx) {
+                    return value.category === oId;
+                });
+            }
+            
+        (filterArr.length <= PaginationNum) ? showNum = filterArr.length : 1;
+
+        for(var i = 0; i<showNum; i++) {
+            html += ''
+                + '<li class="post-list-li">'
+                +   '<div class="post-tag">'
+                +     '<a href="'+filterArr[i].url+'" target="_blank">'
+                +      '<img src="/assets/img/index/post-list-imgs/'+filterArr[i].tagpic+'" alt="22">'
+                +     '</a>'
+                +   '</div>'
+                +   '<div class="line"></div>'
+                +   '<div class="post-tag-description">'
+                +     '<h1 class="post-tag-title">'
+                +       '<a href="'+filterArr[i].url+'" target="_blank"></a>'
+                +     '</h1>'
+                +     '<h2 class="post-tag-author-date">'
+                +       '<span class="remark"><a href="javascript:;" target="_blank">Owen</a> 发布于22 May 2016</span>'
+                +     '</h2>'
+                +     '<div class="post-tag-short-line"></div>'
+                +     '<p>'+filterArr[i].description+'</p>'
+                +   '</div>'
+                + '</li>'
+        }
+
+
+        oPostList.addClass("hidden");
+        setTimeout(function () {
+            oPostList.html(html);
+            oPostList.removeClass("hidden")
+        },350)
+    })
 });
 
 /* baidu map */

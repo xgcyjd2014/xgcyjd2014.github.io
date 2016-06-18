@@ -149,6 +149,10 @@ figure {margin: 0;}
 	height: 0;
 }
 
+.hidden {
+	opacity: 0;
+}
+
 .none {
 	display: none;
 }

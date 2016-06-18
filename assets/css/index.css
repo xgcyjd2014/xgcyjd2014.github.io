@@ -18,6 +18,7 @@
 	height: auto;
 	min-height: 16.80rem;
 	box-shadow: inset -1px 0 0 0 #ccc;
+	transition: .3s;
 }
 
 .post-list-li {
@@ -193,7 +194,7 @@
 }
 .getmore a:hover { 
 	background: #dddddd; 
-	color: #497490; 
+	color: #1C86D1; 
 }
 
 /* 标签 */
