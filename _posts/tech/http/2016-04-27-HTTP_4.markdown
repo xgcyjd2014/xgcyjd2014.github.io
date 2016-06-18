@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 浏览器缓存(4)
+title: 浏览器缓存
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(4)
 category: http
 keywords: 技术,http
 ---

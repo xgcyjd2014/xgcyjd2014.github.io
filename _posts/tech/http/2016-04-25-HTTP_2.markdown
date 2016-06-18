@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Content-Type实体首部字段(2)
+title: Content-Type实体首部字段
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(2)
 category: http
 keywords: 技术,http
 ---

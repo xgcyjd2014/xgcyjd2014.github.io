@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 内容编码和传输编码(5)
+title: 内容编码和传输编码
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(5)
 category: http
 keywords: 技术,http
 ---

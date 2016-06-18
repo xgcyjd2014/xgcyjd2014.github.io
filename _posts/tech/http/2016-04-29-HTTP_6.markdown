@@ -3,7 +3,7 @@ layout: post
 title: URL(Uniform Resource Locator)
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(6)
 category: http
 keywords: 技术,http
 ---

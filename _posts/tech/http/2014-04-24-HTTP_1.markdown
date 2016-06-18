@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 认识Web和HTTP(1)
+title: 认识Web和HTTP
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(1)
 category: http
 keywords: 技术,http
 ---

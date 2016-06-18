@@ -3,7 +3,7 @@ layout: post
 title: 客户端识别与Cookie机制
 author: YanLong
 tagpic: http.jpg
-description: 关于Http 系列的基础知识
+description: 关于Http 系列的基础知识(7)
 category: http
 keywords: 技术,http
 ---
