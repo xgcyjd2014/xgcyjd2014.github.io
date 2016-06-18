@@ -1,0 +1,47 @@
+---
+layout: post
+title: 浏览器缓存(4)
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+
+&emsp;&emsp;上一篇文章中，我们知道了使用Cache-Control:max-age 可以指定资源的过期时间。其实，Cache-Control 不仅仅只有这样一个值，而且它既可以在响应首部字段中也可以在请求首部字段中使用。下面总结几种常见的使用情况.
+
+一:Cache-Control 详谈
+-----------
+
+&emsp;1.Cache-Control: no-store;
+---
+
+&emsp;&emsp;正如no-store名字所表达的那样，标记为no-store的响应会禁止浏览器对其缓存。
+
+&emsp;2.Cache-Control:no-cache.
+----
+&emsp;&emsp;标记为no-cache的响应实际上是可以储存在本地缓存中的。只是在与原始服务器进行新鲜度再验证之前，缓存不能将其提供给客户端使用。所以，这个首部使用 not-serve-from-cache-without-revalidation这个名字会更准确一些。
+
+&emsp;4.Cache-Control:must-revalidata.
+----------
+&emsp;&emsp;这个响应首部告诉缓存，在事先没有跟原始服务器进行再验证的情况下，不能提供这个对象的过期缓存。（因为可以配置缓存，使其提供一些过期的资源以提高性能）。但缓存仍然可以随意提供新鲜的副本。
+
+二:客户端的新鲜度限制
+-----------------
+&emsp;&emsp;客户端浏览器可以使用Cache-Control请求首部来强化或放松对过期时间的限制。典型的，浏览器对 F5 和 Ctrl+F5 刷新就完全不一样。
+
+&emsp;&emsp;1.直接F5刷新。如果浏览器已缓存了资源，会带上 If-Last-Modified 和 If-None-Match 进行服务器再验证，对于大多数静态资源，通常会得到 304 即可以直接拿缓存。
+
+&emsp;&emsp;2.Ctrl+F5刷新。此请求报文不会包含 If-Last-Modified 和 If-None-Match ，即使浏览器中有可用的缓存，也要直接从源服务器中取资源。通常，浏览器请求字段会带上 Cache-Control:no-cache 和 Pragme:no-cache并得到 200 OK 的响应。
+
+三:应用
+-------
+&emsp;&emsp;StackOverflow中的一个提问，如何让指定的资源永远不被浏览器缓存。这个应用场景很常见的，观察到知乎首页由于会不断的推送新的内容所以禁止浏览器缓存。
+
+&emsp;如下的设置可使绝大多数浏览器不对此资源进行缓存:
+
+	Cache-Control: no-cache, no-store, must-revalidata
+	Pragme: no-cache
+
+&emsp;注:Pragme和Expires是为了兼容 HTTP 1.0 版本。

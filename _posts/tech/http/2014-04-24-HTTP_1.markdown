@@ -1,0 +1,57 @@
+---
+layout: post
+title: 认识Web和HTTP(1)
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+一:了解Web.
+-----------
+&emsp;&emsp;首先，Web应用的产生起源于1989年，当时CERN(欧洲核子研究组织)的蒂姆·伯纳斯-李(Time BernersLee)博士提出了一种能让远隔两地的研究者们共享知识的设想。借助多文档之间相互关联形成的超文本，连成可相互参阅的WWW(World Wide Web 万维网)。
+
+&emsp;&emsp;大致上，Web应用包含了三项最根本的技术，使用HTML等标记语言构建Web资源；使用HTTP作为资源的远程传递协议；使用URI(同一资源标识符)作资源的地址。这三项技术共同构成了WWW。一个典型的Web应用场景就是在浏览器中输入要访问的资源的远程地址(URI)，通过HTTP远程通信，最终得到要访问的资源(页面)。所谓"上网"，就是与互联网上一系列的"资源"互动，调用它的URI。
+
+二:了解HTTP.
+----------------
+&emsp;&emsp;在了解HTTP协议之前，必须明白客户端和服务器。HTTP就是用于客户端和服务器的通信协议。
+
+&emsp;&emsp;**请求访问资源的一端为客户端，而提供资源响应的一端则成为服务端。**
+一般，我们的浏览器就是一个客户端，服务器则是我们所要访问的远程资源的存放位置。就一条通信路线来说，服务器和客户端的角色是确定的，使用HTTP协议能够明确区分哪端是客户端，哪端是服务器端。
+**HTTP协议规定，请求(Request)必须从客户端发出，最后服务器端响应(Response)请求并返回。**
+
+三:认识Request和Response.
+-----------------------
+&emsp;&emsp;**报文:**用于HTTP协议交互的信息被称为HTTP报文。它包含了对要访问资源进行的操作的信息。请求端的HTTP报文叫做请求报文，响应端(服务器端)的叫做响应报文。HTTP报文本身是由多行数据构成的字符串文本。
+
+&emsp;&emsp;**我们可以将HTTP报文分为两部分，报文首部和报文主体.它们之间通过空行来划分.报文首部又是由起始行和可选的首部字段组成。**
+
+&emsp;&emsp;我们来看一个具体的HTTP通信。
+下面是从客户端发给某个HTTP服务器端的请求报文中的内容。
+	
+	GET /log-in.html HTTP/1.1
+	Host:hachr.jp
+	Connection:Keep-alive
+	Content-Type:application/x-www-form-urlencoded
+
+	name=chenyanlong&age=20
+		
+&emsp;参照上面这个的HTTP请求报文,( 这是一个典型的表单提交请求 )，可以看到，请求报文的起始行由请求方法，请求URI，协议版本构成。
+
+&emsp;下面是服务器接收到请求后进行处理并返回的响应报文。
+	
+	HTTP/1.1 200 OK
+	Date:Tue 19 Apr 2016 15:09:00 GMT+0800
+	Content-Length:362
+	Content-Type:text/html
+
+	<html>
+	......
+
+&emsp;&emsp;响应报文的起始行不同于请求，开头的HTTP/1.1表示服务器对应的HTTP版本。紧挨着的200 OK表示请求的处理结果的状态码( status code ) 和 原因短语( reason-phrase )
+
+总结
+----
+&emsp;&emsp;本篇文章主要介绍了Web的发展和认识了HTTP的大致组成.其实，了解HTTP最好的办法是在实践中学习，尤其是对于众多首部字段的学习。所以，随后会从具体的应用场景出发来重点介绍首部字段。

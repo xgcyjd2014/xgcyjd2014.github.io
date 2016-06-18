@@ -1,0 +1,147 @@
+---
+layout: post
+title: Content-Type实体首部字段(2)
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+
+&emsp;&emsp;现代互联网下，每天都会有数以亿计的各种媒体对象经由HTTP传输，如图像，文本，影视以及软件程序等。这些数据都包含在HTTP报文的实体内容中，如果把HTTP报文想像成一份快递，HTTP实体就是快递实际的货物，而首部字段只是贴在快递上用来描述货物的信息。HTTP必须确保它的报文实体被正确识别，提取以及适当处理。为了实现报文实体能被正确的识别，HTTP提供了Content-Type实体首部字段来描述报文实体的媒体格式。
+
+<img src="http://7xtdq2.com1.z0.glb.clouddn.com/http_2_1.PNG">
+
+一:MIME.(媒体类型)
+--------------
+&emsp;&emsp;因特网上有数千种不同的数据类型，HTTP仔细地给每种要通过Web传输的对象都打上了名为MIME类型的数据格式标签。最初设计MIME(Multipurpose Internet Mail Extension,多用途因特网邮件扩展)是为了解决在不同的电子邮件系统之间搬移报文时存在的问题。MIME在电子邮件系统中工作的非常好，因此HTTP也采用了它，用来描述并标记多媒体内容。
+
+&emsp;&emsp;Web服务器会为所有的HTTP对象数据附加一个MIME类型。当Web浏览器从服务器中取回一个数据对象时，会去查看相关的MIME类型，看看自己能否知道应该如何处理这个对象。大多数浏览器都可以处理数百种常见的媒体数据类型，如显示图片，解析HTML等。首部字段Content-Type正式说明了体的MIME类型的实体首部字段。
+
+&emsp;&emsp;MIME类型由一个主媒体类型(比如:text,image,audio等)后面跟一条斜线以及一个子类型组成，子类型用于进一步描述媒体类型。
+
+&emsp;常见的媒体格式如下:
+	
+	text/html: HTML文本格式
+	text/plain:纯文本格式
+	text/xml:XML格式
+	
+	image/gif: gif类型的图片格式
+	image/jpeg: jpg类型的图片格式
+	image/png: png类型的图片格式
+	
+	application/xml: XML数据格式
+	application/json: JSON数据格式
+	application/x-www-form/urlencoded:对表单数据进行默认编码为key/value的数据格式.
+	
+	multipart/form-data:多部分数据格式，在上传数据时使用.
+
+
+二:POST提交表单数据编码格式.
+--------------------------
+
+&emsp;&emsp;当我们用POST请求进行表单提交时，会将表单数据进行encoded(编码)后放入请求实体中。HTML的form表单的enctype属性用来指定请求的content-type属性值和对表单数据编码的方式。
+
+&emsp;form 表单提供了三种编码格式:
+
+&emsp;&emsp;&emsp;**1.application/x-www-form-urlencoded (默认)**
+
+&emsp;&emsp;&emsp;**2.multipart/form-data**
+
+&emsp;&emsp;&emsp;**3.text/plain 不可靠的方式，实际中不会使用。**
+
+&emsp;下面是一个包含file上传的表单。
+
+	<form action="/FileUploadServlet"  method="POST">
+		<input type="text" name="username"/>
+		<input type="password" name="password"/>
+		<input type="file" name="fileName"/>
+		<input type="submit" value="Send"/>
+	</form>
+
+现在,假设我们在表单中依次输入: CYanLong 123456 并且添加了一张名为cover.jpg的图片。
+
+1.application/x-www-form-urlencoded(默认)
+----
+&emsp;当我们没有对其指定enctype值或者显示指定enctype="application/x-www-form-urlencoded"值时，Request报文的Content-Type字段值和请求实体如下:
+	
+	#Content-Type首部字段.
+	Content-Type:application/x-www-form-urlencoded
+	
+	#请求实体内容.
+	username=CYanLong&password=123456&fileName=cover.jpg
+
+&emsp;在这里，我们可以看出application/x-www-form-urlencoded对表单数据进行的编码方式：
+	
+	按照input节点的顺序对每个input的name/value之间加入'='，
+	并用&连接并区分每一组name/value.
+
+	的确，正如它名字中的urlencoded，这种编码方式跟URL后面的查询参数编码类似.
+	
+	注意，这里只是将文件名作为input的value值。对于图片的二进制数据，并没有传输.
+
+2.多部分媒体类型和文件上传.(multipart/form-data)
+-----------------------------	
+&emsp;&emsp;从上面我们可以看出，默认 ( application/x-www-form-urlencoded ) 的编码方式只会将文件名作为 file 类型的 input 的value编码到请求实体。这种编码方式对于二进制等非字符数据无法有效的传输。
+
+&emsp;&emsp;所以，当上传文件时，我们需要重新指定 enctype 的值。
+
+&emsp;&emsp;MIME中的multipart(多部分)表示一个报文主体由多种不同类型数据组成，例如上面的表单提交，text和passwod等文本字段值和file类型的二进制文件数据需要在同一个请求实体中发送。
+
+&emsp;&emsp;当我们指定enctype="multipart/form-data"，同样在表单中输入 CYanLong、 123456、 和名为cover.jpg的图片时，得到的Content-Type请求字段和请求实体如下:
+	
+	#请求首部字段Content-Type的值.
+	Content-Type:multipart/form-data;boundary=WebKitFormBoundary2PqYvKIeYWTL50nY
+
+	#请求实体内容.
+	--WebKitFormBoundary2PqYvKIeYWTL50nY
+	Content-Disposition:form-data;name="username"
+	
+	CYanLong
+	--WebKitFormBoundary2PqYvKIeYWTL50nY
+	Content-Disposition:form-data;name="passowrd"
+	
+	123456
+	--WebKitFormBoundary2PqYvKIeYWTL50nY
+	Content-Disposition:form-data;name="files";filename="cover.jpg"
+	Content-Type:image/jpeg
+	
+	
+	--WebKitFormBoundary2PqYvKIeYWTL50nY--
+	
+&emsp;由此，我们可以得到:
+		
+	1.Content-Type 设置了实体内容为multipart/data类型，并且表单字段数据被boundary字符串分割。
+	
+	2.每个被分割开的表单字段都得到了Content-Disposition:form-data;name=<表单名>;fileName=<文件名>(如果是文件部分)
+	
+
+三.JSON数据格式的媒体类型。(application/json)
+---------------------------------
+&emsp;&emsp;提到JSON数据格式，就要简单聊一聊Ajax技术，它是一项利用JavaScript和DOM来进行局部页面替换的异步通信手段。我们来看看Ajax的全称:Asynchronous JavaScript and XML(异步 JavaScript 和 XML技术)，是的，在没有JSON之前，利用Ajax技术得到的服务器数据都是XML格式的。然而，JSON以它灵活，轻巧，易解析等优点已取代了XML成为了独立于语言的，非常流行的数据交互格式。
+
+&emsp;&emsp;这里主要是介绍JSON数据作为请求实体时的Content-Type值: application/json
+
+&emsp;&emsp;1.首先，我们来看看，当服务器端要返回JSON数据时该对Response做些什么? (以Java语言为例.)
+		
+		response.setHeader("Content-Type","application/json");
+		response.getWriter.write("{\"name\":\"ChenYanLong\",\"age\":\"20\"}");  //注:反斜杠为转义 " .
+
+&emsp;&emsp;上面两行Servlet代码很好理解，首先设置response报文中Content-Type首部字段的值为：**application/json**.然后输出Json格式的数据即可.
+
+&emsp;&emsp;同理，当客户端需要发送JSON格式的数据给服务器端时，只需要通过Ajax中XMLHttpRequest的setRequestHeader方法设置Content-Type值即可.
+	
+	xhr.setRequestHeader("Content-Type","application/json");
+	
+	
+总结:
+------
+&emsp;&emsp;本篇文章主要介绍了一个非常重要且常用的实体首部字段:Content-Type。大致上，Content-Type就是用来说明对应的HTTP报文请求实体的媒体内容。 
+
+
+
+
+
+
+	

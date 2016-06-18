@@ -115,34 +115,12 @@
 	overflow: hidden;
 }
 
-/* 根据标签添加专属色 */
-.other-title {
+.post-tag-title a {
 	color: #C4086C;
 }
-.post-list-li:hover .other-title {
+
+.post-list-li:hover .post-tag-title a {
 	color: #6A0A40;
-}
-
-.css-title {
-	color: #6EA474;
-}
-.post-list-li:hover .css-title {
-	color: #A6E22C;
-}
-
-.html-title {
-	color: #AE81FF;
-}
-
-.post-list-li:hover .html-title {
-	color: #036217;
-}
-
-.js-title {
-	color: #E6A968;
-}
-.post-list-li:hover .js-title {
-	color: #9D550F;
 }
 
 #post-list .post-tag-author-date {
@@ -150,6 +128,7 @@
 	height: 0.12rem;
 	margin-top: 0.05rem;
 }
+
 .post-tag-short-line {
 	width: 0.30rem;
 	height: 0.02rem;
@@ -174,23 +153,9 @@
 	font-weight: 400;
 }
 
-/* 添加自己专属颜色 */
-.Owen {
-	color: #23527c !important;
-}
-
-.Allenyang {
-	color: #395692 !important;
-}
-
-.Snow {
-	color: #AAF5F5 !important;
-}
-
-
 /* 如不添加，默认色 */
 .remark a {
-	color: #E34A22;
+	color: #23527c;
 	font-family: "Yuppy" , "微软雅黑";
 }
 

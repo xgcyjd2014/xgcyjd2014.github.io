@@ -1,0 +1,99 @@
+---
+layout: post
+title: 内容编码和传输编码(5)
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+
+&emsp;&emsp;HTTP提供了两种方式对要传输的资源进行处理以解决一些实际的问题。首先，我们可以对要传输的较大的资源进行压缩编码后在发送出去并且告诉客户端收到数据后进行解码。还有一类问题是，HTTP建立的是持久连接，我们必须在响应报文中明确指出此报文的内容的Content-Length，这样客户端才能在连续接收报文的情况下也能分清楚每个报文在何处开始，何处结束。如果没有Content-Length首部，HTTP客户端就不知道某个实体主体在哪里结束，下一条报文从哪里开始。然而，有些时候，服务器响应的数据是动态生成的，在生成首部的时候不知道整个实体的大小。这是，我们采用分块编码 (chunked encoding ) 来解决。
+
+一.内容编码
+--------
+
+&emsp;&emsp;HTTP允许对报文主体的数据进行编码，比如可以使之更安全或进行压缩以节省空间。当客户端请求一个资源，例如一个很大的HTML文本，服务器通常会将它进行压缩，这样有助于减少传输实体的时间。服务器还可以把内容搅乱或加密，以防止未经授权的第三方看到文档的内容。
+
+&emsp;&emsp;这种类型的编码是在发送方应用到内容之上的。当内容经过内容编码之后，编好码的数据就放在实体主体中，像往常一样发送给接收方。
+
+二.内容编码的过程.
+------------
+
+&emsp;&emsp;内容编码的过程大致如下:
+
+&emsp;&emsp;1.网站服务器生成原始响应报文，其中有原始的 Content-Type 和 Content-Length首部。
+
+&emsp;&emsp;2.内容编码服务器 (也可能就是原始服务器或者下行的代理) 创建编码后的报文。
+编码后的报文有同样的Content-Type但Content-Length可能不同。内容编码服务器在编码后的报文中增加Content-Encoding首部，告知客户端浏览器需进行解码。
+
+&emsp;&emsp;3.客户端浏览器得到编码后的报文，进行解码，获得原始报文。
+
+	
+	#原始内容.
+	Content-Type: text/html
+	Content-Length: 12480
+	
+	#编码之后的内容.
+	Content-type: text/html
+	Content-length: 3907
+	Conent-encoding: gzip
+
+
+&emsp;&emsp;上面的例子显示了当进行了gzip编码之后报文实体的数据将变小。
+
+三.内容编码类型.
+------------
+
+&emsp;&emsp;Http定义了一些标准的内容编码类型。如 gzip，deflate等，通常gzip效率最高，使用最广泛。
+
+四.Accept-Encoding首部.
+-------------------
+&emsp;&emsp;毫无疑问，我们不希望服务器用客户端无法解码的方式来对内容进行编码。为了避免服务器使用客户端不支持的编码方式，客户端就把自己支持的内容编码方式列表放在请求的Accept-Encoding首部中发给服务器。这样，服务器就可以知道客户端能否进行解码来决定要不要进行编码。
+
+Chrome浏览器默认会对每一个请求都加一条这样的首部:
+
+	Accept-Encoding:gzip, deflate, sdch
+
+五.Tomcat 配置.
+------------
+&emsp;&emsp;tomcat中默认是关闭内容编码的，我们需要在config/server.xml文件中进行配置.在server.xml文件中找到	关于Connector的配置。
+
+	<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" />
+
+&emsp;修改为如下即可开启.
+	
+	<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1"
+				compression="on" compressionMinSize="2048"
+				compressableMimeType="text/html, text/xml, text/css", text/javascript"
+
+&emsp;&emsp;说明:compressableMimeType 用来指定要对什么类型的资源进行压缩。使用MIME媒体类型来指定。
+
+
+六.传输编码
+---------
+
+分块编码与持久连接.
+---------
+
+&emsp;&emsp;若客户端和服务器之间不是持久连接，客户端就不需要知道它正在读取的主体的长度，而只需要读到服务器关闭主体连接为止。
+
+&emsp;&emsp;当使用持久连接时，在服务器写主体之前，必须知道它的大小并在Content-Length首部中发送。如果服务器动态创建内容，就有可能在发送之前无法知道主体的长度。分块编码解决了这一问题，只要服务器把主体逐块发送，说明每块的大小就可以了。因为主体是动态创建的，服务器可以缓冲它的一部分，发送其大小和相应的快，然后在主体发送完之前重复这个过程。服务器可以用大小为0的快作为主体结束的信号，这样就可以继续保持连接，为下一个相应做准备。
+
+&emsp;&emsp;分块编码报文的基本结构:它由起始的HTTP响应首部块开始，随后就是一系列分块。每个分块包含一个长度值和该分块的数据。长度值是十六进制形式并将CRLF与数据分割开。最后一个块有点特别，它的长度值为0，表示"主体结束"。
+
+
+	HTTP/1.1 200 OK<CR><LF>
+	Content-Type: text/plain<CR><LF>
+	Transfer-encoding: chunked<CR><LF>
+	<CR><LF>
+	
+	27<CR><LF>
+	We hold these truths to be self-evident<CR><LF>
+	
+	26<CR><LF>
+	, that all men are created equal, that<CR><LF>
+
+	0<CR><LF>    #最后一块.
+	

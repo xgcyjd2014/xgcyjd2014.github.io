@@ -1,0 +1,120 @@
+---
+layout: post
+title: 客户端识别与Cookie机制
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+
+&emsp;&emsp;Web服务器可能会同时与数千个不同的客户端进行对话。服务器通常要记录下它们在与谁交谈。本文讨论一些服务器可以用来识别其交谈对象的方法。
+
+&emsp;&emsp;HTTP是一个匿名的、无状态的请求/响应协议。服务器处理来自客户端的请求，然后向客户端回送一条响应。Web服务器几乎没有什么信息可以用来判断是哪个用户发送的请求。然而，现在的Web站点都提供了个性化的服务，可以识别出不同的用户。所以，Web站点就需要有一种方式来区分来自不同用户的HTTP事务。
+
+
+一:HTTP请求首部.
+-----------
+下面的常见首部都可以用来承载用户的相关信息。
+
+&emsp;&emsp;1.From:首部包含了用户的E-mail地址。每个用户都有不同的E-mail地址，所以在理想的情况下，可以将这个地址作为可行的源端来识别用户。但由于担心那些不讲道德的服务器会搜集这些E-mail地址，用于垃圾邮件的散发，所以很少有浏览器会发送From首部。
+
+&emsp;&emsp;2.User-Agent: 会将用户所用的浏览器的相关信息告知服务器，通常还包括操作系统的相关信息。但它并没有为识别特定的用户提供太多有意义的帮助。
+
+&emsp;以下是chrome发送的User-Agent:
+	
+	User-Agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36
+
+&emsp;&emsp;3.Referer 首部提供了用户来源页面的URL。Referer首部说明了用户之前访问过的页面。
+
+
+二:胖URL
+-------
+
+&emsp;&emsp;有些Web站点会为每个用户生成特定版本的URL来追踪用户的身份。通常，会对真正的URL进行扩展，在URL路径开始或结束的地方添加一些状态信息。用户浏览站点时，Web服务器会动态生成一些超链，继续维护URL中的状态信息。
+
+&emsp;&emsp;改动后包含了用户状态信息的URL被称为胖URL (fat URL)。
+
+&emsp;&emsp;用户每次访问这个Web站点时，会生成一个唯一的ID，用服务器可以识别的方式将这个ID添加到URL中去，然后服务器就会将客户端重新导向这个胖URL。不论什么时候，只要服务器收到了对胖URL的请求，就可以去查找与那个用户ID相关的所有增量状态(购物车，简介等)，然后重写所有的输出超链，使其成为胖URL，以维护用户的ID。
+
+&emsp;&emsp;但这种技术存在几个很严重的问题.
+
+
+&emsp;&emsp;1.丑陋的URL.
+浏览器中显示的胖URL会给新用户带来困扰.
+
+&emsp;&emsp;2.无法共享URL
+胖URL中包含了与特定用户和会话有关的状态信息。如果将这个URL发送给其他人，可能就会无意中将你积累的个人信息都共享出去。
+
+&emsp;&emsp;3.破坏缓存
+为每个URL生成用户特有的版本就意味着不再有可供公共访问的URL需要缓存了。
+
+&emsp;&emsp;4.额外的服务器负荷
+服务器需要重写HTML页面使URL变胖.
+
+三.Cookie
+------
+
+&emsp;&emsp;cookie是当前识别用户，实现持久会话的最好方式。前面各种技术中存在的很多问题对cookie来说都没有影响，并且通常情况下会与这些技术共用，以实现额外的价值。cookie最初是有网景公司开发的，但现在所有主要的浏览器都支持它。
+
+&emsp;&emsp;cookie非常重要，而且它们定义了一些新的HTTP首部。cookie的存在也影响了缓存，大多数缓存和浏览器都不允许对任何cookie的内容进行缓存。
+
+cookie的类型
+---------
+
+&emsp;&emsp;可以笼统地将cookie分为两种:会话cookie和持久cookie。会话cookie是一种临时cookie，它记录了用户访问站点时的设置和偏好。用户退出浏览器时，会话cookie就被删除了。持久cookie的生存时间更长一些。它们存储在硬盘上，浏览器退出，计算机重启时它们仍然存在。通常会用持久cookie维护某个用户的自动登录。
+
+&emsp;&emsp;会话cookie和持久cookie之间唯一的区别就是它们的过期时间。稍后将会看到，如果设置了Discard参数，或者没有设置 Expires 或 Max-Age 参数来说明扩展的过期时间，这个cookie就是一个会话cookie。
+
+cookie是如何工作的
+----------------
+
+&emsp;&emsp;用户首次访问Web站点时，Web服务器对用户一无所知。Web服务器希望这个用户再次回来时可以识别出它，所以给这个用户“拍上”一个独有的cookie，这样以后它就可以识别出这个用户了。cookie中包含了一个由 name = value 这样的信息构成的任意列表，并通过Set-Cookie和Set-Cookie2(扩展) HTTP响应 首部将其贴到用户身上去。
+
+&emsp;&emsp;如下过程是服务器给一个用户(浏览器)贴一个cookie
+	
+	#客户端初次访问服务器	
+	GET /index.html HTTP/1.1
+	Host:www.joes-hardware.com
+	
+	#服务器通过Set-Cookie给浏览器贴Cookie
+	HTTP/1.1 200 OK
+	Set-cookie:id="34294"; domain="joes-hardware.com"
+	Content-type: text/html
+	Content-length: 1903
+	 
+	#当浏览器再次访问此站点时，会自动带上Cookie
+	GET /index.html HTTP/1.1
+	Host: www.joes-hardware.com
+	Cookie: id="34294"
+
+&emsp;&emsp;cookie中可以包含任意信息，但它们通常都只包含服务器为了进行跟踪而产生的独特的识别码。
+
+&emsp;&emsp;cookie的基本思想就是浏览器积累一组服务器特有的信息，每次访问服务器时都将这些信息提供给它。因为浏览器要负责存储cookie信息，所以此系统被称为客户端侧状态 (client-side state).这个cookie规范的正式名称为HTTP状态管理机制(HTTP state management mechanism).
+
+cookie的成分
+----------
+
+&emsp;&emsp;现在使用的cookie规范有两个不同的版本：cookies版本0(Netscape cookies) 和 cookies版本1(RFC 2965)。cookies版本1是对cookies版本0的拓展，应用不如后者广泛。
+
+	Set-Cookie:name=value [;expires=data] [;path=path] [;domain=domain] [;secure]
+	
+	Cookie: name1=value1 [;name2=value2]...
+
+
+&emsp;&emsp;Set-cookie首部有一个强制的cookie名和cookie值。后面跟着可选的cookie属性，中间用分号分隔。
+
+cookie属性:
+-----------
+
+&emsp;&emsp;1.Expires:这个属性会指定一个日期字符串，用来定义cookie的实际生存期。一旦到了过期日期，浏览器将不再存储此cookie。日期的格式为:Weekday, DD-Mon-YY HH:MM:SS GMT.如果没有指定Expires，cookie就会在用户会话结束时过期。(会话cookie)。因此，此属性决定cookie是会话cookie还是持久cookie。
+
+&emsp;&emsp;2.Domain:浏览器只向指定域中的服务器主机名发送cookie。这样服务器就将cookie限制在了特定的域中。如果没有指定域，就默认为产生Set-Cookie响应的服务器的主机名.
+
+&emsp;&emsp;3.Path:这个属性可以为服务器上特定的文档分配cookie。如果Path属性是一个URL路径前缀，就可以附加一个cookie。入过没有指定路径，就将其设置为产生Set-Cookie响应的URL的路径。
+
+&emsp;&emsp;4.Secure:如果包含了这一属性，就只有在HTTP使用SSL安全连接时才会发送cookie。
+
+
+&emsp;&emsp;客户端发送请求时，会将所有与域，路径和安全过滤器相匹配的未过期cookie都发送给这个站点。所有cookie都被组合到了一个Cookie请求首部中。

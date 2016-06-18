@@ -31,11 +31,10 @@ title: 首页
 			<div class="line"></div>
 			<div class="post-tag-description">
 				<h1 class="post-tag-title">
-					<!-- 不同tag类型使用不同颜色 -->
-					<a class="{{ post.category }}-title" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+					<a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
 				</h1>
 				<h2 class="post-tag-author-date">
-					<span class="remark"><a href="javascript:;" class='{{ post.author }}' target="_blank">{{ post.author }}</a> 发布于{{ post.date | %Y%M | date_to_string }}</span>
+					<span class="remark"><a href="javascript:;" target="_blank">{{ post.author }}</a> 发布于{{ post.date | %Y%M | date_to_string }}</span>
 				</h2>
 				<div class="post-tag-short-line"></div>
 				<p>{{ post.description }}</p>

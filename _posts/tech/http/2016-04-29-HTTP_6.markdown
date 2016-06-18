@@ -1,0 +1,90 @@
+---
+layout: post
+title: URL(Uniform Resource Locator)
+author: YanLong
+tagpic: http.jpg
+description: 关于Http 系列的基础知识
+category: js
+keywords: 技术,http
+---
+
+
+&emsp;&emsp;在HTTP客户端向服务器发送报文之前，需要用网际协议 (Internet Protocol, IP) 地址和端口号在客户端和服务器之间建立一条 TCP/IP 连接.
+&emsp;&emsp;在TCP中，你需要知道服务器的IP地址，以及与服务器上运行的特定软件相关的TCP端口号.
+
+&emsp;&emsp;这就行了，但最初怎么获得HTTP服务器的IP地址和端口号呢?当然是通过URL了! URL就是资源的地址，所以自然就能够为我们提供存储资源的机器的IP地址和服务器所监听的端口。
+
+认识URL:
+----------
+
+&emsp;&emsp;下面是三个指向同一资源的URL.
+
+&emsp;&emsp;http://207.200.83.29:80/index.html
+
+&emsp;&emsp;http://www.netscape.com:80/index.html
+
+&emsp;&emsp;http://www.netscape.com/index.html
+
+&emsp;&emsp;第一个URL指出了机器的IP地址:207.200.83.29以及端口号80.
+
+&emsp;&emsp;第二个URL没有使用数字形式的IP地址，它使用的是文本形式的域名，或者称为主机名 (www.netscape.com)。主机名就是IP地址比较人性化的别称。可以通过一种称为域名服务 (Domain Name Services, DNS) 的机制方便的将主机名转换为IP地址。
+
+&emsp;&emsp;最后一个URL没有端口号。HTTP的URL中没有端口号时，可以假设默认端口号是80。
+
+&emsp;&emsp;有了IP地址和端口号，客户端就可以很方便的通过TCP/IP 进行通信了。
+
+大致过程.
+-------
+1.浏览器从URL中解析出服务器的主机名。
+
+2.浏览器将服务器的主机名转换为服务器的IP地址。
+
+3.浏览器将端口号从URL中解析出来。
+
+4.浏览器建立一条与web服务器的TCP连接。
+
+5.浏览器向服务器发送一条 HTTP 请求报文。
+
+6.浏览器向服务器回送一条 HTTP 响应报文。
+
+7.关闭连接，浏览器显示文档。
+
+
+
+URI和URL详谈.
+----------
+
+&emsp;&emsp;URL是浏览器寻找信息时所需的资源位置。通过URL，人类和应用程序才能找到，使用并共享因特网上大量的数据资源。URL是人们对HTTP和其他协议的常用访问点:一个人通过浏览器定位一个URL，浏览器就会在幕后发送适当的协议报文来获取人们所期望的资源。
+
+&emsp;&emsp;URI是一类更通用的资源标识符，URL实际上是它的一个子集。URI是一个通过的概念，有两个主要的子集URL和URN构成，URL是通过描述资源的位置来标识资源的，而URN 则是通过名字来标识资源的，与它们所处的位置无关。
+
+&emsp;&emsp;HTTP规范将更通用的概念 URI 作为其资源标识符，但实际上，HTTP应用程序处理的只是URI的URL子集。
+
+&emsp;&emsp;URL可以通过HTTP之外的其他协议来访问资源。它们可以指向因特网上的任意资源，比如个人的E-mail账户:
+	
+	mailto:president@whitehouse.gov
+
+&emsp;或者其他协议，比如通过文件传输协议(File Transfer Protocol, FTP) 才能获取各种文件
+	
+	ftp://ftp.lots-o-looks.com/pub/complete-price-list.xls
+
+
+&emsp;&emsp;URL可以为拥有如下可选的模块。但几乎没有哪个URL中包含了所有这些组件。URL最重要的3个部分是schema、host、path。
+
+	<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
+
+
+&emsp;scheam:用来告诉负责解析URL的应用程序应该使用什么协议.
+
+&emsp;frag:有些资源类型，比如HTML，除了资源之外，还可能做进一步的划分。比如，对一个带有章节的大型文件文档来说，资源的URL会指向整个文本文档，但理想的情况下，能够制定资源中的那些章节。为了引用部分资源或资源的一个片段，URL支持使用frag组件来表示一个资源内部的片段。HTTP服务器通常只处理整个对象，而不是对象片段，客户端不能 frag 传送给服务器。
+
+	
+相对URL
+------
+&emsp;&emsp;URL有两种方式:绝对的和相对的。绝对URL中包含有访问资源所需的全部信息。相对URL是不完整的，要从相对URL中获取访问资源所需的全部信息，就必须相对于另一个，被称为其基础(base)的URL进行解析.
+
+未来展望
+-------
+&emsp;&emsp;URL是一种强有力的工具。它可以用来命名所有现存对象，而且可以很方便地包含一些新格式。URL提供了一种可以在各种因特网协议间共享的统一命名机制。
+
+&emsp;&emsp;但URL并不完美。它们表示的是实际的地址，而不是准确的名字。这就意味着URL只会告诉你资源此时处于什么位置。这种方案的缺点在于如果资源被移走了，URL也就不再有效了。那是，它就无法对资源进行定位了。我们经常会在访问一些长久不维护的网站上遇到404问题。
