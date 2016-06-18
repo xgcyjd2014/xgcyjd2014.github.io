@@ -21,7 +21,7 @@ $(function() {
     function render(oId) {
         var showNum = PaginationNum,
             filterArr = posts,
-            html = '',
+            html = '';
 
         if(!(oId === "all")) {
                 filterArr = posts.filter(function(value, idx) {
