@@ -49,10 +49,10 @@ let oMembersInfo = [
     },{
         "name" : "CuiRan",
         "duties" : "2014基地秘书长",
-        "pic" : "/assets/img/members-pic/members-pics/cuiran/cuiran.png"
+        "pic" : "/assets/img/members-pic/members-pics/CuiRan/cuiran.png"
     },{
         "name" : "Joy",
-        "duties" : "前端组成员",
+        "duties" : "前端组成员   ",
         "pic" : "/assets/img/members-pic/members-pics/Joy/joy.png"
     },{
         "name" : "期待你的加入",
