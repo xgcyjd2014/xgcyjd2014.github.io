@@ -47,13 +47,13 @@ let oMembersInfo = [
         "duties" : "前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Claire/Claire.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "CuiRan",
+        "duties" : "2014基地秘书长",
+        "pic" : "/assets/img/members-pic/members-pics/cuiran/cuiran.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Joy",
+        "duties" : "前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Joy/joy.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
