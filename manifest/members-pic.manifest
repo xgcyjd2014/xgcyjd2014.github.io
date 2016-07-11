@@ -1,6 +1,12 @@
 CACHE MANIFEST
 
-# version 1.0.0
+# version 1.0.1
 
 CACHE:
+../pages/members-pic.html
+../assets/css/members-pic.min.css
+../assets/js/jquery-1.11.3.min.js
+../assets/js/members-pic.js
+
+NETWORK:
 *
