@@ -11,10 +11,8 @@ CACHE:
 ../assets/js/jquery-1.11.3.min.js
 ../assets/js/jquery-mousewheel.js
 ../assets/js/enroll-page.min.js
-../assets/img/enroll/*.png
-../assets/img/enroll/*.jpg
-../assets/img/enroll/*.jpeg
-../assets/img/enroll/*.gif
+
 ../assets/font/fontawesome-webfont.ttf
 ../assets/font/fontawesome-webfont.woff
 ../assets/font/YuppySC-Regular-Roman.ttf
+../assets/img/enroll/
