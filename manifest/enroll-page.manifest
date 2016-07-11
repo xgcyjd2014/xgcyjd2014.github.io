@@ -1,7 +1,6 @@
 CACHE MANIFEST
 
-# version 1.0.1
-
+# version 1.0.2
 
 CACHE:
 ../pages/enroll-page.html
@@ -11,6 +10,7 @@ CACHE:
 ../assets/js/jquery-1.11.3.min.js
 ../assets/js/jquery-mousewheel.js
 ../assets/js/enroll-page.min.js
+*
 
 NETWORK:
 *
