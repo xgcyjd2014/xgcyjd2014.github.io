@@ -12,7 +12,5 @@ CACHE:
 ../assets/js/jquery-mousewheel.js
 ../assets/js/enroll-page.min.js
 
-../assets/font/fontawesome-webfont.ttf
-../assets/font/fontawesome-webfont.woff
-../assets/font/YuppySC-Regular-Roman.ttf
-../assets/img/enroll/*
+NETWORK:
+*
