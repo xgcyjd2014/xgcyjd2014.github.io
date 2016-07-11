@@ -7,6 +7,8 @@ CACHE:
 ../assets/css/members-pic.min.css
 ../assets/js/jquery-1.11.3.min.js
 ../assets/js/members-pic.js
+../assets/img/members-pic/bg.png
+../assets/img/members-pic/buwang.png
 
 NETWORK:
 *
