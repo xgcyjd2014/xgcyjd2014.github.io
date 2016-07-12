@@ -4,6 +4,7 @@
       Github:http://github.com/numerhero
 
 \*--------------------------------------------*/
+@charset "utf-8";
 /* reset */
 body { min-width: 332px; margin: 0; padding: 0; background: #F8F8F8; cursor: url(/assets/img/cursor.png),default; -webkit-font-smoothing: antialiased; font: 200 0.18rem/0.18rem "Montserrat","微软雅黑";}
 img { vertical-align: top;}
