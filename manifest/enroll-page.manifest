@@ -5,7 +5,7 @@ CACHE MANIFEST
 CACHE:
 ../pages/enroll-page.html
 ../assets/css/font-awesome.min.css
-../assets/css/enroll-page.css
+../assets/css/enroll-page.min.css
 ../assets/js/clipboard.min.js
 ../assets/js/jquery-1.11.3.min.js
 ../assets/js/jquery-mousewheel.js

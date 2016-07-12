@@ -3,7 +3,9 @@ CACHE MANIFEST
 # version 1.0.3
 
 CACHE:
+
 ../assets/js/base.min.js
+../assets/js/index.min.js
 ../assets/js/easeljs-0.8.2.min.js
 ../assets/js/TweenLite.min.js
 ../assets/js/jquery-1.11.3.min.js 

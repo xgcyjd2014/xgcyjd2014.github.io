@@ -12,10 +12,10 @@
 {% assign path = page.url | split:"/" %}
 
 {% if page.name == "index.html" %}
-<script src="/assets/js/index.js"></script>
+<script src="/assets/js/index.min.js"></script>
 {% endif %}
 
 {% if page.name != "index.html" && path[1] == "pages" %}
 {% assign dir  = path[2] | replace:".html","" %}
-<script src="/assets/js/{{ dir }}.js"></script>
+<script src="/assets/js/{{ dir }}.min.js"></script>
 {% endif %}
