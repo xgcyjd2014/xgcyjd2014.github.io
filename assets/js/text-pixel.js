@@ -1,13 +1,13 @@
 window.onload = function() {
-	var M = Math;
-	var ran = Math.random;
-	var oStage = new c.Stage("content-us");
-	var mapBox = document.querySelector("#map-title");
-	var CanvasWidth = mapBox.clientWidth;
-	var CanvasHeight = mapBox.offsetHeight;
-    var isFormed     = false;
-
-	var colors = ['#B2949D', '#FFF578', '#FF5F8D', '#37A9CC', '#188EB2']; // 彩球颜色
+	var M = Math,
+	    ran = Math.random,
+        c = createjs,
+	    oStage = new c.Stage("content-us"),
+	    mapBox = document.querySelector("#map-title"),
+	    CanvasWidth = mapBox.clientWidth,
+	    CanvasHeight = mapBox.offsetHeight,
+        isFormed     = false,
+	    colors = ['#B2949D', '#FFF578', '#FF5F8D', '#37A9CC', '#188EB2']; // 彩球颜色
 
 	oStage.canvas.width = CanvasWidth;
 	oStage.canvas.height = CanvasHeight;
