@@ -181,4 +181,3 @@ window.onload = function() {
         return result;
     }
 }
-
