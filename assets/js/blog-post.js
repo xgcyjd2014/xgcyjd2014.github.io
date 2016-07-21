@@ -372,8 +372,6 @@ $(function () {
             break;
         }
     }
-
-    console.log(flag)
     
     switch(true) {
         case flag === 0:
