@@ -5,7 +5,7 @@
 
 \*--------------------------------------------*/
 /* 人员信息 30 */ 
-let oMembersInfo = [
+var oMembersInfo = [
     {
         "name" : "AllenYang", 
         "duties" : "2014基地总负责人",
@@ -129,7 +129,7 @@ let oMembersInfo = [
     }];
 
 
-let $window = $(window),
+var $window = $(window),
     oW = innerWidth,
     oH = innerHeight,
     iNow = 0,
@@ -192,10 +192,10 @@ $(function () {
 
 // 展示效果
 $(function () {
-    let temp = 1;
+    var temp = 1;
 
     oCircles.hover(function (ev) {     // 碎片聚化
-        let num = ev.target.dataset.member;
+        var num = ev.target.dataset.member;
         
         oMemberName.html(oMembersInfo[num].name);
         oMemberDuties.html(oMembersInfo[num].duties);
@@ -249,13 +249,13 @@ $(function () {
 $(function () {
     oNeedYouBtn.on("click" , function () {
         Promise.resolve()
-            .then(() => {
+            .then(function () {
                 oNeedYouBtn.addClass("none");
                 oShards.addClass("thogether-shard");
                 oShards.addClass("hidden");
                 oImWeb.addClass("hidden");
             })
-            .then(() => {
+            .then(function () {
                 setTimeout(function () {
                     oShards.addClass("none");
                     oImWeb.addClass("none");
@@ -264,7 +264,7 @@ $(function () {
                     oCircles.addClass("hidden");
                 },600);
             })
-            .then(() => {
+            .then(function () {
                 setTimeout(function () {
                     oCircles.addClass("none");
                     oImWebLogo.addClass("wobble");
@@ -272,7 +272,7 @@ $(function () {
                     oJoinUs.removeClass("none");
                 },2300);
             })
-            .then(() => {
+            .then(function () {
                 setTimeout(function (){
                     oImWebLogo.css("top","-250px");
                     oImWebFont.removeClass("hidden");

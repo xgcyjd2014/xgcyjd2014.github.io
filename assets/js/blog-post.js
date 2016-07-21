@@ -1,5 +1,5 @@
-// ---
-// ---
+---
+---
 /*--------------------------------------------*\
               xgjd blog-post js
            Design And Build By Owen
@@ -8,25 +8,27 @@
 \*--------------------------------------------*/
 
 (function (jQuery) {
-// {% capture posts %}
-//     [
-//         {% for post in site.posts %}
-//         {
-//             "title"  : "{{ post.title }}",
-//             "url"    : "{{ post.url }}",
-//             "date"   : "{{ post.date | %Y%M | date_to_string }}",
-//             "content": "{{ post.content | escape }}",
-//             "category": "{{ post.category }}",
-//             "description": "{{ post.description }}",
-//             "author": "{{ post.author }}",
-//             "tagpic": "{{ post.tagpic }}",
-//             "description": "{{ post.description }}"
-//         }{% if forloop.last %}{% else %},{% endif %}
-//         {% endfor %}
-//     ]
-// {% endcapture %}
+{% capture posts %}
+    [
+        {% for post in site.posts %}
+        {
+            "title"  : "{{ post.title }}",
+            "url"    : "{{ post.url }}",
+            "date"   : "{{ post.date | %Y%M | date_to_string }}",
+            "content": "{{ post.content | escape }}",
+            "category": "{{ post.category }}",
+            "description": "{{ post.description }}",
+            "author": "{{ post.author }}",
+            "tagpic": "{{ post.tagpic }}",
+            "description": "{{ post.description }}"
+        }{% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+    ]
+{% endcapture %}
 
-// var posts = {{ posts | strip_newlines }};
+var posts = {{ posts | strip_newlines }};
+
+console.log(posts);
 
 $window = $(window);
 
@@ -349,6 +351,39 @@ $(function () {
     },function () {
         oScrollBarBox.addClass("fade-in");
     });
+})
+
+// 上一页和下一页
+$(function () {
+    var oLast = $(".skip--last"),
+        oLastA = oLast.find("a"),
+        oLastName = oLastA.find("span"),
+        oNext = $(".skip--next"),
+        oNextA = oNext.find("a"),
+        oNextName = oNextA.find("span")
+        oTitle      = $(".article-title"),
+        flag        = 0,
+        origin   = window.location.origin
+
+    for(var i = 0; i<posts.length; i++) {
+        if(posts[i].description === oTitle.html()) {
+            flag = i;
+            break;
+        }
+    }
+
+    if(flag === 0) {
+        oLast.addClass("none");
+        oNextA[0].href = origin + posts[flag+1].url;
+        oNextName.html(posts[flag+1].description)
+    } else if(flag === posts.length) {
+        oNext.addClass("none");
+        oLastA[0].href = origin + posts[flag-1].url;
+        oLastName.html(posts[flag-1].description)
+    } else if(flag === 0 && flag === posts.length) {
+        oLast.addClass("none");
+        oNext.addClass("none");
+    }
 })
 
 })(jQuery);

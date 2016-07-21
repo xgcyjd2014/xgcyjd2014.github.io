@@ -50,6 +50,18 @@
             </section>
             <section class="article-box">
                 {{ content }}
+                <div class="skip__block">
+                    <div class="skip--last click__block">
+                        <a href="javascript:;">
+                            上一篇：<span></span>
+                        </a>
+                    </div>
+                    <div class="skip--next click__block">
+                        <a href="javascript:;">
+                            下一篇：<span></span>
+                        </a>
+                    </div>
+                </div>
                 {% include duoshuo.html %}
             </section>
             
@@ -101,6 +113,6 @@
     </section>
 
     <script src="/assets/js/jquery-1.11.3.min.js"></script>
-    <script src="/assets/js/blog-post.min.js"></script>
+    <script src="/assets/js/blog-post.js"></script>
 </body>
 </html>
