@@ -357,32 +357,43 @@ $(function () {
 $(function () {
     var oLast = $(".skip--last"),
         oLastA = oLast.find("a"),
-        oLastName = oLastA.find("span"),
+        oLastName = oLastA.find("p"),
         oNext = $(".skip--next"),
         oNextA = oNext.find("a"),
-        oNextName = oNextA.find("span")
+        oNextName = oNextA.find("p")
         oTitle      = $(".article-title"),
         flag        = 0,
+        pathname = window.location.pathname,
         origin   = window.location.origin
 
     for(var i = 0; i<posts.length; i++) {
-        if(posts[i].description === oTitle.html()) {
+        if(posts[i].url === pathname) {
             flag = i;
             break;
         }
     }
 
-    if(flag === 0) {
-        oLast.addClass("none");
-        oNextA[0].href = origin + posts[flag+1].url;
-        oNextName.html(posts[flag+1].description)
-    } else if(flag === posts.length) {
-        oNext.addClass("none");
-        oLastA[0].href = origin + posts[flag-1].url;
-        oLastName.html(posts[flag-1].description)
-    } else if(flag === 0 && flag === posts.length) {
-        oLast.addClass("none");
-        oNext.addClass("none");
+    console.log(flag)
+    
+    switch(true) {
+        case flag === 0:
+            oLast.addClass("none");
+            oNextA[0].href = origin + posts[flag+1].url;
+            oNextName.html(posts[flag+1].title);
+        break;
+        case flag === posts.length-1: 
+            oNext.addClass("none");
+            oLastA[0].href = origin + posts[flag-1].url;
+            oLastName.html(posts[flag-1].title);
+        break;
+        case (flag === 0 && flag === posts.length-1):
+            oLast.addClass("none");
+            oNext.addClass("none");
+        default: 
+            oNextA[0].href = origin + posts[flag+1].url;
+            oNextName.html(posts[flag+1].title);
+            oLastA[0].href = origin + posts[flag-1].url;
+            oLastName.html(posts[flag-1].title)
     }
 })
 
