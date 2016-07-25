@@ -235,6 +235,7 @@ console.log(oproxy());
 由上面的栗子，可以看出 apply 可以左右函数的执行
 
 apply 控制器可传入三个参数
+
 ```javascript
 apply(target , ctx , args) {
     
