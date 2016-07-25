@@ -1,0 +1,384 @@
+---
+layout: post
+title: 读CSS2.1规范之需求和推荐标准（二） 
+author: xiaoyu7
+tagpic: css.jpg
+description: 深入理解css2.1规范
+category: css
+keywords: 技术,css2.1
+---
+
+## CSS2.1规范语法和基本数据类型
+   
+CSS2.1中规定CSS语法包括符号化，关键字，字符和大小写，语句，规则，块，规则集、声明块和选择器，声明和属性，注释等。
+   
+其中重点了解这么几点：
+   
+### 规则：
+
+@规则以一个@关键字开头，'@'字符后面紧跟着一个标识符（例如，'@import'，'@page'）一个@规则包含直到下一个分号(;)前包括分号在内，或者下一个块的所有内容，无论哪个先出现
+CSS2.1 UA必须忽略所有出现在块内部，或者跟在除@charset和@import规则外的任何无法忽略的语句后面的'@import'规则
+
+```css
+eg1:
+// 错误
+@import "subs.css";
+h1 { color: blue }
+@import "list.css";
+// 解析成
+@import "subs.css";
+h1 { color: blue }
+```
+
+```css
+ eg2:
+// 错误
+@import "subs.css";
+@media print {
+  @import "print-main.css";
+  body { font-size: 10pt }
+}
+h1 {color: blue }
+```
+
+第二个'@import'规则是非法的，因为它出现在一个'@media'块的内部
+
+```css
+eg3:
+// 正确
+@import "subs.css";
+@import "print-main.css" print;
+@media print {
+  body { font-size: 10pt }
+}
+h1 {color: blue } 
+```
+相反的，为了提高效率，只在媒体类型为'print'时引入样式表，可以使用带媒体类型的@import规则语法          
+
+
+### 块
+
+block以一个左花括号({)开头，以对应的右花括号(})结束。之间可以是任何token，但圆括号(( ))，方括号([ ])和花括号({ })必须总是成对出现，可以嵌套。单引号(')和双引号(")也必须成对出现，它们之间的字符会被解析成一个字符串。参见上文符号化中字符串的定义
+
+```css
+eg1:
+{ causta: "}" + ({7} * '\'') }
+```
+
+注意双引号之间的右花括号不会匹配块的左花括号，而且第二个单引号是一个被转义的字符，因此也不会匹配第一个单引号
+
+### 规则集，声明块，选择器：
+
+1.规则集（也叫“规则”），由后面跟着一个声明块的选择器组成
+2.声明块以左花括号({)开头，以对应的右花括号(})结束，之间一定有一系列由一个或多个分号分隔的声明
+3.选择器（见选择器）包含直到第一个左花括号({)的所有东西（但不包括左花括号），选择器总是和声明块一起出现。当用户代理无法解一个析选择器（例如，该选择器在CSS 2.1中不合法）时，必须忽略选择器以及后面的声明块（如果有的话）
+4.CSS 2.1给选择器中的逗号(,)赋予了特殊的含义，然而，因为不确定将来CSS更新时逗号是否还会获得其他含义，所以如果选择器任何位置出现错误，整个语句都应该被忽略，即便选择器剩余部分在CSS 2.1中完全合法
+
+```css
+eg1:
+// 错误
+h1, h2 {color: green }
+h3, h4 & h5 {color: red }
+h6 {color: black }
+因为"&"在CSS2.1选择器中不是合法的token，CSS2.1用户代理必须忽略整个第二行，并且不会把H3的颜色设置为红色
+```
+
+```css
+eg2:
+// 正确
+p[example="public class foo\
+{\
+    private int x;\
+\
+    foo(int x) {\
+        this.x = x;\
+    }\
+\
+}"] { color: red }
+```
+
+### 处理错误的规则：
+
+为了保证新属性和新值将来可以添在现有的属性上，用户代理遇到下列场景时需要遵循下列规则
+
+1.未知属性
+
+忽略含有未知属性的声明
+
+```css
+h1 { color: red; rotation: 70minutes }
+```
+
+解析为
+
+```css
+h1 { color: red;}
+```
+
+2.非法值
+
+用户代理必须忽略含有非法值的声明
+
+```css
+img { float: left }       
+img { float: left here }  
+img { background: "red" } 
+img { border-width: 3 }   
+```
+
+解析为
+
+```css
+img { float: left }
+img { }
+img { }
+img { }
+```
+
+3.格式错误的声明
+用户代理必须处理解析声明期间遇到的异常token，一直读到声明结束，从()，[]，{}，""和''对中寻找对应的规则，并正确处理转义
+
+一个格式错误的声明可能回缺少属性名，冒号(:)或者属性值
+
+```css
+eg:
+p { color:green }
+p { color:green; color }          
+p { color:red;   color; color:green }  
+p { color:green; color: } 
+p { color:red;   color:; color:green } 
+p { color:green; color{;color:maroon} } 
+p { color:red;   color{;color:maroon}; color:green } 
+```
+
+```css
+
+以上声明都是等价的
+
+4.格式错误的语句
+用户代理必须处理解析语句期间遇到的异常token，一直读到语句结束，从()，[]，{}，""和''对中寻找对应的规则，并正确处理转义
+
+一个格式错误的语句可能含有异常的右花括号或者@关键字
+```
+
+```css
+eg:
+p @here {color: red}     
+@foo @bar;               
+}} {{ - }}               
+) ( {} ) p {color: red } 
+```
+
+以上行都会被忽略
+
+5.含有未知@关键字的@规则
+
+用户代理必须忽略一个非法的@关键字及其后面跟着的任何东西，直到包含非法@关键字的块结束，或者到下一个分号(;)（包括分号），或者到下一个块({...})，无论哪个先出现
+
+```css
+@three-dee {
+  @background-lighting {
+    azimuth: 30deg;
+    elevation: 190deg;
+  }
+  h1 { color: red }
+}
+h1 { color: blue }
+```
+
+因为@three-dee不是规范的一部分，所以解析为
+
+```css
+h1 { color: blue }
+```
+
+@规则里的一些东西会因为非法而被忽略，例如@media规则中的一条非法声明，不会导致整个@规则非法
+
+6.样式表异常结束
+
+用户代理必须闭合样式表结尾的所有开放结构（例如：块，圆括号，方括号，规则，字符串和注释）
+
+```css
+eg:
+@media screen {
+  p:before { content: 'Hello
+解析为
+@media screen {
+    p:before { content: 'Hello'; }
+}
+```
+
+7.字符串异常结束
+
+用户代理必须闭合行尾的字符串（也就是说，在一个未转义的换行，回车或者换页符之前），但接着要删除包含该字符串的结构（声明或者规则）
+
+```css
+p {
+color: green;
+font-family: 'Courier New Times
+color: red;
+color: green;
+}
+```
+
+解析为
+
+```css
+p { color: green; color: green; }   //\'
+```
+
+### 值
+
+5.1 整数和实数
+
+一些值类型可能有整数值（<整数>中指出的）或者实数值（<数>中指出的）。实数和整数都只是特定的十进制表示法。<整数>由一个或者多个"0"到"9"的数字组成，<数>既可以是一个<整数>，也可以是0个或者多个数字，后面跟着一个小数点和一个或者多个数字。整数和实数之前可以有"-"或者"+"表示符号。-0等价于0，不是负数    
+
+5.2 长度
+
+长度值的格式（本规范<长度>）章节中指出的）是一个<数>（有或没有小数点）后面紧跟着一个单位标识符（例如，px，em等等）。0长度后面的单位标识符是可选的
+
+一些属性允许负的长度值，但会让格式化模型变得复杂，并且可能存在具体实现限制。如果一个负长度值不被支持，它应该被转化为最相近（nearest）的支持值
+
+如果不接受负长度值的属性被设置了一个负长度值，声明会被忽略
+
+如果设置的长度不被支持，用户代理必须在实际值中近似处理
+
+有两种类型的长度单位：相对和绝对
+
+1.相对
+    
+相对长度单位指定了一个相对于其它长度属性的单位。使用相对单位的样式表更容易根据不同的输出环境缩放
+em: 相关字体的font-size
+ex: 相关字体的x-height
+
+```css
+eg:
+h1 { margin: 0.5em }      
+h1 { margin: 1ex }        
+```
+
+'em'单位等于应用该规则的元素的'font-size'属性的计算值。一种异常情况是当'em'出现在'font-size'属性本身的值中时，这种情况下参考父元素的字体大小。它可以用在竖直或者水平测量中
+'ex'单位是根据元素的第一个可用字体定义的。一种异常情况是当'ex'出现在'font-size'属性的值中，此时参考父元素的'ex'
+
+```css
+h1 { line-height: 1.2em }
+```
+
+表示"h1"元素的行高将比"h1"元素的字体大小大20%
+
+```css
+h1 { font-size: 1.2em }
+```
+
+表示"h1"元素的font-size将比"h1"元素继承得到的字体大小大20%
+当为文档树的根（例如，HTML中的"HTML"）指定（相对单位）时，'em'和'ex'参考该属性的初始值
+子元素不会继承为其父元素指定的相对值，而是继承计算值
+
+```css
+eg:
+body {
+  font-size: 12px;
+  text-indent: 3em;  
+}
+h1 { font-size: 15px }
+```
+
+2.绝对单位
+
+绝对长度单位彼此之间是固定不变的。它们主要用于输出环境已知时，绝对单位包括物理单位（in，cm，mm，pt，pc）和px单位：
+对于CSS设备，这些尺寸要么参照(i)物理测量相关的物理单位，要么(ii)参照参考像素相关的像素单位。对于平面媒体（print media）和类似的高分辨率设备，参照单位（anchor unit）应该是标准物理单位（英寸，厘米等等）之一。对于低分辨率设备和有特殊视距的（with unusual viewing distances）设备，推荐把像素单位作为参照单位。对于这种设备推荐像素单位参考最接近参照像素（reference pixel）的整数设备像素
+注意，如果参照单位是像素单位，物理单位可能与它们的物理测量不一致。或者，如果参照单位是物理单位，像素单位也可能与整数设备像素不对应
+
+注意，这里像素单位和物理单位的定义与CSS之前版本不同。特别地，在CSS之前版本中，像素单位和物理单位与固定比例（fixed ratio）无关：物理单位总是与它们的物理测量紧密相关，而像素单位会变得最接近参考像素（出现这种变化是因为太多现有内容依赖96dpi的假设，而打破这个假设就会破坏这些内容）
+
+```css
+h1 { margin: 0.5in }      
+h2 { line-height: 3cm }   
+h3 { word-spacing: 4mm }  
+h4 { font-size: 12pt }    
+h4 { font-size: 1pc }     
+p  { font-size: 12px }    
+```
+
+5.3 百分比
+
+百分比值（本规范中<百分比>章节指出的）的格式是一个<数>后面紧跟着'%'
+百分比值总是和其它值有关，例如，长度。每个接受百分比的属性也定义了百分比所参考的值。该值可以是同一元素的另一个属性，祖先元素的属性或者来自格式化上下文（例如，一个包含块的宽度）的值。当给根元素的属性设置了一个百分比值时，并且百分比参照了一些属性的继承值，结果值是百分比乘以该属性的初始值
+
+```css
+p { font-size: 10px }
+p { line-height: 120% }  
+```
+
+5.4 url和urI
+
+本规范中，URI值（Uniform Resource Identifiers统一资源标识符，见[RFC3986]，包括URL，URN等等）在<uri>中出现。用来指定属性值中URI的函数标记是"url()"
+
+```css
+body { background: url("http://www.example.com/pinkish.png") } 
+li { list-style: url(http://www.example.com/redball.png) disc }
+```
+
+5.5 计数器
+
+计数器用大小写敏感的标识符来表示（见'counter-increment'和'counter-reset'属性）。为了引用计数器的值，可以用标记'counter(<identifier>)'或者'counter(<identifier>,<'list-style-type'>)'，可以有可选的空白字符分隔这些token，默认样式是'decimal'
+
+```css
+p {counter-increment: par-num}
+h1 {counter-reset: par-num}
+p:before {content: counter(par-num, upper-roman) ". "}
+```
+
+5.6 颜色
+
+<color>要么是一个关键字，要么是一个（符合）RGB规范的数值
+color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，navy，olive，orange，purple，red，silver，teal，white和yellow
+除了这些颜色关键字，在用户环境中，用户还可以指定对应的用于某些对象的颜色关键字
+
+```css
+body {color: black; background: white }
+h1 { color: maroon }
+h2 { color: olive }
+
+em { color: #f00 }              
+em { color: #ff0000 }           
+em { color: rgb(255,0,0) }      
+em { color: rgb(100%, 0%, 0%) } 
+
+RGB值格式的函数标记是'rgb('后面跟着一个逗号分隔的3个数值（要么是3个整数，要么是3个百分比值）和')'。整数值255对应100%和十六进制表示法中的F或者FF：rgb(255,255,255) = rgb(100%,100%,100%) = #FFF。数值前后可以有空白字符
+
+下面的规则是等价的
+em { color: rgb(255,0,0) }       
+em { color: rgb(300,0,0) }       
+em { color: rgb(255,-10,0) }     
+em { color: rgb(110%, 0%, 0%) }  
+```
+
+5.7 字符串
+
+字符串既能写在双引号里也能写在单引号里。双引号不能出现在双引号中，除非转义过了（例如，'\"'或者'\22'）。单引号也是类似的（例如，"\'"或者"\27"）
+"this is a 'string'"
+"this is a \"string\""
+'this is a "string"'
+'this is a \'string\''
+字符串不能直接包含换行（newline）。为了在字符串中包含换行，可以ISO-10646 (U+000A)中的换行符的转义表示法，例如"\A"或者"\00000a"。这个字符在CSS中表示"换行"的一般概念
+下面的选择器是相同的
+
+```css
+a[title="a not s\
+o very long title"] {}
+a[title="a not so very long title"] {}
+```
+
+5.8 不支持的值
+
+如果UA不支持某个特殊值，解析样式表时就应该忽略该值。就像该值是一个非法值例如：
+
+```css
+h3 {
+    display: inline;
+    display: run-in;
+}
+```
+
+支持'display'为'run-in'值的UA将接受第一个display声明，然后用第二个display声明的值“重写”它。不支持'run-in'值的UA将处理第一个display声明并忽略第二个display声明
