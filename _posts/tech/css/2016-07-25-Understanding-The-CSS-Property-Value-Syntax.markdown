@@ -2,7 +2,7 @@
 layout: post
 title: Understanding The CSS Property Value Syntax 
 author: Xukm
-tagpic: css.png
+tagpic: css.jpg
 description: 深入理解W3C 标准下Css属性语法
 category: css
 keywords: 技术,css,w3c
