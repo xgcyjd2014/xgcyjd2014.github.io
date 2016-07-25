@@ -13,7 +13,7 @@ keywords: 技术,react
 ### 开始一个栗子
 
 我们要做的是这样一个例子
-[shootpic](http://fightingm.github.io/blog/dist/img/thinking-in-react-mock.png)
+![shootpic](http://fightingm.github.io/blog/dist/img/thinking-in-react-mock.png)
 后台返回的数据应该是这样的:
 
 ```js
@@ -28,7 +28,7 @@ keywords: 技术,react
 
 怎么样拆分组件呢？原则只有一个，就是每一个组件应该只做一件事，如果当前组件做了很多事，应该继续分解这个组件,因为最终用户所看到的界面和我们的数据模型往往有着一样的信息结构，我们只需要根据数据的结构来分解我们的组件
 
-[shootpic](http://fightingm.github.io/blog/dist/img/thinking-in-react-components.png)
+![shootpic](http://fightingm.github.io/blog/dist/img/thinking-in-react-components.png)
 
 可以看到最终我们把这个简单的页面分解成5个不同的组件，让我们来分析一下这五个组件的各自功能:
 
@@ -135,11 +135,14 @@ document.getElementById(\container\)
 现在我们已经写好了自己的组件结构，我们可以运行我们的程序了，但是目前我们的程序仅仅把数据渲染到页面上
 并没有实现交互功能，所有的数据都是通过props传入的，而props是不可变的，所以我们需要为我们的app添加一下交互功能
 当然，我们需要用到state来帮助我们实现交互
+
 ### 第三步找出所有需要用到的state
+
 因为我们的程序是通过底层数据渲染的，所以要实现交互，就要让底层数据可以改变，state可以很简单的实现这个
 我们不应该将所有的数据都保存为state变量，只需要找出构建应用所需要的最少的state数据
 首先思考应用中的所有数据：
-	* &emsp;最初的products列表
+	  
+    * &emsp;最初的products列表
     * &emsp;用户的输入
     * &emsp;用户的勾选
     *  &emsp;过滤后的products列表
