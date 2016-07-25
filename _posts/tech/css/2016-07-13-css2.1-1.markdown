@@ -3,7 +3,7 @@ layout: post
 title: 读CSS2.1规范之需求和推荐标准（一） 
 author: xiaoyu7
 tagpic: css.jpg
-description: 深入理解css2.1规范
+description: 深入理解css2.1规范（一）
 category: css
 keywords: 技术,css2.1
 ---

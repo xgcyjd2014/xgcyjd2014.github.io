@@ -3,7 +3,7 @@ layout: post
 title: 读CSS2.1规范之需求和推荐标准（二） 
 author: xiaoyu7
 tagpic: css.jpg
-description: 深入理解css2.1规范
+description: 深入理解css2.1规范（二）
 category: css
 keywords: 技术,css2.1
 ---
@@ -53,6 +53,7 @@ eg3:
 }
 h1 {color: blue } 
 ```
+
 相反的，为了提高效率，只在媒体类型为'print'时引入样式表，可以使用带媒体类型的@import规则语法          
 
 

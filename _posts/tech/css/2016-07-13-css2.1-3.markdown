@@ -3,7 +3,7 @@ layout: post
 title: 读CSS2.1规范之需求和推荐标准（三） 
 author: xiaoyu7
 tagpic: css.jpg
-description: 深入理解css2.1规范
+description: 深入理解css2.1规范(三)
 category: css
 keywords: 技术,css2.1
 ---
@@ -15,14 +15,23 @@ keywords: 技术,css2.1
 CSS样式表由一系列token组成，这些token如下，定义中用了词法分析风格（Lex-style）的正则表达式。八进制码参考了ISO 10646（[ISO10646]），和词法分析一样，存在多个匹配时，把最长的匹配作为token
 
 stylesheet  : [ CDO | CDC | S | statement ]*;
+
 statement   : ruleset | at-rule;
+
 at-rule     : ATKEYWORD S* any* [ block | ';' S* ];
+
 block       : '{' S* [ any | block | ATKEYWORD S* | ';' S* ]* '}' S*;
+
 ruleset     : selector? '{' S* declaration? [ ';' S* declaration? ]* '}' S*;
+
 selector    : any+;
+
 declaration : property S* ':' S* value;
+
 property    : IDENT;
+
 value       : [ any | block | ATKEYWORD S* ]+;
+
 any         : [ IDENT | NUMBER | PERCENTAGE | DIMENSION | STRING
               | DELIM | URI | HASH | UNICODE-RANGE | INCLUDES
               | DASHMATCH | ':' | FUNCTION S* [any|unused]* ')'
@@ -310,7 +319,9 @@ p:before {content: counter(par-num, upper-roman) ". "}
 3.6 颜色
 
 <color>要么是一个关键字，要么是一个（符合）RGB规范的数值
-color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，navy，olive，orange，purple，red，silver，teal，white和yellow
+color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，
+navy，olive，orange，purple，red，silver，teal，white和yellow
+
 除了这些颜色关键字，在用户环境中，用户还可以指定对应的用于某些对象的颜色关键字
 
 ```css
