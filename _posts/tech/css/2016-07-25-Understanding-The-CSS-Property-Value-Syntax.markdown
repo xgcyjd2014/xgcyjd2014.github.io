@@ -341,8 +341,8 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 
 为了进一步阅读，请查看以下网站：
 
-![“Value Definition Syntax” in “CSS Values and Units Module Level 3,”](https://www.w3.org/TR/css3-values/#value-defs)
+[“Value Definition Syntax” in “CSS Values and Units Module Level 3,”](https://www.w3.org/TR/css3-values/#value-defs)
 
-![“CSS Reference,”](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) Mozilla Developer Network
+[“CSS Reference,”](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) Mozilla Developer Network
 
-![“How to Read W3C Specs,”](http://alistapart.com/article/readspec) J. David Eisenberg, A List Apart
+[“How to Read W3C Specs,”](http://alistapart.com/article/readspec) J. David Eisenberg, A List Apart
