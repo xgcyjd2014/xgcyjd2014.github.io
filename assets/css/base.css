@@ -6,7 +6,16 @@
 \*--------------------------------------------*/
 @charset "utf-8";
 /* reset */
-body { min-width: 332px; margin: 0; padding: 0; background: #F8F8F8; cursor: url(/assets/img/cursor.png),default; -webkit-font-smoothing: antialiased; font: 200 0.18rem/0.18rem "Montserrat","微软雅黑";}
+* { box-sizing: border-box; font-family: "Consolas","微软雅黑";}
+body { 
+	min-width: 332px; 
+	margin: 0; 
+	padding: 0; 
+	background: #F8F8F8; 
+	cursor: url(/assets/img/cursor.png),default; 
+	-webkit-font-smoothing: antialiased; 
+	font: 200 0.18rem/0.18rem "Consolas","微软雅黑";
+}
 img { vertical-align: top;}
 ul { list-style: none; padding: 0; margin: 0;}
 button { outline: none; border: none; background: none;}
@@ -16,7 +25,6 @@ h1,h2,h3,h4,h5,h6{margin: 0 !important; font-weight: 100;}
 a{ transition: .8s; -webkit-transition: .8s;}
 html {font-size: 100px !important;}
 figure {margin: 0;}
-* { box-sizing: border-box; font-family: "Consolas","微软雅黑";}
 .container {
 	padding-left: 0 !important;
 }
@@ -24,25 +32,6 @@ figure {margin: 0;}
 *::selection {
 	background: transparent;
 	color: #1C86D1;
-}
-
-/* Montserrat */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat-Bold'), url(/assets/font/montserrat.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-/* Yuppy */
-@font-face{
-	font-family:'Yuppy';
-	src:url('../font/YuppySC-Regular-Roman.eot');
-	src:url('../font/YuppySC-Regular-Roman.eot') format('embedded-opentype'),
-	url('../font/YuppySC-Regular-Roman.woff') format('woff'),
-	url('../font/YuppySC-Regular-Roman.ttf') format('truetype'),
-	url('../font/YuppySC-Regular-Roman.svg') format('svg');font-weight:normal;font-style:normal
 }
 
 /* Consolas */
@@ -190,7 +179,7 @@ figure {margin: 0;}
 	margin: 0 auto;
 	padding: 0.3rem 0;
 	background: url(../img/base/page-title-bg.png) no-repeat -0.1rem 0;
-	font: 100 0.3rem/0.5rem "Yuppy","微软雅黑";
+	font: 100 0.3rem/0.5rem "Consolas","微软雅黑";
 	color: rgb(28, 134, 209);
 	text-align: center;
 }
@@ -410,7 +399,7 @@ figure {margin: 0;}
 	padding: 0.3rem 0;
 	background-color: rgba(0,0,0,.95);
 	text-align: center;
-	font: 500 0.11rem/0.20rem "Montserrat","微软雅黑";
+	font: 500 0.11rem/0.20rem "Consolas","微软雅黑";
 	color: #4b4b4c;
 }
 

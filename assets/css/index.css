@@ -335,7 +335,7 @@
 	position: relative;
 	
 	border: 1px solid #69ca62;
-	background: url(../img/index/base-Quick-Response.jpg) no-repeat;
+	background: url(../img/base-Quick-Response.png) no-repeat;
 }
 
 .base-Quick-img::after , .base-Quick-img::before{
