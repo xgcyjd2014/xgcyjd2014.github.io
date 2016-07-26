@@ -10,7 +10,8 @@ kramdown:
 author: Owen
 name: Owen
 email: 469564715@qq.com
-link: http://numerhero.github.io
+site: http://xgcyjd2014.github.io
+link: http://xgcyjd2014.github.io
 #weibo: 
 github: http://github.com/NumerHero
 
@@ -18,5 +19,6 @@ github: http://github.com/NumerHero
 title: 信管创业基地 
 description: 信管创业基地官方博客
 url: http://xgcyjd2014.github.io
-rss_url: /pages/atom.xml
 
+# rss
+rss_url: /feed.xml
