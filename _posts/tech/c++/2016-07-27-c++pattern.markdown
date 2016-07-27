@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: C++语言与Cy语言的区别 
+title: C++语言与C语言的区别 
 author: Willow 
 tagpic: c++.jpg 
 description: 主要从流程化开发、模块化开发、面向对象开发三方面，深入了概括了C++与C在开发上的区别，利于读者更好的了解这两门语言的相通和不同之处

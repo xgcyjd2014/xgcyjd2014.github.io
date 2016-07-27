@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+# version 1.0.0
+CACHE:
+
+../assets/img/blogs-list/bg4.jpg 
+../assets/img/blogs-list/blogs-list-icon.png
+../assets/img/blogs-list/blogs-list-icon-hover.png
+../assets/img/above-heart.png
+
+NETWORK:
+*
