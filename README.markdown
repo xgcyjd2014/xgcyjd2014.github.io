@@ -71,12 +71,12 @@ layout      : 命令博文基于 post 布局，将写好的文章嵌入post.html
 title       : 文章标题<br/>
 author      : 作者名称（作者姓名开头大写）<br/>
 tagpic      : 文章配图名（__包含后缀名称__）<br/>
-description : 关于文章的简单描述（5 - 20个字）<br/>
+description : 关于文章的简单描述（最好简单详细 20到400之间不等）<br/>
 category    : 文章类型（如不清楚分类，可缺省为other类）<br/>
 
 __以上都是必须填写__
 
-文章配图需要将图片裁切成 280 * 250，裁切好的图片添加到`/assets/img/index/post-list-imgs`文件夹<br/>
+文章配图最好将图片裁切成 280 * 250（设置了自动调节），裁切好的图片添加到`/assets/img/index/post-list-imgs`文件夹<br/>
 类型名称一定要统一且正确（关系到css类名匹配）<br/>
 例如：
 

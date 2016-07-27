@@ -24,6 +24,7 @@ keywords: 技术,react
 	{category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"}
 	{category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}];
 ```
+
 ### 第一步：把视图拆分成一个个组件
 
 怎么样拆分组件呢？原则只有一个，就是每一个组件应该只做一件事，如果当前组件做了很多事，应该继续分解这个组件,因为最终用户所看到的界面和我们的数据模型往往有着一样的信息结构，我们只需要根据数据的结构来分解我们的组件
