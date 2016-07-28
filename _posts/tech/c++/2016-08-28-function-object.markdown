@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: C++语言与C语言的区别 
+title: 用C++函数对象代替函数指针
 author: Willow 
 tagpic: c++.jpg 
 description: c++中用函数对象代替函数指针，方便简洁。教你如何定义了一个简单的函数对象模板
