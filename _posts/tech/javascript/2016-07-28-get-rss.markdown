@@ -74,7 +74,7 @@ node sa
 
 你会发现数据都被写入到了xml中了
 
-![shootpic](/assets/img/get-rss-1.png)
+![shootpic](http://numerhero.github.io/assets/img/get-rss-1.png)
 
 ### 使用feedParser
 
@@ -113,7 +113,7 @@ fs.createReadStream(feed)
 node fp
 ```
 
-![shootpic](/assets/img/get-rss-2.png)
+![shootpic](http://numerhero.github.io/assets/img/get-rss-2.png)
 
 很优雅的打印出来了
 
@@ -383,7 +383,7 @@ ep.emit( "get_data", str );
 
 这样就能够成功获取每日最新的新闻Rss了
 
-![shootpic](/assets/img/get-rss-3.png)
+![shootpic](http://numerhero.github.io/assets/img/get-rss-3.png)
 
 ## 全部原码
 
