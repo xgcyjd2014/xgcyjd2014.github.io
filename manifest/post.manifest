@@ -4,7 +4,6 @@ CACHE MANIFEST
 CACHE:
 
 ../assets/js/jquery-1.11.3.min.js 
-../assets/js/blog-post.min.js
 ../assets/css/blog-post.min.css
 ../assets/css/rouge.min.css
 
