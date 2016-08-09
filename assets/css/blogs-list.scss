@@ -2,7 +2,7 @@
 
 $icon       : "./img/blogs-list-icon.png";
 $hover_icon : "./img/blogs-list-icon-hover.png";
-$bg         : "./img/bg4.jpg"
+$bg         : "./img/bg4.jpg";
 
 @mixin c-s() {
     position: absolute;
@@ -546,6 +546,22 @@ article {
             color: #fff;
             background: #1C86D1;
         }
+    }
+}
+
+.cc {
+    padding: 8px 0;
+    .show-cc {
+       @include br(2px);
+       padding: 5px;
+       margin-top: 10px;
+       border: dashed 2px #1C86D1;
+       font-size: 14px;
+       img {
+            float: left;
+            margin: 5px;
+       }
+
     }
 }
 

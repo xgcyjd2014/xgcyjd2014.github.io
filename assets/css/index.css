@@ -178,25 +178,21 @@
 }
 
 .getmore { 
-	width: 100%;
+	display: block;
 	float: left;
-	margin-top: 0.15rem;
-	font: 600 0.2rem/0.25rem "Consolas","微软雅黑";
+	width: 100%;
+	height: 0.4rem; 
+	margin: 0.15rem;
+	border-radius: 2px; 
+	transition: 0.5s;
+	font: 200 0.2rem/0.4rem "Consolas","微软雅黑";
+	text-align: center; 
+	color: #1C86D1;
 }
 
-.getmore a { 
-	display: block; 
-	border: 1px solid #dddddd; 
-	border-radius: 2px; 
-	height: 30px; 
-	line-height: 30px; 
-	color: #666666; 
-	background: #f3f3f3; 
-	text-align: center; 
-}
-.getmore a:hover { 
-	background: #dddddd; 
-	color: #1C86D1; 
+.getmore:hover {
+	background: #1C86D1;
+	color: #fff; 
 }
 
 /* 标签 */
@@ -537,7 +533,7 @@
 	position: relative;
 	width: 100%;
 	height: 2.5rem;
-	margin: 0.2rem 0;
+	margin: 0.2rem 0 0;
 	overflow: hidden;
 }
 

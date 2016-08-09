@@ -55,9 +55,9 @@ title: 首页
 	{% for post in site.posts %}
     {% if forloop.index == 12 && forloop.length > 12 %}
     <!-- Pagination links -->
-        <div class="getmore">
-            <a href="/pages/blogs-list.html">查看更多 | View More</a>
-        </div>
+        <a class="getmore" href="/pages/blogs-list.html">
+            查看更多 | View More
+        </a>
       {% endif %}
   {% endfor %}
 </section>
