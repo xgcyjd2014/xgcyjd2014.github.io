@@ -49,13 +49,13 @@ red
 "red"
 不是，它是个字符串
 
-1. 特定供应商（Vendor-specific）扩展
+* 特定供应商（Vendor-specific）扩展
 
 -moz-box-sizing
 -moz-border-radius
 -wap-accesskey
 
-2. 信息性历史注释
+* 信息性历史注释
 
 -ms-, mso-                Microsoft
 -moz-                        Mozilla
@@ -332,12 +332,11 @@ p:before {content: counter(par-num, upper-roman) ". "}
 
 * 颜色
 
-<color>要么是一个关键字，要么是一个（符合）RGB规范的数值
+`<color>`要么是一个关键字，要么是一个（符合）RGB规范的数值
 color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，
 navy，olive，orange，purple，red，silver，teal，white和yellow
 
 除了这些颜色关键字，在用户环境中，用户还可以指定对应的用于某些对象的颜色关键字
-
 
 ```css
 body {color: black; background: white }
@@ -380,7 +379,6 @@ a[title="a not so very long title"] {}
 * 不支持的值
 
 如果UA不支持某个特殊值，解析样式表时就应该忽略该值。就像该值是一个非法值例如：
-
 
 ```css
 h3 {
