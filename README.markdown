@@ -143,12 +143,28 @@ other<br/>
 
 图片点击可以放大
 
+### ul
+
+使用`* `符添加ul列表 注意`*`后面一定要有空格
+
+样式：
+
+![ul](/assets/img/ReadMe/ul.png)
+
+### ol
+
+使用`1. 2. 3.` 添加ol列表 注意`.` 后面一定要有空格！
+
+样式:
+
+![ol](/assets/img/ReadMe/ol.png)
+
+
 ### Caveat 
 
 `① 注意，代码与上下文之间必须有一行空行！！`
 
 `② 以上所有xxx代指语言 如：javascript , xxx语言必须小写！！`
-
 
 # 评论
 
@@ -171,4 +187,8 @@ other<br/>
 
 # licence
 
-没啥协议不协议的，都开源的东西，纯当交流分享~
+![cc](/assets/img/ReadMe/cc.png) 
+
+一切文章、图片、知识资产，服从 《创意共享3.0协议（CC协议-BY-NC)》
+
+如需转载 请服从以上协议！

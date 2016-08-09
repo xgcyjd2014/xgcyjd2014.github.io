@@ -234,7 +234,7 @@ p { color: green; color: green; }
 
 有两种类型的长度单位：相对和绝对
 
-1.相对
+* 相对
 
 相对长度单位指定了一个相对于其它长度属性的单位。使用相对单位的样式表更容易根据不同的输出环境缩放
 em: 相关字体的font-size
@@ -271,9 +271,11 @@ text-indent: 3em;
 h1 { font-size: 15px }
 ```
 
-2.绝对单位
+* 绝对单位
 绝对长度单位彼此之间是固定不变的。它们主要用于输出环境已知时，绝对单位包括物理单位（in，cm，mm，pt，pc）和px单位：
-对于CSS设备，这些尺寸要么参照
+对于CSS设备，这些尺寸
+
+要么参照
 
 (i)物理测量相关的物理单位
 
@@ -328,7 +330,7 @@ h1 {counter-reset: par-num}
 p:before {content: counter(par-num, upper-roman) ". "}
 ```
 
-1. 颜色
+* 颜色
 
 <color>要么是一个关键字，要么是一个（符合）RGB规范的数值
 color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，
@@ -375,7 +377,7 @@ o very long title"] {}
 a[title="a not so very long title"] {}
 ```
 
-1 不支持的值
+* 不支持的值
 
 如果UA不支持某个特殊值，解析样式表时就应该忽略该值。就像该值是一个非法值例如：
 

@@ -17,11 +17,11 @@ keywords: 技术,nodeJs,superAgent,feedparser,eventproxy,iconv-lite
 
 ## 为什么要获取并分析Rss
 
-① 通过获取Rss可以将多数据集合（例如自动转载文章）
+1. 通过获取Rss可以将多数据集合（例如自动转载文章）
 
-② 分析网站内容，获取有用信息
+2. 分析网站内容，获取有用信息
 
-③ 用于练习抓包，为以后进行数据分析做铺垫
+3. 用于练习抓包，为以后进行数据分析做铺垫
 
 ## 使用SuperAgent 和 FeedParser 获取并分析 基地博文
 
@@ -36,7 +36,6 @@ FeedParser 是nodeJs 的一个关于Rss 的分析模块，我们可以使用它�
 ```js
 npm install superagent feedparser --save-dev
 ```
-
 
 ### 使用superAgent
 
@@ -70,7 +69,6 @@ req_stream.pipe(wStream) // 数据写入
 ```js
 node sa
 ```
-
 
 你会发现数据都被写入到了xml中了
 
@@ -390,11 +388,9 @@ superAgent.get(url)
 
 注意，这里会有两个大坑，那就是转码问题
 
-其一，百度存储默认的是以GB2312存储，但是nodeJs 暂时并不支持GB2312编码
-
+1. 百度存储默认的是以GB2312存储，但是nodeJs 暂时并不支持GB2312编码
 所以我们需要进行转码
-
-其二，superAgent 暂时不支持除utf-8以外的其他格式， 对于任何非utf-8 的文档，会强行以utf-8进行编码
+2. superAgent 暂时不支持除utf-8以外的其他格式， 对于任何非utf-8 的文档，会强行以utf-8进行编码
 
 这两个问题加起来很坑（主要是一开始并没有意识到）找错误费了不少功夫
 

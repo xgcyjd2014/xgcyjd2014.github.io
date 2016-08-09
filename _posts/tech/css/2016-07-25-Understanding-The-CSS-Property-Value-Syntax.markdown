@@ -73,6 +73,7 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 ### 1.关键词
 
 关键词出现时不带引号或者尖括号。它们被用作属性值。因为它们不能被替换或者进一步细分，所以它们是终结符。在下面的例子中，`thin` ，`medium` 和 `thick` 都是关键词。这意味着它们可以被用作我们 CSS 中的值。
+
 ```
 <line-­width>  =  <length> | thin | medium | thick
 ```
@@ -136,7 +137,7 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 
 ```
 
-### 2.`&&`
+### 2.`&`
 
 用两个&符号（`&&`）分离的两个或者多个值意味着它们必须出现，以任何顺序。在下面的例子中，这种语法列出两个值，通过 && 分离。CSS 规则表明这两个值必须都要出现但是可能是任何顺序出现。
 
@@ -253,11 +254,11 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 .example { property: <value> <value>; }
 ```
 
-### 5. `{A, B}`
+### 5.`{A, B}`
 
 `{}`中包含两个以逗号分隔的数字对表示前置类型，一个词或一个组出现至少 `A` 次，至多 `B` 次。在下面的例子中，`value`出现至少一次，至多三次用来定义这个属性，这些值不需要用逗号分隔。
 
-### 6.{A,}
+### 6.`{A,}`
 
 这里的 `B` 可以省略，代表至少出现一次，对于上限没有限制。在下面的例子中，`value`至少出现一次，但是也可以增加任意数量`value`。这些值不需要用逗号分隔。
 
@@ -278,7 +279,7 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 .example { property: value1 value3; }
 ```
 
-## '<text-shadow>'语法：一个例子
+## text-shadow语法：一个例子
 
 让我们来看看 `<\'text-shadow\'>`这个属性作为例子。让我们来看看[规范](https://www.w3.org/TR/css-text-decor-3/#text-shadow-property)中是如何定义这个属性的：
 
@@ -288,11 +289,11 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 
 我们可以分解这些符号：
     
-1. `|` 代表我们可以使用关键词 `none` 或组 `[]`
-2. `#` 代表我们可以使用一次或多次这个组，用逗号分隔。
-3. 在组的内部，`{2,3}`代表我们可以使用两到三个`<length>`
-4. `&&` 代表我们必需包含所有的值，但是它们可以是任意顺序。
-5. 仅仅是为了更加微妙，`<color>`后面包括一个 `? `，这意味着它可以出现零次或一次。
+* `|` 代表我们可以使用关键词 `none` 或组 `[]`
+* `#` 代表我们可以使用一次或多次这个组，用逗号分隔。
+* 在组的内部，`{2,3}`代表我们可以使用两到三个`<length>`
+* `&&` 代表我们必需包含所有的值，但是它们可以是任意顺序。
+* 仅仅是为了更加微妙，`<color>`后面包括一个 `? `，这意味着它可以出现零次或一次。
 
 用通俗的语言，这可以写成如下：
 
@@ -343,6 +344,6 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。
 
 [“Value Definition Syntax” in “CSS Values and Units Module Level 3,”](https://www.w3.org/TR/css3-values/#value-defs)
 
-[“CSS Reference,”](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) Mozilla Developer Network
+[“CSS Reference,”](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) 
 
-[“How to Read W3C Specs,”](http://alistapart.com/article/readspec) J. David Eisenberg, A List Apart
+[“How to Read W3C Specs,”](http://alistapart.com/article/readspec)

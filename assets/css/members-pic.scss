@@ -1,0 +1,999 @@
+/*--------------------------------------------*\
+            xgjd members-pic scss
+           Design And Build By Owen
+      Github:http://github.com/numerhero
+
+\*--------------------------------------------*/
+
+// ../img
+// /assets/img/members-pic
+$title : "/assets/img/members-pic/buwang.png";
+$bg : "/assets/img/members-pic/bg.png";
+$button-bg: "/assets/img/members-pic/red-texture.png";
+$grad: "/assets/img/members-pic/grad-bg.png";
+$logo: "/assets/img/members-pic/logo.png";
+$imweb-font: "/assets/img/members-pic/imweb.png";
+$color : (
+    #84A5DD,
+    #FC0329,
+    #64d6e2,
+    #739998,
+    #dbbe39,
+    #85aa48,
+    #de89ac,
+    #ccc5e3,
+    #3CCAD1,
+    #F6D860,
+    #87C4A3,
+    #a09de5,
+    #FEC54F,
+    #F4696B,
+    #79BBB5,
+    #785ebb,
+    #9988CD,
+    #FD9372,
+    #9B7AD5,
+    #FDACB4,
+    #EDB948,
+    #F68F6F,
+    #9B7FE6,
+    #DFBC94,
+    #9787EA,
+    #F4C3C5,
+    #E794AE,
+    #98BFF6,
+    #EF9F64,
+    #9784ED
+);
+
+@charset "utf-8";
+
+@font-face{
+    font-family:'POLYA';
+    src:url('../font/POLYA.eot') format('embedded-opentype'),
+    url('../font/POLYA.woff') format('woff'),
+    url('../font/POLYA.ttf') format('truetype'),
+    url('../font/POLYA.svg') format('svg');
+}
+
+//************************************************************************//
+// Example: @include prefixer(border-radius, $radii, webkit ms spec);
+//************************************************************************//
+// Variables located in /settings/_prefixer.scss
+
+$prefix-for-webkit:    true !global;
+$prefix-for-mozilla:   true !global;
+$prefix-for-microsoft: true !global;
+$prefix-for-opera:     false !global; // Opera 从 版本15 已经转为webkit了
+$prefix-for-spec:      true !global;
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin c-s() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+
+@mixin c-m() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin br($x) {
+    border-radius: $x;
+}
+
+@mixin t($x) {
+    transition: $x+s;
+}
+
+@mixin btn-style ($w,$h,$br,$con,$fs) {
+    @include br($br + px);
+    position: absolute;
+    left: 50%;
+    width: $w + px;
+    height: $h + px;
+    
+    margin-left: (-$w / 2) + px;
+    color: #fff;
+    background: url($button-bg);
+    
+    &::after {
+        @include t(0.5);
+        @include br(22.5px);
+        @include c-s();
+        content: $con;
+        display: block;
+        
+        width: ($w - 5) + px;
+        height: ($h - 5) + px;
+        
+        background: $mc;
+        font: 200 $fs + px/($h - 5) + px "微软雅黑";
+    }
+
+    &:hover::after {
+        width: $w - 10 + px;
+        height: $h - 10 + px;
+        line-height: $h - 10 + px;
+    }
+}
+
+$mc : #1A1A1D;
+
+* {
+    box-sizing: border-box;
+    font-family: arial,"微软雅黑";    
+    outline: none;
+}
+
+body {
+    margin: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+body,html {
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #1C86D1;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+h1,h2 {
+    margin: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.selector-forbidden {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.none {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    background: $mc;
+    overflow: hidden;
+}
+
+
+.scroll-wrap {
+    @include t(0.5);
+    width: 100%;
+    height: calc(3 * 100%);
+
+    li {
+        @include t(0.5);
+        width: 1200px;
+      
+        margin: 0 auto;
+        section {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .first-stage {
+            background: url($bg) no-repeat;
+            .title {
+                position: relative;
+                overflow: hidden;
+                width: 800px;
+                height: 500px;
+                margin: 3% auto 0;
+                background: url($title);
+            }
+            
+            .know-us {
+                @include btn-style(300,50,25,"认识我们",20);
+            }
+        }
+        
+        .second-stage {
+            transition: 0.5s cubic-bezier(0.62, 0.02, 0.34, 1);
+            transform: scale(0,0);
+            opacity: 0;
+            .imweb {
+                @include t(.4);
+                @include c-s();   
+                z-index: 5201315;             
+                width: 450px;
+                height: 300px;
+                
+                text-align: center;
+                padding-top: 50px;
+
+                transform: scale(0,0);
+                margin-left: -225px;
+                margin-top: -150px;
+                h1 {
+                    color: #fff;
+                    font: 200 90px/90px "POLYA";
+                }
+
+                p {
+                    font: 200 40px/60px "微软雅黑";
+                    color: #ccc;
+                }
+            }
+
+            .circle-exhibition {
+                @include c-m();
+                z-index: 5201319;
+                width: 0px;
+                height: 0px;
+                animation: rotate 120s infinite;
+                .circle {
+                    position: absolute;
+                    @include br(50%);
+                    width: 20px;
+                    height: 20px;
+                    
+                    margin-left: -10px;
+                    margin-top: -10px;
+
+                    transition-duration: 0.5s;
+
+                    &::before {
+                        @include br(50%);
+                        @include t(0.3);
+                        content: "";
+                        display: block;
+                        width: 18px;
+                        height: 18px;
+                        transform: scale(0,0);
+                        
+                    }
+
+                    &::after {
+                        @include c-s();
+                        @include br(50%);
+                        content: "";
+                        display: block;
+                        width: 5px;
+                        height: 5px;
+                        background: #fff;
+                    }
+
+                    &:hover::before {
+                        transform: scale(3,3);
+                    }
+
+                    @for $i from 0 through 29 {
+                        &:nth-of-type(#{$i+1}) {
+                            $ad: ($i * 0.03 + 0.5s);
+                            transition-delay: $ad;
+                            transform: rotate($i * (360/30) + deg) translateY(-280px);
+                        }
+
+                        &:nth-of-type(#{$i+1})::before {
+                            border: 1px solid nth($color , $i+1);
+                        }
+                    }
+                }
+            }
+
+            &::before {
+                @include c-m();
+                @include br(50%);
+                content: "";
+
+                display: block;
+                width: 700px;
+                height: 700px;
+                opacity: .21;
+                background: url($grad) no-repeat center center/cover;
+            }
+            
+            .shard {
+                &::before {
+                    content: "";
+                    display: block;
+
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .shard:nth-of-type(5n+1) {
+                background-color: #28282a;
+            }
+            
+            .shard:nth-of-type(5n+2) {
+                background-color: #111;
+            }
+
+            .shard:nth-of-type(5n+3) {
+                background-color: #333;
+            }
+
+            .shard:nth-of-type(5n+4) {
+                background-color: #222;
+            }
+            
+            .shard:nth-of-type(5n+5) {
+                background-color: #121212;
+            }
+        
+            .shard-wrap {
+                @include c-m();
+                width: 300px;
+                height: 450px;
+
+                .shard {
+                    position: absolute;
+                    top: 10%;
+                    left: 50%;
+
+                    width: 167px;
+                    height: 194px;
+                    margin-left: -83.5px;
+                                        
+                    transition: 0.8s cubic-bezier(0.62, 0.02, 0.34, 1);
+                }
+            }
+            
+            .show-pic-wrap {
+                .member-info {
+                    z-index: 5201316;
+                    @include t(0.5);
+                    position: absolute;
+                    top: 269px;
+                    width: 100%;
+                    text-align: center;
+                    color: #fff;
+                    .member-name {
+                        font: 200 38px/38px "POLYA","微软雅黑";
+                    }
+
+                    .member-duties {
+                        font: 200 20px/20px "微软雅黑";
+                    }
+                }
+
+                /* group-1 */ 
+                .group-1 {
+                    transform: scale(0.05);
+                    // middle pointer 65.768% 38.144%
+                    &:nth-of-type(1) {
+                        @include prefixer(clip-path,polygon(50.200% 0.000% ,65.768% 38.144% ,1.098% 24.742% ),webkit moz spec);
+                    }
+
+                    &:nth-of-type(2) {
+                        @include prefixer(clip-path,polygon(50.100% 0.515% ,100.399% 25.258% , 65.768% 38.144%),webkit moz spec);
+                    }
+
+                    &:nth-of-type(3) {
+                        @include prefixer(clip-path,polygon(100.0% 25.0%, 100.998% 76.773%, 65.768% 38.144%),webkit moz spec);
+                    }
+
+                    &:nth-of-type(4) {
+                        @include prefixer(clip-path,polygon(100.998% 75.773% ,50.100% 100.000% ,65.768% 38.144%),webkit moz spec);
+                    }
+                    &:nth-of-type(5) {
+                        @include prefixer(clip-path,polygon(50.100% 100.000% ,0% 75.258%  ,65.768% 38.144%),webkit moz spec);
+                    } 
+                    &:nth-of-type(6) {
+                        @include prefixer(clip-path,polygon(0% 75.258%, 1% 24.4%, 65.768% 38.144%),webkit moz spec);
+                    }
+                    @for $i from 0 through 5 {
+                        &:nth-child(#{$i + 1}) {
+                            transform: rotate(-$i * 60deg) translate(-500px);
+                        }
+                    }
+                }
+
+                /* group-2 */ 
+                .group-2 {
+                    transform: scale(.05);
+                    &:nth-child(7) {
+                        @include prefixer(clip-path,polygon(0.399% 24.742% ,50.699% 0.515% ,0.399% 77.320% ),webkit moz spec);
+                    }     
+                    &:nth-child(8) {
+                        @include prefixer(clip-path,polygon(50.699% 0.515% ,0.399% 77.320% ,100.399% 64.948% ),webkit moz spec);
+                    }
+                    &:nth-child(9) {
+                        @include prefixer(clip-path,polygon(50.699% 0.515% ,100.399% 64.948% ,100.399% 25.258% ),webkit moz spec);
+                    } 
+                    &:nth-child(10) {
+                        @include prefixer(clip-path,polygon(0.399% 77.320% ,100.399% 64.948% ,49.501% 100.000% ),webkit moz spec);
+                    }
+                    &:nth-child(11) {
+                        @include prefixer(clip-path,polygon(100.399% 76.289% ,100.399% 64.948% ,49.501% 100.000% ),webkit moz spec);
+                    }
+                    @for $i from 0 through 4 {
+                        &:nth-child(#{$i + 6}) {
+                            transform: rotate(($i * 72) - 90deg ) translate(-550px);
+                        }
+                    }
+                }
+
+                /* group-3 */ 
+                .group-3 {
+                    transform: scale(.05);
+                    // 0.399% 25.258%
+                    &:nth-child(12) {
+                        @include prefixer(clip-path,polygon(0.399% 25.258% ,50.100% 100.515% ,0.998% 76.289% ),webkit moz spec);
+                    }
+                    &:nth-child(13) {
+                        @include prefixer(clip-path,polygon(0.399% 25.258% ,50.100% 100.515% ,50.100% 0.515% ),webkit moz spec);
+                    }
+                    &:nth-child(14) {
+                        @include prefixer(clip-path,polygon(50.100% 0.515% ,50.100% 100.515% ,100.399% 25.258% ),webkit moz spec);
+                    }
+                    &:nth-child(15) {
+                        @include prefixer(clip-path,polygon(100.399% 25.258% ,50.100% 100.515% ,100.399% 76.804% ),webkit moz spec);
+                    }
+                    @for $i from 0 through 3 {
+                        &:nth-child(#{$i + 12}) {
+                            transform: rotate(($i * 90) + 90deg ) translate(-330px);
+                        }
+                    }     
+                }             
+            }
+            
+            .just-show-wrap-1 {
+                animation: f-rotate 120s infinite;
+                .shard {
+                    @for $i from 0 through 9 {
+
+                        $ac: ($i * 0.3s + $i*1s);
+
+                        &:nth-of-type(#{$i + 1})::before {
+                            animation: shard-flow-black 3s $ac infinite;
+                        }
+                    }     
+                    
+                }
+
+                .group-4 {
+                    transform: scale(.1);
+                    &:nth-child(1) {
+                        @include prefixer(clip-path,polygon(56.088% 28.351% ,15.369% 40.722% ,67.465% 58.763% ),webkit moz spec);
+                    }
+
+                    &:nth-child(2) {
+                        @include prefixer(clip-path,polygon(57.285% 15.464% ,32.735% 51.031% ,73.453% 27.320% ),webkit moz spec);
+                    }
+
+                    &:nth-child(3) {
+                        @include prefixer(clip-path,polygon( 37.525% 24.742% ,53.693% 36.082% ,29.142% 45.876% ),webkit moz spec);
+                    }
+
+                    &:nth-child(4) {
+                        @include prefixer(clip-path,polygon( 81.836% 23.711% ,6.986% 67.526% ,62.076% 83.505% ),webkit moz spec);
+                    }
+
+                    &:nth-child(5) {
+                        @include prefixer(clip-path,polygon( 50.100% 1.031% ,31.537% 10.825% ,44.112% 14.948% ),webkit moz spec);
+                    }
+
+                    &:nth-child(6) {
+                        @include prefixer(clip-path,polygon( 99.800% 25.773% ,12.375% 40.722% ,45.908% 55.670% ),webkit moz spec);
+                    }
+                    @for $i from 0 through 5 {
+                        &:nth-child(#{$i + 1}) {
+                            transform: rotate(($i * 60) - 24 + deg ) translate(-350px);
+                        }
+                    }
+                }
+                
+                .group-6 {
+                    transform: scale(.13);
+                    &:nth-child(7) {
+                        @include prefixer(clip-path,polygon( 62.076% 21.134% ,56.088% 29.897% ,66.267% 31.443% ),webkit moz spec);
+                    }
+
+                    &:nth-child(8) {
+                        @include prefixer(clip-path,polygon( 26.148% 21.134% ,26.148% 27.320% ,35.729% 23.711% ),webkit moz spec);
+                    }
+
+                    &:nth-child(9) {
+                       @include prefixer(clip-path,polygon(42.315% 24.742% ,43.513% 40.722% ,56.088% 34.021% ),webkit moz spec);
+                    }
+
+                    &:nth-child(10) {
+                        @include prefixer(clip-path,polygon( 83.633% 74.227% ,59.082% 75.773% ,69.860% 81.443% ),webkit moz spec);
+                    }
+
+                    &:nth-child(11) {
+                        @include prefixer(clip-path,polygon( 12.375% 73.711% ,39.920% 76.804% ,12.375% 65.979% ),webkit moz spec);
+                    }
+
+                    &:nth-child(12) {
+                        @include prefixer(clip-path,polygon( 63.273% 12.371% ,60.279% 25.258% ,87.226% 25.258% ),webkit moz spec);
+                    }
+
+                    @for $i from 0 through 5 {
+                        &:nth-child(#{$i + 7}) {
+                            transform: rotate((-$i * 60) + 24 + deg ) translate(-430px);
+                        }
+                    }
+                }
+            }
+
+            .just-show-wrap-2 {
+                animation: rotate 240s infinite;
+                .shard {
+                    @for $i from 0 through 4 {
+
+                        $ac: ($i * 0.3s + $i*1s);
+
+                        &:nth-of-type(#{$i + 1})::before {
+                            animation: shard-flow-black 3s $ac infinite;
+                        }
+                    }     
+                    
+                }
+
+                .group-5 {
+                    transform: scale(.1);
+                    &:nth-child(1) {
+                        @include prefixer(clip-path,polygon( 39.920% 10.309% ,31.537% 23.711% ,44.711% 22.165% ),webkit moz spec);
+                    }
+
+                    &:nth-child(2) {
+                       @include prefixer(clip-path,polygon( 58.483% 50.000% ,56.687% 53.608% ,68.064% 53.093% ),webkit moz spec);
+                    }
+
+                    &:nth-child(3) {
+                        @include prefixer(clip-path,polygon( 89.022% 69.072% ,77.046% 74.742% ,92.016% 75.258% ),webkit moz spec);
+                    }
+
+                    &:nth-child(4) {
+                        @include prefixer(clip-path,polygon( 6.986% 38.144% ,5.190% 48.454% ,21.956% 43.299% ),webkit moz spec);
+                    }
+
+                    &:nth-child(5) {
+                        @include prefixer(clip-path,polygon( 89.621% 31.959% ,83.633% 39.691% ,95.010% 39.175% ),webkit moz spec);
+                    }
+
+                    @for $i from 0 through 4 {
+                        &:nth-child(#{$i + 1}) {
+                            transform: rotate(($i * 60) - 24 + deg ) translate(-500px);
+                        }
+                    }
+                }
+            }
+            
+            .thogether-shard {
+                transform: scale(1) rotate(0deg) translateY(0px) !important;
+            }
+
+            .we-need-you {
+                @include t(0.5);
+                position: absolute;
+                top: 25px;
+                z-index: 255;
+                color: #fff;
+
+                &:hover {
+                    color: #1C86D1;
+                }
+            }
+            
+            .wobble {
+                animation: wobble 3.5s;
+                animation-fill-mode: forwards;
+            }
+
+            .join-us-wrap {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                
+                .imweb-logo {
+                    @include c-m();
+                    @include t(0.5);
+                    z-index: 520;
+                    width: 400px;
+                    height: 400px;
+                    background: url($logo);
+                    transform: scale(0,0);
+                }
+                
+                .imweb-font {
+                    @include c-m();
+                    @include t(0.5);
+                    top: 150px;
+                    z-index: 530;
+                    width: 195px;
+                    height: 64px;
+                    background: url($imweb-font);
+                }
+
+                .join-us {
+                    @include btn-style (325,50,25,"加入我们",20);
+                    @include t(0.5);
+                    @include c-m();
+                    top: 440px;
+                }
+                
+            }
+        } 
+    }       
+}
+    
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes f-rotate {
+    0% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shard-flow-black {
+  0% {
+    background-color: transparent; }
+  30% {
+    background-color: rgba(255, 255, 255, 0.1); }
+  100% {
+    background-color: transparent; } 
+}
+
+@keyframes shard-flow {
+  0% {
+    background-color: transparent; }
+  30% {
+    background-color: rgba(255, 0, 0, 0.47); }
+  66% {
+    background-color: rgba(0, 0, 0, 0.1); }
+  100% {
+    background-color: transparent; } 
+}
+
+@keyframes shimmer {
+  0% {background-color: rgba(255, 255, 255, 0); 
+    }
+  35% {
+    background-color: rgba(255, 255, 255, 0.1); 
+    }
+  100% {
+    background-color: rgba(255, 255, 255, 0); 
+    } 
+}
+
+@keyframes fe-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(252,197,216,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(252,197,216,0);
+  }
+}
+
+@keyframes be-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(157,237,103,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(157,237,103,0);
+  }
+}
+
+@keyframes c-circle-active {
+  0% {
+    box-shadow:0 0 0 0 rgba(110,239,255,1);
+  }
+  100% {
+    box-shadow:0 0 0 0.30rem rgba(110,239,255,0);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    -webkit-transform: scale(0 , 0);
+            transform: scale(0 , 0);
+  }
+  1% {
+    -webkit-transform: scale(0.08648, 0.17943);
+            transform: scale(0.08648, 0.17943);
+  }
+  2% {
+    -webkit-transform: scale(0.29255, 0.54538);
+            transform: scale(0.29255, 0.54538);
+  }
+  3% {
+    -webkit-transform: scale(0.54538, 0.8944);
+            transform: scale(0.54538, 0.8944);
+  }
+  4% {
+    -webkit-transform: scale(0.78855, 1.12038);
+            transform: scale(0.78855, 1.12038);
+  }
+  5% {
+    -webkit-transform: scale(0.98584, 1.20515);
+            transform: scale(0.98584, 1.20515);
+  }
+  6% {
+    -webkit-transform: scale(1.12038, 1.18481);
+            transform: scale(1.12038, 1.18481);
+  }
+  7% {
+    -webkit-transform: scale(1.19105, 1.1134);
+            transform: scale(1.19105, 1.1134);
+  }
+  8% {
+    -webkit-transform: scale(1.20745, 1.03725);
+            transform: scale(1.20745, 1.03725);
+  }
+  9% {
+    -webkit-transform: scale(1.18481, 0.98331);
+            transform: scale(1.18481, 0.98331);
+  }
+  10% {
+    -webkit-transform: scale(1.13967, 0.95915);
+            transform: scale(1.13967, 0.95915);
+  }
+  11% {
+    -webkit-transform: scale(1.08677, 0.95921);
+            transform: scale(1.08677, 0.95921);
+  }
+  12% {
+    -webkit-transform: scale(1.03725, 0.97253);
+            transform: scale(1.03725, 0.97253);
+  }
+  13% {
+    -webkit-transform: scale(0.99801, 0.9888);
+            transform: scale(0.99801, 0.9888);
+  }
+  14% {
+    -webkit-transform: scale(0.97203, 1.00138);
+            transform: scale(0.97203, 1.00138);
+  }
+  15% {
+    -webkit-transform: scale(0.95915, 1.00783);
+            transform: scale(0.95915, 1.00783);
+  }
+  16% {
+    -webkit-transform: scale(0.95714, 1.00882);
+            transform: scale(0.95714, 1.00882);
+  }
+  17% {
+    -webkit-transform: scale(0.96274, 1.00649);
+            transform: scale(0.96274, 1.00649);
+  }
+  18% {
+    -webkit-transform: scale(0.97253, 1.00309);
+            transform: scale(0.97253, 1.00309);
+  }
+  19% {
+    -webkit-transform: scale(0.98355, 1.00022);
+            transform: scale(0.98355, 1.00022);
+  }
+  20% {
+    -webkit-transform: scale(0.9936, 0.99857);
+            transform: scale(0.9936, 0.99857);
+  }
+  21% {
+    -webkit-transform: scale(1.00138, 0.99813);
+            transform: scale(1.00138, 0.99813);
+  }
+  22% {
+    -webkit-transform: scale(1.00637, 0.9985);
+            transform: scale(1.00637, 0.9985);
+  }
+  23% {
+    -webkit-transform: scale(1.00868, 0.99919);
+            transform: scale(1.00868, 0.99919);
+  }
+  24% {
+    -webkit-transform: scale(1.00882, 0.99983);
+            transform: scale(1.00882, 0.99983);
+  }
+  25% {
+    -webkit-transform: scale(1.00749, 1.00024);
+            transform: scale(1.00749, 1.00024);
+  }
+  26% {
+    -webkit-transform: scale(1.00538, 1.00039);
+            transform: scale(1.00538, 1.00039);
+  }
+  27% {
+    -webkit-transform: scale(1.00309, 1.00034);
+            transform: scale(1.00309, 1.00034);
+  }
+  28% {
+    -webkit-transform: scale(1.00106, 1.0002);
+            transform: scale(1.00106, 1.0002);
+  }
+  29% {
+    -webkit-transform: scale(0.99953, 1.00006);
+            transform: scale(0.99953, 1.00006);
+  }
+  30% {
+    -webkit-transform: scale(0.99857, 0.99996);
+            transform: scale(0.99857, 0.99996);
+  }
+  31% {
+    -webkit-transform: scale(0.99817, 0.99992);
+            transform: scale(0.99817, 0.99992);
+  }
+  32% {
+    -webkit-transform: scale(0.99819, 0.99992);
+            transform: scale(0.99819, 0.99992);
+  }
+  33% {
+    -webkit-transform: scale(0.9985, 0.99995);
+            transform: scale(0.9985, 0.99995);
+  }
+  34% {
+    -webkit-transform: scale(0.99895, 0.99998);
+            transform: scale(0.99895, 0.99998);
+  }
+  35% {
+    -webkit-transform: scale(0.99942, 1);
+            transform: scale(0.99942, 1);
+  }
+  36% {
+    -webkit-transform: scale(0.99983, 1.00001);
+            transform: scale(0.99983, 1.00001);
+  }
+  37% {
+    -webkit-transform: scale(1.00014, 1.00002);
+            transform: scale(1.00014, 1.00002);
+  }
+  38% {
+    -webkit-transform: scale(1.00032, 1.00001);
+            transform: scale(1.00032, 1.00001);
+  }
+  39% {
+    -webkit-transform: scale(1.00039, 1.00001);
+            transform: scale(1.00039, 1.00001);
+  }
+  40% {
+    -webkit-transform: scale(1.00037, 1);
+            transform: scale(1.00037, 1);
+  }
+  41% {
+    -webkit-transform: scale(1.0003, 1);
+            transform: scale(1.0003, 1);
+  }
+  42% {
+    -webkit-transform: scale(1.0002, 1);
+            transform: scale(1.0002, 1);
+  }
+  43% {
+    -webkit-transform: scale(1.00011, 1);
+            transform: scale(1.00011, 1);
+  }
+  44% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  45% {
+    -webkit-transform: scale(0.99996, 1);
+            transform: scale(0.99996, 1);
+  }
+  46% {
+    -webkit-transform: scale(0.99993, 1);
+            transform: scale(0.99993, 1);
+  }
+  47% {
+    -webkit-transform: scale(0.99992, 1);
+            transform: scale(0.99992, 1);
+  }
+  48% {
+    -webkit-transform: scale(0.99992, 1);
+            transform: scale(0.99992, 1);
+  }
+  49% {
+    -webkit-transform: scale(0.99994, 1);
+            transform: scale(0.99994, 1);
+  }
+  50% {
+    -webkit-transform: scale(0.99996, 1);
+            transform: scale(0.99996, 1);
+  }
+  51% {
+    -webkit-transform: scale(0.99998, 1);
+            transform: scale(0.99998, 1);
+  }
+  52% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  53% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  54% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  55% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  56% {
+    -webkit-transform: scale(1.00002, 1);
+            transform: scale(1.00002, 1);
+  }
+  57% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  58% {
+    -webkit-transform: scale(1.00001, 1);
+            transform: scale(1.00001, 1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}

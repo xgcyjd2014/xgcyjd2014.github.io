@@ -1,0 +1,662 @@
+@charset "utf-8";
+
+$icon       : "./img/blogs-list-icon.png";
+$hover_icon : "./img/blogs-list-icon-hover.png";
+$bg         : "./img/bg4.jpg"
+
+@mixin c-s() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
+
+@mixin c-m() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@mixin br($x) {
+    border-radius: $x;
+}
+
+@mixin t($x) {
+    transition: $x+s;
+}
+
+@mixin ellipsis () {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+@mixin select ($mod) {
+    -webkit-touch-callout: $mod;
+    -webkit-user-select: $mod;
+    -khtml-user-select: $mod;
+    -moz-user-select: $mod;
+    -ms-user-select: $mod;
+    user-select: $mod;
+}
+
+@mixin blur($x) {
+    -webkit-filter: blur($x);
+    -moz-filter: blur($x);
+    -o-filter: blur($x);
+    filter: blur($x);
+}
+
+* {
+    font-family: "Consolas","微软雅黑";
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+*::selection {
+    background: transparent;
+    color: #1C86D1;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color:#f5f5f5;
+    border-left:1px solid #d2d2d2;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.6);
+    background-clip:padding-box;
+    border:1px solid #979797;
+    min-height:28px;
+    border-radius: 3px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border:1px solid #636363;
+    background-color: rgba(0,0,0,.8);
+
+}
+
+::-webkit-scrollbar-thumb:active {
+    border:1px solid #636363;
+    background-color: rgba(0,0,0,1);
+}
+
+.clearfix {
+    &::after {
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* Consolas */
+@font-face{
+    font-family:'Consolas';
+    src:url('./font/Consolas.eot');
+    src:url('./font/Consolas.eot') format('embedded-opentype'),
+    url('./font/Consolas.woff') format('woff'),
+    url('./font/Consolas.ttf') format('truetype'),
+    url('./font/Consolas.svg') format('svg');font-weight:normal;font-style:normal
+}
+
+
+body {
+    position: relative;
+    font-size: 0;
+    margin: 0;    
+    background: #f8f8f8;  
+}
+
+ul,ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer; 
+}
+
+a {
+    @include t(0.3);
+    color: #1C86D1;
+    text-decoration: none;
+
+    &:hover {
+        color: #F92672;
+    }
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+i {
+    display: inline-block;
+}
+
+header {
+    position: relative;
+    height: 600px;
+    padding: 35px 120px 0;
+    overflow: hidden;
+    box-shadow: 0 3px 15px 0px rgba(0,0,0,0.6);
+    margin-bottom: 50px;
+
+    .logo__block {
+        overflow: hidden;
+        .logo {
+            width: 100px;
+            float: left;
+        }
+
+        p {
+            text-align: center;
+            font-size: 35px;
+            color: #fff;
+        }
+    
+        .xgjd {
+            float: left;
+            margin: 15px 0 0 15px;
+            p {
+                font-family: "微软雅黑",arial;
+            }
+        }
+    }
+    
+    .book-icon {
+        figure {
+            width: 200px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: url(./img/blogs-list-icon.png) 1px -1px; 
+        }
+    }
+
+    .title {
+        text-align: center;
+        font-size: 50px;
+        color: #fff;
+        font-weight: 200;
+       
+    }
+
+    .line {
+        width: 100px;
+        height: 2px;
+        background: #fff;
+        margin: 40px auto;
+    }
+
+    .vision {
+        color: #ddd;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 40px;
+        font-weight: 100
+    }
+    .header-bg {
+        @include blur(3px);
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(./img/bg4.jpg);
+        background-size: cover;
+
+    }
+}
+
+article {
+    width: 1200px;
+    margin: 0 auto 60px;
+    padding-top: 20px;
+}
+
+.article-list {
+    float: left;
+    width: 900px;
+}
+
+.list-style {
+    font: 200 50px/50px "Consolas";
+    color: #1C86D1;
+}
+
+.article-item--hidden {
+    opacity: 0;
+    transform: translate(0,50px);
+}
+
+.article-item {
+    @include t(0.8);
+    @include br(3px);
+    width: 880px;
+    height: 350px;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.6);
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 80px;
+
+    &:hover .tags {
+        background: #1C86D1;
+    }
+}
+
+.article-item__header {
+    @include t(0.8);    
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    color: #fff;
+    
+    .header-title {
+        color: #4D4E4E;
+        font: 200 35px/70px "Consolas","微软雅黑";
+        text-align: center;
+        
+    }
+
+    .title-content {
+        @include ellipsis();
+        text-align: center;
+        font: 200 30px/70px "Consolas","微软雅黑";
+        color: #4D4E4E;
+    }
+    
+    .tags {
+        @include t(0.5);
+        @include select(none);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: #4D4E4E;
+        text-align: right;
+        padding: 0 20px;
+        font: 200 16px/30px "Consolas","微软雅黑";        
+    }
+
+    .tags-clock {
+        width: 16px;
+        height: 16px;
+        background: url(./img/blogs-list-icon.png)  -5px -159px;
+        vertical-align: middle;
+    }   
+}
+
+.article-item__body {
+    height: 200px;
+    padding: 0 20px;
+
+    p {
+        height: 150px;
+        color: #000;
+        font-size: 16px;
+        line-height: 1.4em;
+        padding: 20px 0;
+        text-indent: 20px;
+        overflow: hidden;
+
+        &::after {
+            
+            content: "...";
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    .read-more {
+        @include br(3px);
+        @include t(0.8);
+        display: inline-block;
+        line-height: 30px;
+        color: #1C86D1;
+        border: 1px solid #1C86D1;
+        padding: 0 5px;
+        width: 85px;
+        height: 30px;
+        text-align: center;
+
+        margin: 8px 0 11px 0; 
+
+        &:hover {
+            background: #1C86D1;
+            color: #fff;
+        }
+    }
+
+
+    .line {
+        width: 820px;
+        height: 1px;
+
+        background: #eee;
+        margin: 0 auto;
+    }
+}
+
+.article-item__footer {
+    height: 50px;
+    padding: 0 20px;
+    .type {
+        float: left;
+        color: #4d4e4e;
+        font-size: 20px;
+        vertical-align: middle;
+        line-height: 50px;
+        i {
+            width: 16px;
+            height: 16px;
+            background: url(./img/blogs-list-icon.png) -5px -176px; 
+            vertical-align: middle;
+            
+        }
+    }
+
+    .share {
+        float: right;
+        height: 100%;
+        padding-right: 25px;
+
+        li {
+            float: left;
+            height: 100%;
+            a {
+                transition: none;
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                margin-top: 10px;
+                background-image: url(./img/blogs-list-icon.png);
+            }
+
+            span {
+                font-size: 16px;
+                line-height: 50px;
+                margin: 0 20px 0 0;
+            }
+        }
+        
+        .ml {
+            margin-left: 8px;
+        }
+
+        .qzone {
+            background-position: -3px -194px;
+
+            &:hover {
+                background: url(./img/blogs-list-icon-hover.png) -1px -3px;
+            }
+        }
+
+        .weibo {
+            background-position: -3px -228px;
+            &:hover {
+                background: url(./img/blogs-list-icon-hover.png) -1px -38px;
+            }
+        }
+
+        .twitter {
+            background-position: -4px -260px;
+            &:hover {
+                background: url(./img/blogs-list-icon-hover.png) -2px -73px;
+            }
+        }
+
+        .qq {
+           background-position: -4px -293px;
+            &:hover {
+                background: url(./img/blogs-list-icon-hover.png) -2px -108px;
+            } 
+        }
+    }
+}
+
+.article-pagination {
+    height: 100px;
+    overflow: hidden;
+    padding-left: 30px;
+}
+
+.article-pagination-list {
+    li {
+        @include br(5px);
+        @include t(0.5);
+        float: left;
+        width: 55px;
+        height: 80px;
+        margin-right: 20px;
+        transform: skew(-0.25rad);
+        border: 1px solid #4D4E4E;
+
+        a {
+            @include t(0.5);
+            transform: skew(+0.25rad);
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            color: #4D4E4E;
+            text-align: center;
+            font-size: 18px; 
+            line-height: 80px;
+        }
+
+        &:hover {
+            background: #4D4E4E;
+        }
+
+        &:hover a {
+            color: #fff;
+        }
+    }
+    
+    .active {
+        background: #1C86D1;
+        border: none;
+        a {
+            color: #fff;
+        }
+
+        &:hover {
+            background: #1C86D1;
+        }
+
+        &:hover a {
+            color: #fff;
+        }
+
+    }
+    
+    .cn-btn {
+        a {
+            font-size: 14px;
+        }
+    }
+}
+
+
+
+.article-aside {
+    @include br(3px);
+    float: left;
+    width: 300px;
+    background: #fff;
+    padding: 0 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    .title {
+        width: 200px;
+
+        color: #1C86D1;
+        font-size: 18px;
+        border-bottom: 1px solid #4D4E4E;   
+        
+        padding: 0 0 5px 8px;
+    }
+}
+
+.friendship-link {
+    padding-top: 10px;
+    
+    a {
+        @include t(0.8);
+        display: inline-block;
+        width: 100%;
+        color: #4D4E4E;
+        font-size: 16px;
+        padding: 5px 0;
+        margin: 10px 0;
+        text-indent: 5px;
+        &:hover {
+            color: #fff;
+            background: #1C86D1;
+        }
+    }
+}
+
+.share-rss {
+    font-size: 0;
+    .rss-icon {
+        width: 32px;
+        height: 32px;
+        background: url(./img/blogs-list-icon.png) -35px -157px;
+        vertical-align: bottom;
+    }
+
+    a {
+        @include br(5px);
+        display: inline-block;
+        width: 240px;
+        padding: 10px;
+        color: #fff;
+        font-size: 18px;
+        background: #1C86D1;
+        line-height: 32px;
+        margin: 20px 20px;
+        text-indent: 50px;
+    }
+}
+
+footer {
+    position: relative;
+    height: 420px;
+    background: #4D4E4E;
+    overflow: hidden;
+    
+    .footer__body {
+        width: 1200px;
+        height: 370px;
+        margin: 0 auto;
+    }
+    
+    .about-blog {
+        float: left;
+        width: 400px;
+        height: 100%;
+        padding-top: 12px;    
+        .title {
+            font-size: 50px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 100;
+            white-space: pre-line;
+        }
+    }
+
+    .ar {
+        position: relative;
+        float: left;
+        width: 400px;
+        height: 100%;
+        padding: 0 30px;
+
+        .l-line, .r-line {
+            width: 2px;
+            height: 140px;
+            background: #DDDDDD;
+            margin-top: 110px;
+        }
+
+        .l-line {
+            float: left;
+        }
+
+        .r-line {
+            float: right;
+        }
+
+        img {
+            @include c-s();
+            top: 50%;
+        }
+    }
+
+    .logo-show {
+        float: right;
+        width: 400px;
+        height: 100%;
+        img {
+            margin-top: -10px;
+        }
+    }
+
+    .copyright {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+
+        width: 100%;
+        height: 50px;
+        background: rgba(1,1,2,0.5);
+        transform: translate(-50%,0);
+
+        p {
+            width: 1000px;
+            height: 30px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            line-height: 50px;
+        }
+    }
+}
