@@ -230,10 +230,10 @@
 	width: 0.6rem;
 	height: 0.3rem;
 
-	background-image: -webkit-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
-	background-image: -moz-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
-	background-image: -o-linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
-	background-image: linear-gradient(left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -webkit-linear-gradient(to left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -moz-linear-gradient(to left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: -o-linear-gradient(to left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
+	background-image: linear-gradient(to left,rgba(147,98,222,0.6),rgba(89,134,226,0.6));
 	
 	float: left;
 	text-align: center;
