@@ -940,3 +940,14 @@ article {
         }
     }     
 }
+
+// 多说评论样式
+
+.comment ul {
+    li {
+        &::before {
+            display: none !important;
+        }
+    }
+}
+
