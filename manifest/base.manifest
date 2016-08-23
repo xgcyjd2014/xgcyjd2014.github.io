@@ -9,7 +9,6 @@ CACHE:
 ../assets/js/TweenLite.min.js
 ../assets/js/jquery-1.11.3.min.js 
 ../assets/js/jquery-mousewheel.js
-../assets/js/base.min.js
 ../assets/js/fss.min.js
 ../assets/js/low-poly.min.js
 
