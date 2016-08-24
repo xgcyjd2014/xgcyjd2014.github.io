@@ -1,8 +1,6 @@
 @charset "utf-8";
 $icons-spite : "/assets/img/blog-post/icons.png";
-// /assets/img/blog-post
-// ./img/
-// font
+
 @font-face{
     font-family:'Consolas';
     src:url('/assets/font/Consolas.eot');
@@ -490,7 +488,7 @@ article {
 
         ul {
             padding: 20px;
-            li {
+            & > li {
                 position: relative;
                 font-size: 16px;
                 margin: 0 0 5px;
@@ -524,7 +522,7 @@ article {
         ol {
             padding: 20px;
             counter-reset: section;
-            li {
+            & > li {
                 position: relative;
                 font-size: 16px;
                 color: #000;
@@ -563,6 +561,40 @@ article {
 
                 &:nth-of-type(5n+5)::before {
                     color: #a35dc9;
+                }
+            }
+        }
+        
+        table {
+            @include br(5px);
+            display: table-caption;
+            margin: 20px 0;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            
+            border-collapse: collapse;   
+            
+            tr {
+                border: 1px solid #000;
+                td, th {
+                    @include select(none);
+                    @include t(.5);
+                    padding: 5px 10px;
+                    border: 1px solid #000;
+                }
+
+                th {
+                    font-weight: 500;
+                }
+
+                td {
+                    min-width: 150px;
+                    font-size: 15px;
+                    font-weight: 200;
+                    &:hover {
+                        background: #1C86D1;
+                        color: #fff;
+                    }
                 }
             }
         }

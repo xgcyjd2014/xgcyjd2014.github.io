@@ -159,6 +159,13 @@ other<br/>
 
 ![ol](/assets/img/ReadMe/ol.png)
 
+### table
+
+可以使用markdown 语法生成表格
+
+样式：
+
+![table](/assets/img/ReadMe/table.png)
 
 ### Caveat 
 
