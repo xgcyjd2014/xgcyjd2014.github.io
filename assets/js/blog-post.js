@@ -28,8 +28,6 @@
 
 var posts = {{ posts | strip_newlines }};
 
-console.log(posts);
-
 $window = $(window);
 
 var picNum = 3,
@@ -37,8 +35,6 @@ var picNum = 3,
 
 var rN = Math.floor(Math.random()*picNum) +1;
 oPicBg[0].src = "/assets/img/blog-post/bg"+ rN +".jpg";
-
-// /assets/img/blog-post
 
 $.fn.Drag = function (callback) {
     var $self = this;
