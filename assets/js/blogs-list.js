@@ -253,9 +253,6 @@ function scrollAnimate() {
 render();
 stepFadeOut();
 
-
-
-
 function $ ( v,d ) {
     d = d || document;
     return d.querySelector(v);
