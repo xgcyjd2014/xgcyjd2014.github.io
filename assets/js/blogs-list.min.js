@@ -9,7 +9,6 @@
             "title"  : "{{ post.title }}",
             "url"    : "{{ post.url }}",
             "date"   : '{{ post.date | date: "%Y-%m-%d" }}',
-            "content": "{{ post.content | escape }}",
             "category": "{{ post.category }}",
             "description": "{{ post.description }}",
             "author": "{{ post.author }}",

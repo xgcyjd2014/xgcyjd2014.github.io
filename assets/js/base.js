@@ -18,7 +18,6 @@ window.console && console.log && console.log("\n      欢迎加入信管创业�
 			"title"  : "{{ post.title }}",
 			"url"    : "{{ post.url }}",
 			"date"   : "{{ post.date | %Y%M | date_to_string }}",
-			"content": "{{ post.content | escape }}",
 			"category": "{{ post.category }}",
 			"description": "{{ post.description }}",
 			"author": "{{ post.author }}",
