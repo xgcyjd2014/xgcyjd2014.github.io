@@ -1,12 +1,20 @@
 <!-- 公有Js 区 -->
-<script src="/assets/js/easeljs-0.8.2.min.js"></script>
-<script src="/assets/js/TweenLite.min.js"></script>
 <script src="/assets/js/jquery-1.11.3.min.js" ></script>
 <script src="/assets/js/jquery-mousewheel.js"></script>
 <script src="/assets/js/base.min.js"></script>
 <script src="/assets/js/fss.min.js"></script>
 <script src="/assets/js/low-poly.min.js"></script>
-
+<script src="/assets/js/vivus.min.js"></script>
+<script>
+  timingProps = {
+    type: 'delayed',
+    duration: 150,
+    start: 'autostart',
+    pathTimingFunction: Vivus.EASE_OUT,
+    animTimingFunction: Vivus.LINEAR
+  };
+  new Vivus("logo-svg",timingProps)
+</script>
 
 <!-- 私有Js 判断 -->
 {% assign path = page.url | split:"/" %}
