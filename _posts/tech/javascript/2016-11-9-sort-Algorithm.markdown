@@ -211,56 +211,54 @@ console.log(choiceSort(data));
 var data = [];
 
 for (let i = 0; i<10;i++) {
-	data.push(Math.floor((Math.random()*-200) +100))
+  data.push(Math.floor((Math.random()*-200) +100))
 }
 
 /*
-	order: Number 顺序为1，逆序为0,
-	data: 排序数组
+  order: Number 顺序为1，逆序为0,
+  data: 排序数组
 */
 
 function HeapSort(data, order=0) {
-	let  len = data.length,
-			result = [];
+  let  len = data.length,
+      result = [];
 
-	// 建立初始堆
-	for (let i = parseInt(len/2) - 1; i>=0; i--) {
-		sift(i,len-1);
-	}
+  // 建立初始堆
+  for (let i = parseInt(len/2); i>=0; i--) {
+    sift(i,len-1);
+  }
 
-	for (let i = len,temp = 0; i>=1 ;i--) {
-		result.push(data[0]);
-		data[0] = data[len-1]
-		data.length--;
-		len = data.length;
+  for (let i = len; i>=1 ;i--) {
+    result.push(data[0]);
+    data[0] = data[i-1]
 
-		sift(0,len-1);
-	}
+    sift(0,i-1);
+  }
 
-	return result
-	// 堆化函数 s : 起始位置 e : 结束位置
-	function sift (s, e) {
-		let i = s, j = (2 * s) + 1, temp = data[s];  
+  return result
+  // 堆化函数 s : 起始位置 e : 结束位置
+  function sift (s, e) {
+    let i = s, j = (2 * s) + 1, temp = data[s];  
 
-		while (j<=e) {
-			if (data[j+1]) {
-				if (!order) {
-					(j<e && data[j] < data[j+1]) && (j++)   // 比较左右子节点那个大，大的索引替换j
-				} else {
-					(j<e && data[j] > data[j+1]) && (j++)   // 比较左右子节点那个大，大的索引替换j
-				}
-			}  
-			
-			if (!order ? temp < data[j] : temp > data[j]) {
-				data[i] = data[j];
-				i = j;
-				j = (2 * j) + 1;
-			} else {
-				break;
-			}
-		}
-		data[i] = temp;
-	}
+    while (j<=e) {
+      if (data[j+1]) {
+        if (!order) {
+          (j<e && data[j] < data[j+1]) && (j++)   // 比较左右子节点那个大，大的索引替换j
+        } else {
+          (j<e && data[j] > data[j+1]) && (j++)   // 比较左右子节点那个大，大的索引替换j
+        }
+      }  
+      
+      if (!order ? temp < data[j] : temp > data[j]) {
+        data[i] = data[j];
+        i = j;
+        j = (2 * j) + 1;
+      } else {
+        break;
+      }
+    }
+    data[i] = temp;
+  }
 }
 
 console.log(HeapSort(data,1) + "");
