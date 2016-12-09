@@ -2,7 +2,7 @@
 layout: post 
 title: 基地官网文章上传的解决方案 
 author: Neo 
-tagpic: helloworld.jpg 
+tagpic: other.jpg 
 description: 自己写了一些文章，想要上传到官网需要怎么做？ 
 category: other 
 ---
