@@ -3,7 +3,7 @@ layout: post
 title: 百度糯米面试经历
 author: Owen
 tagpic: other.jpg
-category: 生活
+category: other
 ---
 
 随便记点流水账
