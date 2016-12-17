@@ -165,7 +165,7 @@ $(function (){
   if( window.Notification && Notification.permission === "granted" )
   {
 
-    var n = new Notification("欢迎访问2014信管创业基地",{icon:"../../../assets/img/Notification-logo.png",body:"愿景：用心铸造卓越Offer"});
+    var n = new Notification("欢迎访问2015信管创业基地",{icon:"../../../assets/img/Notification-logo.png",body:"愿景：用心铸造卓越Offer"});
   }
   else 
     if(window.Notification && Notification.permission !== "denied")
@@ -179,7 +179,7 @@ $(function (){
           // 如果用户同意了
           if (status === "granted")
           {
-            var n = new Notification("欢迎访问2014信管创业基地",{icon:"../../../assets/img/Notification-logo.png",body:"愿景：用心铸造卓越Offer"});
+            var n = new Notification("欢迎访问2015信管创业基地",{icon:"../../../assets/img/Notification-logo.png",body:"愿景：用心铸造卓越Offer"});
           }
           else 
           {
