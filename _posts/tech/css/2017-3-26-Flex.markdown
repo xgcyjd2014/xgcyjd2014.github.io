@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 深入了解Flexbox
-author: Neo
+author: 倪云港
 tagpic: css.jpg
-description: 动图展示效果
+description: 动图效果展示
 category: css
 keywords: 技术, css, flex
 ---
@@ -263,3 +263,5 @@ flex-grow 也是同样道理。当容器设置为 940px 时，增长的 300px �
 flex-basis 控制着元素在沿着主轴上 grow 和 shrik 之前最终能够变化多大
 
 flex-grow 决定了他将与兄弟元素成比例的增长多少，flex-shrink 决定了缩小多少
+
+[原文链接](http://niyungang.com/%E6%8A%80%E6%9C%AF/2017/03/26/Flex.html)
