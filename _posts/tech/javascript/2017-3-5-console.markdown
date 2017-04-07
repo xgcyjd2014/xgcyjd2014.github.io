@@ -40,7 +40,7 @@ keywords: 技术, javascript, console
 
 综合对比效果图：
 
-![pic](/assets/img/console1.png)
+![pic](http://niyungang.github.io/assets/img/console1.png)
 
 ## 查看所有方法
 
@@ -50,7 +50,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
     console.log(console);
 ```
 
-![pic](/assets/img/console2.png)
+![pic](http://niyungang.github.io/assets/img/console2.png)
 
 ## 清理控制台
 
@@ -84,7 +84,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
     console.groupEnd();
 ```
 
-![pic](/assets/img/console3.png)
+![pic](http://niyungang.github.io/assets/img/console3.png)
 
 ## 查看对象信息
 
@@ -99,7 +99,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
     console.log(person);
 ```
 
-![pic](/assets/img/console4.png)
+![pic](http://niyungang.github.io/assets/img/console4.png)
 
 可是这个显示得好丑，我们这个时候就可以使用传说中的神器 console.table 来帮助我们清楚的显示 关联数组信息。
 
@@ -117,7 +117,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
     console.table(data);
 ```
 
-![pic](/assets/img/console5.png)
+![pic](http://niyungang.github.io/assets/img/console5.png)
 
 但是如果想要看详细的对象信息，我们可以使用 console.dir，将一个 JavaScript 对象的所有属性和属性值显示成一个可交互的列表，它还能打印出函数等。
 
@@ -196,7 +196,7 @@ js代码:
     add(3);
 ```
 
-![pic](/assets/img/console6.png)
+![pic](http://niyungang.github.io/assets/img/console6.png)
 
 ## 判断真假
 
@@ -208,7 +208,7 @@ console.assert() 方法可以在其第一个参数为 false 时有条件地显�
     console.assert(!(1 == 0));
 ```
 
-![pic](/assets/img/console7.png)
+![pic](http://niyungang.github.io/assets/img/console7.png)
 
 ## 统计次数
 
@@ -229,7 +229,7 @@ console.assert() 方法可以在其第一个参数为 false 时有条件地显�
     }
 ```
 
-![pic](/assets/img/console8.png)
+![pic](http://niyungang.github.io/assets/img/console8.png)
 
 ## 占位符
 
@@ -255,7 +255,7 @@ ASCII Generator使用方法如下：
 
 1.首先载入图片，然后调节大小、字体、亮度对比度、抖动程度，直到自己满意后，将其复制出来：
 
-![pic](/assets/img/console9.png)
+![pic](http://niyungang.github.io/assets/img/console9.png)
 
 2.复制到sublime中，将每行开头的换行删除，且替换成\n。最后只有一行代码，即保证没有换行。
 

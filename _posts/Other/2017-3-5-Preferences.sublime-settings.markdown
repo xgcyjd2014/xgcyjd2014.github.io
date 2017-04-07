@@ -300,3 +300,5 @@ keywords: 技术, sublime, 翻译
     "ignored_packages": ["Vintage"]
     
 ```
+
+[原文链接](http://niyungang.com/%E6%8A%80%E6%9C%AF/2017/03/05/Preferences.sublime-settings.html)
