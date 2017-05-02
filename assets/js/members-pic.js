@@ -8,43 +8,43 @@
 var oMembersInfo = [
     {
         "name" : "AllenYang", 
-        "duties" : "2014基地总负责人",
+        "duties" : "2014基地负责人",
         "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png"
     },{
         "name" : "Owen",
-        "duties" : "前端组成员",
+        "duties" : "2014前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Owen/Owen.png"        
     },{
         "name" : "Snow",
-        "duties" : "前端组成员",
+        "duties" : "2014前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Snow/Snow.png"
     },{
         "name" : "YanLong",
-        "duties" : "Web组成员",
+        "duties" : "2014Web组成员",
         "pic" : "/assets/img/members-pic/members-pics/YanLong/YanLong.png"
     },{
         "name" : "Niklaus",
-        "duties" : "前端组成员",
+        "duties" : "2014前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Niklaus/Niklaus.png"
     },{
         "name" : "lianghongchao",
-        "duties" : "安卓组成员",
+        "duties" : "2014安卓组成员",
         "pic" : "/assets/img/members-pic/members-pics/lianghongchao/lianghongchao.png"
     },{
         "name" : "willow",
-        "duties" : "C++组成员",
+        "duties" : "2014C++组成员",
         "pic" : "/assets/img/members-pic/members-pics/willow/willow.png"
     },{
         "name" : "QingFeng",
-        "duties" : "安卓组成员",
+        "duties" : "2014安卓组成员",
         "pic" : "/assets/img/members-pic/members-pics/QingFeng/qingfeng.png"
     },{
         "name" : "DemoCiMo",
-        "duties" : "Web组成员",
+        "duties" : "2014Web组成员",
         "pic" : "/assets/img/members-pic/members-pics/DemoCiMo/democimo.png"
     },{
         "name" : "Claire",
-        "duties" : "前端组成员",
+        "duties" : "2014前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Claire/Claire.png"
     },{
         "name" : "CuiRan",
@@ -52,12 +52,12 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/CuiRan/cuiran.png"
     },{
         "name" : "Joy",
-        "duties" : "前端组成员   ",
+        "duties" : "2014前端组成员   ",
         "pic" : "/assets/img/members-pic/members-pics/Joy/joy.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Neo",
+        "duties" : "2015前端组长",
+        "pic" : "/assets/img/members-pic/members-pics/Neo.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
