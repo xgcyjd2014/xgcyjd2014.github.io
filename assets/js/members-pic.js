@@ -57,7 +57,7 @@ var oMembersInfo = [
     },{
         "name" : "Neo",
         "duties" : "2015前端组长",
-        "pic" : "/assets/img/members-pic/members-pics/Neo.png"
+        "pic" : "/assets/img/members-pic/members-pics/Neo/Neo.png"
     },{
         "name" : "期待你的加入",
         "duties" : "",
