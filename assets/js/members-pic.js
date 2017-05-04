@@ -52,36 +52,36 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/CuiRan/cuiran.png"
     },{
         "name" : "Joy",
-        "duties" : "2014前端组成员   ",
+        "duties" : "2014前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Joy/joy.png"
     },{
+        "name" : "Yoto",
+        "duties" : "2015基地负责人",
+        "pic" : "/assets/img/members-pic/members-pics/Yoto/Yoto.jpg"
+    },{
         "name" : "Neo",
-        "duties" : "2015前端组长",
+        "duties" : "2015基地前端组长",
         "pic" : "/assets/img/members-pic/members-pics/Neo/Neo.png"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Candy",
+        "duties" : "2015基地秘书长",
+        "pic" : "/assets/img/members-pic/members-pics/Candy/Candy.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Selly",
+        "duties" : "2015前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Selly/Selly.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "gaoyuxin",
+        "duties" : "2015前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/gaoyuxin/gaoyuxin.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "zhangmeng",
+        "duties" : "2015前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/zhangmeng/zhangmeng.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
-    },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "yemengshan",
+        "duties" : "2015前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/yemengshan/yemengshan.jpg"
     },{
         "name" : "期待你的加入",
         "duties" : "",
