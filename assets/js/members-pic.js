@@ -71,9 +71,9 @@ var oMembersInfo = [
         "duties" : "2015前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/Selly/Selly.jpg"
     },{
-        "name" : "gaoyuxin",
+        "name" : "Cici",
         "duties" : "2015前端组成员",
-        "pic" : "/assets/img/members-pic/members-pics/gaoyuxin/gaoyuxin.jpg"
+        "pic" : "/assets/img/members-pic/members-pics/Cici/Cici.jpg"
     },{
         "name" : "zhangmeng",
         "duties" : "2015前端组成员",
