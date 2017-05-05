@@ -80,16 +80,16 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/zhangmeng/zhangmeng.jpg"
     },{
         "name" : "yemengshan",
-        "duties" : "2015前端组成员",
+        "duties" : "2015C++组成员",
         "pic" : "/assets/img/members-pic/members-pics/yemengshan/yemengshan.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Laurance",
+        "duties" : "2015前端组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Laurance/Laurance.jpg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Lillian",
+        "duties" : "2015JAVA组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Lillian/Lillian.jpg"
     },{
         "name" : "期待你的加入",
         "duties" : "",
