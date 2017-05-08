@@ -95,9 +95,9 @@ var oMembersInfo = [
         "duties" : "2015前端组成员",
         "pic" : "/assets/img/members-pic/members-pics/boy/boy.jpeg"
     },{
-        "name" : "期待你的加入",
-        "duties" : "",
-        "pic" : "/assets/img/members-pic/members-pics/noman.png"
+        "name" : "Maria",
+        "duties" : "2015JAVA组成员",
+        "pic" : "/assets/img/members-pic/members-pics/Maria/Maria.jpg"
     },{
         "name" : "期待你的加入",
         "duties" : "",
