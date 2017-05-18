@@ -75,7 +75,7 @@ ajax并非一种新的技术，而是几种原有技术的结合体。它由下�
 利用异步通信这一点，我们可以实现不用刷新页面就实现页面更新。
 
 ## 最基础的AJAX
-```
+```js
 //可以想象成虚拟的打开了一个输入Url的地址框
 try{
 	//IE7以上创建AJAX对象
@@ -116,12 +116,12 @@ xhr.onreadystatechange = function()
 然后，在send()中规定你所需要发送的数据
 
 也就是说上面的
-```
+```js
 xhr.open('get','地址','true & false');
 xhr.send();
 ```
 要改成
-```
+```js
 xhr.open("post","地址",true);
 xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//关键，不能省
 xhr.send("name=Neo&phone=15590866775");
@@ -139,18 +139,17 @@ Ajax的核心是XMLHttpRequest对象，它是Ajax实现的关键，发送异步�
 所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。
 
 创建 XMLHttpRequest对象的语法：
-```
-html
+```js
 var xhr = new XMLHttpRequest();
 ```
 
 老版本的 Internet Explorer（IE5 和 IE6）使用ActiveX 对象：
-```
+```js
 var xhr = new ActiveXObject("Microsoft.XMLHTTP");
 ```
 
 为了兼容所有的现代浏览器，包括 IE5 和 IE6，可以检查浏览器是否支持 XMLHttpRequest对象。如果支持，则创建XMLHttpRequest对象。如果不支持，则创建ActiveXObject：
-```
+```js
 var xhr = null;
 try {
 	xhr = new XMLHttpRequest();
@@ -192,12 +191,12 @@ url是一个地址，当我们需要传递参数的时候，首先需要在url�
 比如username="倪云港"&password="123456"。
 
 完整的例子如下：
-```
+```js
 http://www.example.com/index.php?username=倪云港&password=123456。
 ```
 
 get请求中如果有中文可能会报错。所以，一般会对参数用encodeURI()方法重新编码。
-```
+```js
 var url="open.php?username="+encodeURI(username)+"&password="+password;
 
 ```
@@ -214,34 +213,34 @@ var url="open.php?username="+encodeURI(username)+"&password="+password;
 
 post请求传输数据的时候，数据是作为send方法的参数传输的。
 
-```
+```js
 var param = 'username='+username+'&password='+password;
 xhr.send(param);
 ```
 
 一般数据接收方，也就是后台对于post请求，会默认其数据类型是表单数据类型，所以需要我们设置一下post请求的数据格式，否则我们提交的数据会因为编码格式不对，导致后台取不到我们提交的数据。
 
-```
+```js
 xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;);
 ```
 
 ## 3、xhr.send() 发送请求。
 
 通过get的方式请求数据，对于send()方法，参数为null或空就可以。
-```
+```js
 xhr.open('get','地址','true & false');
 xhr.send();
 ```
 
 通过post的方式修改数据，需使用 setRequestHeader()来添加 HTTP 头。然后在send()方法中规定希望发送的数据：
-```
+```js
 xhr.open("post","地址",true);
 xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//关键，不能省
 xhr.send("name=Neo&phone=15590866775");
 ```
 
 ## 4、处理响应
-```
+```js
 xhr.onreadystatechange = function(){
     if(xhr.readyState == 4 && xhr.status == 200){
         console.log(xhr.responseText);
@@ -283,7 +282,7 @@ ResponseText表示返回的是一个字符串，也就是一个JSON。对象，�
 
 ResponseXml表示返回的是一个xml格式的文档，如果返回的数据中有不符合xml格式的，则不会返回。比如文档内容如下：
 
-```
+```js
 <book>
     <name>红楼梦</name>
     <category>文学</category>
@@ -293,7 +292,7 @@ helloworld
 ```
 
 helloworld没有被标签闭合，不符合xml格式。
-```
+```js
 var data1=xhr.responseXML;
 ```
 打印data1会发现结果中并没有helloworld，因为它不符合xml格式，所以不会被传输过来。
@@ -301,7 +300,7 @@ var data1=xhr.responseXML;
 ## jquery中的ajax
 
 会发现每次发送请求，都要写上这么一段代码：
-```
+```js
 var xhr=null;
 xhr=new XMLHttpRequest();
 xhr.open("get",url,true);
@@ -320,7 +319,7 @@ xhr.onreadystatechange=function () {
 jquery方法帮我们封装好了一系列的ajax方法，我们只要直接调用就可以了。
 使用jquery发送ajax请求的话，只要一行代码就可以了。
 
-```
+```js
 $.ajax({
 	url:"test.js",
 	dataType:"json"
@@ -338,23 +337,23 @@ $.ajax({
 jsonp到底是什么？不要着急，继续往下看。
 
 虽然浏览器不让我们接收其他网站的数据，但是允许我们加载其他网站上的script文件。比如说常见的在线引用jquery：
-```
+```js
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 ```
 
 所以我们完全可以通过script的方式来加载数据:
-```
+```js
 <body>
 <script src="https://cdn.example.com/提供数据源.php"></script>
 </body>
 ```
 假设这个 提供数据源.php 的内容如下：
-```
+```js
 echo "helloworld";  //输出helloworld
 ```
 
 那么页面中的
-```
+```js
 <script src="https://cdn.bootcss.com/提供数据源.php"></script>
 ```
 加载完后会返回helloworld。
@@ -362,8 +361,7 @@ echo "helloworld";  //输出helloworld
 通过这样的方式，我们成功的获取了其他网站上的数据。
 
 现在回到jsonp是什么这个问题上，jsonp就是值通过加载script文件这种方式解决跨域问题的一种方案（有问题，不过暂时这么理解）。但是实际上jsonp比上面这个例子稍微复杂一点。首先我们看一下html文件：
-```
-<!doctype html>
+```html
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -380,7 +378,7 @@ echo "helloworld";  //输出helloworld
 </html>
 ```
 在主体下面我们引入了一个 提供数据源.php 文件，这个php文件内容如下：
-```
+```js
 <?php 
 $callback = $_GET['_jsonp'];
 $arr = array("数据一","数据二","数据三");
