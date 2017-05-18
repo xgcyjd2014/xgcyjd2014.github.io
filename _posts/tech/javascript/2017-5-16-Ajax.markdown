@@ -1,0 +1,411 @@
+---
+layout: post
+title: AJAX与数据传输
+author: 倪云港
+tagpic: js.jpg
+description: 解析AJAX技术这把利器
+category: javascript
+keywords: 技术, javascript, AJAX, JSON
+---
+
+## 何谓AJAX
+
+### 简介
+
+AJAX即 “Asynchronous Javascript And XML”（异步的JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。
+
+英文名：艾杰克斯（拼音读法）
+
+中文名：阿贾克斯
+
+通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+
+实现节省用户操作时间，提高用户体验，减少数据请求，传输获取/修改数据的效果
+
+### 优点：
+
+页面无刷新，用户体验好。
+
+异步通信，更加快的响应能力。
+
+减少冗余请求，减轻了服务器负担
+
+基于标准化的并被广泛支持的技术，不需要下载插件或者小程序
+
+### 缺点：
+
+ajax干掉了back按钮，即对浏览器后退机制的破坏。
+
+存在一定的安全问题。
+
+对搜索引擎的支持比较弱。
+
+破坏了程序的异常机制。
+
+无法用URL直接访问
+
+### ajax应用场景
+
+场景 1. 数据验证
+
+场景 2. 按需取数据
+
+场景 3. 自动更新页面
+
+### AJAX包含以下五个部分:
+
+ajax并非一种新的技术，而是几种原有技术的结合体。它由下列技术组合而成。
+
+1. 使用CSS和XHTML来表示。
+
+2. 使用DOM模型来交互和动态显示。
+
+3. 数据互换和操作技术，使用XML与XSLT
+
+4. 使用XMLHttpRequest来和服务器进行异步通信。
+
+5. 使用javascript来绑定和调用。
+
+## AJAX的处理过程
+
+首先需要说明一点的是ajax是异步通信的，客户端向服务器请求一条数据后就不管了，继续执行下面的代码。
+
+接着是服务器，服务器那边接收到请求后就开始处理客户端的请求，处理完毕后再将数据发给客户端。然后客户端这时才继续执行相应的函数。
+
+利用异步通信这一点，我们可以实现不用刷新页面就实现页面更新。
+
+## 最基础的AJAX
+```
+//可以想象成虚拟的打开了一个输入Url的地址框
+try{
+	//IE7以上创建AJAX对象
+	xhr = new XMLHttpRequest();
+}catch(e){
+	//兼容IE6 以ActiveXObject插件的形式创建AJAX对象
+	xhr = new ActiveXObject('Microsoft.XMLHTTP');
+}
+
+//可以想象成向这个虚拟的地址框里输入要访问文件的地址
+xhr.open('get','地址','true & false');
+//传输的方式 有get & post 两种
+//true为异步，false为同步
+
+//可以想象成回车发送请求
+xhr.send();
+
+//服务器接收处理请求，然后返回数据
+//服务器的readystate 是会 change 的,每变一次就触发一次函数。
+xhr.onreadystatechange = function()
+{
+	if(xhr.readyState == 4)
+	{
+		//如果HTTP状态码 等于 200(请求成功) 那么就弹出返回的文件内容
+		//xhr.responseText为服务器返回的数据
+		if( xhr.status == 200){
+			alert( xhr.responseText );
+		}else{
+			alert( '出错了 ，Err : ' + xhr.status)
+		}
+	}
+}
+
+```
+
+如果需要用POST上传数据,则需要添加HTTP头声明
+
+然后，在send()中规定你所需要发送的数据
+
+也就是说上面的
+```
+xhr.open('get','地址','true & false');
+xhr.send();
+```
+要改成
+```
+xhr.open("post","地址",true);
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//关键，不能省
+xhr.send("name=Neo&phone=15590866775");
+//也可以用变量来保存这种格式
+```
+
+## ajax通信的步骤：
+
+Ajax的原理简单来说通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面。这其中最关键的一步就是从服务器获得请求数据。原生创建ajax可分为以下四步：
+
+## 1、创建 XMLHttpRequest 对象。
+
+Ajax的核心是XMLHttpRequest对象，它是Ajax实现的关键，发送异步请求、接受响应以及执行回调都是通过它来完成
+
+所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。
+
+创建 XMLHttpRequest对象的语法：
+```
+html
+var xhr = new XMLHttpRequest();
+```
+
+老版本的 Internet Explorer（IE5 和 IE6）使用ActiveX 对象：
+```
+var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+```
+
+为了兼容所有的现代浏览器，包括 IE5 和 IE6，可以检查浏览器是否支持 XMLHttpRequest对象。如果支持，则创建XMLHttpRequest对象。如果不支持，则创建ActiveXObject：
+```
+var xhr = null;
+try {
+	xhr = new XMLHttpRequest();
+} catch (e) {
+	xhr = new ActiveXObject('Microsoft.XMLHTTP');
+}
+```
+
+## 2、open()方法 初始化请求。
+
+用途：初始化请求，此时并没有发送。
+
+参数1：请求方式，get或者post。
+
+参数2：请求路径，数据被传输的目的地地址。
+
+参数3：true：异步请求。false:同步请求。
+
+### get的传输方式分析
+
+将表单数据以名称/值对的形式附加到 URL 中
+
+URL 的长度是有限的（大约 3000 字符）
+
+不要使用 GET 来发送敏感数据！（在 URL 中是可见的）
+
+GET 更适用于非安全数据，比如在 Google 中查询字符串
+
+通过get的方式请求数据，对于send()方法，参数为null或空就可以。
+
+### ajax使用get方式是如何传输数据
+
+get方式的参数是放在url里面传输的，所以我们只要把参数放到url后面，拼接url字符串就可以了。
+
+url中的参数传递格式:
+
+url是一个地址，当我们需要传递参数的时候，首先需要在url后添加一个?号，然后后面跟上我们的参数,参数之间以&相连。
+
+比如username="倪云港"&password="123456"。
+
+完整的例子如下：
+```
+http://www.example.com/index.php?username=倪云港&password=123456。
+```
+
+get请求中如果有中文可能会报错。所以，一般会对参数用encodeURI()方法重新编码。
+```
+var url="open.php?username="+encodeURI(username)+"&password="+password;
+
+```
+
+### post的传输方式分析
+
+将表单数据附加到 HTTP 请求的 body 内（数据不显示在 URL 中）
+
+没有长度限制
+
+通过 POST 提交的表单不能加入书签
+
+### ajax使用post方式是如何传输数据
+
+post请求传输数据的时候，数据是作为send方法的参数传输的。
+
+```
+var param = 'username='+username+'&password='+password;
+xhr.send(param);
+```
+
+一般数据接收方，也就是后台对于post请求，会默认其数据类型是表单数据类型，所以需要我们设置一下post请求的数据格式，否则我们提交的数据会因为编码格式不对，导致后台取不到我们提交的数据。
+
+```
+xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;);
+```
+
+## 3、xhr.send() 发送请求。
+
+通过get的方式请求数据，对于send()方法，参数为null或空就可以。
+```
+xhr.open('get','地址','true & false');
+xhr.send();
+```
+
+通过post的方式修改数据，需使用 setRequestHeader()来添加 HTTP 头。然后在send()方法中规定希望发送的数据：
+```
+xhr.open("post","地址",true);
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");//关键，不能省
+xhr.send("name=Neo&phone=15590866775");
+```
+
+## 4、处理响应
+```
+xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4 && xhr.status == 200){
+        console.log(xhr.responseText);
+    }
+}
+```
+
+### readyState
+
+readyState只有5个值{0，1，2，3，4}，只读不能写。
+
+0：XMLHttpRequest对象创建完成。
+
+1：XMLHttpRequest对象初始化完成。
+
+2：请求已经发送。
+
+3：服务器已经返回了数据（但是还没有被解析，可能只一段http报文）。
+
+4：数据解析已经完成。
+
+### status
+
+status状态码，来自于http协议。详细的状态码以及意义可以参考http协议。
+
+比较常见的：
+
+200：成功
+
+404：页面不存在
+
+503：页面存在，但有语法错误
+
+### ResponseText和ResponseXml
+
+数据返回的格式。
+
+ResponseText表示返回的是一个字符串，也就是一个JSON。对象，和localstroge有点像。不管文件内容是什么都直接返回字符串。
+
+ResponseXml表示返回的是一个xml格式的文档，如果返回的数据中有不符合xml格式的，则不会返回。比如文档内容如下：
+
+```
+<book>
+    <name>红楼梦</name>
+    <category>文学</category>
+    <desc>宝哥哥与林妹妹的爱情史</desc>
+</book>    
+helloworld
+```
+
+helloworld没有被标签闭合，不符合xml格式。
+```
+var data1=xhr.responseXML;
+```
+打印data1会发现结果中并没有helloworld，因为它不符合xml格式，所以不会被传输过来。
+
+## jquery中的ajax
+
+会发现每次发送请求，都要写上这么一段代码：
+```
+var xhr=null;
+xhr=new XMLHttpRequest();
+xhr.open("get",url,true);
+xhr.send(null);
+xhr.onreadystatechange=function () {
+    if(xhr.readyState===4){
+        if(xhr.status===200){
+            dosomething();
+        }
+    }
+};
+```
+
+其中大部分的代码都一样，所以我们完全可以抽象成一个方法。
+
+jquery方法帮我们封装好了一系列的ajax方法，我们只要直接调用就可以了。
+使用jquery发送ajax请求的话，只要一行代码就可以了。
+
+```
+$.ajax({
+	url:"test.js",
+	dataType:"json"
+});
+```
+
+## jsonp
+
+在讲jsonp是什么之前，我们先看下这么一个情况，我们想写一个天气预报的实时页面，数据肯定是从其他网站来的，比如url:"http://m.weather.com.cn/data/101110101.html"这个接口就提供了我们需要的天气数据。所以我们只需要使用ajax发送请求到这个网站上，再接收天气数据在页面上渲染就可以了。
+
+但是当我们写好代码运行的时候会报错，提示No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:63342' is therefore not allowed access.
+
+大概意思是无法接收请求，原因是发生了跨域，也就是我们访问了其他域名，出于安全原因，我们不会接收其他域名发送过来的文件数据。对于这个跨域问题，有不同的解决方案，我们使用的方案是jsonp。
+
+jsonp到底是什么？不要着急，继续往下看。
+
+虽然浏览器不让我们接收其他网站的数据，但是允许我们加载其他网站上的script文件。比如说常见的在线引用jquery：
+```
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+```
+
+所以我们完全可以通过script的方式来加载数据:
+```
+<body>
+<script src="https://cdn.example.com/提供数据源.php"></script>
+</body>
+```
+假设这个 提供数据源.php 的内容如下：
+```
+echo "helloworld";  //输出helloworld
+```
+
+那么页面中的
+```
+<script src="https://cdn.bootcss.com/提供数据源.php"></script>
+```
+加载完后会返回helloworld。
+
+通过这样的方式，我们成功的获取了其他网站上的数据。
+
+现在回到jsonp是什么这个问题上，jsonp就是值通过加载script文件这种方式解决跨域问题的一种方案（有问题，不过暂时这么理解）。但是实际上jsonp比上面这个例子稍微复杂一点。首先我们看一下html文件：
+```
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp</title>
+</head>
+<body>
+    <script type="text/javascript">
+    function cb(data){
+        console.log(data);
+    }
+    </script>
+    <script type="text/javascript" src="https://cdn.example.com/提供数据源.php?_jsonp=cb"></script>
+</body>
+</html>
+```
+在主体下面我们引入了一个 提供数据源.php 文件，这个php文件内容如下：
+```
+<?php 
+$callback = $_GET['_jsonp'];
+$arr = array("数据一","数据二","数据三");
+echo $callback."(".json_encode($arr).")";
+
+ ?>
+```
+大概意思是获取url传过来的参数_jsonp的值并赋值给callback，然后再拼接字符串，拼成callback(arr)。然后再将拼好的字符串加载到页面上。
+
+这一段绕来绕去做了个什么？其实就是将传回来的数据放到之前定义好的函数中执行。因为后台的获取这个函数名是根据url传过来的参数取出来的，所以这个参数名_jsonp最好统一，方便后台程序员编写接口。
+
+到这里，我们再看下jsonp的定义与背景：
+
+1、一个众所周知的问题，Ajax直接请求普通文件存在跨域无权限访问的问题，甭管你是静态页面、动态网页、web服务、WCF，只要是跨域请求，一律不准；
+
+2、不过我们又发现，Web页面上调用js文件时则不受是否跨域的影响（不仅如此，我们还发现凡是拥有”src”这个属性的标签都拥有跨域的能力，比如< script>、< img>、< iframe>；
+
+3、于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、属于未来的HTML5之Websocket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；
+
+4、恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被js原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；
+
+5、这样子解决方案就呼之欲出了，web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件（一般以JSON为后缀），显而易见，服务器之所以要动态生成JSON文件，目的就在于把客户端需要的数据装入进去。
+
+6、客户端在对JSON文件调用成功之后，也就获得了自己所需的数据，剩下的就是按照自己需求进行处理和展现了，这种获取远程数据的方式看起来非常像AJAX，但其实并不一样。
+
+7、为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作JSONP，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。
+
+[原文链接](http://niyungang.com/%E6%8A%80%E6%9C%AF/2017/05/16/Ajax.html)
