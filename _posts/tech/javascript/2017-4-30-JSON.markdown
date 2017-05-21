@@ -79,7 +79,7 @@ object：就是JavaScript的object表示方式 { ... }。
 ## stringify方法  序列化 
 
 先把一个对象序列化成JSON格式的字符串：
-```
+```js
 var neo = {
 	name: '倪云港',
 	age: 19,
@@ -89,16 +89,16 @@ var neo = {
 JSON.stringify(neo); 
 ```
 输出结果：
-```
+```js
 "{"name":"倪云港","age":19,"school":"HLJU","skills":["JavaScript","C++","Git","Vue"]}"
 ```
 
 要输出得好看一些，可以加上第三个参数，按缩进输出：
-```
+```js
 JSON.stringify(neo, null, '    ');
 ```
 输出结果：
-```
+```js
 "{
     "name": "倪云港",
     "age": 19,
@@ -113,11 +113,11 @@ JSON.stringify(neo, null, '    ');
 ```
 
 stringify方法第二个参数用来控制筛选对象的键值，如果我们只想输出指定的属性，可以传入Array：
-```
+```js
 JSON.stringify(neo, ['name', 'skills'], '    ');
 ```
 输出结果：
-```
+```js
 "{
     "name": "倪云港",
     "skills": [
@@ -130,7 +130,7 @@ JSON.stringify(neo, ['name', 'skills'], '    ');
 ```
 
 stringify方法第二个参数还可以传入一个函数，这样对象的每个键值对都会被函数先处理：
-```
+```js
 function convert(key, value) {
     if (typeof value === 'string') {
         return value.toUpperCase();
@@ -141,7 +141,7 @@ function convert(key, value) {
 JSON.stringify(neo, convert, '    ');
 ```
 输出结果：
-```
+```js
 "{
     "name": "倪云港",
     "age": 19,
@@ -156,7 +156,7 @@ JSON.stringify(neo, convert, '    ');
 ```
 
 如果还想要精确控制如何序列化neo，可以给neo定义一个toJSON()的方法，直接返回JSON应该序列化的数据：
-```
+```js
 var neo = {
 	name: '倪云港',
 	age: 19,
@@ -173,27 +173,27 @@ var neo = {
 JSON.stringify(neo);
 ```
 输出结果：
-```
+```js
 "{"Name":"倪云港","Age":19}"
 ```
 
 ## JSON.parse()方法  反序列化
 
 拿到一个JSON格式的字符串，我们直接用JSON.parse()把它变成一个JavaScript对象：
-```
+```js
 JSON.parse('[1,2,3,true]'); // [1, 2, 3, true]
 JSON.parse('{"name":"小明","age":14}'); // Object {name: '小明', age: 14}
 JSON.parse('true'); // true
 JSON.parse('123.45'); // 123.45
 ```
 
-```
+```js
 var datatext = '{"name" : "倪云港","skills" : ["JavaScript", "C++", "Git", "Vue"] }';
 var data = JSON.parse( datatext );
 console.log(data);
 ```
 输出结果：
-```
+```js
 Object {name: "倪云港", skills: Array(4)}
 	name:"倪云港"
 	skills:Array(4)

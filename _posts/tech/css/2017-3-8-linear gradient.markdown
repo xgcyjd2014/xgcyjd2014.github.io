@@ -13,7 +13,7 @@ keywords: 技术, css, 动画
 主要是用背景的属性来实现。
 
 ## 实现文字流光效果使用的属性：
-
+```css
 background-image: -webkit-linear-gradient(left, red, yellow 25%, blue 50%, green 75%, red 100%); 渐变背景，此处为能无缝拼接的渐变 即0~100%
 
 color: transparent;   文字填充色为透明。
@@ -25,7 +25,7 @@ color: transparent;   文字填充色为透明。
 -webkit-background-size: 200% 100%; 背景图片向水平方向扩大一倍，这样background-position才有移动与变化的空间。
 
 -webkit-animation
-
+```
 ## 兼容性：
 
 IE浏览器不支持-webkit-text-fill-color,因此，该效果在IE浏览器中无法正常运行。

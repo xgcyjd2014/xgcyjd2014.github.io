@@ -10,31 +10,31 @@ keywords: 技术, javascript, console
 
 ## 打印字符串
 
-```
+```js
     console.log("I am a 凡人");
 ```
 
 ## 打印提示消息
 
-```
+```js
 	console.info("Yes, you are a 凡人");
 ```
 
 ## 打印警告消息
 
-```
+```js
 	console.warn("凡人你居然敢窥视我");
 ```
 
 ## 打印错误消息
 
-```
+```js
 	console.error("天兵天将，把这个凡人给我打入地狱");
 ```
 
 ## 打印调试信息
 
-```
+```js
 	console.debug("我就是传说中的debug");
 ```
 
@@ -46,7 +46,7 @@ keywords: 技术, javascript, console
 
 console.log 除了能打印字符串外，还能打印出对象，我们可以利用 console.log 打印自己。
 
-```
+```js
     console.log(console);
 ```
 
@@ -56,13 +56,13 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 1.
 
-```
+```js
     console.clear();
 ```
 
 2.
 
-```
+```js
     clear();
 ```
 
@@ -72,7 +72,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 ## 分组
 
-```
+```js
     console.group('凡人');
     console.log("手");
     console.log("脚");
@@ -90,7 +90,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 有时候我们需要打印出对象信息,可以使用 console.log 来进行简单的输出。
 
-```
+```js
     var person = {
       head: 1,
       hand: 2,
@@ -103,7 +103,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 可是这个显示得好丑，我们这个时候就可以使用传说中的神器 console.table 来帮助我们清楚的显示 关联数组信息。
 
-```
+```js
     var data = [
         {
             '姓名': '张三', 
@@ -121,7 +121,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 但是如果想要看详细的对象信息，我们可以使用 console.dir，将一个 JavaScript 对象的所有属性和属性值显示成一个可交互的列表，它还能打印出函数等。
 
-```
+```js
     console.dir(clear);
 ```
 
@@ -129,7 +129,7 @@ console.log 除了能打印字符串外，还能打印出对象，我们可以�
 
 html代码:
 
-```
+```js
     <div id='person'>
       <p>I am a 凡人</p>
     </div>
@@ -137,7 +137,7 @@ html代码:
 
 js代码:
 
-```
+```js
     var person = document.getElementById('person');
     console.dirxml(person)；
 ```
@@ -146,7 +146,7 @@ js代码:
 
 不服？跑个分。有时候，我们也需要对代码跑个分。这个时候，我们可以使用console.time和console.timeEnd，他们可以记录代码运行所花费的时间。
 
-```
+```js
     console.time("神机妙算");
     (function () {
         for(var i = 0; i < 10; i++) {
@@ -163,7 +163,7 @@ js代码:
 
 啊咧咧？你这个顶多就是 计时器 怎么能说是 性能测试 。客官别急，我们这还有一个叫做 console.profile 和 console.profileEnd 姐妹呢~~
 
-```
+```js
     console.profile("神机妙算");
     (function () {
         for(var i = 0; i < 10; i++) {
@@ -182,7 +182,7 @@ js代码:
 
 什么还是不够？你还想知道运行时的结果栈？可以可以，我们这还有一位 console.trace 哦。他可以看透大你的一举一动哦。
 
-```
+```js
     function add(num) {
         if (0 < num) {
             console.trace("现在num的值为", num);
@@ -202,7 +202,7 @@ js代码:
 
 console.assert() 方法可以在其第一个参数为 false 时有条件地显示错误字符串（其第二个参数）。
 
-```
+```js
     console.assert(1 == 1);
     console.assert(1 == 0);
     console.assert(!(1 == 0));
@@ -214,7 +214,7 @@ console.assert() 方法可以在其第一个参数为 false 时有条件地显�
 
 有时候我们需要统计一个函数或者被调用了几次，我们通常会增加一个变量 count 来记录，然后在控制台中查看。这样相当的麻烦，我们可以使用 console.count 函数来帮忙我们记录次数，并输出。
 
-```
+```js
     function hi(name) {
         console.count(name);
         return "hi " + name;

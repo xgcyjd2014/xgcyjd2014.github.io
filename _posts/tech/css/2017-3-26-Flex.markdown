@@ -18,7 +18,7 @@ keywords: 技术, css, flex
 
 我们给其父级容器添加
 
-```
+```css
 #container {
   display: flex;
 }
@@ -52,7 +52,7 @@ justify-content 用来控制元素在主轴上的对齐方式
 
 先深入理解下主轴和交叉轴的区别。首先设置为 flex-direction: row
 
-```
+```css
 #container {
   display: flex;
   flex-direction: row;
@@ -119,7 +119,7 @@ align-self 可以手动设置一个元素的对齐方式
 
 它会针对一个 div 覆盖掉 align-items 属性，因为容器内元素属性都为 auto, 所以每个 div 都会使用父容器的 align-items 属性值
 
-```
+```css
 #container {
   align-items: flex-start;
 }
@@ -221,7 +221,7 @@ flex 属性是把 flex-grow flex-shrink flex-basis 综合到了一起
 
 最后一个例子，我们设置2个元素
 
-```
+```css
 .square#one {
   flex: 2 1 300px;
 }

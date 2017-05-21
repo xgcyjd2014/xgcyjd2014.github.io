@@ -14,7 +14,7 @@ keywords: 技术, css
 
 可以轻松的在一个block元素中水平居中一个 inline 元素，以下代码对 inline，inline-block，inline-table 和 inline-flex 等有效
 
-```
+```css
   .parent {
     text-align: center;
   }
@@ -23,7 +23,7 @@ keywords: 技术, css
 
 若block元素设置了固定宽度，可以使用元素的margin水平方向的值为auto的方法实现水平居中
 
-```
+```css
   .child {
     width: 300px;
     margin: 0 auto;
@@ -33,7 +33,7 @@ keywords: 技术, css
 
 ①通过 inline-block 实现
 
-```
+```css
   .parent {
     text-align: center;
   }
@@ -45,7 +45,7 @@ keywords: 技术, css
 
 ②通过 flexbox 实现
 
-```
+```css
   .parent {
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ keywords: 技术, css
 
 ①可以简单的用设置相同的上下 padding 值达到垂直居中的目的。
 
-```
+```css
   .center {
     pading-top: 30px;
     padding-bottom: 30px;
@@ -69,7 +69,7 @@ keywords: 技术, css
 
 ②也可以设置 line-height 等于 height来达到目的。
 
-```
+```css
   .center {
     height: 100px;
     line-height: 100px;
@@ -83,7 +83,7 @@ keywords: 技术, css
 
 ② 将该元素的父元素的 dispaly 设置为 table ，同时该元素的 dispaly 设置为 table-cell，然后设置 vertical-align。
 
-```
+```css
   .parent {
     display: table;
     width: 200px;
@@ -97,7 +97,7 @@ keywords: 技术, css
 
 ③ 使用 flexbox,一个单独的 flexbox 子元素可以轻易的在其父元素中居中。谨记，这种方法需要父元素有固定的高度。
 
-```
+```css
   .parent {
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ keywords: 技术, css
 
 ④ 使用“幽灵元素”技术，这种方法采用伪元素 ::before 撑开高度 ，文字垂直居中。
 
-```
+```css
   .parent {
     position: relative;
   }
@@ -129,7 +129,7 @@ keywords: 技术, css
 
 #### 已知元素高度
 
-```
+```css
   .parent {
     position: relative;
   }
@@ -143,7 +143,7 @@ keywords: 技术, css
 
 #### 未知元素高度
 ①
-```
+```css
   .parent {
     position: relative;
   }
@@ -155,7 +155,7 @@ keywords: 技术, css
 ```
 
 ②使用 flexbox 
-```
+```css
   .parent {
     display: flex;
     flex-direction: column;
@@ -165,7 +165,7 @@ keywords: 技术, css
 
 ## 全屏居中
 ①
-```
+```css
   .parent {
     position: relative;
   }
@@ -178,7 +178,7 @@ keywords: 技术, css
 ```
 
 ②flexbox
-```
+```css
   .parent {
     display: flex;
     justify-content: center;
