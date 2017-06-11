@@ -4,8 +4,8 @@ title: JSON学习笔记
 author: 倪云港
 tagpic: js.jpg
 description: 解析JSON与XML
-category: javascript
-keywords: 技术, javascript, JSON, XML
+category: js
+keywords: 技术, js, JSON, XML
 ---
 
 ## 描述
