@@ -12,7 +12,7 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/AllenYang/AllenYang.png"
     },{
         "name" : "Owen",
-        "duties" : "2014前端组成员",
+        "duties" : "2014前端组长",
         "pic" : "/assets/img/members-pic/members-pics/Owen/Owen.png"        
     },{
         "name" : "Snow",
@@ -48,7 +48,7 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/Claire/Claire.png"
     },{
         "name" : "CuiRan",
-        "duties" : "2014基地秘书长",
+        "duties" : "2014基地小秘",
         "pic" : "/assets/img/members-pic/members-pics/CuiRan/cuiran.png"
     },{
         "name" : "Joy",
@@ -64,7 +64,7 @@ var oMembersInfo = [
         "pic" : "/assets/img/members-pic/members-pics/Neo/Neo.png"
     },{
         "name" : "Candy",
-        "duties" : "2015基地秘书长",
+        "duties" : "2015基地小秘",
         "pic" : "/assets/img/members-pic/members-pics/Candy/Candy.jpg"
     },{
         "name" : "Selly",
