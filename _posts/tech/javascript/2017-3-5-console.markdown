@@ -2,10 +2,10 @@
 layout: post
 title: Console
 author: 倪云港
-tagpic: css.jpg
+tagpic: js.jpg
 description: 了解console
-category: javascript
-keywords: 技术, javascript, console
+category: js
+keywords: 技术, js, console
 ---
 
 ## 打印字符串

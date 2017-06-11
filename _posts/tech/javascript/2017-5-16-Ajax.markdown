@@ -4,8 +4,8 @@ title: AJAX与数据传输
 author: 倪云港
 tagpic: js.jpg
 description: 解析AJAX技术这把利器
-category: javascript
-keywords: 技术, javascript, AJAX, JSON
+category: js
+keywords: 技术, js, AJAX, JSON
 ---
 
 ## 何谓AJAX
