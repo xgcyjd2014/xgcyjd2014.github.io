@@ -220,8 +220,24 @@ let data = {
 	skills: {
 		hobby: ['listen music', 'ride']
 	},
+
 	myFakeName: 'nickName',
-	nickName: 'bilibiliou'
+	nickName: 'bilibiliou',
+
+	myFirend: [{
+		name: '风清扬',
+		age: 45
+	}, {
+		name: 'pony me',
+		age: 50
+	}, {
+		name: 'robin lea',
+		age: 60
+	}],
+	foo: {
+		'abc': 123,
+		'acc': 456
+	}
 }
 ```
 
