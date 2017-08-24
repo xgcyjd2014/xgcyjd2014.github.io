@@ -1,0 +1,470 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="简单理解洋葱模型-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="简单理解洋葱模型,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				简单理解洋葱模型
+			</h1>
+			<section class="article-category">
+				js
+			</section>
+	        <section class="article-info">
+	        	Posted by Owen on May 18, 2017
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="起因">起因</h2>
+
+<p>组里的T5的分享了redux 源码解读， 其中有一块用到了洋葱模型</p>
+
+<h2 id="什么是洋葱模型">什么是洋葱模型</h2>
+
+<p>最直观的体现就是DOM事件的捕获和冒泡机制</p>
+
+<p>一个事件到达指定的元素之前先会经过上级的所有元素，触达后又会往上冒泡</p>
+
+<p>而洋葱模型，就是这样一种模式</p>
+
+<p><img src="http://numerhero.github.io/assets/img/onion_modal.png" alt="onion_modal" /></p>
+
+<p><strong>redux middleware 的洋葱模型演示</strong></p>
+
+<p>当最中心的事件触达之前，会触发包裹在外面的 多个中间件，
+这些中间件执行完成后触发核心事件， 核心事件触发完成后，
+如果在某些中间件中你还想做一些后续操作还可以继续执行中间件的后续操作</p>
+
+<h2 id="源码">源码</h2>
+
+<p>这不是redux 的源码，只是我基于个这个思想，自己写的一个简单的demo</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea1'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea1'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fea2</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea2'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea2'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fea3</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// data handle</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea3'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">/=</span> <span class="mi">3</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea3'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">dispatch</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// emit dataes</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc \n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">midWares</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">midWares</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">applyMiddleware</span> <span class="p">(...</span><span class="nx">feas</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">curDispatch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">compose</span><span class="p">(...</span><span class="nx">feas</span><span class="p">)(</span><span class="nx">curDispatch</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 生成洋葱模型</span>
+<span class="kd">function</span> <span class="nx">compose</span> <span class="p">(...</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">interDispatch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">reduceRight</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">becompose</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">becompose</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+        <span class="p">},</span> <span class="nx">interDispatch</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">somedata</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">});</span>
+</code></pre>
+</div>
+
+<p>输出</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea1</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea2</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea3</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">some</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">meanwhile</span> <span class="nx">i</span> <span class="nx">emit</span> <span class="nx">the</span> <span class="nx">data</span> <span class="nx">after</span> <span class="nx">mid</span> <span class="nx">wares</span> <span class="nx">calc</span> 
+ <span class="nb">Object</span> <span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="mf">1.3333333333333333</span><span class="p">}</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea3</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea2</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea1</span>
+</code></pre>
+</div>
+
+<p>其中 dispatch 就是那个最核心的事件，每一个中间件以next 作为分界， 
+next 之上的操作为触发核心事件前的操作， next之下的操作为触发核心事件后的操作</p>
+
+<h2 id="洋葱模型的作用">洋葱模型的作用</h2>
+
+<p>例如提交表单， 多个中间件可能会对用户的输入（somedata） 进行各种验证或者是处理。
+最后一步可能就是提交或者渲染数据操作</p>
+
+<h2 id="异步">异步</h2>
+
+<p>在某个中间件中可能存在异步的操作，类比（redux-thunk）
+为什么需要异步操作？</p>
+
+<p>因为我们可能在中间件中先将数据发送到后端，根据后端的返回来决定dispatch（是渲染页面还是报错）</p>
+
+<h2 id="thunk">thunk</h2>
+
+<p>我们添加一个特殊的中间件 thunk 来实现异步处理。</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'&gt;&gt;&gt; waitting judge'</span><span class="p">);</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rwn</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="p">({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">,</span> <span class="na">judge</span><span class="p">:</span> <span class="nx">rwn</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'crime'</span><span class="p">:</span> <span class="s1">'kind'</span><span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>很明白的看出， thunk 会对传进来的数据进行处理， 
+如果是一个函数，那么就不会向下一步深入洋葱，而是先处理函数，将next 以传参的形式传递给函数，
+由函数来决定下一步应该怎么运行</p>
+
+<p>例如我们传递一个thunkfunc</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// 随机判断</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rwn</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="p">({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">,</span> <span class="na">judge</span><span class="p">:</span> <span class="nx">rwn</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'crime'</span><span class="p">:</span> <span class="s1">'kind'</span><span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>然后把上文的somedata 替换为thunkfunc，并添加特殊的thunk中间件</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">,</span> <span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))(</span><span class="nx">thunkfunc</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>执行结果</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nx">waitting</span> <span class="nx">judge</span> <span class="c1">// 执行异步操作</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea1</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea2</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea3</span>
+<span class="nx">i</span> <span class="nx">execute</span> <span class="nx">some</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">meanwhile</span> <span class="nx">i</span> <span class="nx">emit</span> <span class="nx">the</span> <span class="nx">data</span> <span class="nx">after</span> <span class="nx">mid</span> <span class="nx">wares</span> <span class="nx">calc</span> 
+ <span class="nb">Object</span> <span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="mf">1.3333333333333333</span><span class="p">,</span> <span class="nx">judge</span><span class="err">:</span> <span class="s2">"kind"</span><span class="p">}</span> <span class="c1">// 返回异步操作后的结果 'kind'</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea3</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea2</span>
+<span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea1</span>
+</code></pre>
+</div>
+
+<h2 id="最终源码">最终源码</h2>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea1'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea1'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fea2</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea2'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea2'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fea3</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// data handle</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea3'</span><span class="p">);</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">data</span> <span class="o">/=</span> <span class="mi">3</span>
+        <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i end fea3'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">dispatch</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// emit dataes</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc \n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">midWares</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">midWares</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">applyMiddleware</span> <span class="p">(...</span><span class="nx">feas</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">curDispatch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">compose</span><span class="p">(...</span><span class="nx">feas</span><span class="p">)(</span><span class="nx">curDispatch</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 生成洋葱模型</span>
+<span class="kd">function</span> <span class="nx">compose</span> <span class="p">(...</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">interDispatch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">reduceRight</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">becompose</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">becompose</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+        <span class="p">},</span> <span class="nx">interDispatch</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">somedata</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'&gt;&gt;&gt; waitting judge'</span><span class="p">);</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rwn</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="p">({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">,</span> <span class="na">judge</span><span class="p">:</span> <span class="nx">rwn</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'crime'</span><span class="p">:</span> <span class="s1">'kind'</span><span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+
+<span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">,</span> <span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))(</span><span class="nx">thunkfunc</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">thunk</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span> <span class="o">===</span> <span class="s1">'function'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">data</span><span class="p">(</span><span class="nx">next</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">next</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/js/2017/05/16/Ajax.html" data-toggle="tooltip" data-placement="top" title="AJAX与数据传输">
+                上一篇<br>
+                <span>AJAX与数据传输</span>
+                </a>
+                
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/js/2017/05/18/understand-the-onion-modal.html&title=《简单理解洋葱模型》 作者：Owen 发布日期：2017-05-18 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/js/2017/05/18/understand-the-onion-modal.html&title=《简单理解洋葱模型》 作者：Owen 发布日期：2017-05-18 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/js/2017/05/18/understand-the-onion-modal.html&text=《简单理解洋葱模型》 作者：Owen 发布日期：2017-05-18 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/js/2017/05/18/understand-the-onion-modal.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《简单理解洋葱模型》 作者：Owen 发布日期：2017-05-18 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

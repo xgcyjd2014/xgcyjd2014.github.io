@@ -1,0 +1,501 @@
+              
+              /*--------------------------------------------*\
+                       信管创业基地 post.css
+                       Design And Build By 倪云港
+                       Email: yungangni@gmail.com
+                   Github: http://github.com/niyungang
+              \*--------------------------------------------*/
+
+
+@charset "UTF-8";
+
+* {
+	font-family: Consolas,"微软雅黑";
+	box-sizing: border-box;
+	outline: 0;
+}
+
+blockquote,body,figure,ol,p,ul{
+	margin: 0
+}
+
+.none {
+	display: none
+}
+
+.fade-in {
+	opacity: 0
+}
+
+
+/* 头部 */
+.post-header{
+	overflow: hidden;
+}
+
+.post-img{
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+}
+
+.post-title{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	color: #f5f5f5;
+	margin: 0;
+	display: inline-block;
+	/*border: solid 1px red;*/
+}
+
+/*logo*/
+.post-logo{
+	/*border: solid 1px red;*/
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	/*border-radius: 50%;*/
+}
+
+.post-logo img{
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.logo-name{
+	height: 40px;
+	line-height: 40px;
+	font-size: 26px;
+	/*border: solid 1px red;*/
+	float: left;
+	margin-left: 5px;
+}
+
+.article-title{
+	font: 200 60px/75px Consolas,"微软雅黑";
+	font-weight: bold;
+	letter-spacing:4px;
+}
+
+.article-info{
+	/*border: solid 1px red;*/
+	margin-top: 20px;
+	font-family: Lora,'Times New Roman',serif;
+}
+
+.article-category{
+	border: solid 1px #fff;
+	display: inline-block;
+	border-radius: 10px;
+	padding: 0 6px;
+	margin-top: 16px;
+}
+
+/* 文章主体 */
+
+/* 书签目录 */
+.catalog{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 200px;
+	height: 560px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 10px 0;
+}
+
+.fixed{
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 200px;
+	height: 560px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 10px 0;
+}
+
+.catalog-title{
+	/*font-size: 14px;*/
+	line-height: 1.1;
+	font-weight: 700;
+	margin: 10px 0;
+	color: #bfbfbf;
+}
+
+.catalog-list{
+/*	overflow-x: hidden;
+	overflow-y: auto;*/
+	text-indent: 0;
+}
+
+.catalog-list li{
+	margin: 10px 0;
+	color: #bfbfbf;
+	list-style: none;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 20px;
+    line-height: 20px;
+}
+
+.catalog-list li a{
+	color: #bfbfbf;
+	display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.catalog-list li a:hover{
+	cursor: pointer;
+	color: #0085a1;
+}
+
+
+/*定位当前状态*/
+.active{
+	color: #0085a1;
+}
+
+
+.active a{
+	color: #0085a1 !important;
+}
+
+
+@media (max-width: 1200px){
+    .catalog{
+        display: none;
+    }
+}
+
+/* 主体 */
+.post-box{
+	position: relative;
+	/*border: solid 1px red;*/
+}
+
+.post-body{
+	width: 800px;
+	/*border: solid 1px red;*/
+	margin: 0 auto;
+}
+
+.post-body p{
+	margin: 20px 0;
+	font-size: 20px;
+	white-space: pre-wrap;
+}
+
+.post-body img{
+	margin: 10px 0;
+	max-width: 100%;
+	max-height: 500px;
+	border: 2px solid #f5f5f5;
+	text-align: center;
+	cursor: pointer;
+}
+
+h2,h3,h4{
+	margin: 30px 0 10px 0;
+	transition: .3s;
+	font-weight: bold;
+}
+
+h2{
+	font-size: 30px;
+}
+
+h3{
+	font-size: 20px;
+}
+
+ol,ul{
+	list-style: none;
+	padding: 0;
+}
+
+button{
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+a{
+	transition: .3s;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #F92672;
+}
+
+.highlighter-rouge{
+	margin: 0 auto;
+}
+
+.highlight{
+	border-radius: 5px;
+	padding: 20px;
+	box-shadow: 0 0 6px #000;
+	overflow-x: scroll;
+	-moz-tab-size: 2;
+	tab-size: 2;
+}
+
+
+
+
+/* 注释样式 */
+.post-body blockquote{
+	border-radius: 5px;
+	position: relative;
+	padding: 20px 5px 20px 30px;
+	margin: 8px 0;
+	font: 200 15px/18px Consolas,"微软雅黑";
+	box-shadow: inset 0 1px 1px #909193,0 1px 0 #fff;
+	background: #CCD0D5;
+}
+
+.post-body blockquote::before{
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 32px solid transparent;
+	border-bottom: 32px solid #1C86D1;
+	top: -33px;
+	left: -32px;
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.post-body blockquote::after{
+	position: absolute;
+	content: "摘录";
+	color: #fff;
+	top: 5px;
+	left: 2px;
+	font: 200 12px/12px "微软雅黑";
+}
+
+/* 无序列表样式 */
+/*.post-body ul{
+	padding: 20px;
+}
+
+.post-body ul>li{
+	position: relative;
+	font-size: 16px;
+	margin: 0 0 5px;
+	padding-top: 10px;
+	line-height: 1;
+}
+
+.post-body ul>li::before{
+	border-radius: 50%;
+	transition: .5s;
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: -20px;
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: #fff;
+	border: 2px solid #1C86D1;
+}
+
+.post-body ul>li:hover::before {
+	border: 2px solid #5AFE3D;
+}*/
+
+
+/* 有序列表样式 */
+.post-body ol{
+	padding: 0 20px;
+	counter-reset: section;
+}
+
+.post-body ol>li {
+	position: relative;
+	font-size: 16px;
+	color: #000;
+	padding: 0 0 0 20px;
+	margin: 0 0 10px;
+	line-height: 1;
+}
+
+.post-body ol li p{
+	margin: 0;
+}
+
+.post-body ol>li::before {
+	counter-increment: section;
+	content: counters(section,"") ".";
+	display: inline-block;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	left: -20px;
+	font-size: 18px;
+	text-align: center;
+	font-style: italic;
+}
+
+.post-body ol>li:nth-of-type(5n+1)::before {
+	color: #FE0002;
+}
+
+.post-body ol>li:nth-of-type(5n+2)::before {
+	color: #F4F800;
+}
+
+.post-body ol>li:nth-of-type(5n+3)::before {
+	color: #A3DF03;
+}
+
+.post-body ol>li:nth-of-type(5n+4)::before {
+	color: #2b7d81;
+}
+
+.post-body ol>li:nth-of-type(5n+5)::before {
+	color: #a35dc9;
+}
+
+/* 表格样式 */
+.post-body table {
+	border-radius: 5px;
+	display: table-caption;
+	margin: 20px 0;
+	padding: 8px;
+	box-shadow: 0 4px 15px rgba(0,0,0,.4);
+	border-collapse: collapse;
+}
+
+.post-body table tr {
+	border: 1px solid #000;
+}
+
+.post-body table tr td,.post-body table tr th {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition: .5s;
+	padding: 5px 10px;
+	border: 1px solid #000;
+}
+
+.post-body table tr th {
+	font-weight: 500;
+}
+
+.post-body table tr td {
+	min-width: 150px;
+	font-size: 15px;
+	font-weight: 200;
+}
+
+.post-body table tr td:hover {
+	background: #1C86D1;
+	color: #fff;
+}
+
+/* 上下篇 */
+
+.pager{
+	overflow: hidden;
+	margin: 20px 0;
+}
+
+.previous, .next{
+	border: solid 1px #999;
+	padding: 20px;
+	width: 380px;
+	font-weight: bold;
+	text-align: center;
+	color: black;
+}
+
+.previous{
+	float: left;
+}
+
+.next{
+	float: right;
+}
+
+.previous:hover, .next:hover{
+	color: #fff;
+	background: #0085A1;
+}
+
+/*分享*/
+.share {
+    float: right;
+    height: 100%;
+    padding-right: 25px;
+}
+.share li{
+	list-style: none;
+    float: left;
+    height: 100%;
+}
+.share li a{
+    transition: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+    background-image: url(/assets/img/post/blogs-list-icon.png);
+}
+
+.share li span{
+    font-size: 16px;
+    line-height: 50px;
+    margin: 0 20px 0 0;
+}
+
+    
+.ml{
+    margin-left: 8px;
+}
+
+.qzone{
+    background-position: -3px -194px;
+}
+.qzone:hover{
+    background: url(/assets/img/post/blogs-list-icon-hover.png) -1px -3px;
+}
+
+.weibo{
+    background-position: -3px -228px;
+}
+.weibo:hover{
+    background: url(/assets/img/post/blogs-list-icon-hover.png) -1px -38px;
+}
+
+.twitter{
+    background-position: -4px -260px;
+}
+.twitter:hover{
+    background: url(/assets/img/post/blogs-list-icon-hover.png) -2px -73px;
+}
+
+.qq{
+   background-position: -4px -293px;
+}
+.qq:hover{
+    background: url(/assets/img/post/blogs-list-icon-hover.png) -2px -108px;
+} 

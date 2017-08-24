@@ -1,0 +1,33 @@
+						<!-- 
+							信管创业基地 default.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+
+<!-- 
+	地球页模板
+ -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	{% include head.html %}
+</head>
+
+<body>
+	<header>
+		{% include header.html %}
+	</header>
+
+	<article>
+		{{ content }}
+	</article>
+
+	<footer>
+		{% include footer.html %}
+	</footer>
+
+</body>
+	{% include script.html %}
+</html>

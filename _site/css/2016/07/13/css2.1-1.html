@@ -1,0 +1,393 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="读CSS2.1规范之需求和推荐标准（一）-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="读CSS2.1规范之需求和推荐标准（一）,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				读CSS2.1规范之需求和推荐标准（一）
+			</h1>
+			<section class="article-category">
+				css
+			</section>
+	        <section class="article-info">
+	        	Posted by xiaoyu7 on July 13, 2016
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <p>时间很快，接触前端也有一两年了，但是越来越觉得自己对前端基本技能理解的不够，尤其是在实习工作中，面对一些业务和bug，很多时候不是自己没有解决问题的思路，而是不理解问题产生的原因，就算找到方法解决了bug也是治标不治本，只会给后人埋坑，在导师的建议下，一边拜读黯语轻扬翻译的CSS2.1规范，一边对照规范原版，以前很多CSS没有理解的东西豁然开朗，真切的感受到理解和学习规范对学习前端的重要性和必要性。学习 CSS 应该从熟读规范开始，而大多数像我这样的半路出家都不是从规范开始接触前端的，离一个合格的前端工程师自己还差太远，希望在学习和阅读的过程中打下笔记，加深自己对规范的理解，也与更多的人一起分享知识。
+给出规范原文链接和中文版翻译</p>
+
+<p><a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/">CSS2.1规范英文原版</a></p>
+
+<p><a href="http://www.ayqy.net/doc/css2-1/cover.html">CSS2.1规范中文翻译</a></p>
+
+<h2 id="为什么选择css21">为什么选择CSS2.1?</h2>
+
+<p>CSS2.1仍旧是现在绝大多数用户代理（浏览器）支持的规范，文档已经被W3C成员、软件开发者们、其他W3C小组和兴趣组织评审过了，被W3C认定为推荐标准，CSS3主流浏览器已经支持，但是还没有标准，建议学习还是从2.1规范看起，对于扎实基本功很有帮助。</p>
+
+<h2 id="css21规范是什么">CSS2.1规范是什么？</h2>
+
+<p>CSS2.1规范定义了Cascading Style Sheets, level 2 revision 1 (CSS 2.1)。CSS 2.1是一种样式表语言，允许编写者和用户们给结构化文档（例如，HTML文档和XML应用）添加样式（例如，字体和间距）。通过分离文档的表现样式和内容，CSS 2.1简化了网页制作与站点维护。
+CSS 2.1基于CSS2 [CSS2]，后者基于CSS1 [CSS1]。支持针对特定媒体类型的样式表，编写者们可以为可视化浏览器、听觉设备（aural devices）、打印机、盲文设备、手持设备等等分别指定样式。还支持内容定位（content positioning），表格布局（table layout），以及国际化特性和一些UI相关的属性。CSS 2.1源于CSS2，并将代替它。一部分CSS2内容在CSS 2.1中没变，一部分被修改了，还有一部分被删掉了。删掉的部分可能会在CSS3规范中出现，将来的新规范可能会参考CSS 2.1（需要CSS2特性时，除非需要CSS 2.1中出现的特性，否则只会参考那些特性相关的CSS2，或者在包含这些特性的CSS3模块中参考这些特性。</p>
+
+<h2 id="css21中的相关定义">CSS2.1中的相关定义</h2>
+
+<ul>
+  <li>样式表</li>
+</ul>
+
+<p>指定文档表现的语句集
+样式表可能有3个不同的来源：编写者，用户和用户代理。这些源之间的相互作用请查看层叠与继承.</p>
+
+<ul>
+  <li>合法的样式表</li>
+</ul>
+
+<p>样式表的合法性取决样式表应用的CSS级别，但对CSS1的一些改动意味着一部分CSS1样式将在CSS 2.1中具有稍有差异的语义。一些CSS2特性在CSS 2.1中被移除了，所以不是所有CSS2样式表都是合法的CSS 2.1样式表
+合法的CSS 2.1样式表必须根据CSS 2.1语法来编写。而且，必须只包含本规范中定义的@规则，属性名和属性值。任何非法的@规则，属性名和属性值都是无效的</p>
+
+<ul>
+  <li>源文档</li>
+</ul>
+
+<p>应用了一条或多条样式表规则的文档，以某种语言编码，并用元素树表示文档。每个元素由元素名，元素类型标识符，一堆可选的属性和（可能为空的）内容组成。例如，源文档可以是XML或者SGML实例</p>
+
+<ul>
+  <li>文档语言</li>
+</ul>
+
+<p>源文档的编码语言（例如，HTML，XHTML或者SVG）。CSS用来描述文档语言的表现，而不会改变文档语言的基本语义（underlying semantics</p>
+
+<ul>
+  <li>元素</li>
+</ul>
+
+<p>（一个SGML术语，见[ISO8879]）文档语言的基本语法结构，大多数CSS样式表规则都通过元素名（例如，HTML中的p，table和ol）来指定该元素应该怎样渲染</p>
+
+<ul>
+  <li>可替换（Replaced）元素</li>
+</ul>
+
+<p>内容超出CSS格式化模型的元素，例如图片，内嵌的文档，或者applet。例如，HTML中IMG元素的内容通常被其”src”属性指定的图片替换。可替换元素通常拥有内在尺寸（intrinsic dimensions）：内在宽度，内在高度和内在比例（intrinsic ratio）。例如，位图图片有绝对单位指定的内在宽度，内在高度（明显可以确定内在比例）。另一方面，其它文档就没有内在尺寸（例如，空白的HTML文档）</p>
+
+<p>用户代理可以认为一个可替换元素没有任何内在尺寸，如果觉得这些尺寸可能会泄漏敏感信息给第三方的话。例如，如果一份HTML文档是根据用户的银行余额改变内在尺寸的，那么UA可能需要假装这个资源没有内在尺寸</p>
+
+<p>CSS的渲染模型不考虑可替换元素的内容</p>
+
+<ul>
+  <li>内在尺寸（Intrinsic dimensions）</li>
+</ul>
+
+<p>由元素自身定义的宽度和高度，不受环境影响。CSS不定义如何拿到这些内在尺寸。CSS 2.1中，只有可替换元素有内在尺寸。因为光栅图像没有可靠的分辨率信息，假设1 px对应源图像中的1像素</p>
+
+<ul>
+  <li>属性</li>
+</ul>
+
+<p>元素相关的值，由名和相关（文本）值组成</p>
+<ul>
+  <li>内容</li>
+</ul>
+
+<p>源文档中元素相关的内容，一些元素没有内容，被称为空（元素）。元素内容包括文本，或者一堆子元素，这样的元素被称为那些子元素的父（元素）</p>
+
+<ul>
+  <li>忽略</li>
+</ul>
+
+<p>本规范中该术语有两个稍有差异的含义，第一个，CSS解析器在样式表中发现未知或者非法语法时必须遵循特定的规则，解析器必须忽略样式表的某些部分。哪些部分应该被忽略的确切规则在（声明与属性，处理解析错误的规则，不支持的值）中有详细描述，或者术语”ignore”出现时可能被解释为文本。第二个，用户代理可能（有时必须）忽略样式表中的某些属性和值，即便语法有效。例如，表格列元素无法影响列的字体，所以字体属性必须忽略</p>
+
+<ul>
+  <li>呈现（Rendered）内容</li>
+</ul>
+
+<p>根据相关样式表对元素进行渲染之后元素的内容。关于可替换元素的内容怎样渲染不由本规范定义。呈现内容可能是元素的备选文本（例如，XHTML的”alt”属性），还可能包含通过样式表隐式或显式插入的项，例如黑点（bullets），数字等等</p>
+
+<ul>
+  <li>文档树</li>
+</ul>
+
+<p>编码在源文档中的元素树。树中的每个元素都有且只有一个父级，除了根元素没有（父级）</p>
+
+<ul>
+  <li>子级（Child）</li>
+</ul>
+
+<p>只有元素B是元素A的父级时，A才是B的子级</p>
+
+<ul>
+  <li>后代</li>
+</ul>
+
+<p>如果(1)元素A是元素B的子级，(2)或者A是B的其它后代元素C的子级，那么A被称为元素B的后代</p>
+
+<ul>
+  <li>
+    <p>祖先
+当且仅当元素B是元素A的后代时，A是B的祖先</p>
+  </li>
+  <li>
+    <p>兄弟</p>
+  </li>
+</ul>
+
+<p>当且仅当元素B和元素A有相同父元素时，A是B的兄弟。如果文档树中A在B之前，A就是前导兄弟。如果文档树中B在A后面，B就是后继兄弟</p>
+
+<ul>
+  <li>
+    <p>前导元素
+当且仅当(1)元素A是B的祖先，(2)或者A是B的前导兄弟时，A是B的前导元素</p>
+  </li>
+  <li>
+    <p>后继元素
+当且仅当元素B是A的前导元素时，A是B的后继元素</p>
+  </li>
+  <li>
+    <p>编写者
+编写者是编写文档和相关样式表的人。编辑工具是一种用来生成样式表的用户代理</p>
+  </li>
+  <li>
+    <p>用户</p>
+  </li>
+</ul>
+
+<p>用户是与用户代理交互的想要看，听或者其它使用文档及相关样式表的人。用户可能提供一份个人样式表作为个人偏好
+用户代理(UA)  <br />
+用户代理是解释用文档语言编写的并应用了相关符合本文档术语的样式表的文档的任何程序。用户代理可能显示文档，把它读出来，打印出来，转化为其它格式等等</p>
+
+<p>HTML用户代理是支持一种或多种HTML规范的用户代理。为了与本规范的目标一致，支持XHTML[XHTML]但不支持HTML的用户代理不是HTML用户代理</p>
+
+<ul>
+  <li>属性</li>
+</ul>
+
+<p>CSS定义了一个有限的参数集，叫做属性，用来指导文档渲染。每个属性都有一个名（例如，’color’，’font’和’border’）和一个值（例如，’red’，’12pt Times’和’dotted’）。文档的各个部分，以及文档将通过特殊性，层叠和继承（见属性值赋值、层叠（Cascading）和继承）机制显示的页面都具有属性</p>
+
+<h2 id="ua一致性">UA一致性</h2>
+
+<p>一般情况，用户代理必须遵守以下几点一致性规范：</p>
+
+<ol>
+  <li>必须识别一个或多个CSS 2.1 媒体类型</li>
+  <li>对于每个源文档，必须试图检索适用于已识别媒体类型的所有相关样式表。如果无法获取所有相关样式表（例如，因为网络错误），必须用那些可获取的（样式表）显示文档</li>
+  <li>必须根据本规范解析样式表，特别的，必须识别所有@规则，块，声明和选择器（见CSS 2.1语法）。如果用户代理遇到一个应用于支持的媒体类型的属性，用户代理必须根据属性定义解析其值。这意味着，用户代理必须接受所有合法值并且必须忽略含有非法值的声明。用户代理必须忽略应用于不支持的媒体类型的规则</li>
+  <li>文档树中的每个元素，都必须根据属性定义和层叠与继承规则给每个属性赋值</li>
+  <li>如果源文档有可选的样式表集（例如，有HTML 4[HTML4]的”alternate”关键字），UA必须允许用户选择UA应该应用哪份样式表集</li>
+  <li>UA必须允许用户去掉编写者（提供的）样式表的影响</li>
+</ol>
+
+<p>用户代理的实现由于特殊设备限制（例如，用户代理无法在 monochrome monitor或页面上渲染颜色）缺少部分规范支持， 并不是不一致性</p>
+
+<p>UA必须允许用户指定一个包含用户样式表的文件。设备上运行的UA不应该有任何方式来写或者说明需要的文件被排除在外（ UAs that run on devices without any means of writing or specifying files are exempted from this requirement.）。此外，UA应该提供其它方式来指定用户偏好，例如，通过GUI(图形用户界面)
+（未完待续）</p>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/js/2016/06/20/thinking-in-React.html" data-toggle="tooltip" data-placement="top" title="Thinking in React">
+                上一篇<br>
+                <span>Thinking in React</span>
+                </a>
+                
+                
+                <a class="next" href="/css/2016/07/14/css2.1-2.html" data-toggle="tooltip" data-placement="top" title="读CSS2.1规范之需求和推荐标准（二）">
+                下一篇<br>
+                <span>读CSS2.1规范之需求和推荐标准（二）</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/css/2016/07/13/css2.1-1.html&title=《读CSS2.1规范之需求和推荐标准（一）》 作者：xiaoyu7 发布日期：2016-07-13 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/css/2016/07/13/css2.1-1.html&title=《读CSS2.1规范之需求和推荐标准（一）》 作者：xiaoyu7 发布日期：2016-07-13 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/css/2016/07/13/css2.1-1.html&text=《读CSS2.1规范之需求和推荐标准（一）》 作者：xiaoyu7 发布日期：2016-07-13 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/css/2016/07/13/css2.1-1.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《读CSS2.1规范之需求和推荐标准（一）》 作者：xiaoyu7 发布日期：2016-07-13 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

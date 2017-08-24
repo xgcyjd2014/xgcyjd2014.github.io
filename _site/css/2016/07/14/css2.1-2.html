@@ -1,0 +1,636 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="读CSS2.1规范之需求和推荐标准（二）-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="读CSS2.1规范之需求和推荐标准（二）,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				读CSS2.1规范之需求和推荐标准（二）
+			</h1>
+			<section class="article-category">
+				css
+			</section>
+	        <section class="article-info">
+	        	Posted by xiaoyu7 on July 14, 2016
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="css21规范语法和基本数据类型">CSS2.1规范语法和基本数据类型</h2>
+
+<p>CSS2.1中规定CSS语法包括符号化，关键字，字符和大小写，语句，规则，块，规则集、声明块和选择器，声明和属性，注释等。</p>
+
+<p>其中重点了解这么几点：</p>
+
+<h3 id="规则">规则：</h3>
+
+<p>@规则以一个@关键字开头，’@’字符后面紧跟着一个标识符（例如，’@import’，’@page’）一个@规则包含直到下一个分号(;)前包括分号在内，或者下一个块的所有内容，无论哪个先出现
+CSS2.1 UA必须忽略所有出现在块内部，或者跟在除@charset和@import规则外的任何无法忽略的语句后面的’@import’规则</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg1</span><span class="o">:</span>
+<span class="o">//</span> <span class="err">错误</span>
+<span class="k">@import</span> <span class="s1">"subs.css"</span><span class="p">;</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+<span class="k">@import</span> <span class="s1">"list.css"</span><span class="p">;</span>
+<span class="o">//</span> <span class="err">解析成</span>
+<span class="k">@import</span> <span class="s1">"subs.css"</span><span class="p">;</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code> <span class="nt">eg2</span><span class="o">:</span>
+<span class="o">//</span> <span class="err">错误</span>
+<span class="k">@import</span> <span class="s1">"subs.css"</span><span class="p">;</span>
+<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="k">@import</span> <span class="s1">"print-main.css"</span><span class="p">;</span>
+  <span class="nt">body</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">10pt</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>第二个’@import’规则是非法的，因为它出现在一个’@media’块的内部</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg3</span><span class="o">:</span>
+<span class="o">//</span> <span class="err">正确</span>
+<span class="k">@import</span> <span class="s1">"subs.css"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">"print-main.css"</span> <span class="n">print</span><span class="p">;</span>
+<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="nt">body</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">10pt</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span> 
+</code></pre>
+</div>
+
+<p>相反的，为了提高效率，只在媒体类型为’print’时引入样式表，可以使用带媒体类型的@import规则语法</p>
+
+<h3 id="块">块</h3>
+
+<p>block以一个左花括号({)开头，以对应的右花括号(})结束。之间可以是任何token，但圆括号(( ))，方括号([ ])和花括号({ })必须总是成对出现，可以嵌套。单引号(‘)和双引号(“)也必须成对出现，它们之间的字符会被解析成一个字符串。参见上文符号化中字符串的定义</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg1</span><span class="o">:</span>
+<span class="p">{</span> <span class="py">causta</span><span class="p">:</span> <span class="s1">"}"</span> <span class="err">+</span> <span class="p">(</span><span class="err">{</span><span class="m">7</span><span class="p">}</span> <span class="o">*</span> <span class="s2">'\''</span><span class="o">)</span> <span class="err">}</span>
+</code></pre>
+</div>
+
+<p>注意双引号之间的右花括号不会匹配块的左花括号，而且第二个单引号是一个被转义的字符，因此也不会匹配第一个单引号</p>
+
+<h3 id="规则集声明块选择器">规则集，声明块，选择器：</h3>
+
+<p>1.规则集（也叫“规则”），由后面跟着一个声明块的选择器组成
+2.声明块以左花括号({)开头，以对应的右花括号(})结束，之间一定有一系列由一个或多个分号分隔的声明
+3.选择器（见选择器）包含直到第一个左花括号({)的所有东西（但不包括左花括号），选择器总是和声明块一起出现。当用户代理无法解一个析选择器（例如，该选择器在CSS 2.1中不合法）时，必须忽略选择器以及后面的声明块（如果有的话）
+4.CSS 2.1给选择器中的逗号(,)赋予了特殊的含义，然而，因为不确定将来CSS更新时逗号是否还会获得其他含义，所以如果选择器任何位置出现错误，整个语句都应该被忽略，即便选择器剩余部分在CSS 2.1中完全合法</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg1</span><span class="o">:</span>
+<span class="o">//</span> <span class="err">错误</span>
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">green</span> <span class="p">}</span>
+<span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span> <span class="o">&amp;</span> <span class="nt">h5</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">black</span> <span class="p">}</span>
+<span class="err">因为</span><span class="s1">"&amp;"</span><span class="err">在</span><span class="nt">CSS2</span><span class="nc">.1</span><span class="err">选择器中不是合法的</span><span class="nt">token</span><span class="err">，</span><span class="nt">CSS2</span><span class="nc">.1</span><span class="err">用户代理必须忽略整个第二行，并且不会把</span><span class="nt">H3</span><span class="err">的颜色设置为红色</span>
+</code></pre>
+</div>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg2</span><span class="o">:</span>
+<span class="o">//</span> <span class="err">正确</span>
+<span class="nt">p</span><span class="o">[</span><span class="nt">example</span><span class="o">=</span><span class="s1">"public class foo\
+{\
+    private int x;\
+\
+    foo(int x) {\
+        this.x = x;\
+    }\
+\
+}"</span><span class="o">]</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="处理错误的规则">处理错误的规则：</h3>
+
+<p>为了保证新属性和新值将来可以添在现有的属性上，用户代理遇到下列场景时需要遵循下列规则</p>
+
+<ol>
+  <li>未知属性</li>
+</ol>
+
+<p>忽略含有未知属性的声明</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="nl">rotation</span><span class="p">:</span> <span class="m">70</span><span class="n">minutes</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>解析为</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>非法值</li>
+</ol>
+
+<p>用户代理必须忽略含有非法值的声明</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>       
+<span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="n">here</span> <span class="p">}</span>  
+<span class="nt">img</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="s1">"red"</span> <span class="p">}</span> 
+<span class="nt">img</span> <span class="p">{</span> <span class="nl">border-width</span><span class="p">:</span> <span class="m">3</span> <span class="p">}</span>   
+</code></pre>
+</div>
+
+<p>解析为</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>
+<span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
+<span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
+<span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>格式错误的声明
+用户代理必须处理解析声明期间遇到的异常token，一直读到声明结束，从()，[]，{}，”“和’‘对中寻找对应的规则，并正确处理转义</li>
+</ol>
+
+<p>一个格式错误的声明可能回缺少属性名，冒号(:)或者属性值</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span>
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="err">color</span> <span class="p">}</span>          
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="err">color;</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span>  
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="p">}</span> 
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="nl">color</span><span class="p">:;</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span> 
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="err">color{;</span><span class="nl">color</span><span class="p">:</span><span class="no">maroon</span><span class="p">}</span> <span class="err">}</span> 
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="err">color{;</span><span class="nl">color</span><span class="p">:</span><span class="no">maroon</span><span class="p">}</span><span class="o">;</span> <span class="nt">color</span><span class="nd">:green</span> <span class="err">}</span> 
+</code></pre>
+</div>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code>
+<span class="err">以上声明都是等价的</span>
+
+<span class="nt">4</span><span class="o">.</span> <span class="err">格式错误的语句</span>
+<span class="err">用户代理必须处理解析语句期间遇到的异常</span><span class="nt">token</span><span class="err">，一直读到语句结束，从</span><span class="o">()</span><span class="err">，</span><span class="o">[]</span><span class="err">，</span><span class="p">{}</span><span class="err">，</span><span class="s1">""</span><span class="err">和</span><span class="s2">''</span><span class="err">对中寻找对应的规则，并正确处理转义</span>
+
+<span class="err">一个格式错误的语句可能含有异常的右花括号或者</span><span class="o">@</span><span class="err">关键字</span>
+</code></pre>
+</div>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<span class="nt">p</span> <span class="k">@here</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">}</span>     
+<span class="k">@foo</span> <span class="err">@</span><span class="n">bar</span><span class="p">;</span>               
+<span class="err">}}</span>                
+<span class="o">)</span> <span class="o">(</span> <span class="p">{}</span> <span class="o">)</span> <span class="nt">p</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span> 
+</code></pre>
+</div>
+
+<p>以上行都会被忽略</p>
+
+<ol>
+  <li>含有未知@关键字的@规则</li>
+</ol>
+
+<p>用户代理必须忽略一个非法的@关键字及其后面跟着的任何东西，直到包含非法@关键字的块结束，或者到下一个分号(;)（包括分号），或者到下一个块({…})，无论哪个先出现</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@three-dee</span> <span class="p">{</span>
+  <span class="k">@background-lighting</span> <span class="p">{</span>
+    <span class="nl">azimuth</span><span class="p">:</span> <span class="m">30deg</span><span class="p">;</span>
+    <span class="nl">elevation</span><span class="p">:</span> <span class="m">190deg</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>因为@three-dee不是规范的一部分，所以解析为</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>@规则里的一些东西会因为非法而被忽略，例如@media规则中的一条非法声明，不会导致整个@规则非法</p>
+
+<ol>
+  <li>样式表异常结束</li>
+</ol>
+
+<p>用户代理必须闭合样式表结尾的所有开放结构（例如：块，圆括号，方括号，规则，字符串和注释）</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<span class="k">@media</span> <span class="n">screen</span> <span class="p">{</span>
+  <span class="py">p</span><span class="p">:</span><span class="n">before</span> <span class="err">{</span> <span class="n">content</span><span class="p">:</span> <span class="s2">'Hello
+解析为
+@media screen {
+    p:before { content: '</span><span class="n">Hello</span><span class="err">'</span><span class="p">;</span> <span class="p">}</span>
+<span class="err">}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>字符串异常结束</li>
+</ol>
+
+<p>用户代理必须闭合行尾的字符串（也就是说，在一个未转义的换行，回车或者换页符之前），但接着要删除包含该字符串的结构（声明或者规则）</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+<span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="nl">font-family</span><span class="p">:</span> <span class="err">'</span><span class="n">Courier</span> <span class="n">New</span> <span class="n">Times</span>
+<span class="n">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>解析为</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span>   <span class="o">//</span><span class="err">\'</span>
+</code></pre>
+</div>
+
+<h3 id="值">值</h3>
+
+<ol>
+  <li>整数和实数</li>
+</ol>
+
+<p>一些值类型可能有整数值（<整数>中指出的）或者实数值（<数>中指出的）。实数和整数都只是特定的十进制表示法。<整数>由一个或者多个"0"到"9"的数字组成，<数>既可以是一个<整数>，也可以是0个或者多个数字，后面跟着一个小数点和一个或者多个数字。整数和实数之前可以有"-"或者"+"表示符号。-0等价于0，不是负数</整数></数></整数></数></整数></p>
+
+<ol>
+  <li>长度</li>
+</ol>
+
+<p>长度值的格式（本规范<长度>）章节中指出的）是一个<数>（有或没有小数点）后面紧跟着一个单位标识符（例如，px，em等等）。0长度后面的单位标识符是可选的</数></长度></p>
+
+<p>一些属性允许负的长度值，但会让格式化模型变得复杂，并且可能存在具体实现限制。如果一个负长度值不被支持，它应该被转化为最相近（nearest）的支持值</p>
+
+<p>如果不接受负长度值的属性被设置了一个负长度值，声明会被忽略</p>
+
+<p>如果设置的长度不被支持，用户代理必须在实际值中近似处理</p>
+
+<p>有两种类型的长度单位：相对和绝对</p>
+
+<ul>
+  <li>相对</li>
+</ul>
+
+<p>相对长度单位指定了一个相对于其它长度属性的单位。使用相对单位的样式表更容易根据不同的输出环境缩放
+em: 相关字体的font-size
+ex: 相关字体的x-height</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5em</span> <span class="p">}</span>      
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">1ex</span> <span class="p">}</span>        
+</code></pre>
+</div>
+
+<p>‘em’单位等于应用该规则的元素的’font-size’属性的计算值。一种异常情况是当’em’出现在’font-size’属性本身的值中时，这种情况下参考父元素的字体大小。它可以用在竖直或者水平测量中
+‘ex’单位是根据元素的第一个可用字体定义的。一种异常情况是当’ex’出现在’font-size’属性的值中，此时参考父元素的’ex’</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>表示”h1”元素的行高将比”h1”元素的字体大小大20%</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>表示”h1”元素的font-size将比”h1”元素继承得到的字体大小大20%
+当为文档树的根（例如，HTML中的”HTML”）指定（相对单位）时，’em’和’ex’参考该属性的初始值
+子元素不会继承为其父元素指定的相对值，而是继承计算值</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span><span class="p">;</span>
+  <span class="nl">text-indent</span><span class="p">:</span> <span class="m">3em</span><span class="p">;</span>  
+<span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">15px</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>绝对单位</li>
+</ul>
+
+<p>绝对长度单位彼此之间是固定不变的。它们主要用于输出环境已知时，绝对单位包括物理单位（in，cm，mm，pt，pc）和px单位：
+对于CSS设备，这些尺寸
+要么参照
+(i)物理测量相关的物理单位</p>
+
+<p>要么参照
+(ii)像素相关的像素单位。对于平面媒体（print media）和类似的高分辨率设备，参照单位（anchor unit）应该是标准物理单位（英寸，厘米等等）之一。对于低分辨率设备和有特殊视距的（with unusual viewing distances）设备，推荐把像素单位作为参照单位。对于这种设备推荐像素单位参考最接近参照像素（reference pixel）的整数设备像素</p>
+
+<p>注意，如果参照单位是像素单位，物理单位可能与它们的物理测量不一致。或者，如果参照单位是物理单位，像素单位也可能与整数设备像素不对应</p>
+
+<p>注意，这里像素单位和物理单位的定义与CSS之前版本不同。特别地，在CSS之前版本中，像素单位和物理单位与固定比例（fixed ratio）无关：物理单位总是与它们的物理测量紧密相关，而像素单位会变得最接近参考像素（出现这种变化是因为太多现有内容依赖96dpi的假设，而打破这个假设就会破坏这些内容）</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5in</span> <span class="p">}</span>      
+<span class="nt">h2</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">3cm</span> <span class="p">}</span>   
+<span class="nt">h3</span> <span class="p">{</span> <span class="nl">word-spacing</span><span class="p">:</span> <span class="m">4mm</span> <span class="p">}</span>  
+<span class="nt">h4</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">12pt</span> <span class="p">}</span>    
+<span class="nt">h4</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1pc</span> <span class="p">}</span>     
+<span class="nt">p</span>  <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span> <span class="p">}</span>    
+</code></pre>
+</div>
+
+<ol>
+  <li>百分比</li>
+</ol>
+
+<p>百分比值（本规范中<百分比>章节指出的）的格式是一个<数>后面紧跟着'%'
+百分比值总是和其它值有关，例如，长度。每个接受百分比的属性也定义了百分比所参考的值。该值可以是同一元素的另一个属性，祖先元素的属性或者来自格式化上下文（例如，一个包含块的宽度）的值。当给根元素的属性设置了一个百分比值时，并且百分比参照了一些属性的继承值，结果值是百分比乘以该属性的初始值</数></百分比></p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">10px</span> <span class="p">}</span>
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">120%</span> <span class="p">}</span>  
+</code></pre>
+</div>
+
+<ol>
+  <li>url和urI</li>
+</ol>
+
+<p>本规范中，URI值（Uniform Resource Identifiers统一资源标识符，见[RFC3986]，包括URL，URN等等）在<uri>中出现。用来指定属性值中URI的函数标记是"url()"</uri></p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="sx">url("http://www.example.com/pinkish.png")</span> <span class="p">}</span> 
+<span class="nt">li</span> <span class="p">{</span> <span class="nl">list-style</span><span class="p">:</span> <span class="sx">url(http://www.example.com/redball.png)</span> <span class="nb">disc</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>计数器</li>
+</ol>
+
+<p>计数器用大小写敏感的标识符来表示（见’counter-increment’和’counter-reset’属性）。为了引用计数器的值，可以用标记’counter(<identifier>)'或者'counter(<identifier>,&lt;'list-style-type'&gt;)'，可以有可选的空白字符分隔这些token，默认样式是'decimal'</identifier></identifier></p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span><span class="nl">counter-increment</span><span class="p">:</span> <span class="n">par-num</span><span class="p">}</span>
+<span class="nt">h1</span> <span class="p">{</span><span class="nl">counter-reset</span><span class="p">:</span> <span class="n">par-num</span><span class="p">}</span>
+<span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span><span class="nl">content</span><span class="p">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">par-num</span><span class="p">,</span> <span class="nb">upper-roman</span><span class="p">)</span> <span class="s1">". "</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>颜色</li>
+</ol>
+
+<color>要么是一个关键字，要么是一个（符合）RGB规范的数值
+color关键字有：aqua，black，blue，fuchsia，gray，green，lime，maroon，navy，olive，orange，purple，red，silver，teal，white和yellow
+除了这些颜色关键字，在用户环境中，用户还可以指定对应的用于某些对象的颜色关键字
+
+```css
+body {color: black; background: white }
+h1 { color: maroon }
+h2 { color: olive }
+
+em { color: #f00 }              
+em { color: #ff0000 }           
+em { color: rgb(255,0,0) }      
+em { color: rgb(100%, 0%, 0%) } 
+
+RGB值格式的函数标记是'rgb('后面跟着一个逗号分隔的3个数值（要么是3个整数，要么是3个百分比值）和')'。整数值255对应100%和十六进制表示法中的F或者FF：rgb(255,255,255) = rgb(100%,100%,100%) = #FFF。数值前后可以有空白字符
+
+下面的规则是等价的
+em { color: rgb(255,0,0) }       
+em { color: rgb(300,0,0) }       
+em { color: rgb(255,-10,0) }     
+em { color: rgb(110%, 0%, 0%) }  
+```
+
+7. 字符串
+
+字符串既能写在双引号里也能写在单引号里。双引号不能出现在双引号中，除非转义过了（例如，'\"'或者'\22'）。单引号也是类似的（例如，"\'"或者"\27"）
+"this is a 'string'"
+"this is a \"string\""
+'this is a "string"'
+'this is a \'string\''
+字符串不能直接包含换行（newline）。为了在字符串中包含换行，可以ISO-10646 (U+000A)中的换行符的转义表示法，例如"\A"或者"\00000a"。这个字符在CSS中表示"换行"的一般概念
+下面的选择器是相同的
+
+```css
+a[title="a not s\
+o very long title"] {}
+a[title="a not so very long title"] {}
+```
+
+8. 不支持的值
+
+如果UA不支持某个特殊值，解析样式表时就应该忽略该值。就像该值是一个非法值例如：
+
+```css
+h3 {
+    display: inline;
+    display: run-in;
+}
+```
+
+支持'display'为'run-in'值的UA将接受第一个display声明，然后用第二个display声明的值“重写”它。不支持'run-in'值的UA将处理第一个display声明并忽略第二个display声明
+</color>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/css/2016/07/13/css2.1-1.html" data-toggle="tooltip" data-placement="top" title="读CSS2.1规范之需求和推荐标准（一）">
+                上一篇<br>
+                <span>读CSS2.1规范之需求和推荐标准（一）</span>
+                </a>
+                
+                
+                <a class="next" href="/css/2016/07/15/css2.1-3.html" data-toggle="tooltip" data-placement="top" title="读CSS2.1规范之需求和推荐标准（三）">
+                下一篇<br>
+                <span>读CSS2.1规范之需求和推荐标准（三）</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/css/2016/07/14/css2.1-2.html&title=《读CSS2.1规范之需求和推荐标准（二）》 作者：xiaoyu7 发布日期：2016-07-14 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/css/2016/07/14/css2.1-2.html&title=《读CSS2.1规范之需求和推荐标准（二）》 作者：xiaoyu7 发布日期：2016-07-14 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/css/2016/07/14/css2.1-2.html&text=《读CSS2.1规范之需求和推荐标准（二）》 作者：xiaoyu7 发布日期：2016-07-14 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/css/2016/07/14/css2.1-2.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《读CSS2.1规范之需求和推荐标准（二）》 作者：xiaoyu7 发布日期：2016-07-14 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

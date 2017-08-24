@@ -1,0 +1,655 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="深入理解 flex 布局以及计算-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="深入理解 flex 布局以及计算,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				深入理解 flex 布局以及计算
+			</h1>
+			<section class="article-category">
+				css
+			</section>
+	        <section class="article-info">
+	        	Posted by Owen on April 6, 2017
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="起因">起因</h2>
+
+<p>对于flex布局，阅读了 大漠老师和其他老师写的文章后，我还是不太理解flexbox是如何弹性的计算子级项目的大小以及一些其他细节。在大漠老师的帮助下，我去查阅flexbox 的 w3c 规范文档</p>
+
+<p><strong>注：本篇博文不适合未接触过flex 布局的人, 如果想了解flex 布局基础。请参考<a href="http://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html">理解Flexbox：你需要知道的一切</a></strong></p>
+
+<h2 id="对于flex盒模型的设计期望">对于flex盒模型的设计期望</h2>
+
+<p>flex盒模型是被期望设计成</p>
+
+<ol>
+  <li>
+    <p>在任何流动的方向上(包括上下左右)都能进行良好的布局</p>
+  </li>
+  <li>
+    <p>可以以逆序 或者 以任意顺序排列布局</p>
+  </li>
+  <li>
+    <p>可以线性的沿着主轴一字排开 或者 沿着侧轴换行排列</p>
+  </li>
+  <li>
+    <p>可以弹性的在任意的容器中伸缩大小（今天重点研究的主题）</p>
+  </li>
+  <li>
+    <p>可以使子元素们在容器主轴方向上 或者 在容器侧轴方向上 进行对齐</p>
+  </li>
+  <li>
+    <p>可以动态的 <strong>沿着主轴方向</strong> 伸缩子级的尺寸，与此同时保证父级侧轴方向上的尺寸</p>
+  </li>
+</ol>
+
+<h2 id="主轴和侧轴">主轴和侧轴</h2>
+
+<p>很有必要先向大家解释清楚 3个问题</p>
+
+<ol>
+  <li>什么是主轴</li>
+  <li>什么是侧轴</li>
+  <li>他们是如何切换的</li>
+</ol>
+
+<p>首先每一根轴都包括 三个东西：维度、方向、尺寸</p>
+
+<p>什么意思呢？</p>
+
+<ol>
+  <li>所谓的维度实际上就是意思就是子元素 横着排还是竖着排(x 轴 或 y 轴）</li>
+  <li>方向 即排列子元素的顺序 顺序还是逆序</li>
+  <li>尺寸 即width[height] ： <strong>每一个子元素在主轴方向所占的位置的总和</strong> 如果主轴是水平的，那么尺寸就是父元素内所有item的outerWidth总和,如果主轴是垂直的，那么尺寸就是父元素的outerHeight</li>
+</ol>
+
+<p>主轴是依靠 flex-direction 和 所有子元素在主轴方向上的item-size的总和确定的，flex-direction这个属性可以控制子元素的排列方向和排列顺序</p>
+
+<p>侧轴是依靠 flex-wrap 和 所有子元素在主轴方向上的item-size的总和确定的，flex-wrap 可以控制子元素 在侧轴方向上的排列方式以及顺序</p>
+
+<p>而关于不同种类不同情况下的 item-size 我们会在下面讨论，现在您可以简单将它理解为width[height]</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox1.png" alt="img" /></p>
+
+<p><em>盗规范中的一张图</em></p>
+
+<p>为了方便 flex-direction + flex-wrap 合并成了一个属性 <code class="highlighter-rouge">flex-flow</code></p>
+
+<p>通过这个简单而复杂的属性，我们就能够控制所有子元素的水平和垂直方向，逆序排列和顺序，换行和不换行。</p>
+
+<p>主侧轴的切换十分简单，当主轴设定的时候，它的垂直面，就默认被设定成了侧轴</p>
+
+<p>如：</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">flex-flow</span><span class="o">:</span> <span class="nt">row-reverse</span> <span class="nt">wrap-reverse</span><span class="o">;</span>
+</code></pre>
+</div>
+
+<p>这条css 属性能够告诉我们那些信息？</p>
+
+<ol>
+  <li>子元素是横着排列的，主轴是水平的横轴，侧轴是竖直的纵轴</li>
+  <li>子元素是逆序并沿着主轴排列的，从右到左</li>
+  <li>子元素是换行的</li>
+  <li>子元素是逆序并沿着侧轴排列的，从下到上</li>
+</ol>
+
+<h2 id="ffc-flex-formatting-context">FFC (flex formatting context)</h2>
+
+<p>flexbox 布局新定义了格式化上下文，类似 BFC（block formatting context）</p>
+
+<p>有多类似呢？ 就是<code class="highlighter-rouge">除了布局和一些细节不同以外的一切规则都和 BFC 是相同的</code></p>
+
+<p>(注意. 我所指的flexbox 是指设置了 display: flex; 或 display: inline-flex;的盒子
+不是指单单设置了 display: flex; 的盒子)</p>
+
+<p>例如，设置了 display: flex; 或 display: inline-flex 的元素，和BFC一样，不会被浮动的元素遮盖，不会垂直外边距坍塌等等</p>
+
+<p>而对于设置了 display: inline-flex 的盒子来说，我们可以类比 display: inline-box; 进行理解
+即 一个被行列化后的 flexbox。它不会独占一行，但是可以设置宽和高。</p>
+
+<h3 id="与bfc的细微区别">与BFC的细微区别</h3>
+
+<p>但需要注意的是以下几点细节，flexbox 布局 和 block 布局是有细微区别的</p>
+
+<ol>
+  <li>flexbox 不支持 <code class="highlighter-rouge">::first-line</code> 和 <code class="highlighter-rouge">::first-letter</code> 这两种伪元素</li>
+  <li><code class="highlighter-rouge">vertical-align</code> 对 flexbox 中的子元素 是没有效果的</li>
+  <li><code class="highlighter-rouge">float</code> 和 <code class="highlighter-rouge">clear</code> 属性对 flexbox 中的子元素是没有效果的，也不会使子元素脱离文档流(但是对flexbox 是有效果的！)</li>
+  <li>多栏布局<code class="highlighter-rouge">（column-*）</code> 在 flexbox 中也是失效的，就是说我们不能使用多栏布局在flexbox 排列其下的子元素（鱼和熊掌不可得兼嘛）</li>
+  <li>flexbox 下的子元素不会继承父级容器的宽</li>
+</ol>
+
+<h2 id="flex-itemflex-子元素">flex item（flex 子元素）</h2>
+
+<p>css解析器会把 定义了 display: flex; 和 display: inline-flex; 的 flexbox 下的子元素外部装进一个看不见的盒子里，我们通过排列这些盒子来达到排序、布局、
+伸缩的目的</p>
+
+<p>规范中把这种盒子 称为 <code class="highlighter-rouge">flex item</code></p>
+
+<p>而子元素中包括了 标签节点 以及 文本节点。</p>
+
+<p>标签节点很容易理解，需要注意的是文本节点。</p>
+
+<p>默认情况下，flex 会将 <code class="highlighter-rouge">连续的文本节点</code> 装进 flex-item 之中，使文本可以和标签节点一起排序和定位</p>
+
+<p>值得注意的是，空格也是文本节点，所以 white-space 会影响flexbox 中的布局</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox3.png" alt="img" /></p>
+
+<p><em>设置了white-space: pre 的flexbox</em></p>
+
+<h2 id="flex-item-size-如何计算的">flex-item-size 如何计算的</h2>
+
+<p>item-size（尺寸）为<strong>主轴方向上</strong>item的 content 再加上自身的margin 、 border 和 padding 就是这个 item 的尺寸。</p>
+
+<p>在规范中 介绍了 flex-item content 的计算方式</p>
+
+<p>分为以下这几种情况</p>
+
+<h3 id="1-flex-basis-的优先级比-widthheight-非auto-高">1. flex-basis 的优先级比 width[height]: 非auto; 高</h3>
+
+<p>如果子元素没有内容和默认固定宽高，且设置了flex-basis。</p>
+
+<p>flex-item content以flex-basis来决定，无论width[height] 设置了多少。</p>
+
+<p>(可理解为 flex-basis 比 width[height]: 非auto; 的优先级高)</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox17.png" alt="img" /></p>
+
+<p><em>flex-basis的优先级比width[height]高，无论width[height]设置多少，flex-item content都以flex-basis来决定</em></p>
+
+<h3 id="2元素存在默认宽高">2.元素存在默认宽高</h3>
+
+<p>如果子元素有默认固定宽高（例如input 标签）、并且设置了 flex-basis，那么它的 content以 固定宽高为下限，如果flex-basis 超过了固定宽高，那么flex-basis则成为其 content，如果flex-basis比固定宽高小，那么以固定宽高为 content。</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox13.png" alt="img" /></p>
+
+<p><em>对于固定元素的尺寸设定</em></p>
+
+<h3 id="3元素存在-min-widthheight-或者-max-widthheight">3.元素存在 min-width[height] 或者 max-width[height]</h3>
+
+<p>如果flex-item 有min-width[min-height] 的限制，那么flex-item content按照 min-width 值为下限，如果 flex-basis 的值大于 min-width[min-height] 那么flex-item content以 flex-basis 计算</p>
+
+<p>如果flex-basis 的值小于 min-width[min-height] 那么flex-item content以min-width[min-height] 计算</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox14.png" alt="img" /></p>
+
+<p>如果 min-width[min-height] 的值已经超出了容器的尺寸，那么即使设置了 flex-shrink css解析器也不会进行将这个item的 content shrink，而是坚持保留它的min-width[min-height]</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox6.png" alt="img" /></p>
+
+<p><em>如果flexbox 设置的min-width 超出了flex container 的范围, 不会对其进行压缩</em></p>
+
+<p>反之，如果设置了 max-width[height] 的值，那么设置flex-basis 无法超过这个值，对于flex-grow 也仅仅只会增长到 max-width[height] 这个上限。</p>
+
+<p>在下面的章节，我们会仔细讨论这种情况下，布局的计算。</p>
+
+<h3 id="4widthheight-auto-优先级等于-flex-basis">4.width[height]: auto; 优先级等于 flex-basis。</h3>
+
+<p>前面提到，如果给item同时设置了width[height] 和 flex-basis的话。flex-item content以flex-basis来决定。
+但是实际上默认的 width[height]: auto; 优先级是等于 flex-basis的。</p>
+
+<p>css解析器对比两者的值，两者谁大取谁 作为item的基本尺寸，如果一个item没有内容，flex-item content就会以flex-basis来决定</p>
+
+<p>但是如果item有了内容，且内容撑开的尺寸比flex-basis大，那么flex-item content就会以width[height]: auto; 来决定，且<strong>无法被 shrink</strong>。反之，如果比flex-basis小，flex-item content就会以flex-basis来决定;</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox18.png" alt="img" /></p>
+
+<p><em>width: auto; 内容长度比 flex-basis 大，则 flex-item content以内容长度来决定，且无法shrink</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox19.png" alt="img" /></p>
+
+<p><em>如果 flex-basis 的长度大于文字内容长度，那么flex-item content以 flex-basis 来决定</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox23.png" alt="img" /></p>
+
+<p><em>同时设置了flex-basis: 800px; 和 width: 1px; flex-item content以 flex-basis 来决定，可以发生shrink</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox20.png" alt="img" /></p>
+
+<p><em>注意2号盒子我设置了 flex-shrink: 1; 1号盒子和3号盒子我设置了 flex-shrink: 0; 
+意思就是我将所有的需要shrink的空间都压到了2号盒子上，总共的需要 shrink的空间为 0 * 600 + 1 * 20 + 0 * 100 = -20；而2号盒子只有20的空间，理应被完全shrink变为0，但是值得注意的是2号盒子并没有被完全 shrink，还保留了一个文字的距离。</em></p>
+
+<p>除此之外，overflow: hidden; 也会影响</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox24.png" alt="img" /></p>
+
+<p><em>overflow: hidden; 把文字长度限制在了600px; 小于 flex-basis: 700px; 所以flex-item content以flex-basis来决定，可以 shrink</em></p>
+
+<h2 id="隐藏属性对-items-size-的影响">隐藏属性对 items-size 的影响</h2>
+
+<p>我针对了 display: none; visibility: hidden; visibility: collapse; transform: scale; 等属性对 items 进行测试</p>
+
+<p>结果如下：</p>
+
+<ol>
+  <li>
+    <p>如果设置了 visibility: hidden; 、 visibility: collapse; 、 transform: scale; 的flex-item content 依然被算进主轴尺寸，css 解析器依然会以他们 flex-grow 、 flex-shrink 将可用空间 或者 负可用空间 分配给他们</p>
+  </li>
+  <li>
+    <p>如果设置了display: none; css解析器不会对该item的空间进行计算，也不会对其grow空间</p>
+  </li>
+</ol>
+
+<h2 id="关于position-absolute-对item影响">关于position: absolute 对item影响</h2>
+
+<p>position: absolute 也是适用 flexbox 中的子元素的，并且，设置了position: absolute属性的子元素，也会受到 flexbox 排列的影响。</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox4.png" alt="img" /></p>
+
+<p><em>设置了absolute 的子元素重叠在了一起，但是依然会受到 align-items: center; 的影响而居中</em></p>
+
+<p>对于 flexbox 来说，设置了position: absolute; 并不会对其下的子元素产生任何影响。</p>
+
+<p>我们重点看 flexbox 下的子元素设置了absolute 后有什么结果</p>
+
+<p>根据我做的实验，我得到了如下的结论：</p>
+
+<p><code class="highlighter-rouge">flexbox 下设置了absolute的子元素的位置受3个方面的影响</code></p>
+
+<ol>
+  <li>flexbox 流下面的 <code class="highlighter-rouge">justify-content</code> 和 <code class="highlighter-rouge">align-items</code></li>
+  <li>单个子元素的 <code class="highlighter-rouge">top</code>、<code class="highlighter-rouge">left</code>、<code class="highlighter-rouge">right</code>、<code class="highlighter-rouge">bottom</code></li>
+  <li>单个子元素的 margin</li>
+</ol>
+
+<p>这里我们不讨论 translate 因为 translate 只是视觉上位置的改变</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox5.png" alt="img" /></p>
+
+<p><em>设置了absolute 的item 不会影响布局,</em></p>
+
+<p>如图</p>
+
+<p>其中1 2 3 4 5 号是设置了absolute的item,而 6 7 8 9号是没有设置absolute的item
+flexbox 我设置了 justify-content: center; 和 align-items: center; 每一个item我都给了 margin: 20px;</p>
+
+<ol>
+  <li>
+    <p>我们可以看到，由于absolute 的原因， 12345号的item 不会影响 6789号的排布
+<code class="highlighter-rouge">结论：脱离了文档流的 item 不会影响 正常的flex 布局。</code></p>
+  </li>
+  <li>
+    <p>如图上 4号 item, 设置了absolute 但是没有设置 top left 这些值，位置居中偏下
+<code class="highlighter-rouge">结论：如果对子元素设置了 position: absolute; 属性而没有设置 top left 这些值。子元素受 flexbox 的justify-content: center 、 align-items: center 和 margin 的影响</code></p>
+  </li>
+  <li>
+    <p>如图上1235 号item, 我给他们分别设置 top、left、right、bottom 等值。 5号元素设置了margin-left: 50px; 和 padding-bottom: -999999px;
+结论：top、left、right、bottom 等值会覆盖 justify-content: center; 和 align-items: center; 设置的位置，使item 自由定位。margin 自始至终都会影响item的位置，而padding不会（我试过padding 设500px 的情况，padding 会影响item的大小）</p>
+  </li>
+  <li>
+    <p>如果对上图 12345号item 不设置 top、left、right、bottom 等值。
+对父级的 justify-content 和 align-items 设置center以外的其他值的话</p>
+
+    <ul>
+      <li>
+        <p>如果设置了 flex-start 所有元素不分开，定位在 主轴起点</p>
+      </li>
+      <li>
+        <p>如果设置了 flex-start 所有元素不分开，定位在 主轴终点</p>
+      </li>
+      <li>
+        <p>如果设置justify-content: space-around;效果等同于center,即所有的元素叠在一起居中，且items不会产生间隔</p>
+      </li>
+      <li>
+        <p>如果设置了 justify-content: space-between; 效果等同于 flex-start, 且items不会分开</p>
+      </li>
+      <li>
+        <p>如果设置了 align-items: flex-start; 所有元素不分开，定位在 侧轴起点</p>
+      </li>
+      <li>
+        <p>如果设置了 align-items: flex-end; 所有元素不分开，定位在 侧轴终点</p>
+      </li>
+      <li>
+        <p>如果设置了 align-items: stretch 、 baseline; 也是没有任何效果, items 不会跟随侧轴拉伸 或是 根据baseline 对齐</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>如果对单个item 设置 align-self，除了 flex-start 、 flex-end 、 center 有效之外，其他都失效</p>
+  </li>
+</ol>
+
+<p>通过上面一系列的测试我们可以清楚的认识到 justify-content、align-items 和 top、left、right、bottom 都是位置属性，而且 top、left、right、bottom 会覆盖justify-content和align-items的值
+（以上前提是一定要设置position: absolute 不然 top、left、right、bottom 无效）</p>
+
+<p>而 margin 的优先级是和 top、left、right、bottom 一样的，也就是说 margin 和 top、left、right、bottom 所设置的值会同时生效</p>
+
+<p>优先级排序为： margin = justify-content 、 align-items &gt; top、left、right、bottom</p>
+
+<h3 id="flex-basisflex-growflex-shrink-以及相应的计算">flex-basis、flex-grow、flex-shrink 以及相应的计算</h3>
+
+<p>flex-basis、flex-grow、flex-shrink是FFC下特有的属性，只有父级元素设置了 display: flex; inline-flex; 才会生效，并且只针对主轴方向生效</p>
+
+<p>如果 主轴是水平的，即 flex-direction: row;
+那么 flex-basis、flex-grow、flex-shrink 控制的就是单个item的宽度</p>
+
+<p>如果 主轴是垂直的，即 flex-direction: column;
+那么 flex-basis、flex-grow、flex-shrink 控制的就是单个item的高度</p>
+
+<p>而flex-grow 和 flex-shrink 是用于 主轴方向上对 （负）可用空间 进行伸缩的</p>
+
+<p>这要分两种情况，换行或者不换行</p>
+
+<h3 id="1如果-flex-wrap-nowrap-即不换行">1.如果 flex-wrap: nowrap; 即不换行。</h3>
+
+<p>那么所有items 都会在主轴方向上的一条线上排列，css解析器会计算 items 在主轴方向上所占的空间 相对于 flexbox 在主轴方向的所占的空间进行比较计算</p>
+
+<p>如果 items 所占的空间是小于flexbox的 那么说明flexbox 还没有填满，css解析器就会计算还有多少空间没有填满，根据每一个item所设置的flex-grow 设置的值，将这些空间分配按比例分配给每一个item</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox7.png" alt="img" /></p>
+
+<p><em>可用空间</em></p>
+
+<p>如果 items 所占的空间是大于flexbox的 那么说明flexbox 被填满了，css解析器就会计算超出了多少空间，根据每一个item所设置的flex-shrink 设置的值，将这些空间分配按比例缩小每一个item</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox8.png" alt="img" /></p>
+
+<p><em>超出的空间</em></p>
+
+<p>那么css解析器在这种情况下是怎样计算的呢？上一章我们劳神费力理解的item-size终于派上用场了</p>
+
+<p>flex-grow计算流程是：</p>
+
+<p>可用空间 = 将flexbox-content - 每个item-size的总和</p>
+
+<p>将每一个item所设置的 grow 全部加起来，将可用空间除以grow，得到单位分配空间</p>
+
+<p>根据每一个item 设置的 grow 来算，如果一个item 的grow 为 2，那么 这个 item 在主轴上的尺寸就需要延伸 2*单位分配空间的大小</p>
+
+<p>那么 每一个 item 就需要在原基础上 加上被分配的大小 就完成了grow</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox11.png" alt="img" /></p>
+
+<p><em>分配前</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox12.png" alt="img" /></p>
+
+<p><em>分配后</em></p>
+
+<p>简单理解就是，将超出的部分，可能多，也可能少，根据 grow 来分配成 x 份，在根据每个 item 所设置的份数，将相差的部分分割给每一个item</p>
+
+<p><strong>注意：flex-shrink 的计算流程和flex-grow的计算流程不同</strong></p>
+
+<p>flex-shrink计算流程是：</p>
+
+<p>先讲所有项目 按照 flex-shrink * item-size 的方式加起来 得到一个加权和</p>
+
+<p>然后计算出 每一份 item 的  shrink比例</p>
+
+<p>shrink比例 = flex-shrink * item-size / 之前的总和;</p>
+
+<p>然后计算 子元素超出父级的部分（负可用空间），每一个item 减去这个  shrink比例 * 负可用空间即可</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox15.png" alt="img" /></p>
+
+<p><em>shrink前</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox16.png" alt="img" /></p>
+
+<p><em>shrink后</em></p>
+
+<h3 id="2-如果flex-wrap-wrapwrap-reverse-即换行">2. 如果flex-wrap: wrap[wrap-reverse]; 即换行</h3>
+
+<p>那么items 都会先在主轴方向上的多条线上排列，css解析器先会计算 每一条线 在主轴方向上尺寸 相对于 flexbox 容器的width[height]进行比较计算，每条线之间互不干扰</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox9.png" alt="img" /></p>
+
+<p><em>未分配之前</em></p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox10.png" alt="img" /></p>
+
+<p><em>平均分配后</em></p>
+
+<p>由于在一行内 如果item-size 累加超过了flexbox 的尺寸就会另起一行进行排列，所以在这种情况下，不会存在 shrink 的情况，而只有 grow 的情况</p>
+
+<h2 id="max-widthheight-情况下-flex-grow-的计算流程">max-width[height] 情况下 flex-grow 的计算流程</h2>
+
+<p>由于可能存在某一个或多个item 设置了有max-width[height]</p>
+
+<p>所以，css引擎会先进行一次分配，分配后，统计那些有max-width[height]的items, 分配后是否有超出的剩余空间，然后对这些剩余空间再分配给那些没有设置max-width[height]的item</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox21.png" alt="img" /></p>
+
+<p><em>再分配流程</em></p>
+
+<h2 id="min-widthheight-情况下-flex-shrink-的计算流程">min-width[height] 情况下 flex-shrink 的计算流程</h2>
+
+<p>由于可能存在某一个或多个item 设置了有min-width[height]</p>
+
+<p>所以，css引擎会先进行一次 shrink， shrink后，统计那些有min-width[height]的items,  shrink后是否有的剩余的未 shrink空间，然后对这些剩余空间再分配给那些没有设置min-width[height]的item</p>
+
+<p>注意：第一次 shrink的算法和第二次分配未 shrink剩余空间的算法不同！</p>
+
+<p><img src="http://numerhero.github.io/assets/img/flexbox22.png" alt="img" /></p>
+
+<h2 id="总结">总结</h2>
+
+<p>flexbox 布局很棒。免去了我们大量关于适配方面的工作，但是深入理解，并用好它还是需要一点门槛的。
+再次感谢 @大漠老师 的鼎力帮助，谢谢。</p>
+
+<h2 id="感谢">感谢</h2>
+
+<p><a href="https://www.w3.org/TR/css-flexbox-1/">w3c Candidate Recommendation</a></p>
+
+<p><a href="http://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html">理解Flexbox：你需要知道的一切</a></p>
+
+<p><a href="http://www.w3cplus.com/css3/flexbox-adventures.html">探索Flexbox</a></p>
+
+<p><a href="http://www.w3cplus.com/">w3cplus</a></p>
+
+<p><a href="http://www.zhangxinxu.com/wordpress/2016/09/css-first-letter-pseudo-element/">深入CSS ::first-letter伪元素及其实例等</a></p>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/css/2017/03/26/Flex.html" data-toggle="tooltip" data-placement="top" title="深入了解Flexbox">
+                上一篇<br>
+                <span>深入了解Flexbox</span>
+                </a>
+                
+                
+                <a class="next" href="/js/2017/04/30/JSON.html" data-toggle="tooltip" data-placement="top" title="JSON学习笔记">
+                下一篇<br>
+                <span>JSON学习笔记</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/css/2017/04/06/flexbox.html&title=《深入理解 flex 布局以及计算》 作者：Owen 发布日期：2017-04-06 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/css/2017/04/06/flexbox.html&title=《深入理解 flex 布局以及计算》 作者：Owen 发布日期：2017-04-06 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/css/2017/04/06/flexbox.html&text=《深入理解 flex 布局以及计算》 作者：Owen 发布日期：2017-04-06 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/css/2017/04/06/flexbox.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《深入理解 flex 布局以及计算》 作者：Owen 发布日期：2017-04-06 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

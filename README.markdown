@@ -1,17 +1,31 @@
-												<!-- compose By Owen -->
-										  <!-- github: github.com/numerhero -->
-# xgcyjd2014.github.io
 
-2014信管创业教育基地官方博客
+# 信管创业基地官方文档
 
-# 说明
+## [点击访问 &rarr;](http://xgcyjd.com)
 
-先聊聊脚手架~~
+## 各版本特性
 
-首先基于jekyll 语法，在根目录下一定要放一个名为`index.html` 的首页，而其他的页面则放在`pages`文件夹
+#### Version 1.0
 
-本站所有的Css 都在 `/assets/css/` 中
-本站所有的Js  都在 `/assets/js/`  中
+* 重新设计、亦是从心设计。
+* 展示页参考 [腾讯官网](https://www.tencent.com/zh-cn/index.html) 的页面风格，视觉效果与用户体验更佳。
+* 化简为繁、简化逻辑。基地官网主要功能为阅读文章，将文章直接放置在首页中，按需翻页，效率更高。
+* 文章列表参考 [腾讯ISUX](https://www.tencent.com/zh-cn/index.html) 的卡片风格，更加清新自然、赏心悦目。
+* 网站底部信息板块参考 [segmentfault](https://segmentfault.com/) 的设计方案，并使用暗色格调，效果更加正式与官方。
+* 合适位置使用流光效果，色彩不再单一乏味、页面效果更加丰富多彩。
+* 全站使用鼠标点击特效，提高用户体验与观赏趣味。
+* 文章阅读页面参考 Clean Blog 风格，减少不必要的视觉阻碍，阅读文章一气呵成。
+* 自从多说停止服务后友言评论系统加载十分缓慢与不稳定，考虑到Disqus对与国内用户体验不太友好，经多次调查与测试决定更改为来必力，提高用户体验。
+* 网站新增 了解我们 页。内容上包含宣传视频、基本介绍、百度地图、加入我们。设计上采用全屏翻滚效果，配合里面所包含的内容，能带来强烈视觉冲击。
+* 培养方案包含项采用色块风格，色彩活泼。点击与展示效果采用位置弹出风格，用户体验更佳。
+* 其他细节
+
+## 说明文档
+
+全站基于jekyll 语法，在根目录下有一个名为`index.html` 的首页，而其他的页面则放在`pages`文件夹
+
+本站所有的css 都在 `/assets/css/` 中
+本站所有的js  都在 `/assets/js/`  中
 
 _config.yml 是本站的配置文件，已经配置完成，如需要folk 参考 请自行修改
 
@@ -31,7 +45,6 @@ sitemap     是配置SEO 的文件
 
 Rouge.css   高亮css脚本，控制高亮颜色，熊孩儿莫动~
 
-404         使用腾讯寻子页面，简单且也是必要的（个人认为人贩子都该重判！）
 
 # css、js 私有化
 
@@ -53,14 +66,14 @@ index.js<br/>
 
 # 撰写博文
 
-如需撰写博文，首先和我（Owen）提交一个固定的作者名，我将作者名与css高亮文件匹配一下，就能开始撰写博文了
+如需撰写博文，首先和我（倪云港）提交一个固定的作者名（中英文）
 
 每次编写博文之前，需要填写一些简单文章信息
 
 ---<br/>
 layout: post <br/>
 title: HelloWorld <br/>
-author: Owen <br/>
+author: 倪云港 <br/>
 tagpic: helloworld.jpg <br/>
 description: 用心铸造卓越Offer <br/>
 category: other <br/>
@@ -115,10 +128,6 @@ other<br/>
 
 文段大标题使用 `## 标题名` 使用
 
-大标题样式
-
-![screenshoot](/assets/img/ReadMe/f-title.png)
-
 
 ### 小标题
 
@@ -126,46 +135,25 @@ other<br/>
 
 注意： 博客书签 只支持如上两种标题，不要写 # 一级标题 和 #### 四级或以下的标题
 
-小标题样式
-
-![screenshoot](/assets/img/ReadMe/s-title.png)
-
-
 ### 引用样式
 
 如果需要引用，可以用一个 > ，并在这个> 下写需要引用的东西 ，可以换行，但是一个代码块有且只有一个>
 
-引用样式
-
-![screenshoot](/assets/img/ReadMe/quote.png)
-
-### 图片
-
-图片点击可以放大
 
 ### ul
 
 使用`* `符添加ul列表 注意`*`后面一定要有空格
 
-样式：
-
-![ul](/assets/img/ReadMe/ul.png)
 
 ### ol
 
 使用`1. 2. 3.` 添加ol列表 注意`.` 后面一定要有空格！
 
-样式:
-
-![ol](/assets/img/ReadMe/ol.png)
 
 ### table
 
 可以使用markdown 语法生成表格
 
-样式：
-
-![table](/assets/img/ReadMe/table.png)
 
 ### Caveat 
 
@@ -173,20 +161,33 @@ other<br/>
 
 `② 以上所有xxx代指语言 如：javascript , xxx语言必须小写！！`
 
-# 评论
+# 评论留言
 
-因为有伟大的BFW存在，我就不使用Disqus了。<br/>
-多说很方便，不想注册就直接用QQ登录也行，基于不带颜色的基础上，本站言论很Open，如果发现不良评论，我将进行删除 
+`Disqus`优点是：国际比较流行，界面也很大气、简介，如果有人评论，还能实时通知，直接回复通知的邮件就行了；缺点是：评论必须要去注册一个disqus账号，分享一般只有Facebook和Twitter，另外在墙内加载影响很大。
+
+`多说` 优点是：支持国内各主流社交软件(微博，微信，豆瓣，QQ空间 ...)一键分享按钮功能，另外登陆比较方便，管理界面也是纯中文的，相对于disqus全英文的要容易操作一些；缺点是：已暂停服务
+
+`来必力` 优点是：完成度很高，拥有和多说类似的功能，而且非常美观，看历史也不是很快就会死的服务。它的  UI 非常的现代化，而且在引用方面有一些比 Disqus 和多说都要方便的实现，总的来说是一个不错的产品。缺点是：韩国的一款社会化评论服务。要是没有这方面的考量，完全可以选择这个服务，
+
+自从多说停止服务后友言评论系统加载十分缓慢与不稳定，考虑到Disqus对与国内用户体验不太友好(需翻墙)，经多次调查与测试决定将评论系统更改为 来必力，提高用户体验。
 
 # 关于设计
 
-不得承认，确实抄了很多网站的设计
+保留有Owen先辈留下来的优秀设计思想。
 
-感谢智唐、QQ、ali、baidu、umworks的设计师，给我提供素材
+网站整体框架设计参考 [百度FEX](http://http://fex.baidu.com/) 的风格。
 
-特别感谢__Matthew Wagerfield__ 提供的low-poly算法
+展示页设计参考 [腾讯官网](https://www.tencent.com/zh-cn/index.html) 的风格。
 
-不说了，我得滚回去预习 计算机图形学 ("T__T) 
+文章列表设计参考 [腾讯ISUX](https://www.tencent.com/zh-cn/index.html) 的风格。
+
+文章内容设计参考 Clean Blog 风格
+
+网站底部信息板块参考 [segmentfault](https://segmentfault.com/) 的风格。
+
+还有互联网中许许多多无私奉献的优秀设计
+
+感谢以上
 
 # Folk
 

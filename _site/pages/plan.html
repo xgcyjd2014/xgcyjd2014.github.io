@@ -1,0 +1,629 @@
+						<!-- 
+							信管创业基地 default.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+
+<!-- 
+	地球页模板
+ -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	头部信息，引入css
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="培养方案-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="培养方案,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/txt.wav.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/plan.css">
+
+</head>
+
+<body>
+	<header>
+		                        <!-- 
+                            信管创业基地 header.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+
+<!-- 
+    页面头部
+ -->
+<nav class="mainNav">
+    <a class="logo" href="/index.html">信管创业基地</a>
+    <ul class="navUl">
+        <li>
+            <a href="/index.html">首页</a>
+        </li>
+        <li>
+            <a href="/pages/members-pic.html">成员墙</a>
+        </li>
+        <li>
+            <a href="/pages/message-wall.html">留言墙</a>
+        </li>
+        <li>
+            <a href="/pages/about.html">了解我们</a>
+        </li>
+        <li>
+            <a href="/pages/join.html">加入我们</a>
+        </li>
+        <li>
+            <a href="/pages/plan.html">培养方案</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="can">
+    <canvas id='rotatingGlobe' width='1500' height='600'></canvas>
+</div>
+
+<!-- logo -->
+<nav id="logo-stage">
+    <svg id="logo-svg" xmlns="http://www.w3.org/2000/svg">
+        <g style="stroke-width:4; stroke:#fff;storke-linecap:round; stroke-linejoin:round;">
+          <path data-async data-duration="40" d="M160 200l100 50"></path>
+          <path data-async data-duration="40" d="M260 250l0 40"></path>
+          <path data-async data-duration="40" d="M260 290l-180 90"></path>
+          <path data-async data-duration="40" d="M80 380l80 40"></path>
+          <path data-async data-duration="40" d="M160 420l80 -40"></path>
+          <path data-async data-duration="40" d="M240 380l0 -30"></path>
+          <path data-async data-duration="40" d="M240 350l-80 40"></path>
+          <path data-async data-duration="40" d="M160 390l-20 -10"></path>
+          <path data-async data-duration="40" d="M140 380l120 -60"></path>
+          <path data-async data-duration="40" d="M260 320l0 80"></path>
+          <path data-async data-duration="40" d="M260 400l-100 50"></path>
+          <path data-async data-duration="40" d="M160 450l-100 -50"></path>
+          <path data-async data-duration="40" d="M60 400l0 -40"></path>
+          <path data-async data-duration="40" d="M60 360l180 -90"></path>
+          <path data-async data-duration="40" d="M240 270l-80 -40"></path>
+          <path data-async data-duration="40" d="M160 230l-80 40"></path>
+          <path data-async data-duration="40" d="M80 270l0 30"></path>
+          <path data-async data-duration="40" d="M80 300l80 -40"></path>
+          <path data-async data-duration="40" d="M160 260l20 10"></path>
+          <path data-async data-duration="40" d="M180 270l-120 60"></path>
+          <path data-async data-duration="40" d="M60 330l0 -80"></path>
+          <path data-async data-duration="40" d="M60 250l100 -50"></path>
+          <!-- i -->
+          <path data-async data-duration="30" d="M280 240l80 0l0 30a 10 10 0 0 0 -10 12"></path>
+          <path data-async data-duration="30" d="M350 280l0 100a 10 10 0 0 0 10 12l0 30l-82 0"></path>
+          <path data-async data-duration="30" d="M280 420l0 -28a 10 10 0 0 0 10 -12l0 -100a 10 10 0 0 0 -10 -12l0 -30"></path>      
+          
+          <!-- m -->
+          <path data-async data-duration="30" d="M370 240l0 184l30 0l0 -124"></path>
+          <path data-async data-duration="30" d="M368 240l40 0l60 150"></path>
+          <path data-async data-duration="30" d="M570 424l0 -184l-40 0l-62 150"></path>
+          <path data-async data-duration="30" d="M400 300l50 124l40 0l50 -124"></path>
+          <path data-async data-duration="30" d="M572 424l-32 0l0 -124"></path>
+
+          <!-- w -->
+          <path data-async data-duration="30" d="M622 424l0 -184l30 0l0 124l50 -124l40 0"></path>
+          <path data-async data-duration="30" d="M724 274l-62 150l-40 0"></path>
+          <path data-async data-duration="30" d="M724 274l60 150l40 0"></path>
+          <path data-async data-duration="30" d="M822 424l0 -184l-30 0l0 124l-52 -124"></path>
+
+          <!-- e -->     
+          <path data-async data-duration="30" d="M842 424l120 0l0 -60l-30 0l0 30l-60 0l0 -60l90 0l0 -30l-90 0l0 -30l90 0l0 -34l-120 0l0 186"></path>
+          
+          <!-- b -->
+          <path data-async data-duration="30" d="M982 332l0 -92l120 0a50 50 0 0 1 0 92"></path>
+          <path data-async data-duration="30" d="M982 332l0 92l120 0a50 50 0 0 0 0 -92"></path>
+          <path data-async data-duration="30" d="M1032 266l40 0a20 20 0 0 1 0 40l-40 0l0 -40"></path>
+          <path data-async data-duration="30" d="M1032 398l40 0a20 20 0 0 0 0 -40l-40 0l0 40"></path>
+
+          <!-- github -->
+          <path data-delay="30" data-duration="60"
+           d="m 725,350 c -13.803878,0 -24.99838768,11.47537039 -24.99838768,25.63625439 0,11.323421 7.16126498,20.932469 17.09619068,24.321569 1.24992,0.23453 1.707365,-0.55494 1.707365,-1.2354 0,-0.60779 -0.02255,-2.21976 -0.03221,-4.36024 -6.955098,1.54921 -8.420853,-3.435345 -8.420853,-3.435345 -1.1371687,-2.959684 -2.7768827,-3.74915 -2.7768827,-3.74915 -2.271117,-1.588848 0.170736,-1.559117 0.170736,-1.559117 2.5095017,0.181674 3.8302927,2.642572 3.8302927,2.642572 2.229238,3.91761 5.850139,2.784609 7.274018,2.130573 0.228722,-1.658215 0.87301,-2.784612 1.588169,-3.425434 -5.550544,-0.650734 -11.3845747,-2.84737 -11.3845747,-12.671134 0,-2.797824 0.9728747,-5.086952 2.5739317,-6.877294 -0.257716,-0.650734 -1.117841,-3.25697 0.244829,-6.784804 0,0 2.10038,-0.6903724 6.874558,2.629359 1.994072,-0.571456 4.129888,-0.855533 6.256041,-0.865442 2.12293,0.0099 4.261967,0.293986 6.259259,0.862139 4.774176,-3.3164284 6.868115,-2.62936 6.868115,-2.62936 1.362669,3.527835 0.505765,6.134071 0.248052,6.784805 1.601056,1.790342 2.570711,4.07947 2.570711,6.877293 0,9.846883 -5.843699,12.013795 -11.413569,12.648011 0.898782,0.792774 1.697698,2.355191 1.697698,4.746718 0,3.42544 -0.03221,6.19023 -0.03221,7.03255 0,0.68707 0.451001,1.48314 1.720249,1.2321 9.925263,-3.39571 17.080082,-12.998154 17.080082,-24.318274 0,-14.154276 -11.194506,-25.63294939 -25.001607,-25.63294939 z"
+           style="stroke: #DC2A26; stroke-width:2;"
+            >
+              <animate attributeName="fill" from="transparent" begin="3s" to="#DC2A26" dur="1s" fill="freeze"></animate>
+          <path />
+        </g>
+        <text x="674"  y="420"
+          style="font-family: arial;font-size: 12px;stroke: #DC2A26;fill: #DC2A26;opacity: 0;">
+          PowerBy: GitPage
+          <animate attributeName="opacity" from="0" to="1" begin="3s" dur="1s" fill="freeze"></animate>
+        </text>
+    </svg>
+</nav>
+	</header>
+
+	<article>
+		                        <!-- 
+                            信管创业基地 plan.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+
+<section class="plan-container">
+    
+    <p class="plan-title">
+        2017 Years <br/> ImWeb <br/> Training Program
+    </p>
+
+    <ul class="plan-list">
+        <li class="tile" data-cta-target=".js-modal-1" data-disable-scroll=true><span>软件端培养方案</span></li>
+        <li class="tile" data-cta-target=".js-modal-2" data-disable-scroll=true><span>前端培养方案</span></li>
+        <li class="tile" data-cta-target=".js-modal-3" data-disable-scroll=true><span>后端培养方案</span></li>
+    </ul>
+
+</section>
+
+
+<div class="js-modal-1  modal  modal--1">
+    <span class="modal-close-btn"></span>
+
+    <h1>软件端培养方案</h1>
+    <div class="quote-box__bubble">
+        <h2>课程安排</h2>
+        <ol>
+            <li>
+                <h3>广谈编程:code编码，汇编到c的转变</h3>
+            </li>
+            <li>
+                <h3>理解计算机核心硬件组成的必要性</h3>
+            </li>
+            <li>
+                <h3>操作系统的必要性，种类，主要功能，和接口</h3>
+            </li>
+            <li>
+                <h3>c语言函数库，结构体和指针的运用，IO流系统接口，面象对象介绍</h3>
+            </li>
+            
+        </ol>
+        <h2>推荐书籍</h2>
+        <ol type="a">
+            <li>
+                <h3>C++入门</h3>
+                <div class="img-box">
+                   <img src="/assets/img/plan/cpp1.png" title="Linux C" alt="Linux C">
+                   <img src="/assets/img/plan/cpp2.png" title="C++ Primer" alt="C++ Primer"> 
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    ① linux c 足够全面足够浅 <br>
+                    ② C++ Primer 是任何人都能看懂的入门教材
+                </p>
+            </li>
+            <li>
+                <h3>C++进阶</h3>
+                <div class="img-box">
+                    <img src="/assets/img/plan/cpp3.png" title="深入探索C++对象模型" alt="深入探索C++对象模型"> 
+                    <img src="/assets/img/plan/cpp4.png" title="C++程序设计语言" alt="C++程序设计语言"> 
+                    <img src="/assets/img/plan/cpp5.png" title="Effective C" alt="Effective C"> 
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    ① 《深入探索C++对象模型》 是 BAT面试官最爱问的问题集合 <br>
+                    ②  阅读《C++程序设计语言》 让c++之父与你深入全面探讨c++  <br>
+                    ③ 《Effective C》能够教给你55个重要的编程技巧
+                </p>
+            </li>
+
+            <li>
+                <h3>C++高级</h3>
+                <div class="img-box">
+                    <img src="/assets/img/plan/cpp6.png" title="C++沉思录" alt="C++沉思录">
+                    <img src="/assets/img/plan/cpp7.png" title="STL 源码剖析" alt="STL 源码剖析"> 
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    ① 《STL 源码剖析》能带你全面剖析c++标准库源码 <br>
+                    ② 《C++沉思录》让你学会思考如何设计自己的代码
+                </p>
+            </li>
+            <li>
+                <h3>辅助材料</h3>
+                <div class="img-box">
+                     <img src="/assets/img/plan/cpp8.png" title="鸟哥Linux私房菜" alt="鸟哥Linux私房菜">
+                    <img src="/assets/img/plan/cpp9.png" title="现代操作系统" alt="现代操作系统"> 
+                     <img src="/assets/img/plan/cpp10.png" title="大话数据结构" alt="大话数据结构">
+                    <img src="/assets/img/plan/cpp11.png" title="计算机网络(谢希仁 第六版)" alt="计算机网络(谢希仁 第六版)"><hr>
+                     <img src="/assets/img/plan/cpp12.png" title="算法导论" alt="算法导论">
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    ① 《鸟哥Linux私房菜》是鸟哥三部曲之一.太厚了.慎选! <br>
+                    ② 《现代操作系统》带你了解代码运行的平台 <br>
+                    ③ 《大话数据结构》是一部比较有趣的数据结构教材 <br>
+                    ④ 《计算机网络》推动经济发展的互联网（很重要） <br>
+                    ⑤ 《算法导论》难度较高，但看不懂也可以买回来放着装逼
+                </p>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="js-modal-2  modal  modal--2">
+    <span class="modal-close-btn"></span>
+
+    <h1>前端培养方案</h1>
+    <div class="quote-box__bubble">
+        <h2>课程安排</h2>
+        <ol>
+            <li>
+                <h3>Css2.1&amp;Html4基础:</h3>
+                <p>内容：浮动原理、盒模型、定位、BFC、那些年学长学姐们走过的坑</p>
+            </li>
+            <li>
+                <h3>Css2.1&amp;Html4基础:</h3>
+                <p>内容：Css选择器嵌套，居中的n种方法，标签语义化，有趣的Css3过渡小动画</p>
+            </li>
+            <li>
+                <h3>BUG调试&amp;一些简单的Css3小特效</h3>
+                <p>内容：手把手教你们咋用浏览器调试BUG, 一些Css3特效</p>
+            </li>
+            <li>
+                <h3>Js（终于到Js 了，不讲JS真是浑身难受）</h3>
+                <p>内容：基础的略微带过，讲点有意思的东西~~</p>
+            </li>
+        </ol>
+        <h2>学习链接</h2>
+        <ol>
+            <li>
+                <h3>Html</h3>
+                <p>
+                    <a target="_blank" href="http://www.runoob.com/">Html-菜鸟教程</a>
+                    <a target="_blank" href="http://w3schools.bootcss.com/">原版w3cSchools</a>
+                </p>
+            </li>
+            <li>
+                <h3>Css</h3>
+                <p>
+                    <a target="_blank" href="http://www.w3cplus.com/">w3cPlus</a>
+                    <a target="_blank" href="http://w3schools.bootcss.com/css/default.html">原版w3cSchools</a>
+                </p>
+            </li>
+            <li>
+                <h3>Javascirpt</h3>
+                <p>
+                    <a target="_blank" href="http://javascript.ruanyifeng.com/">JavaScript 标准参考教程（alpha）</a>
+                    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN</a>
+                    <a target="_blank" href="http://es6.ruanyifeng.com/">Es6 入门</a>
+                    <a target="_blank" href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000">廖雪峰Js</a>
+                    <a target="_blank" href="http://www.ecma-international.org/ecma-262/6.0/#sec-proxy-object-internal-methods-and-internal-slots-enumerate">Es2015 标准教程</a>
+                    <a target="_blank" href="https://github.com/nzakas/understandinges6/tree/master/manuscript">understanding Es6</a>
+                </p>
+            </li>
+            <li>
+                <h3>Git</h3>
+                <p>
+                    <a target="_blank" href="http://git-scm.com/book">Pro Git</a>
+                    <a target="_blank" href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰Git</a>
+                </p>
+            </li>
+            <li>
+                <h3>web图形学-动画制作</h3>
+                <p>
+                    <a target="_blank" href="http://threejs.org/">ThreeJs（三维制图）</a>
+                    <a target="_blank" href="http://createjs.com/">CreateJs</a>
+                    <a target="_blank" href="http://greensock.com/">greensock</a>
+                </p>
+            </li>
+            <li>
+                <h3>数据可视化</h3>
+                <p>
+                    <a target="_blank" href="http://echarts.baidu.com/">百度Echart</a>
+                    <a target="_blank" href="http://www.chartjs.org/">ChartJs</a>
+                </p>
+            </li>
+            <li>
+                <h3>UI设计</h3>
+                <p>
+                    <a target="_blank" href="http://www.uehtml.com/">UeHtml</a>
+                </p>
+            </li>
+            <li>
+                <h3>NodeJs相关</h3>
+                <p>
+                    <a target="_blank" href="https://nodejs.org/en/">Node官网</a>
+                    <a target="_blank" href="http://expressjs.com/">Express</a>
+                    <a target="_blank" href="http://javascript.ruanyifeng.com/nodejs/basic.html">阮一峰Node</a>
+                </p>
+            </li>
+            <li>
+                <h3>综合性的博客站点</h3>
+                <p>
+                    <a target="_blank" href="http://www.zhangxinxu.com/">张鑫旭的博客</a><a target="_blank" href="http://www.alloyteam.com/">AlloyTeam</a>
+                    <a target="_blank" href="https://github.com/">github</a>
+                    <a target="_blank" href="http://imweb.io/">Imweb社区</a>
+                    <a target="_blank" href="http://fex.baidu.com/">FEX</a>
+                    <a target="_blank" href="https://segmentfault.com/">segmentfault</a>
+                    <a target="_blank" href="http://stackoverflow.com/">StackOverflow</a>
+                    <a target="_blank" href="http://cnodejs.org/">cNode社区</a>
+                </p>
+            </li>
+        </ol>
+        <h2>推荐书籍</h2>
+        <ol type="a">
+            <li>
+                <h3>Javascript</h3>
+                <div class="img-box">
+                   <img src="/assets/img/plan/js1.png" title="javascript高级程序设计（第三版）" alt="javascript高级程序设计（第三版）">
+                   <img src="/assets/img/plan/js2.png" title="Javascript权威指南" alt="javascript权威指南">
+                   <img src="/assets/img/plan/js3.png" title="深入浅出NodeJs" alt="深入浅出NodeJs">
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    犀牛书和红皮书任选一，我选择的是红皮书，犀牛书比红皮书厚，nodeJs 可以以后再买
+                </p>
+            </li>
+            <li>
+                <h3>Css</h3>
+                <div class="img-box">
+                    <img src="/assets/img/plan/css1.png" title="css权威指南" alt="css权威指南">
+                    <img src="/assets/img/plan/css2.png" title="css-secrets" alt="css-secrets">
+                    <img src="/assets/img/plan/css3.png" title="精通Css" alt="精通Css">
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                 <p>
+                    3本任选一，推荐Css权威指南我没读过，但听说不错（消息来自知乎大牛）css-secrets 是大漠推荐，看过部分，觉得不错！ 精通Css 有点老了，综上觉得还是选择权威指南或secrets
+                </p>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+<div class="js-modal-3  modal  modal--3">
+    <span class="modal-close-btn"></span>
+
+    <h1>后端培养方案</h1>
+    <div class="quote-box__bubble">
+        <h2>课程安排</h2>
+        <ol>
+            <li>
+                <h3>初识 Java（1）</h3>
+                <p>内容：Java 语言介绍 安装运行环境 基本数据类型简单介绍</p>
+            </li>
+            <li>
+                <h3>初始 Java（2）</h3>
+                <p>内容：类、静态类、构造器、对象、非静态成员</p>
+            </li>
+            <li>
+                <h3>面向对象</h3>
+                <p>内容：修饰符public,private 、继承、setter和getter Domain实体对象规范 接口和抽象类</p>
+            </li>
+            <li>
+                <h3>实战练习</h3>
+                <p>内容：龙哥带你飞系列~~</p>
+            </li>
+        </ol>
+        <h2>学习链接</h2>
+        <ol>
+            <li>
+                <h3>Java 入门博客</h3>
+                <p>
+                    <a target="_blank" href="http://www.cnblogs.com/vamei/tag/Java/default.html?page=3">Vamei</a>
+                    <a target="_blank" href="http://www.javatpoint.com/java-tutorial">JavtPoint （需要翻墙）</a>
+                </p>
+            </li>
+            <li>
+                <h3>Java 在线文档</h3>
+                <p>
+                    <a target="_blank" href="https://docs.oracle.com/javase/7/docs/api/">Oracle Java在线文档</a>
+                    <a target="_blank" href="http://tool.oschina.net/apidocs/apidoc?api=jdk-zh">开源中国</a>
+                </p>
+            </li>
+        </ol>
+        <h2>推荐书籍</h2>
+        <ol type="a">
+            <li>
+                <h3>Java入门</h3>
+                <div class="img-box">
+                    <img src="/assets/img/plan/java2.png" title="疯狂Java" alt="疯狂Java">
+                    <img src="/assets/img/plan/java4.png" title="Java核心技术卷（1）" alt="Java核心技术卷（1）">
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    书籍任选，因人而异 
+                </p>
+                
+            </li>
+            <li>
+                <h3>Java进阶</h3>
+                <div class="img-box">
+                   <img src="/assets/img/plan/java1.png" title="Java编程思想" alt="Java编程思想">
+                   <img src="/assets/img/plan/java3.png" title="深入Java虚拟机" alt="深入Java虚拟机">
+                   <img src="/assets/img/plan/java5.png" title="Java核心技术卷（2）" alt="Java核心技术卷（2）">
+                   <img src="/assets/img/plan/java6.png" title="Effective Java" alt="Effective Java">
+                </div>
+                <hr>
+                <h3>学长学姐温馨提示：</h3><br>
+                <p>
+                    书籍任选，因人而异
+                </p>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<script src="/assets/js/cta.js"></script>
+<script>
+    var closeFn;
+    function closeShowingModal() {
+        var showingModal = document.querySelector('.modal.show');
+        if (!showingModal) return;
+        showingModal.classList.remove('show');
+        document.body.classList.remove('disable-mouse');
+        document.body.classList.remove('disable-scroll');
+        if (closeFn) {
+            closeFn();
+            closeFn = null;
+        }
+    }
+    document.addEventListener('click', function (e) {
+        var target = e.target;
+        if (target.dataset.ctaTarget) {
+            closeFn = cta(target, document.querySelector(target.dataset.ctaTarget), { relativeToWindow: true }, function showModal(modal) {
+                modal.classList.add('show');
+                document.body.classList.add('disable-mouse');
+                if(target.dataset.disableScroll){
+                    document.body.classList.add('disable-scroll');
+                }
+            });
+        }
+        else if (target.classList.contains('modal-close-btn')) {
+            closeShowingModal();
+        }
+    });
+    document.addEventListener('keyup', function (e) {
+        if (e.which === 27) {
+            closeShowingModal();
+        }
+    })
+</script>
+	</article>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+
+</body>
+	
+						<!-- 
+							信管创业基地 script.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+<!-- 
+	公共全局JS
+ -->
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<!-- 地球 -->
+<script type='text/javascript' src='/assets/js/d3.v3.min.js'></script>
+<script type='text/javascript' src='/assets/js/topojson.v1.min.js'></script>
+<script type='text/javascript' src='/assets/js/planetaryjs.min.js'></script>
+
+<!-- logo -->
+<script type="text/javascript" src="/assets/js/easeljs-0.8.2.min.js"></script>
+<script type="text/javascript" src="/assets/js/TweenLite.min.js"></script>
+<script type="text/javascript" src="/assets/js/fss.min.js"></script>
+<script type="text/javascript" src="/assets/js/vivus.min.js"></script>
+
+<script>
+	timingProps = {
+		type: 'delayed',
+		duration: 150,
+		start: 'autostart',
+		pathTimingFunction: Vivus.EASE_OUT,
+		animTimingFunction: Vivus.LINEAR
+	};
+	new Vivus("logo-svg",timingProps)
+</script>
+
+<!-- 主页文章 -->
+<script type="text/javascript" src="/assets/js/index.js"></script>
+
+<!-- 文章内容 -->
+<script type="text/javascript" src="/assets/js/post.js"></script>
+
+
+</html>

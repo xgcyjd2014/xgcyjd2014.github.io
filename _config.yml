@@ -1,24 +1,33 @@
-﻿highlighter: rouge
+
+# 作者
+author: Neo
+name: 倪云港
+github: http://github.com/niyungang
+email: yungangni@gmail.com
+
+# 配置
+paginate: 12
+paginate_path: "blog/page:num"
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+highlighter: rouge
 markdown: kramdown 
 kramdown:
-  input:         GFM
+  input: GFM
+  auto_ids: true
   syntax_highlighter: rouge
-  auto_ids:      true
 
-
-# 作者信息
-author: Owen
-name: Owen
-email: 469564715@qq.com
-site: http://xgcyjd2014.github.io
-link: http://xgcyjd2014.github.io
-#weibo: 
-github: http://github.com/NumerHero
+# 自定义变量
+domain: "http://xgcyjd2015.github.io"
 
 # 站点信息
-title: 信管创业基地 
+title: 信管创业基地
 description: 信管创业基地官方博客
-url: http://xgcyjd2014.github.io
+url: http://xgcyjd2015.github.io
+site: http://xgcyjd2015.github.io
+link: http://xgcyjd2015.github.io
 
 # rss
 rss_url: /feed.xml

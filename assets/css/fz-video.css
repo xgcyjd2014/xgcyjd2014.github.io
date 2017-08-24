@@ -1,0 +1,313 @@
+              
+              /*--------------------------------------------*\
+                         信管创业基地 fz-video.css
+                       Design And Build By 倪云港
+                       Email: yungangni@gmail.com
+                   Github: http://github.com/niyungang
+              \*--------------------------------------------*/
+
+
+/*loading*/
+.fz-loading{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#bfBtn{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+  	-webkit-transform: translateX(-50%);
+  	transform: translateY(-50%);
+  	-webkit-transform:translateY(-50%);
+  	z-index: 9999;
+	transition: visibility 0.3s, opacity 0.3s;
+	-webkit-transition: visibility 0.3s, opacity 0.3s;
+}
+.spinner {
+  width: 50px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+#sptxt{
+	position: absolute;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%,10px);
+    -webkit-transform: translate(-50%,10px);
+}
+ 
+.spinner > div {
+  background-color: #67CF22;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  margin-right: 4px;
+   
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ 
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+ 
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+ 
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+/*播放器*/
+#fz-videoBox{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: #f1f1f1;
+}
+
+#fz-videoAct{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#fz-videoBox:hover{
+	cursor: pointer;
+}
+
+#fz-videoBox:hover #videoState{
+	opacity: 1;
+}
+
+#videoState{
+	width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(48,40,44,.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+}
+
+#videoState:hover{
+    cursor: default;
+}
+
+#videoStateBox{
+	position: relative;
+    width: 100%;
+    height: 100%;
+    display: box;
+    display: -webkit-box;
+}
+
+#percentage{
+	position: relative;
+    z-index: 1001;
+    -webkit-box-flex: 8; 
+    box-flex: 8;
+    float: left;
+}
+#currentBG{
+    position: absolute;
+    left: 0;
+    top: 49%;
+   /* width: 100%;*/
+    height: 3px;
+    z-index: -1000;
+    opacity: 0;
+    transition: background 0.3s,top 0.3s,height 0.3s,opacity 0.3s,width 0.3s;
+    -webkit-transition: background 0.3s,top 0.3s,height 0.3s,opacity 0.3s,width 0.3s;
+}
+
+#currentPercentage{
+    position: absolute;
+    left: 0;
+    top: 49%;
+    width: 0%;
+    height: 3px;
+    background: #09D1B1;
+    border-right: 2px solid #fff;
+    transition: width 0.3s;
+    -webkit-transition:width 0.3s;
+}
+
+#currentAll{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    top: 49%;
+    background: hsla(0,0%,100%,.5);
+    z-index: -999;
+}
+
+#currentPerc{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0%;
+    height: 0;
+    opacity: 0;
+    background:rgba(9,209,177,.3);
+    border-right: 2px solid #fff;
+    transition: top 0.3s,height 0.3s,opacity 0.3s,width 0.6s;
+    -webkit-transition: top 0.3s,height 0.3s,opacity 0.3s width 0.6s;
+}
+
+#percentage:hover #currentBG{
+    cursor: pointer;
+    background: rgba(181, 181, 181, 0.4);
+    top: 0;
+    height: 100%;
+    opacity: 1;
+}
+
+#percentage:hover #currentPerc{
+    top: 0;
+    opacity: 1;
+    height: 100%;
+    cursor: pointer;
+}
+
+#percentage:hover #currentPerc{
+    top: 0;
+    opacity: 1;
+    height: 100%;
+}
+
+#playOrStop{
+	float: left;
+	position: relative;
+ 	/*position: absolute;*/
+ 	-webkit-box-flex: 0.5; 
+    box-flex: 0.5;
+    bottom: 0;
+   /* width: 30px;
+    height: 30px;
+    left: 1%;*/
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#currentTimeBox{
+	position: relative;
+	float: left;
+	-webkit-box-flex: 0.5; 
+    box-flex: 0.5;
+	/*position: absolute;*/
+    bottom: 0;
+    /*height: 30px;*/
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    /*left: 6%;*/
+}
+
+#videoSpeed{
+	float: left;
+	text-align: center;
+	position: relative;
+	line-height: 40px;
+    color: #fff;
+    box-flex:0.5;
+    -webkit-box-flex:0.5;
+    cursor: pointer;
+}
+#videoSpeed:hover #videoSpeedList{
+    visibility: visible;
+    opacity: 1;
+}
+#videoSpeedList{
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -91px;
+    transition: opacity 0.3s;
+    -webkit-transition:opacity 0.3s;
+}
+#videoSpeedList li{
+	overflow: hidden;
+    background: rgba(48,40,44,.5);
+    margin-bottom: 1px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    line-height: normal;
+}
+#videoSpeedList li:hover{
+    background: rgba(0,0,0,0.5);
+}
+.videoBoxRe{
+    position: relative;
+}
+#videoSound{
+	position: relative;
+	float: left;
+	/*position: absolute;
+    left: 83%;
+    top: 12px;*/
+    box-flex:1;
+    line-height: 40px;
+    -webkit-box-flex:1;
+    color: #fff;
+    cursor: pointer;
+}
+#videoSoundBox{
+    position: relative;
+}
+#soundBar{
+    position: absolute;
+    background: #000;
+    width: 66%;
+    height: 7px;
+    top: 16px;
+    left: 21px;
+}
+#currentSound{
+    width: 50%;
+    height: 100%;
+    background: #2d85ca;
+    transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+}

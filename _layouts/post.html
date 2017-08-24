@@ -1,119 +1,96 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
 <!DOCTYPE html>
-<html manifest="/manifest/post.manifest">
+<html lang="zh-CN">
 <head>
-	<meta charset="utf-8"> 
-    <meta name="description" content="{{ page.title }}-2015信管创业基地-愿景:用心铸造卓越Offer" />
-    <meta name="keywords" content="{{ page.title }},信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,nodejs,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
-    <title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer | {{ page.title }}</title>
-    <link rel="shortcut icon" href="/assets/img/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/blog-post.min.css">
-    <link rel="stylesheet" href="/assets/css/rouge.min.css">
+	{% include head-post.html %}
 </head>
-	
+
 <body>
-	<section class="bg-wrap">
-        <img src="" alt="bg">
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
 
-        <h1 id="article-title">
-            {{ page.title }}         
-        </h1>
-    </section>
-    <div class="container">
-        <nav>
-            <section class="nav-wrap">
-                <figure>
-                    <a href="http://xgcyjd.com/" target="_blank">
-                        <div class="logo-wrap">
-                            <em>
-                               <img src="/assets/img/logo.png" alt="logo">
-                            </em>
-                            <span class="logo-name">IMWEB</span>
-                            
-                            <img class="xgjd" src="/assets/img/xgjd.png" alt="xgjd">
-                        </div>    
-                    </a>
-                </figure>
-            </section>
-        </nav>
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				{{ page.title }}
+			</h1>
+			<section class="article-category">
+				{{ page.category }}
+			</section>
+	        <section class="article-info">
+	        	Posted by {{ page.author }} on {{ page.date | date: "%B %-d, %Y" }}
+	        </section>
+		</section>
+	</header>
 
-        <article>
-            <section class="article-info">
-                <p>
-                    <i class="publish-time"></i>
-                    <span>{{ page.date | %Y%M | date_to_string }}</span>
-                </p>
-                <p>
-                    <i class="author"></i>
-                    <span>{{ page.author }}</span>
-                </p>
-            </section>
-            <section class="article-box">
-                {{ content }}
-                <div class="skip__block">
-                    <div class="skip--last click__block">
-                        <a href="javascript:;">
-                            上一篇：<p></p>
-                        </a>
-                    </div>
-                    <div class="skip--next click__block">
-                        <a href="javascript:;">
-                            下一篇：<p></p>
-                        </a>
-                    </div>
-                </div>
-                {% include duoshuo.html %}
-            </section>
-            
-            <section class="tree-list-wrap clear-select">
-                <div class="tree-section tree-list-title">
-                    <span>
-                        书签目录
-                    </span>
-                </div>
-                <div class="tree-list-box tree-list-box-hidden">
-                    <ul class="tree-list "></ul>
-                    <div class="scroll-bar-box">
-                        <div class="scroll-bar"></div>
-                    </div>    
-                </div>
-                <div class="tree-section tree-list-bottom"></div>
-            </section>
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            {{ content }}
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                {% if page.previous.url %}
+                <a class="previous" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                上一篇<br>
+                <span>{{page.previous.title}}</span>
+                </a>
+                {% endif %}
+                {% if page.next.url %}
+                <a class="next" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+                下一篇<br>
+                <span>{{page.next.title}}</span>
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io{{page.url}}&title=《{{page.title}}》 作者：{{page.author}} 发布日期：{{page.date}}&desc={{decs}}&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io{{page.url}}&title=《{{page.title}}》 作者：{{page.author}} 发布日期：{{page.date}} {{decs}} &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io{{page.url}}&text=《{{page.title}}》 作者：{{page.author}} 发布日期：{{page.date}} {{decs}} " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io{{page.url}}&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《{{page.title}}》 作者：{{page.author}} 发布日期：{{page.date}}&summary={{decs}}" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                {% include youyan.html %}
+            </div>
         </article>
-    </div>
-    
-    <section class="pic-show-wrap pic-show-hidden">
-        <img src="" alt="showPic">
-    </section>
-    
-    <section class="btns-list-wrap">
-        <ul class="btns-list">
-            <li class="back-top">
-                <button class="back-top-btn"></button>
-                <div class="plane-wrap">
-                    <i class="plane"></i>
-                </div>
-            </li>
-            <li class="qr-code">
-                <button class="qr-code-btn"></button>
-                <div class="qr-table">
-                    <div class="qr-code-pic">
-                    </div>
 
-                    <p>
-                        扫码关注微信号
-                    </p>
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
 
-                    <p>
-                        时刻掌握最新Web资讯
-                    </p>
-                </div>
-            </li>
-        </ul>
     </section>
 
-    <script src="/assets/js/jquery-1.11.3.min.js"></script>
-    <script src="/assets/js/blog-post.min.js"></script>
+	<footer>
+		{% include footer.html %}
+	</footer>
 </body>
+    {% include script-post.html %}
 </html>

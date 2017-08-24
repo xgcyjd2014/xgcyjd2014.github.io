@@ -1,0 +1,722 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="使用NodeJs 实现新闻Rss爬虫-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="使用NodeJs 实现新闻Rss爬虫,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				使用NodeJs 实现新闻Rss爬虫
+			</h1>
+			<section class="article-category">
+				js
+			</section>
+	        <section class="article-info">
+	        	Posted by Owen on July 28, 2016
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="什么是rss">什么是Rss</h2>
+
+<blockquote>
+  <p>简易信息聚合（也叫聚合内容）是一种RSS基于XML标准，在互联网上被广泛采用的内容包装和投递协议。RSS(Really Simple Syndication)是一种描述和同步网站内容的格式，是使用最广泛的XML应用。</p>
+</blockquote>
+
+<p>通俗的说就是简易的数据，里面包含各种信息</p>
+
+<h2 id="为什么要获取并分析rss">为什么要获取并分析Rss</h2>
+
+<ol>
+  <li>
+    <p>通过获取Rss可以将多数据集合（例如自动转载文章）</p>
+  </li>
+  <li>
+    <p>分析网站内容，获取有用信息</p>
+  </li>
+  <li>
+    <p>用于练习抓包，为以后进行数据分析做铺垫</p>
+  </li>
+</ol>
+
+<h2 id="使用superagent-和-feedparser-获取并分析-基地博文">使用SuperAgent 和 FeedParser 获取并分析 基地博文</h2>
+
+<p>SuperAgent 是nodeJs 的一个轻量级请求模块，可以用来方便发送HTTP请求，我们用它来获取Rss</p>
+
+<p>FeedParser 是nodeJs 的一个关于Rss 的分析模块，我们可以使用它来分析获取到的数据</p>
+
+<h2 id="具体操作">具体操作</h2>
+
+<p>当然首先安装这两个模块</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">superagent</span> <span class="nx">feedparser</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span>
+</code></pre>
+</div>
+
+<h3 id="使用superagent">使用superAgent</h3>
+
+<p>我们先尝试superAgent 模块使用</p>
+
+<p>在根目录下，新建一个data.xml文件和sa.js</p>
+
+<p>然后在sa.js中写获取的代码</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+    <span class="nx">fs</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+    <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">Url</span> <span class="o">=</span> <span class="s2">"http://xgcyjd.com/feed.xml"</span><span class="p">,</span>
+    <span class="nx">wStream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">"./data.xml"</span><span class="p">)</span>  <span class="c1">// 开辟写IO流</span>
+
+<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">buffer</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"end"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pres</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="nx">req_stream</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">wStream</span><span class="p">)</span> <span class="c1">// 数据写入</span>
+</code></pre>
+</div>
+
+<p>然后执行</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">sa</span>
+</code></pre>
+</div>
+
+<p>你会发现数据都被写入到了xml中了</p>
+
+<p><img src="http://numerhero.github.io/assets/img/get-rss-1.png" alt="shootpic" /></p>
+
+<h3 id="使用feedparser">使用feedParser</h3>
+
+<p>根据刚刚获取的数据，我们就可以使用feedParser进行分析了，让我们尝试打印出博文聚合的文章列表吧</p>
+
+<p>再新建一个 fp.js</p>
+
+<p>并写入如下代码</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+    <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">),</span>
+    <span class="nx">feed</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/data.xml"</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">feed</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="k">new</span> <span class="nx">feedparser</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"meta"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"====== %s ======"</span><span class="p">,</span> <span class="nx">meta</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"readable"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">stream</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+            <span class="nx">item</span>
+
+        <span class="k">while</span><span class="p">(</span><span class="nx">item</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"获取到了文章：%s"</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="o">||</span> <span class="nx">item</span><span class="p">.</span><span class="nx">description</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre>
+</div>
+
+<p>然后</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">fp</span>
+</code></pre>
+</div>
+
+<p><img src="http://numerhero.github.io/assets/img/get-rss-2.png" alt="shootpic" /></p>
+
+<p>很优雅的打印出来了</p>
+
+<p>当然，我们可以把superAgent 部分的代码 和 feedparser 的代码合起来</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+    <span class="nx">fs</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+    <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">Url</span> <span class="o">=</span> <span class="s2">"http://xgcyjd.com/feed.xml"</span><span class="p">,</span>
+    <span class="nx">fp</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">()</span>
+
+<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">buffer</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pres</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+
+<span class="nx">req_stream</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"meta"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== %s ====="</span><span class="p">,</span> <span class="nx">meta</span><span class="p">.</span><span class="nx">title</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"readable"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">$stream</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+            <span class="nx">item</span>
+
+            <span class="k">while</span><span class="p">(</span><span class="nx">item</span> <span class="o">=</span> <span class="nx">$stream</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"获取到了文章: %s"</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="o">||</span> <span class="nx">item</span><span class="p">.</span><span class="nx">description</span><span class="p">)</span>
+            <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre>
+</div>
+
+<p>效果是一样</p>
+
+<h2 id="实战演示">实战演示</h2>
+
+<p>上面我们只是很简单的尝试了这两个模块，现在让我们用这两个模块来干些事儿</p>
+
+<p>例如百度的 <a href="https://www.baidu.com/search/rss.html?wcbem">Rss新闻集合</a></p>
+
+<h3 id="目标">目标</h3>
+
+<p>“尝试获取百度 国内、国际、社会 三个方面的新闻Rss 转为JSON格式 并且汇总到mongoDB数据库中”</p>
+
+<p>思路是先从 这三个方面分别异步的获取Rss资源，等全部获取完成后 再数据转化为JSON 并存入电脑</p>
+
+<p>这种方式，业内一般专业的称呼为 “异步并发” 先分别异步获取，在一并执行下一步</p>
+
+<p>首先，确保你已经装上了mongoDB 数据库</p>
+
+<h3 id="怎样实现nodejs异步并发">怎样实现nodeJs异步并发</h3>
+
+<p>由于抓取的数据所消耗的时间不一，我们常常需要写一个计数器 进行维护</p>
+
+<p>例如下列伪代码：</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">len</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nx">dataStack</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">timer</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">timer</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">timer</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="kd">function</span> <span class="nx">timer</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="err">（</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">len</span><span class="err">）</span> <span class="p">{</span>
+        <span class="nx">handleData</span> <span class="p">(</span><span class="nx">dataStack</span><span class="p">);</span> <span class="c1">// 三个Rss都加载完成后，处理数据栈</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
+<p>这种方法不是不行，但是并不优雅，或许我们可以尝试另外一种方法</p>
+
+<p><a href="https://github.com/JacksonTian">朴灵</a> 给我们带来了他解决方案 <a href="https://github.com/JacksonTian/eventproxy">eventproxy</a></p>
+
+<p>eventproxy 也是一个nodeJs 模块，用于处理异步并发</p>
+
+<p>将上面的代码转换成eventproxy方式</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">eventproxy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"eventproxy"</span><span class="p">),</span>
+    <span class="nx">ep</span>         <span class="o">=</span> <span class="k">new</span> <span class="nx">eventproxy</span><span class="p">();</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+
+
+<span class="c1">// after 获取Rss后 进行处理</span>
+<span class="nx">ep</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">handleData</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>希望大家详细的了解一下这个模块</p>
+
+<h3 id="准备工作">准备工作</h3>
+
+<p>我们首先建立一个简单的文件路径</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<span class="p">.</span><span class="o">/</span>
+ <span class="o">|</span>
+  <span class="err">`</span><span class="o">--</span><span class="nx">database</span>
+        <span class="o">|</span>
+         <span class="err">`</span><span class="o">--</span><span class="nx">dao</span><span class="p">.</span><span class="nx">js</span>
+ <span class="o">|</span>
+  <span class="err">`</span><span class="o">--</span><span class="nx">app</span><span class="p">.</span><span class="nx">js</span>
+ <span class="o">|</span>
+  <span class="err">`</span><span class="o">--</span><span class="nx">service</span><span class="p">.</span><span class="nx">js</span>
+ <span class="o">|</span>
+  <span class="err">`</span><span class="o">--</span><span class="kr">package</span><span class="p">.</span><span class="nx">Json</span>
+
+</code></pre>
+</div>
+
+<p>package.Json 如下</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"get_info"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0.0"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"get_info by superagent, cheerio, eventproxy and mongoDB"</span><span class="p">,</span>
+  <span class="s2">"main"</span><span class="err">:</span> <span class="s2">"index.js"</span><span class="p">,</span>
+  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"test"</span><span class="err">:</span> <span class="s2">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span><span class="p">,</span>
+    <span class="s2">"build"</span><span class="err">:</span> <span class="s2">"babel index.js -d dist -s | node dist/index.js"</span>
+  <span class="p">},</span>
+  <span class="s2">"author"</span><span class="err">:</span> <span class="s2">"你的名儿"</span><span class="p">,</span>
+  <span class="s2">"dependencies"</span> <span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"eventproxy"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"superagent"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"superagent-charset"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"feedparser"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"iconv-lite"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"mongoose"</span><span class="err">:</span> <span class="s2">""</span>
+  <span class="p">},</span>
+  <span class="s2">"license"</span><span class="err">:</span> <span class="s2">"MIT"</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+<p>service.js 用于实际的获取数据</p>
+
+<p>app.js 是入口文件可以用来消费数据（这里暂时不涉及消费数据，所以app逻辑比较简单）</p>
+
+<p>dao.js 用于配置数据库</p>
+
+<h3 id="实际演练">实际演练</h3>
+
+<p>现在让我们投入实战，并且讲解一下一些坑</p>
+
+<p>首先在 service 中我们可以新建一个class (开始涉及一点Es6语法),然后</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">service</span> <span class="p">{</span>
+   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 数据暂存</span>
+   <span class="p">}</span> 
+
+   <span class="nx">getData</span> <span class="p">(</span><span class="nx">valueList</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        
+   <span class="p">}</span>
+
+   <span class="nx">saveData</span> <span class="p">()</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>主要逻辑是getData 和 saveData，我们先来比较简单的app.js</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>              <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+    <span class="nx">service</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"./service.js"</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">DataPort</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">{</span>  
+       <span class="na">name</span><span class="p">:</span> <span class="s2">"国内焦点"</span><span class="p">,</span>
+       <span class="na">category</span><span class="p">:</span> <span class="s2">"civilnews"</span><span class="p">,</span>
+       <span class="na">url</span><span class="p">:</span> <span class="s2">"http://news.baidu.com/n?cmd=1&amp;class=civilnews&amp;tn=rss"</span>
+   <span class="p">},{</span>
+       <span class="na">name</span><span class="p">:</span> <span class="s2">"国际焦点"</span><span class="p">,</span>
+       <span class="na">category</span><span class="p">:</span> <span class="s2">"internews"</span><span class="p">,</span>
+       <span class="na">url</span><span class="p">:</span> <span class="s2">"http://news.baidu.com/n?cmd=1&amp;class=internews&amp;tn=rss"</span>
+   <span class="p">},{</span>   <span class="na">name</span><span class="p">:</span> <span class="s2">"社会焦点"</span><span class="p">,</span>
+       <span class="na">category</span><span class="p">:</span> <span class="s2">"socianews"</span><span class="p">,</span>
+       <span class="na">url</span><span class="p">:</span> <span class="s2">"http://news.baidu.com/n?cmd=1&amp;class=socianews&amp;tn=rss"</span>
+   <span class="p">}</span>
+<span class="p">];</span>
+
+
+<span class="nx">service</span>
+<span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="nx">DataPort</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$self</span><span class="p">)</span> <span class="p">{</span>
+  
+  <span class="nx">$self</span><span class="p">.</span><span class="nx">saveData</span><span class="p">();</span>
+<span class="p">})</span>
+
+</code></pre>
+</div>
+
+<p>很简单就是简单的引入模块，执行函数</p>
+
+<h3 id="superagent-的两个大坑">superAgent 的两个大坑</h3>
+
+<p>再来看看获取数据</p>
+
+<p>获取数据很简单，我们使用上文的方式处理就行了，我这次换成流的方式来写</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedParser</span><span class="p">();</span>
+
+<span class="nx">superAgent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== 获取数据失败 ====="</span><span class="p">)</span> 
+       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">})</span>    
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== 解析数据失败 ====="</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"readable"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">$stream</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+            <span class="nx">item</span>
+
+        <span class="k">while</span><span class="p">(</span><span class="nx">item</span> <span class="o">=</span> <span class="nx">$stream</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span> <span class="p">{</span>                         
+            <span class="c1">// 处理你分析好的数据</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"end"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+         <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"&gt;&gt;&gt;&gt;&gt;&gt; 出现错误!!!"</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== 已解析完数据 ====="</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+</code></pre>
+</div>
+
+<p>上面的code 展示了获取单个数据的情况</p>
+
+<p>注意，这里会有两个大坑，那就是转码问题</p>
+
+<ol>
+  <li>百度存储默认的是以GB2312存储，但是nodeJs 暂时并不支持GB2312编码
+所以我们需要进行转码</li>
+  <li>superAgent 暂时不支持除utf-8以外的其他格式， 对于任何非utf-8 的文档，会强行以utf-8进行编码</li>
+</ol>
+
+<p>这两个问题加起来很坑（主要是一开始并没有意识到）找错误费了不少功夫</p>
+
+<p>首先转码，我们选用 <a href="https://www.npmjs.com/package/iconv-lite">iconv-lite 模块</a></p>
+
+<p>只需要在流入fp前 进行转码即可：</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">iconv</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"iconv-lite"</span><span class="p">)</span>
+
+<span class="p">...</span>
+
+<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">iconv</span><span class="p">.</span><span class="nx">decodeStream</span><span class="p">(</span><span class="s2">"gb2312"</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">iconv</span><span class="p">.</span><span class="nx">encodeStream</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span>
+<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">iconv</span><span class="p">.</span><span class="nx">decodeStream</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span>
+
+</code></pre>
+</div>
+
+<p>再来就是 将superAgent 的文件修改编码</p>
+
+<p>我们选用 一个国人写模块 <a href="https://www.npmjs.com/package/superagent-charset">superagent-charset</a></p>
+
+<p>将superAgent 重新配置一下</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">request</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+    <span class="nx">charsetCompoent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'superagent-charset'</span><span class="p">),</span>
+    <span class="nx">superagent</span>      <span class="o">=</span> <span class="nx">charsetCompoent</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>然后在发送请求之前</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">charset</span><span class="p">(</span><span class="s1">'gb2312'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>将编码设置为GB2312</p>
+
+<h3 id="feedparser-的一个大坑">feedparser 的一个大坑</h3>
+
+<p>feedparser 没什么，但是依然遇到了个BUG,跑去问公司大牛，弄了一个半小时解决~</p>
+
+<p>主要就是获取多类新闻数据组的时候，解析出现了数据丢失，</p>
+
+<p>经过分析，最终确认是，fp的问题</p>
+
+<p>一开始写的是</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">();</span>
+
+<span class="nx">DataPort</span> <span class="o">=</span> <span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">superAgent</span>
+        <span class="p">.</span><span class="nx">xxx</span>
+        <span class="p">.</span><span class="nx">xxx</span>
+
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<p>解决完后是</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">DataPort</span> <span class="o">=</span> <span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">();</span>
+    <span class="nx">superAgent</span>
+        <span class="p">.</span><span class="nx">xxx</span>
+        <span class="p">.</span><span class="nx">xxx</span>
+
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>因为 superAgent 获取数据是异步的，而单个fp解析能力是有限的</p>
+
+<p>第一组内容完成后，fp开始解析，在解析过程中，第二组内容也获取完毕
+依照一开始写的方式，fp就会丢掉正在解析的第一组数据，转而去解析第二组，从而产生数据丢失</p>
+
+<p>而第二种方式，每次解析完成后都会新生成一个fp实例进行解析，2组对应2个fp 这样就不会发生数据丢失的行为！</p>
+
+<h3 id="数据存储">数据存储</h3>
+
+<p>我们再来看saveData</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">$self</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 存储数据</span>
+    <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"save_Data"</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="c1">// 每组数据存储完毕后</span>
+<span class="nx">ep</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="s2">"save_Data"</span><span class="p">,</span> <span class="nx">$self</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">db</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span> <span class="c1">// 关闭数据库</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>很简单的逻辑</p>
+
+<h3 id="具体源码">具体源码</h3>
+
+<p>上文只是解析了部分代码，具体源码请见：<a href="https://github.com/NumerHero/Get_BaiDuNewsRss_By_NodeJS#get_baidunewsrss_by_nodejs">Get_BaiDuNewsRss_By_NodeJS</a></p>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/c++/2016/07/28/function-object.html" data-toggle="tooltip" data-placement="top" title="用C++函数对象代替函数指针">
+                上一篇<br>
+                <span>用C++函数对象代替函数指针</span>
+                </a>
+                
+                
+                <a class="next" href="/java/2016/08/21/java-basics.html" data-toggle="tooltip" data-placement="top" title="Java知识集锦">
+                下一篇<br>
+                <span>Java知识集锦</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/js/2016/07/28/get-rss.html&title=《使用NodeJs 实现新闻Rss爬虫》 作者：Owen 发布日期：2016-07-28 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/js/2016/07/28/get-rss.html&title=《使用NodeJs 实现新闻Rss爬虫》 作者：Owen 发布日期：2016-07-28 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/js/2016/07/28/get-rss.html&text=《使用NodeJs 实现新闻Rss爬虫》 作者：Owen 发布日期：2016-07-28 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/js/2016/07/28/get-rss.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《使用NodeJs 实现新闻Rss爬虫》 作者：Owen 发布日期：2016-07-28 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

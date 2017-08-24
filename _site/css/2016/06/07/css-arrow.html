@@ -1,0 +1,394 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="如何使用css 绘制三角形？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="如何使用css 绘制三角形？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				如何使用css 绘制三角形？
+			</h1>
+			<section class="article-category">
+				css
+			</section>
+	        <section class="article-info">
+	        	Posted by Owen on June 7, 2016
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="传统的解决方案">传统的解决方案</h2>
+
+<p>不得不承认，随着需求的增大，在html中绘制三角已经确实比较重要了</p>
+
+<p>传统的解决方案，是通过border设置的,一般都是使用伪元素控制</p>
+
+<p>我们来看相对应的sass</p>
+
+<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$size</span><span class="o">,</span><span class="nv">$dir</span><span class="p">)</span> <span class="err">{</span>
+	<span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="err">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="err">;</span>
+
+    <span class="nl">width</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+
+    <span class="nl">border</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nb">transparent</span><span class="err">;</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"l"</span> <span class="err">{</span>
+        <span class="nl">border-right</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="err">;</span>
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"r"</span> <span class="err">{</span>
+        <span class="nl">border-left</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="err">;</span>
+    <span class="err">}</span> 
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"t"</span> <span class="err">{</span>
+        <span class="nl">border-bottom</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="err">;</span>
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"b"</span> <span class="err">{</span>
+        <span class="nl">border-top</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="err">;</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre>
+</div>
+
+<p>原理很简单，当宽和高都为0的时候，边框就会被渲染成一个三角形，只要把其他三边变为透明的即可</p>
+
+<p><img src="http://numerhero.github.io/assets/img/arrow-css1.png" alt="proto" /></p>
+
+<h3 id="如何为三角形绘制边">如何为三角形绘制边</h3>
+
+<p>上面说到，三角形是通过边框渲染出来的，那么我们就不能再使用border 属性来为其添加边框</p>
+
+<p>box-shadow 也并不合适,因为box-shadow 只能给4个边添加阴影，并没有类似 border-shadow的属性</p>
+
+<p>而通常的需求是给三角的 上面添加边框，那么传统的方法就比较难以解决</p>
+
+<p>Tencent 的 ImWeb 团队想到了一种方法，即使用两个三角重叠的方法</p>
+
+<div class="language-sass highlighter-rouge"><pre class="highlight"><code>
+<span class="nc">.xxx</span> <span class="err">{</span>
+
+	<span class="err">&amp;</span><span class="p">:</span><span class="o">:</span><span class="n">after</span> <span class="err">{</span>
+		<span class="k">@include</span> <span class="nd">arrow</span><span class="p">(</span><span class="mh">#000</span><span class="o">,</span><span class="m">18px</span><span class="o">,</span><span class="s2">"t"</span><span class="p">)</span><span class="err">;</span>
+	<span class="err">}</span>
+	
+	<span class="err">&amp;</span><span class="p">:</span><span class="o">:</span><span class="n">before</span> <span class="err">{</span>
+		<span class="k">@include</span> <span class="nd">arrow</span><span class="p">(</span><span class="no">red</span><span class="o">,</span><span class="m">16px</span><span class="o">,</span><span class="s2">"t"</span><span class="p">)</span>
+	<span class="err">}</span>
+<span class="err">}</span>
+
+</code></pre>
+</div>
+
+<p>上面 设置了两个三角形，方案是，将小三角压在大的三角上面，大的三角的颜色即需要设置边框的颜色，再调整z-index</p>
+
+<p>如图：</p>
+
+<p><img src="http://numerhero.github.io/assets/img/arrow-css2.png" alt="proto" /></p>
+
+<h2 id="使用css3-绘制三角形">使用Css3 绘制三角形</h2>
+
+<p>虽然成功解决了问题，但是比较麻烦，有没有更加简单的方法呢？</p>
+
+<p>有，那就是通过css3 的linear-gradient 渐变方法</p>
+
+<p>我们可以测试一下这条语句</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">45deg</span> <span class="o">,</span> <span class="nt">red</span> <span class="nt">50</span><span class="o">%</span> <span class="o">,</span> <span class="nt">transparent</span> <span class="nt">50</span><span class="o">%);</span>
+</code></pre>
+</div>
+
+<p>不出意外的话应该是一个向左下角的红三角</p>
+
+<p>这是通过45deg 渐变实现的 即从红渐变到透明</p>
+
+<p>这样就能渲染出一个三角形</p>
+
+<p>当然，我们就可以通过 border-left 和 bottom 这两个属性，给三角添加边框</p>
+
+<p>我们还可以控制三角的宽高…方向（rotate）</p>
+
+<p>其他的不说了，show you the code</p>
+
+<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span> <span class="nv">$w</span><span class="o">,</span><span class="nv">$h</span><span class="o">,</span><span class="nv">$border-size</span><span class="o">,</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$border-color</span><span class="o">,</span><span class="nv">$dir</span> <span class="p">)</span> <span class="err">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="err">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
+    <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="err">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nv">$w</span><span class="err">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="nv">$h</span><span class="err">;</span>
+    
+    <span class="nl">background</span><span class="p">:</span> <span class="nf">linear-gradient</span><span class="p">(</span><span class="m">45deg</span> <span class="o">,</span><span class="nv">$color</span> <span class="m">50%</span><span class="o">,</span><span class="nb">transparent</span> <span class="m">50%</span><span class="p">)</span><span class="err">;</span>
+    <span class="nl">border-bottom</span><span class="p">:</span> <span class="nv">$border-size</span> <span class="nb">solid</span> <span class="nv">$border-color</span><span class="err">;</span>
+    <span class="nl">border-left</span><span class="p">:</span> <span class="nv">$border-size</span> <span class="nb">solid</span> <span class="nv">$border-color</span><span class="err">;</span>
+
+
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"lt"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">90deg</span><span class="p">)</span><span class="err">;</span> 
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"lb"</span> <span class="err">{</span>
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"rt"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">-180deg</span><span class="p">)</span><span class="err">;</span> 
+    <span class="err">}</span>
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"rb"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">-90deg</span><span class="p">)</span><span class="err">;</span> 
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"l"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">)</span><span class="err">;</span>
+    <span class="err">}</span>
+
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"t"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">135deg</span><span class="p">)</span><span class="err">;</span>
+        
+    <span class="err">}</span>
+    
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"r"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">-135deg</span><span class="p">)</span><span class="err">;</span>
+    <span class="err">}</span> 
+
+    <span class="k">@if</span> <span class="nv">$dir</span> <span class="o">==</span> <span class="s2">"b"</span> <span class="err">{</span>
+        <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">-45deg</span><span class="p">)</span><span class="err">;</span>
+        
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre>
+</div>
+
+<h2 id="比较新的方案">比较新的方案</h2>
+
+<p>最近，已经有部分浏览器开始兼容 clip-path 这个css3属性，截止到现在，仅仅只有-webkit-支持这项功能（见caniuse）</p>
+
+<p>我们可以很简单的就通过裁切路径，将背景裁切成三角形</p>
+
+<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="na">-webkit-clip-path</span><span class="p">:</span> <span class="nf">polygon</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span> <span class="m">100%</span><span class="o">,</span><span class="m">100%</span> <span class="m">50%</span><span class="p">)</span><span class="err">;</span>
+</code></pre>
+</div>
+
+<p>很方便就画出了一个左三角</p>
+
+<p>polygon 即多边形的意思，有了它我们可以将背景裁切成各种各样的图形</p>
+
+<p>抛开兼容性问题，这一方案无疑是最佳的解决方案</p>
+
+<p>并且polygon 支持transform 变形，但是需要注意的一点是:</p>
+
+<blockquote>
+  <p>自张鑫旭的博客； polygon的动画变形的一个重要条件：坐标的数目变形前后必须一致。</p>
+</blockquote>
+
+<p>也就是说，当我们一开始固定好坐标后，所有的就定死了。你只能修改坐标的位置，而不能增加或减少坐标</p>
+
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/js/2016/05/22/es6-proxy.html" data-toggle="tooltip" data-placement="top" title="Es6 对象Proxy">
+                上一篇<br>
+                <span>Es6 对象Proxy</span>
+                </a>
+                
+                
+                <a class="next" href="/js/2016/06/20/thinking-in-React.html" data-toggle="tooltip" data-placement="top" title="Thinking in React">
+                下一篇<br>
+                <span>Thinking in React</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/css/2016/06/07/css-arrow.html&title=《如何使用css 绘制三角形？》 作者：Owen 发布日期：2016-06-07 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/css/2016/06/07/css-arrow.html&title=《如何使用css 绘制三角形？》 作者：Owen 发布日期：2016-06-07 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/css/2016/06/07/css-arrow.html&text=《如何使用css 绘制三角形？》 作者：Owen 发布日期：2016-06-07 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/css/2016/06/07/css-arrow.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《如何使用css 绘制三角形？》 作者：Owen 发布日期：2016-06-07 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>

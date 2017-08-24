@@ -1,0 +1,483 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!-- 
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="如何制作霓虹灯动画？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="如何制作霓虹灯动画？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				如何制作霓虹灯动画？
+			</h1>
+			<section class="article-category">
+				js
+			</section>
+	        <section class="article-info">
+	        	Posted by Owen on December 7, 2016
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h2 id="起因">起因</h2>
+
+<p>网上认识的某FE 找我接的私活，想想觉得可以就干了</p>
+
+<h2 id="样式">样式</h2>
+
+<iframe height="486" scrolling="no" title="rWBKJp" src="//codepen.io/numerhero/embed/KNZRGz/?height=650&amp;theme-id=0&amp;default-tab=result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/numerhero/pen/rWBKJp/">rWBKJp</a> by Owen (<a href="http://codepen.io/numerhero">@numerhero</a>) on <a href="http://codepen.io">CodePen</a>.
+</iframe>
+
+<h2 id="思路">思路</h2>
+
+<p>绘制好灯泡运动的圆角矩形路径，每个路径点入栈，每次渲染都基于各个路径点坐标绘制小灯泡，周而复始</p>
+
+<h2 id="怎么画圆角矩形">怎么画圆角矩形</h2>
+
+<p>非常简单，就是步骤比较繁琐，需要定位一个起始点 然后依次</p>
+
+<p>上、右上圆角、右、右下圆角、下、左下圆角、左、左上圆角</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawRoundedRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">bdWidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="nx">bdColor</span><span class="p">,</span><span class="nx">bgcolor</span><span class="p">){</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">r</span><span class="p">,</span><span class="nx">y</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">bdWidth</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">bdColor</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">w</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">x</span><span class="o">+</span><span class="nx">w</span><span class="p">,</span><span class="nx">y</span><span class="o">+</span><span class="nx">h</span><span class="p">,</span><span class="nx">r</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">w</span><span class="p">,</span><span class="nx">y</span><span class="o">+</span><span class="nx">h</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="o">+</span><span class="nx">h</span><span class="p">,</span><span class="nx">r</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="o">+</span><span class="nx">h</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">r</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">x</span><span class="o">+</span><span class="nx">w</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">r</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">bgcolor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">bgcolor</span><span class="p">;</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">()</span>
+  <span class="p">};</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>我们通过这个函数，可以尝试先绘制出两个圆角矩形</p>
+
+<p><img src="http://numerhero.github.io/assets/img/neno1.png" alt="pic" /></p>
+
+<h2 id="获得灯泡的运动轨迹">获得灯泡的运动轨迹</h2>
+
+<p>和绘制圆角矩形相同，我们需要获得灯泡的运动轨迹</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getTrail</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">sx</span> <span class="o">=</span> <span class="nx">fx</span> <span class="o">+</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">sy</span> <span class="o">=</span> <span class="nx">fy</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">w</span> <span class="o">=</span> <span class="nx">bw</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">h</span> <span class="o">=</span> <span class="nx">bh</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[],</span>
+      <span class="nx">section</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// 轨迹点间隔区间 </span>
+      <span class="nx">csection</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="c1">// 圆轨迹区间</span>
+      <span class="nx">ccp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>          <span class="c1">// 圆角圆心点</span>
+      <span class="nx">coffset</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="nx">PI</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>   <span class="c1">// 圆轨迹起始位置</span>
+
+  <span class="c1">// 上边</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">sx</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">w</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="nx">section</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">i</span><span class="p">,</span> <span class="nx">sy</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">sx</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">ccp</span> <span class="o">=</span> <span class="p">[</span><span class="nx">sx</span> <span class="p">,</span> <span class="nx">sy</span> <span class="o">+</span> <span class="nx">cradius</span><span class="p">];</span>
+  <span class="c1">// 右上圆角</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">coffset</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="nx">tPI</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="nx">csection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">)]);</span>
+  <span class="p">}</span>
+  <span class="nx">sx</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nx">sy</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="c1">// 右边</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">sy</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">h</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="nx">section</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">sx</span><span class="p">,</span> <span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">sy</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">ccp</span> <span class="o">=</span> <span class="p">[</span><span class="nx">sx</span> <span class="o">-</span> <span class="nx">cradius</span><span class="p">,</span> <span class="nx">sy</span><span class="p">]</span>
+  <span class="c1">// 右下圆角</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="nx">tPI</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="nx">tPI</span><span class="o">/</span><span class="mi">2</span> <span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="nx">csection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">)]);</span>
+  <span class="p">}</span>
+  <span class="nx">sx</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nx">sy</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+
+  <span class="c1">// 下边</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">sx</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">;</span> <span class="nx">i</span> <span class="o">-=</span> <span class="nx">section</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">i</span><span class="p">,</span><span class="nx">sy</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">sx</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">ccp</span> <span class="o">=</span> <span class="p">[</span><span class="nx">sx</span><span class="p">,</span> <span class="nx">sy</span> <span class="o">-</span> <span class="nx">cradius</span><span class="p">];</span>
+  
+  <span class="c1">// 左下圆角</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="nx">tPI</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="nx">tPI</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">csection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">)]);</span>
+  <span class="p">}</span>
+  <span class="nx">sx</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nx">sy</span> <span class="o">=</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+
+  <span class="c1">// 左边</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">sy</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">15</span> <span class="o">+</span> <span class="nx">cradius</span><span class="p">;</span> <span class="nx">i</span> <span class="o">-=</span> <span class="nx">section</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">sx</span><span class="p">,</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="nx">sy</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="nx">ccp</span> <span class="o">=</span> <span class="p">[</span><span class="nx">sx</span> <span class="o">+</span> <span class="nx">cradius</span><span class="p">,</span> <span class="nx">sy</span><span class="p">];</span>
+  <span class="c1">// 左上角</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="nx">tPI</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">coffset</span> <span class="o">+</span> <span class="nx">tPI</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="nx">csection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">ccp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Cos</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">ccp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">cradius</span><span class="o">*</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">i</span><span class="p">)]);</span>
+  <span class="p">}</span>
+
+  <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">fx</span> <span class="o">+</span> <span class="mi">15</span><span class="p">,</span><span class="nx">fy</span> <span class="o">+</span> <span class="mi">5</span><span class="p">]);</span>
+  
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>直线的轨迹点很好获取，通过循环长度就能获取，为了让动画不会掉帧，这里我们就设置的轨迹点间隔比较小（section = 2）当然你也试试其他值</p>
+
+<p>圆形的轨迹点也不算太难，每一个圆角 循环 1/4 个圆，每个圆上的点相隔的间距为 csection=0.1, 需要注意的是 圆的初始位置为水平3点钟方向，我们应该设置 12点钟方向 为圆角轨迹的起始点，所以我们应该设置 coffset = -(PI/2)</p>
+
+<p>弄好以后我们可以将轨迹打印出来看一看</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">w</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">w</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="nx">w</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>我们可以清楚的看到，灯泡带 将会运动的红色轨迹</p>
+
+<p><img src="http://numerhero.github.io/assets/img/neno2.png" alt="pic" /></p>
+
+<p>当然效果中是不能看到的，所以原码里面也不会有上面的测试代码</p>
+
+<h2 id="绘制灯泡">绘制灯泡</h2>
+
+<p>实际上就是canvas 绘制圆</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCircle</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">bg</span><span class="o">=</span><span class="s2">"rgba(238,232,255,1)"</span> <span class="p">,</span> <span class="nx">isshadow</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">(</span><span class="nx">bw</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="nx">sw</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+      
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isshadow</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowColor</span>  <span class="o">=</span> <span class="s2">"rgba(255, 255, 255, 1)"</span><span class="p">;</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 阴影Y轴偏移</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 阴影X轴偏移</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 模糊尺寸</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowColor</span>  <span class="o">=</span> <span class="s2">"transparent"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">bg</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">tPI</span><span class="p">);</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>这里我加了一点shadow 模拟白光，用一个isshadow 判断灯泡是否开启， 如果灯泡是熄灭的，就不加阴影，并且给透明度为0.2</p>
+
+<h2 id="运动">运动</h2>
+
+<p>如上都是静态的，如何让他们动起头来呢？</p>
+
+<p>这里我的思路是 设置一个 nowkey 标识， nowkey 从 0 到 w.length （轨迹栈的长度）
+无限往复</p>
+
+<p>在设置一个 变量 re 用来控制 每个灯泡间的间距。
+从 nowkey 开始 每隔 re 个点 绘制一个灯泡</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCricleGroup</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">v</span><span class="p">,</span><span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// m 控制绘制灯的个数</span>
+
+  <span class="c1">// 当 k 差不多累计一圈轨迹之后，停止循环</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">k</span> <span class="o">+</span> <span class="nx">re</span> <span class="o">&lt;=</span> <span class="nx">w</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">t</span><span class="p">];</span>
+    <span class="nx">m</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">cflag</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">m</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">drawCircle</span><span class="p">(</span><span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"rgba(255,255,255,"</span><span class="o">+</span> <span class="mi">1</span> <span class="o">+</span><span class="s2">")"</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">drawCircle</span><span class="p">(</span><span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"rgba(255,255,255,"</span><span class="o">+</span> <span class="mf">0.2</span> <span class="o">+</span><span class="s2">")"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>  
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">m</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">drawCircle</span><span class="p">(</span><span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"rgba(255,255,255,"</span><span class="o">+</span> <span class="mf">0.2</span> <span class="o">+</span><span class="s2">")"</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>  
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">drawCircle</span><span class="p">(</span><span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"rgba(255,255,255,"</span><span class="o">+</span> <span class="mi">1</span> <span class="o">+</span><span class="s2">")"</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>  
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">t</span> <span class="o">+</span> <span class="nx">re</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">w</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span> <span class="o">+</span> <span class="nx">re</span> <span class="o">-</span> <span class="nx">w</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">t</span> <span class="o">+=</span> <span class="nx">re</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">k</span> <span class="o">+=</span> <span class="nx">re</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>效果如下</p>
+
+<p><img src="http://numerhero.github.io/assets/img/neno3.gif" alt="gif" /></p>
+
+<h2 id="灯泡闪烁">灯泡闪烁</h2>
+
+<p>灯泡带可以运动了，但是如何让灯泡有闪烁的效果呢？
+这里我设置了一个 cflag 用来控制小灯泡的开和关</p>
+
+<p>每当 nowkey 走过了一个灯泡间距，就让 cflag 切换</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">nowkey</span> <span class="o">%</span> <span class="nx">re</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">cflag</span> <span class="o">^=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>当 cflag 来回切换后，灯泡也会奇偶数进行开关闪烁了</p>
+
+<h2 id="自适应">自适应</h2>
+
+<p>如何自适应布局</p>
+
+<p>首先是 获取了 这个文档的宽</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">oW</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>通过 gap 和 oW 自适应</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">gap</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>               <span class="c1">// 两边间距</span>
+
+<span class="nx">fx</span> <span class="o">=</span> <span class="nx">gap</span><span class="p">;</span>               <span class="c1">// 大屏起始点坐标</span>
+<span class="nx">fy</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="nx">fx2</span> <span class="o">=</span> <span class="nx">gap</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>         <span class="c1">// 小屏起始点坐标</span>
+<span class="nx">fy2</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="nx">bw</span> <span class="o">=</span> <span class="p">(</span><span class="nx">oW</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="nx">gap</span><span class="p">);</span>       <span class="c1">// 大屏宽</span>
+<span class="nx">bh</span> <span class="o">=</span> <span class="p">(</span><span class="nx">oH</span> <span class="o">+</span> <span class="nx">gap</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.875</span><span class="p">;</span> <span class="c1">// 大屏高</span>
+
+<span class="nx">sw</span> <span class="o">=</span> <span class="nx">bw</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>            <span class="c1">// 小屏宽</span>
+<span class="nx">sh</span> <span class="o">=</span> <span class="nx">bh</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>            <span class="c1">// 小屏高</span>
+</code></pre>
+</div>
+
+<h2 id="源代码">源代码</h2>
+
+<p>想深入研究其他细节的同学，请参照<a href="https://github.com/NumerHero/animations">源码</a></p>
+
+<p>喜欢该效果的朋友可以不要吝惜您的star哦~</p>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/js/2016/11/13/water-bubble.html" data-toggle="tooltip" data-placement="top" title="如何制作水球动画图？">
+                上一篇<br>
+                <span>如何制作水球动画图？</span>
+                </a>
+                
+                
+                <a class="next" href="/other/2016/12/09/passage.html" data-toggle="tooltip" data-placement="top" title="基地官网文章上传的解决方案">
+                下一篇<br>
+                <span>基地官网文章上传的解决方案</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/js/2016/12/07/neon-light.html&title=《如何制作霓虹灯动画？》 作者：Owen 发布日期：2016-12-07 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/js/2016/12/07/neon-light.html&title=《如何制作霓虹灯动画？》 作者：Owen 发布日期：2016-12-07 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/js/2016/12/07/neon-light.html&text=《如何制作霓虹灯动画？》 作者：Owen 发布日期：2016-12-07 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/js/2016/12/07/neon-light.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《如何制作霓虹灯动画？》 作者：Owen 发布日期：2016-12-07 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!-- 
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<footer>
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="">关于我们</a>
+			</li>
+			<li>
+				<a href="">加入我们</a>
+			</li>
+			<li>
+				<a href="">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2017
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+			</span>
+		</p>
+		<p>
+			
+		</p>
+	</div>
+
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/post.js"></script>
+</html>
