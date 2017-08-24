@@ -335,8 +335,16 @@ header{
 }
 
 @media screen and (max-width: 1100px) {
+	.passage{
+		width: 100%;
+		border: none;
+	}
 	.passage-li{
 			/*background: green;*/
-			margin: 0 0 6% 6%;
+			margin: 0 auto;
 		}
+	.sidebar{
+		width: 0;
+		display: none;
+	}
 }
