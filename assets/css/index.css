@@ -341,10 +341,9 @@ header{
 	}
 	.passage-li{
 			/*background: green;*/
-			margin: 0 auto;
+			margin: 10px 0 0 20px;
 		}
 	.sidebar{
-		width: 0;
 		display: none;
 	}
 }
