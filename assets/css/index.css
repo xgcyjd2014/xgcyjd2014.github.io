@@ -17,7 +17,7 @@ header{
 	height: 80px;
 	width: 100%;
 	transition: 1s all;
-	z-index: 2;
+	z-index: 9;
 }
 
 .navUl{
