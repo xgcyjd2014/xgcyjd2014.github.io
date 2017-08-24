@@ -18,7 +18,6 @@ header{
 	width: 100%;
 	transition: 1s all;
 	z-index: 99;
-	border: solid 1px red;
 }
 
 .navUl{
