@@ -3,7 +3,7 @@ layout: post
 title: Es2017 将会给我们带来什么？
 author: Owen
 tagpic: js.jpg
-description: 简要介绍React version 0.16 的新特性
+description: 简要介绍 Es 2017 新语法和用法
 category: js
 keywords: 技术
 ---
