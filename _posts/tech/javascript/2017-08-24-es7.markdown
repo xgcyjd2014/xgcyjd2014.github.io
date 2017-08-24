@@ -517,7 +517,7 @@ ia[37] = 123456; // 最后为 123456
 
 Atomic 下存在多个静态方法用来操作 SharedArrayBuffer 共享内存对象
 
-具体可以看 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Atomics
+具体可以看 [MDN Atomics](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
 
 关于 Atomic 的介绍
 
