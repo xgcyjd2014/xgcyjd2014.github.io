@@ -169,13 +169,6 @@ blockquote,body,figure,ol,p,ul{
 	color: #0085a1 !important;
 }
 
-
-@media (max-width: 1200px){
-    .catalog{
-        display: none;
-    }
-}
-
 /* 主体 */
 .post-box{
 	position: relative;
@@ -504,8 +497,40 @@ a:hover{
 @media screen and (max-width: 1100px) {
 	.post-body{
 		width: 100%;
+		padding: 0 10px;
 	}
 	.catalog{
 		display: none;
 	}
+	/*logo*/
+	.post-logo{
+		top: 10px;
+		left: 10px;
+	}
+
+	.post-logo img{
+		width: 20px;
+		height: 20px;
+		float: left;
+	}
+
+	.logo-name{
+		height: 20px;
+		line-height: 20px;
+		font-size: 13px;
+		margin-left: 5px;
+	}
+
+	.article-title{
+		font-size: 14px;
+	}
+
+	.article-info{
+		margin-top: 10px;
+	}
+
+	.article-category{
+		margin-top: 10px;
+	}
+
 }
