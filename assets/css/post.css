@@ -499,3 +499,13 @@ a:hover{
 .qq:hover{
     background: url(/assets/img/post/blogs-list-icon-hover.png) -2px -108px;
 } 
+
+/*屏幕响应*/
+@media screen and (max-width: 1100px) {
+	.post-body{
+		width: 100%;
+	}
+	.catalog{
+		display: none;
+	}
+}
