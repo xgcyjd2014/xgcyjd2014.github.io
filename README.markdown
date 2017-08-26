@@ -5,13 +5,14 @@
 
 ## 各版本特性
 
-#### Version 1.0
+### Version 1.0
 
-* 重新设计、亦是从心设计。
-* 展示页参考 [腾讯官网](https://www.tencent.com/zh-cn/index.html) 的页面风格，视觉效果与用户体验更佳。
+* 重新打造、亦是从心打造。
 * 化简为繁、简化逻辑。基地官网主要功能为阅读文章，将文章直接放置在首页中，按需翻页，效率更高。
-* 文章列表参考 [腾讯ISUX](https://www.tencent.com/zh-cn/index.html) 的卡片风格，更加清新自然、赏心悦目。
-* 网站底部信息板块参考 [segmentfault](https://segmentfault.com/) 的设计方案，并使用暗色格调，效果更加正式与官方。
+* 网站整体框架设计参考 [百度FEX](http://http://fex.baidu.com/) 的风格。
+* 展示区域设计参考 [腾讯官网](https://www.tencent.com/zh-cn/index.html) 的页面风格，视觉效果与用户体验更佳。
+* 文章列表设计参考 [腾讯ISUX](https://www.tencent.com/zh-cn/index.html) 的卡片风格，更加清新自然、赏心悦目。
+* 网站底部信息板块设计参考 [segmentfault](https://segmentfault.com/) 的风格，并使用暗色格调，效果更加正式与官方。
 * 合适位置使用流光效果，色彩不再单一乏味、页面效果更加丰富多彩。
 * 全站使用鼠标点击特效，提高用户体验与观赏趣味。
 * 文章阅读页面参考 Clean Blog 风格，减少不必要的视觉阻碍，阅读文章一气呵成。
@@ -46,7 +47,7 @@ sitemap     是配置SEO 的文件
 Rouge.css   高亮css脚本，控制高亮颜色，熊孩儿莫动~
 
 
-# css、js 私有化
+## css、js 私有化
 
 每一个需要base.html公用布局 的页面都有一套自己的私有css 和 js<br/>
 
@@ -64,7 +65,7 @@ index.js<br/>
 
 这些与公有的Jquery无联系，就直接在页面的底部直接引用，以保证私有化 
 
-# 撰写博文
+## 撰写博文
 
 如需撰写博文，首先和我（倪云港）提交一个固定的作者名（中英文）
 
@@ -161,7 +162,7 @@ other<br/>
 
 `② 以上所有xxx代指语言 如：javascript , xxx语言必须小写！！`
 
-# 评论留言
+## 评论留言
 
 `Disqus`优点是：国际比较流行，界面也很大气、简介，如果有人评论，还能实时通知，直接回复通知的邮件就行了；缺点是：评论必须要去注册一个disqus账号，分享一般只有Facebook和Twitter，另外在墙内加载影响很大。
 
@@ -171,29 +172,33 @@ other<br/>
 
 自从多说停止服务后友言评论系统加载十分缓慢与不稳定，考虑到Disqus对与国内用户体验不太友好(需翻墙)，经多次调查与测试决定将评论系统更改为 来必力，提高用户体验。
 
-# 关于设计
+## 关于设计
 
 保留有Owen先辈留下来的优秀设计思想。
 
-网站整体框架设计参考 [百度FEX](http://http://fex.baidu.com/) 的风格。
+网站整体框架设计参考 [百度FEX](http://fex.baidu.com/) 的风格。
 
 展示页设计参考 [腾讯官网](https://www.tencent.com/zh-cn/index.html) 的风格。
 
 文章列表设计参考 [腾讯ISUX](https://www.tencent.com/zh-cn/index.html) 的风格。
 
-文章内容设计参考 Clean Blog 风格
-
 网站底部信息板块参考 [segmentfault](https://segmentfault.com/) 的风格。
+
+文章内容设计参考 Clean Blog 风格
 
 还有互联网中许许多多无私奉献的优秀设计
 
 感谢以上
 
-# Folk
+## 关于作者
+
+[倪云港](http://niyungang.github.io)
+
+## Folk
 
 如需要参考code 可以直接folk ,记得给小站一个__star__ 哦
 
-# licence
+## licence
 
 ![cc](/assets/img/ReadMe/cc.png) 
 
