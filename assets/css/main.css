@@ -63,6 +63,7 @@ svg * {
 html,body{
 	overflow:hidden;
 	overflow-y: auto;
+	cursor: url(/assets/img/cursor.png), auto;
 }
 
 /* logo-bg content */
