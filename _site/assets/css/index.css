@@ -17,6 +17,7 @@ header{
 	height: 80px;
 	width: 100%;
 	transition: 1s all;
+	z-index: 99;
 }
 
 .navUl{
@@ -273,7 +274,7 @@ header{
 	background: #0085A1;
 }
 
-/* 适应屏幕 */
+/* 屏幕响应 */
 @media screen and (max-width: 6200px) {
 	.passage-li{
 		/*background: green;*/
@@ -334,8 +335,19 @@ header{
 }
 
 @media screen and (max-width: 1100px) {
+	.sidebar{
+		display: none;
+	}
+	.passage{
+		width: 100%;
+		border: none;
+	}
 	.passage-li{
 			/*background: green;*/
-			margin: 0 0 6% 6%;
+			/*margin: 10px 0 0 20px;*/
+			border: solid 1px yellow;
+			margin: 20px auto;
+			margin-left: 20px;
 		}
+
 }

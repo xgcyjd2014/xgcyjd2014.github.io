@@ -49,7 +49,6 @@ blockquote,body,figure,ol,p,ul{
 	color: #f5f5f5;
 	margin: 0;
 	display: inline-block;
-	/*border: solid 1px red;*/
 }
 
 /*logo*/
@@ -167,13 +166,6 @@ blockquote,body,figure,ol,p,ul{
 
 .active a{
 	color: #0085a1 !important;
-}
-
-
-@media (max-width: 1200px){
-    .catalog{
-        display: none;
-    }
 }
 
 /* 主体 */
@@ -499,3 +491,53 @@ a:hover{
 .qq:hover{
     background: url(/assets/img/post/blogs-list-icon-hover.png) -2px -108px;
 } 
+
+/*屏幕响应*/
+@media screen and (max-width: 1100px) {
+	.post-body{
+		width: 100%;
+		padding: 0 10px;
+	}
+	.catalog{
+		display: none;
+	}
+
+	/*logo*/
+	.post-logo{
+		top: 10px;
+		left: 10px;
+	}
+
+	.post-logo img{
+		width: 20px;
+		height: 20px;
+		float: left;
+	}
+
+	.logo-name{
+		height: 20px;
+		line-height: 20px;
+		font-size: 13px;
+		margin-left: 5px;
+	}
+
+	/* 标题 */
+	.post-title{
+		top: 14%;
+	}
+
+	.article-title{
+		font: 20px/30px Consolas,"微软雅黑";
+	}
+
+	.article-info{
+		margin-top: 10px;
+	}
+
+	.article-category{
+		margin-top: 8px;
+	}
+
+	/* 底部信息 */
+	
+}

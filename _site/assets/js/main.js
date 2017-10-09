@@ -6,7 +6,6 @@
 							     Github: http://github.com/niyungang
 							\*--------------------------------------------*/
 
-
 //鼠标点击特效
 function beautiful(){
 	var html = document.getElementsByTagName("html")[0];
@@ -41,4 +40,4 @@ beautiful();
 
 
 // console
-window.console && console.log && console.log("\n      欢迎加入信管创业基地 %c 面试时请附上console","font:15px/20px '微软雅黑';  background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);-webkit-text-fill-color: transparent;-webkit-background-clip: text; color:red;");
+window.console && console.log && console.log("\n %c 黑大信管创业基地 \n","font:15px/20px '微软雅黑';  background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);-webkit-text-fill-color: transparent;-webkit-background-clip: text; color:red;");

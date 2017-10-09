@@ -49,7 +49,6 @@ blockquote,body,figure,ol,p,ul{
 	color: #f5f5f5;
 	margin: 0;
 	display: inline-block;
-	/*border: solid 1px red;*/
 }
 
 /*logo*/
@@ -502,6 +501,7 @@ a:hover{
 	.catalog{
 		display: none;
 	}
+
 	/*logo*/
 	.post-logo{
 		top: 10px;
@@ -521,9 +521,13 @@ a:hover{
 		margin-left: 5px;
 	}
 
+	/* 标题 */
+	.post-title{
+		top: 14%;
+	}
+
 	.article-title{
-		font: 20 15px/20px Consolas,"微软雅黑";
-		font-size: 14px;
+		font: 20px/30px Consolas,"微软雅黑";
 	}
 
 	.article-info{
@@ -531,7 +535,9 @@ a:hover{
 	}
 
 	.article-category{
-		margin-top: 10px;
+		margin-top: 8px;
 	}
 
+	/* 底部信息 */
+	
 }

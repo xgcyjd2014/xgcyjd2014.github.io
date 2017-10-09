@@ -5,10 +5,6 @@
 							Github: http://github.com/niyungang
 						 -->
 
-<!-- 
-	地球页模板
- -->
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -31,7 +27,9 @@
 <title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon"/>
+<!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<!-- <link rel="stylesheet" type="text/css" href="/assets/css/index.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/txt.wav.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/plan.css">
@@ -469,7 +467,7 @@
 </div>
 
 
-<script src="/assets/js/cta.js"></script>
+<script src="/assets/js/cta.min.js"></script>
 <script>
     var closeFn;
     function closeShowingModal() {
@@ -514,20 +512,20 @@
 							Github: http://github.com/niyungang
 						 -->
 						 
-<footer>
+<footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
 			<p>
 				网站相关
 			</p>
 			<li>
-				<a href="">关于我们</a>
+				<a href="/pages/about.html">关于我们</a>
 			</li>
 			<li>
-				<a href="">加入我们</a>
+				<a href="/pages/join.html">加入我们</a>
 			</li>
 			<li>
-				<a href="">关于本站</a>
+				<a href="https://github.com/xgcyjd2014/xgcyjd2014.github.io">关于本站</a>
 			</li>
 		</ul>
 
@@ -573,12 +571,32 @@
 			<span>
 				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
 			</span>
-		</p>
-		<p>
-			
+			<span>
+				当前呈现版本: V1.3
+			</span>
 		</p>
 	</div>
 
+</footer>
+
+
+
+<footer class="footer-mob">
+	<p>
+		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+	</p>
+	<p>
+		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+	</p>
+	<p>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+	</p>
+	<p>
+		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+	</p>
+	<p>
+		当前呈现版本: V1.3
+	</p>
 </footer>
 	</footer>
 
@@ -595,12 +613,13 @@
  -->
 
 <script src="/assets/js/jquery-3.1.1.min.js"></script>
-<script src="/assets/js/main.js"></script>
+<script type="/assets/js/main.js"></script>
 
 <!-- 地球 -->
 <script type='text/javascript' src='/assets/js/d3.v3.min.js'></script>
 <script type='text/javascript' src='/assets/js/topojson.v1.min.js'></script>
 <script type='text/javascript' src='/assets/js/planetaryjs.min.js'></script>
+<script type='text/javascript' src="/assets/js/globe.js"></script>
 
 <!-- logo -->
 <script type="text/javascript" src="/assets/js/easeljs-0.8.2.min.js"></script>
@@ -619,11 +638,7 @@
 	new Vivus("logo-svg",timingProps)
 </script>
 
-<!-- 主页文章 -->
-<script type="text/javascript" src="/assets/js/index.js"></script>
 
-<!-- 文章内容 -->
-<script type="text/javascript" src="/assets/js/post.js"></script>
 
 
 </html>
