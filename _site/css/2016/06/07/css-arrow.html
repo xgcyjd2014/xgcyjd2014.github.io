@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="如何使用css 绘制三角形？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="如何使用css 绘制三角形？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="如何使用css 绘制三角形？-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="如何使用css 绘制三角形？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -66,7 +66,7 @@
 
 <p>我们来看相对应的sass</p>
 
-<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$size</span><span class="o">,</span><span class="nv">$dir</span><span class="p">)</span> <span class="err">{</span>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$size</span><span class="o">,</span><span class="nv">$dir</span><span class="p">)</span> <span class="err">{</span>
 	<span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="err">;</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
     <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="err">;</span>
@@ -92,8 +92,7 @@
         <span class="nl">border-top</span><span class="p">:</span> <span class="nv">$size</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="err">;</span>
     <span class="err">}</span>
 <span class="err">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>原理很简单，当宽和高都为0的时候，边框就会被渲染成一个三角形，只要把其他三边变为透明的即可</p>
 
@@ -109,7 +108,7 @@
 
 <p>Tencent 的 ImWeb 团队想到了一种方法，即使用两个三角重叠的方法</p>
 
-<div class="language-sass highlighter-rouge"><pre class="highlight"><code>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nc">.xxx</span> <span class="err">{</span>
 
 	<span class="err">&amp;</span><span class="p">:</span><span class="o">:</span><span class="n">after</span> <span class="err">{</span>
@@ -121,8 +120,7 @@
 	<span class="err">}</span>
 <span class="err">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>上面 设置了两个三角形，方案是，将小三角压在大的三角上面，大的三角的颜色即需要设置边框的颜色，再调整z-index</p>
 
@@ -138,9 +136,8 @@
 
 <p>我们可以测试一下这条语句</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">45deg</span> <span class="o">,</span> <span class="nt">red</span> <span class="nt">50</span><span class="o">%</span> <span class="o">,</span> <span class="nt">transparent</span> <span class="nt">50</span><span class="o">%);</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">background</span><span class="o">:</span> <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">45deg</span> <span class="o">,</span> <span class="nt">red</span> <span class="nt">50</span><span class="o">%</span> <span class="o">,</span> <span class="nt">transparent</span> <span class="nt">50</span><span class="o">%);</span>
+</code></pre></div></div>
 
 <p>不出意外的话应该是一个向左下角的红三角</p>
 
@@ -154,7 +151,7 @@
 
 <p>其他的不说了，show you the code</p>
 
-<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span> <span class="nv">$w</span><span class="o">,</span><span class="nv">$h</span><span class="o">,</span><span class="nv">$border-size</span><span class="o">,</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$border-color</span><span class="o">,</span><span class="nv">$dir</span> <span class="p">)</span> <span class="err">{</span>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">arrow</span> <span class="p">(</span> <span class="nv">$w</span><span class="o">,</span><span class="nv">$h</span><span class="o">,</span><span class="nv">$border-size</span><span class="o">,</span><span class="nv">$color</span><span class="o">,</span><span class="nv">$border-color</span><span class="o">,</span><span class="nv">$dir</span> <span class="p">)</span> <span class="err">{</span>
     <span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="err">;</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="err">;</span>
     <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="err">;</span>
@@ -198,8 +195,7 @@
         
     <span class="err">}</span>
 <span class="err">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="比较新的方案">比较新的方案</h2>
 
@@ -207,9 +203,8 @@
 
 <p>我们可以很简单的就通过裁切路径，将背景裁切成三角形</p>
 
-<div class="language-sass highlighter-rouge"><pre class="highlight"><code><span class="na">-webkit-clip-path</span><span class="p">:</span> <span class="nf">polygon</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span> <span class="m">100%</span><span class="o">,</span><span class="m">100%</span> <span class="m">50%</span><span class="p">)</span><span class="err">;</span>
-</code></pre>
-</div>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">-webkit-clip-path</span><span class="p">:</span> <span class="nf">polygon</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span> <span class="m">100%</span><span class="o">,</span><span class="m">100%</span> <span class="m">50%</span><span class="p">)</span><span class="err">;</span>
+</code></pre></div></div>
 
 <p>很方便就画出了一个左三角</p>
 
@@ -300,13 +295,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -357,14 +352,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -378,16 +373,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

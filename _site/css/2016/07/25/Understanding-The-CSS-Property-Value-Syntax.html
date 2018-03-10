@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Understanding The CSS Property Value Syntax-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="Understanding The CSS Property Value Syntax,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="Understanding The CSS Property Value Syntax-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Understanding The CSS Property Value Syntax,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -65,9 +65,8 @@
 <p>W3C 使用特定的语法来定义所有可能在 CSS 属性中使用的值。如果你曾经看过 CSS 规范，你可能已经见过这种语法的使用 <a href="https://www.w3.org/TR/css3-border/#the-border-image-slice">比如 <code class="highlighter-rouge">border-image-slice</code> 语法</a>。
 让我们来看看：</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code> <span class="o">&lt;</span><span class="s2">'border-­image-­slice'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">[&lt;</span><span class="nt">number</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="nt">percentage</span><span class="o">&gt;]</span><span class="p">{</span><span class="err">1,4</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="nt">fill</span><span class="o">?</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">&lt;</span><span class="s2">'border-­image-­slice'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">[&lt;</span><span class="nt">number</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="nt">percentage</span><span class="o">&gt;]</span><span class="p">{</span><span class="err">1,4</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="nt">fill</span><span class="o">?</span>
+</code></pre></div></div>
 
 <p>这个语法可能很难理解-如果你不知道其中的各个符号和他们是怎样生效的话。但是，这是值得花时间去学习的。如果你理解了 W3C 是怎样定义这些属性值，你就能理解 W3C 的任何 <a href="https://www.w3.org/Style/CSS/specs.en.html">CSS 规范</a>。</p>
 
@@ -88,33 +87,29 @@
 
 <p>一个 BNF 规范是一组按照下面的方式书写的规则：</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;symbol&gt;</span>  ::=  __expression__
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;symbol&gt;</span>  ::=  __expression__
+</code></pre></div></div>
 <p>左边的部分总是一个非终结符，随后是一个 <code class="highlighter-rouge">::=</code> 符号，这个符号的意思是“可以被替换为”。右边是一个 <code class="highlighter-rouge">__expression__</code> ,包含一个或更多用来推导左边符号的含义的符号。
 BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <h2 id="非终结符和终结符">非终结符和终结符</h2>
 <p>非终结符是可以被替换或再细分的符号。在 BNF 中，非终端符出现在 <code class="highlighter-rouge">&lt; &gt;</code> 中。在下面的例子中，<code class="highlighter-rouge">&lt;integer&gt;</code>和<code class="highlighter-rouge">&lt;digit&gt;</code>是非终端符。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;integer&gt;</span>  ::=  <span class="nt">&lt;digit&gt;</span> | <span class="nt">&lt;digit&gt;&lt;integer&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;integer&gt;</span>  ::=  <span class="nt">&lt;digit&gt;</span> | <span class="nt">&lt;digit&gt;&lt;integer&gt;</span>
+</code></pre></div></div>
 
 <p>终结符就代表一个值不可被替换或者再细分。在下面的例子中，所有的数值都是终结符。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;digit&gt;</span>  ::=  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;digit&gt;</span>  ::=  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+</code></pre></div></div>
 
 <h2 id="css-属性值语法">CSS 属性值语法</h2>
 
 <p>虽然 W3C 的 CSS 属性值语法是基于 BNF 的概念，但它还是有差异的。相似之处在于它开始于非终结符，不同之处在于它使用“组合值”这种表达式来描述符号。
 在下面的例子中，<code class="highlighter-rouge">&lt;line-width&gt;</code>是一个非终结符，<code class="highlighter-rouge">&lt;length&gt;</code>，<code class="highlighter-rouge">thin</code>，<code class="highlighter-rouge">medium</code> 和 <code class="highlighter-rouge">thick</code> 就是组合值。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;length&gt;</span> | thin | medium | thick
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;length&gt;</span> | thin | medium | thick
+</code></pre></div></div>
 
 <h2 id="组合值">组合值</h2>
 
@@ -124,51 +119,45 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <p>关键词出现时不带引号或者尖括号。它们被用作属性值。因为它们不能被替换或者进一步细分，所以它们是终结符。在下面的例子中，<code class="highlighter-rouge">thin</code> ，<code class="highlighter-rouge">medium</code> 和 <code class="highlighter-rouge">thick</code> 都是关键词。这意味着它们可以被用作我们 CSS 中的值。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;line-­width&gt;  =  &lt;length&gt; | thin | medium | thick
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;line-­width&gt;  =  &lt;length&gt; | thin | medium | thick
+</code></pre></div></div>
 
 <h3 id="2基本数据类型">2.基本数据类型</h3>
 
 <p>基本数据类型定义核心值，如<code class="highlighter-rouge">&lt;length&gt;</code>和<code class="highlighter-rouge">&lt;color&gt;</code>。它们是非终结值因为它们可以被实际的长度值或者颜色值来替换。在下面的例子中，<code class="highlighter-rouge">&lt;color&gt;</code>符号是一个基本数据类型。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="err">&lt;</span>'background-color'&gt;  =  <span class="nt">&lt;color&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">'</span><span class="na">background-color</span><span class="err">'</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;color&gt;</span>
+</code></pre></div></div>
 
 <p>这个<code class="highlighter-rouge">&lt;color&gt;</code>在我们的 CSS 中可以被一个真实的颜色值替换，使用一个关键词，一个扩展的关键词，一个 RGB 颜色值，RGBA 值，HSL 或者 HSLA 值，或者 <code class="highlighter-rouge">transparent</code> 这个关键词。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">honeydew</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">50%</span><span class="p">,</span><span class="m">50%</span><span class="p">,</span><span class="m">50%</span><span class="p">);</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">100%</span><span class="p">,</span><span class="m">100%</span><span class="p">,</span><span class="m">100%</span><span class="p">,</span><span class="m">.5</span><span class="p">);</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="n">hsl</span><span class="p">(</span><span class="m">280</span><span class="p">,</span><span class="m">100%</span><span class="p">,</span><span class="m">50%</span><span class="p">);</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="n">hsla</span><span class="p">(</span><span class="m">280</span><span class="p">,</span><span class="m">100%</span><span class="p">,</span><span class="m">50%</span><span class="p">,</span><span class="m">0.5</span><span class="p">);</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="3属性数据类型">3.属性数据类型</h3>
 <p>属性数据类型是一个用来定义属性真实值的一个非终结符号。它用尖括号包住属性的名字(使用引号包住)。在下面的例子中，<code class="highlighter-rouge">&lt;'border-width'&gt;</code>字符是一个属性数据类型。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="err">&lt;</span>'border-­width'&gt;  =  <span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>{1,4}
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="err">'</span><span class="na">border-</span><span class="err">­</span><span class="na">width</span><span class="err">'</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>{1,4}
+</code></pre></div></div>
 
 <p>属性数据类型可能会直接作为属性出现在我们的 CSS 中。在下面的例子中，<code class="highlighter-rouge">border-width</code>属性就被用来为<code class="highlighter-rouge">.example</code>类名定义一个 2px 的边框。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>.example { border-width: 2px; }
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.example { border-width: 2px; }
+</code></pre></div></div>
 
 <h3 id="4非属性数据类型">4.非属性数据类型</h3>
 
 <p>非属性数据类型是一个和属性名称不相同的非终结符。然而，它定义了某个属性的各方面。举例来说，<code class="highlighter-rouge">&lt;line-width&gt;</code>不是一个属性，但是它是一个定义了各种<code class="highlighter-rouge">&lt;border&gt;</code>属性的数据类型。</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;length&gt;</span> | thin | medium | thick
-<span class="err">&lt;</span>'border-­width'&gt;  =  <span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>{1,4}
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;length&gt;</span> | thin | medium | thick
+<span class="nt">&lt;</span><span class="err">'</span><span class="na">border-</span><span class="err">­</span><span class="na">width</span><span class="err">'</span><span class="nt">&gt;</span>  =  <span class="nt">&lt;line-</span><span class="err">­</span><span class="na">width</span><span class="nt">&gt;</span>{1,4}
+</code></pre></div></div>
 
 <h2 id="组合值选择符">组合值选择符</h2>
 
@@ -178,27 +167,25 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <p>组合值中一个接着一个的写法意味着这些值都必须以给定的顺序出现。在下面的例子中，这种语法列出了3个不同的值：<code class="highlighter-rouge">value1</code> ， <code class="highlighter-rouge">value2</code> 和 <code class="highlighter-rouge">value3</code> 。在 CSS 规则中，这三个值以正确的顺序出现在属性语法中才是有效的。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component arrangement: all in given order */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component arrangement: all in given order */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="nt">value2</span> <span class="nt">value3</span>
 
 <span class="c">/* Example */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value2</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="2">2.<code class="highlighter-rouge">&amp;</code></h3>
 
 <p>用两个&amp;符号（<code class="highlighter-rouge">&amp;&amp;</code>）分离的两个或者多个值意味着它们必须出现，以任何顺序。在下面的例子中，这种语法列出两个值，通过 &amp;&amp; 分离。CSS 规则表明这两个值必须都要出现但是可能是任何顺序出现。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component arrangement: all, in any order */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component arrangement: all, in any order */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">&amp;&amp;</span> <span class="nt">value2</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value2</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value2</span> <span class="n">value1</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="3">3.<code class="highlighter-rouge">|</code></h3>
 
@@ -211,15 +198,14 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
   </tbody>
 </table>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component arrangement: one of them must occur */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component arrangement: one of them must occur */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">|</span> <span class="nt">value2</span> <span class="o">|</span> <span class="nt">value3</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value2</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="4">4.<code class="highlighter-rouge">||</code></h3>
 
@@ -233,7 +219,7 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
   </tbody>
 </table>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component arrangement: one or more in any order */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component arrangement: one or more in any order */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">||</span> <span class="nt">value2</span> <span class="o">||</span> <span class="nt">value3</span>
 
 <span class="c">/* Examples */</span>
@@ -243,21 +229,19 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value2</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value2</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
 <span class="o">..</span><span class="nc">.etc</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="5">5.<code class="highlighter-rouge">[]</code></h3>
 
 <p>用 <code class="highlighter-rouge">[]</code> 包围的两个或者多个值意味着组件内部是一个单独的分组。在下面的例子中，这种语法列出了 3 个值，但是其中两个出现在 [] 内，所以它们是一个单独的分组。在 CSS 规则中有两个选择是可用的：<code class="highlighter-rouge">value1</code> 和 <code class="highlighter-rouge">value3</code> 或者 <code class="highlighter-rouge">value2</code> 和 <code class="highlighter-rouge">value3</code>。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component arrangement: a single grouping */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component arrangement: a single grouping */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">[</span> <span class="nt">value1</span> <span class="o">|</span> <span class="nt">value2</span> <span class="o">]</span> <span class="nt">value3</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value2</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="组合值叠加">组合值叠加</h2>
 
@@ -267,20 +251,19 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <p><code class="highlighter-rouge">?</code> 表示前置类型，一个词或一个组可以选择出现零次或者出现一次。在下面的例子中，第二个值被放在[]里面和一个’,’在一起。放在这一组后面的 <code class="highlighter-rouge">?</code> 意味着 value1 必须出现，但是我们也可以使用 <code class="highlighter-rouge">value1</code> 和 <code class="highlighter-rouge">value2</code> ，用逗号分隔。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component multiplier: zero or one time */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component multiplier: zero or one time */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">[,</span> <span class="nt">value2</span> <span class="o">]?</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">value2</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="2-1">2.<code class="highlighter-rouge">*</code></h3>
 
 <p><code class="highlighter-rouge">*</code> 表示前置类型，一个词或一个组出现零次或者多次。在下面的例子中，第二个值被放在[]里面和一个’,’在一起。放在这一组后面的 <code class="highlighter-rouge">*</code> 意味着 value1必须出现，但是我们也可以使用任意次 <code class="highlighter-rouge">&lt;value2&gt;</code>，用逗号分隔。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component multiplier: zero or more times */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component multiplier: zero or more times */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">[,</span> <span class="o">&lt;</span><span class="nt">value2</span><span class="o">&gt;</span> <span class="o">]*</span>
 
 <span class="c">/* Examples */</span>
@@ -289,14 +272,13 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="err">&lt;</span><span class="n">value2</span><span class="err">&gt;</span><span class="p">,</span> <span class="err">&lt;</span><span class="n">value2</span><span class="err">&gt;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="err">&lt;</span><span class="n">value2</span><span class="err">&gt;</span><span class="p">,</span> <span class="err">&lt;</span><span class="n">value2</span><span class="err">&gt;</span><span class="p">,</span> <span class="err">&lt;</span><span class="n">value2</span><span class="err">&gt;</span><span class="p">;</span> <span class="p">}</span>
 <span class="o">..</span><span class="nc">.etc</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="3-1">3.<code class="highlighter-rouge">+</code></h3>
 
 <p><code class="highlighter-rouge">+</code> 表示前置类型，一个词或一个组可以选择出现一次或者出现多次。在下面的例子中，value后面的 <code class="highlighter-rouge">+</code> 意味着 <code class="highlighter-rouge">&lt;value&gt;</code> 可以出现一次或者多次 - 不需要逗号分隔。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component multiplier: one or more times */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component multiplier: one or more times */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nt">value</span><span class="o">&gt;+</span>
 
 <span class="c">/* Examples */</span>
@@ -304,26 +286,24 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span><span class="p">;</span> <span class="p">}</span>
 <span class="o">..</span><span class="nc">.etc</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="4-a-">4.<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">A</span><span class="w"> </span><span class="p">}</span></code></h3>
+<h3 id="4-a-">4.<code class="highlighter-rouge">{ A }</code></h3>
 
-<p><code class="highlighter-rouge"><span class="p">{}</span></code> 中包含一个单一的数字表示前置类型，一个词或一个组出现 <code class="highlighter-rouge">A</code>次。在下面的例子中，value的实例必须出现两次，以便使声明有效。</p>
+<p><code class="highlighter-rouge">{}</code> 中包含一个单一的数字表示前置类型，一个词或一个组出现 <code class="highlighter-rouge">A</code>次。在下面的例子中，value的实例必须出现两次，以便使声明有效。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component multiplier: occurs A times */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component multiplier: occurs A times */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nt">value</span><span class="o">&gt;</span><span class="p">{</span><span class="err">2</span><span class="p">}</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="n">value</span><span class="err">&gt;</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="5a-b">5.<code class="highlighter-rouge"><span class="p">{</span><span class="err">A,</span><span class="w"> </span><span class="err">B</span><span class="p">}</span></code></h3>
+<h3 id="5a-b">5.<code class="highlighter-rouge">{A, B}</code></h3>
 
-<p><code class="highlighter-rouge"><span class="p">{}</span></code>中包含两个以逗号分隔的数字对表示前置类型，一个词或一个组出现至少 <code class="highlighter-rouge">A</code> 次，至多 <code class="highlighter-rouge">B</code> 次。在下面的例子中，<code class="highlighter-rouge">value</code>出现至少一次，至多三次用来定义这个属性，这些值不需要用逗号分隔。</p>
+<p><code class="highlighter-rouge">{}</code>中包含两个以逗号分隔的数字对表示前置类型，一个词或一个组出现至少 <code class="highlighter-rouge">A</code> 次，至多 <code class="highlighter-rouge">B</code> 次。在下面的例子中，<code class="highlighter-rouge">value</code>出现至少一次，至多三次用来定义这个属性，这些值不需要用逗号分隔。</p>
 
-<h3 id="6a">6.<code class="highlighter-rouge"><span class="p">{</span><span class="err">A,</span><span class="p">}</span></code></h3>
+<h3 id="6a">6.<code class="highlighter-rouge">{A,}</code></h3>
 
 <p>这里的 <code class="highlighter-rouge">B</code> 可以省略，代表至少出现一次，对于上限没有限制。在下面的例子中，<code class="highlighter-rouge">value</code>至少出现一次，但是也可以增加任意数量<code class="highlighter-rouge">value</code>。这些值不需要用逗号分隔。</p>
 
@@ -335,29 +315,27 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <p>一个组后面的 ! 表示这个组是必需的并且至少产生一个值。在下面的例子中，这种语法列出了 3 个值，通过 <code class="highlighter-rouge">|</code> 分隔。下面的 CSS 规则展示了三种可能的选择：</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="c">/* Component multiplier: required group, at least one value */</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Component multiplier: required group, at least one value */</span>
 <span class="o">&lt;</span><span class="s2">'property'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">value1</span> <span class="o">[</span> <span class="nt">value2</span> <span class="o">|</span> <span class="nt">value3</span> <span class="o">]!</span>
 
 <span class="c">/* Examples */</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value2</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="py">property</span><span class="p">:</span> <span class="n">value1</span> <span class="n">value3</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="text-shadow语法一个例子">text-shadow语法：一个例子</h2>
 
 <p>让我们来看看 <code class="highlighter-rouge">&lt;\'text-shadow\'&gt;</code>这个属性作为例子。让我们来看看<a href="https://www.w3.org/TR/css-text-decor-3/#text-shadow-property">规范</a>中是如何定义这个属性的：</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="s2">'text-shadow'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">none</span> <span class="o">|</span> <span class="o">[</span> <span class="o">&lt;</span><span class="nt">length</span><span class="o">&gt;</span><span class="p">{</span><span class="err">2,3</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nt">color</span><span class="o">&gt;?</span> <span class="o">]</span><span class="err">#</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="s2">'text-shadow'</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nt">none</span> <span class="o">|</span> <span class="o">[</span> <span class="o">&lt;</span><span class="nt">length</span><span class="o">&gt;</span><span class="p">{</span><span class="err">2,3</span><span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nt">color</span><span class="o">&gt;?</span> <span class="o">]</span><span class="err">#</span>
+</code></pre></div></div>
 
 <p>我们可以分解这些符号：</p>
 
 <ul>
   <li><code class="highlighter-rouge">|</code> 代表我们可以使用关键词 <code class="highlighter-rouge">none</code> 或组 <code class="highlighter-rouge">[]</code></li>
   <li><code class="highlighter-rouge">#</code> 代表我们可以使用一次或多次这个组，用逗号分隔。</li>
-  <li>在组的内部，<code class="highlighter-rouge"><span class="p">{</span><span class="err">2,3</span><span class="p">}</span></code>代表我们可以使用两到三个<code class="highlighter-rouge">&lt;length&gt;</code></li>
+  <li>在组的内部，<code class="highlighter-rouge">{2,3}</code>代表我们可以使用两到三个<code class="highlighter-rouge">&lt;length&gt;</code></li>
   <li><code class="highlighter-rouge">&amp;&amp;</code> 代表我们必需包含所有的值，但是它们可以是任意顺序。</li>
   <li>仅仅是为了更加微妙，<code class="highlighter-rouge">&lt;color&gt;</code>后面包括一个 <code class="highlighter-rouge">? </code>，这意味着它可以出现零次或一次。</li>
 </ul>
@@ -369,38 +347,33 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <p>这意味着我们用不同的方式来写我们的 <code class="highlighter-rouge">text-shadow</code> 属性。举例来说，我们可以设置 <code class="highlighter-rouge">text-shadow</code> 属性为 <code class="highlighter-rouge">none</code>:</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
 <p>我们可以只写两个长度值，这意味着我们将设定阴影的水平和垂直偏移，但是没有模糊半径或者颜色值。
 因为没有设置模糊半径，初始值是 0；所以，阴影是尖锐的。颜色没有定义，文本的颜色将用于阴影的颜色。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>如果我们使用 3 个长度值，我们就为阴影设置了模糊半径，水平和垂直偏移。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>我们可以包含一个颜色值，它可以放在两个或者三个长度值的前面或后面。在下面的例子中，红色的颜色值可以被放在一组值的任一端。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.example</span> <span class="p">{</span> <span class="nl">text-shadow</span><span class="p">:</span> <span class="no">red</span> <span class="m">10px</span> <span class="m">10px</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>最后，我们可以包含多个<code class="highlighter-rouge">text-shadow</code>，写成逗号分隔的组。阴影效果将从前到后被应用：第一个阴影在上面，其他的在后面。阴影不能覆盖文字本身。在下面的例子中，红色的阴影将作用在绿黄色阴影上方。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example</span> <span class="p">{</span>
     <span class="nl">text-shadow</span><span class="p">:</span>
         <span class="m">10px</span> <span class="m">10px</span> <span class="no">red</span><span class="p">,</span>
         <span class="m">-20px</span> <span class="m">-20px</span> <span class="m">5px</span> <span class="no">lime</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="总结">总结</h2>
 
@@ -488,13 +461,13 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -545,14 +518,14 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -566,16 +539,16 @@ BNF 的基本规范说，“左边的任何都可以被右边的替换”。</p>
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

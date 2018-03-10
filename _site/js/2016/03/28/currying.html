@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="函数柯里化-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="函数柯里化,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="函数柯里化-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="函数柯里化,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -74,7 +74,7 @@
 
 <p>栗子：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nx">funciton</span> <span class="nx">print</span><span class="p">(</span> <span class="nx">a</span> <span class="p">,</span> <span class="nx">b</span> <span class="p">,</span> <span class="nx">c</span> <span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">a</span> <span class="o">+</span> <span class="s2">"喜欢吃"</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="s2">" 和 "</span> <span class="o">+</span> <span class="nx">c</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -82,14 +82,13 @@
 <span class="nx">print</span><span class="p">(</span><span class="s2">"Owen"</span> <span class="p">,</span> <span class="s2">"鸡排"</span> <span class="p">,</span> <span class="s2">"牛排"</span><span class="p">);</span>
 <span class="nx">print</span><span class="p">(</span><span class="s2">"Owen"</span> <span class="p">,</span> <span class="s2">"草莓"</span> <span class="p">,</span> <span class="s2">"苹果"</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>上面的代码主要是想一次打印一个人喜欢吃的两种食物</p>
 
 <p>如果我们将print函数进行柯里化之后就能简化一下</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nx">funciton</span> <span class="nx">print</span><span class="p">(</span> <span class="nx">a</span> <span class="p">,</span> <span class="nx">b</span> <span class="p">,</span> <span class="nx">c</span> <span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">a</span> <span class="o">+</span> <span class="s2">"喜欢吃"</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="s2">" 和 "</span> <span class="o">+</span> <span class="nx">c</span> <span class="p">);</span>
 <span class="p">}</span>
@@ -98,8 +97,7 @@
 
 <span class="nx">Owen</span><span class="p">(</span> <span class="s2">"鸡排"</span> <span class="p">,</span> <span class="s2">"牛排"</span> <span class="p">);</span>
 <span class="nx">Owen</span><span class="p">(</span> <span class="s2">"草莓"</span> <span class="p">,</span> <span class="s2">"苹果"</span> <span class="p">);</span> <span class="c1">// 实现的参数的复用</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>看到了curring函数的作用了吧？可以将一个或多个的参数固定，而变化的参数在再调用的时候进行赋值</p>
 
@@ -107,27 +105,26 @@
 
 <p>我就开始丢一下书上的代码啦:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">currying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 获取固定参数时的除fn 以外的所有参数（我们可以认为是默认参数，参数的类型可以是函数，对象，数字，字符 Json等等）</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">currying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kr">arguments</span> <span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 获取固定参数时的除fn 以外的所有参数（我们可以认为是默认参数，参数的类型可以是函数，对象，数字，字符 Json等等）</span>
 	
 	<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 		<span class="c1">// 返回的函数再进行调用的时候，获取全部参数（变化参数）</span>
 		<span class="c1">// 将default默认的参数和变化参数合并</span>
-		<span class="kd">var</span> <span class="nx">fArgs</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">)</span> <span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">fArgs</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="kr">arguments</span> <span class="p">)</span> <span class="p">);</span>
 	
 		<span class="c1">// 执行被柯里化的函数，并将合并好的参数丢给该函数</span>
 		<span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="kc">null</span> <span class="p">,</span> <span class="nx">fArgs</span> <span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>看不懂？（看不懂的也出门左拐厕所哈哈）</p>
 
 <p>除了上面的使用方法外，我又想到了另外种curry化的变式</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">love</span> <span class="p">(</span> <span class="nx">a</span> <span class="p">,</span> <span class="nx">b</span> <span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">love</span> <span class="p">(</span> <span class="nx">a</span> <span class="p">,</span> <span class="nx">b</span> <span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">" love "</span> <span class="o">+</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">);</span>
 <span class="p">}</span>
 
@@ -165,8 +162,7 @@
 <span class="c1">// Owen love Zyz</span>
 <span class="c1">// Owen love Luffy</span>
 <span class="c1">// Owen hate Tom</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样我就可以很好的自由搭配固定的参数 ， 变化的参数 ， 需要执行那个函数了</p>
 
@@ -189,11 +185,10 @@
 <p>再来看个栗子吧
 比如我们现在需要获取一组dom 结点</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aaa"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aaa"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aaa"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aaa"</span><span class="nt">&gt;&lt;/div&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>获取到后，在每个里面插入一个span，并且返回每个div下span的集合</p>
 
@@ -201,12 +196,11 @@
 
 <p>但是，遗憾的是使用DOM找到的集合并不是Array类型的，而是HTMLCollection 类型的，而HTMLCollection并没有Map方法，</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">oDivs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">"aaa"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">oDivs</span> <span class="p">))</span> <span class="c1">//[object HTMLCollection]</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>怎么办呢？</p>
 
@@ -224,7 +218,7 @@
 
 <p>具体实现很简单</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">oDivs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">"aaa"</span><span class="p">);</span>
 	
 <span class="kd">var</span> <span class="nx">oSpans</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">oDivs</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span> <span class="p">,</span> <span class="nx">idx</span> <span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
@@ -235,8 +229,7 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">oSpans</span> <span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>虽然实现、原理都很简单的，但是各位不觉得很麻烦吗？
 每次使用map的时候 都需要写一遍<code class="highlighter-rouge">Array.prototype.map.call</code>
@@ -248,14 +241,13 @@
 
 <h3 id="函数反柯里化的具体实现">函数反柯里化的具体实现</h3>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">$self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 	<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="nx">arguments</span> <span class="p">);</span>
+		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="kr">arguments</span> <span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>看起来很简单，但是挺复杂的（什么鬼call.apply 真的是第一次见着玩意）</p>
 
@@ -267,19 +259,19 @@
 
 <p>例如像刚刚那个例子</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">$self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 	<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="nx">arguments</span> <span class="p">);</span>
+		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="kr">arguments</span> <span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
 
 <span class="kd">var</span> <span class="nx">oDivs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">"aaa"</span><span class="p">);</span>	
 
-<span class="kd">var</span> <span class="nx">Map</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">uncurrying</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">oSpans</span> <span class="o">=</span> <span class="nx">Map</span><span class="p">(</span> <span class="nx">oDivs</span> <span class="p">,</span>  <span class="kd">function</span> <span class="p">(</span> <span class="nx">value</span> <span class="p">,</span> <span class="nx">idx</span> <span class="p">,</span> <span class="nx">array</span> <span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nb">Map</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">uncurrying</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">oSpans</span> <span class="o">=</span> <span class="nb">Map</span><span class="p">(</span> <span class="nx">oDivs</span> <span class="p">,</span>  <span class="kd">function</span> <span class="p">(</span> <span class="nx">value</span> <span class="p">,</span> <span class="nx">idx</span> <span class="p">,</span> <span class="nx">array</span> <span class="p">)</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">oSpan</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"span"</span><span class="p">);</span>
 	<span class="nx">value</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span> <span class="nx">oSpan</span> <span class="p">);</span>
 	<span class="k">return</span> <span class="nx">oSpan</span><span class="p">;</span>
@@ -287,15 +279,14 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">oSpans</span> <span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>还有push方法</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">$self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 	<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="nx">arguments</span> <span class="p">);</span>
+		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="kr">arguments</span> <span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -306,15 +297,14 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// Object {0: "Owen", 1: "Luffy", 2: "Zyz", length: 3}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>最后引一段AlloyTeam 的大神曾探写的代码，这段代码根据你自己的需要为自定义构造函数，复制所需要的对象下的所有方法</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">uncurrying</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">$self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 	<span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="nx">arguments</span> <span class="p">);</span>
+		<span class="k">return</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="nx">$self</span> <span class="p">,</span> <span class="kr">arguments</span> <span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -327,7 +317,7 @@
 			<span class="nx">obj</span><span class="p">[</span> <span class="nx">fn</span> <span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
 				<span class="c1">// 当调用这个函数某个函数的时候，将借用的newFn 函数执行,并将this 对象改为调用者，还有将调用者传的所有参数，一股脑儿的全塞进去</span>
-				<span class="nx">newFn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="k">this</span> <span class="p">,</span> <span class="p">[</span> <span class="k">this</span> <span class="p">].</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
+				<span class="nx">newFn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span> <span class="k">this</span> <span class="p">,</span> <span class="p">[</span> <span class="k">this</span> <span class="p">].</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="kr">arguments</span> <span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
 				<span class="k">return</span> <span class="k">this</span><span class="p">;</span>
 			<span class="p">}</span>	
 		<span class="p">})(</span> <span class="nx">fn</span> <span class="p">);</span>
@@ -354,8 +344,7 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">myBaby</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="p">)</span> <span class="c1">// Owen{ }</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>还有一点就是切记不要滥用反柯里技术，例如一个对象，你给他String下的split方法它肯定是无法使用的。</p>
 
@@ -439,13 +428,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -496,14 +485,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -517,16 +506,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

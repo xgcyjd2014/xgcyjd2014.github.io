@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="使用NodeJs 实现新闻Rss爬虫-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="使用NodeJs 实现新闻Rss爬虫,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="使用NodeJs 实现新闻Rss爬虫-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="使用NodeJs 实现新闻Rss爬虫,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -90,9 +90,8 @@
 
 <p>当然首先安装这两个模块</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">superagent</span> <span class="nx">feedparser</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">superagent</span> <span class="nx">feedparser</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span>
+</code></pre></div></div>
 
 <h3 id="使用superagent">使用superAgent</h3>
 
@@ -102,14 +101,14 @@
 
 <p>然后在sa.js中写获取的代码</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
     <span class="nx">fs</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
     <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nx">Url</span> <span class="o">=</span> <span class="s2">"http://xgcyjd.com/feed.xml"</span><span class="p">,</span>
     <span class="nx">wStream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">"./data.xml"</span><span class="p">)</span>  <span class="c1">// 开辟写IO流</span>
 
-<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">buffer</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"end"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pres</span><span class="p">)</span> <span class="p">{</span>
@@ -118,14 +117,12 @@
         <span class="p">}</span>
     <span class="p">})</span>
 <span class="nx">req_stream</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">wStream</span><span class="p">)</span> <span class="c1">// 数据写入</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后执行</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">sa</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">sa</span>
+</code></pre></div></div>
 
 <p>你会发现数据都被写入到了xml中了</p>
 
@@ -139,7 +136,7 @@
 
 <p>并写入如下代码</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
     <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">),</span>
     <span class="nx">feed</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/data.xml"</span>
 
@@ -159,14 +156,12 @@
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"获取到了文章：%s"</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="o">||</span> <span class="nx">item</span><span class="p">.</span><span class="nx">description</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">fp</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">fp</span>
+</code></pre></div></div>
 
 <p><img src="http://numerhero.github.io/assets/img/get-rss-2.png" alt="shootpic" /></p>
 
@@ -174,14 +169,14 @@
 
 <p>当然，我们可以把superAgent 部分的代码 和 feedparser 的代码合起来</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
     <span class="nx">fs</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
     <span class="nx">feedparser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"feedparser"</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nx">Url</span> <span class="o">=</span> <span class="s2">"http://xgcyjd.com/feed.xml"</span><span class="p">,</span>
     <span class="nx">fp</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">()</span>
 
-<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">req_stream</span> <span class="o">=</span> <span class="nx">superagent</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">Url</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">buffer</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">pres</span><span class="p">)</span> <span class="p">{</span>
@@ -205,8 +200,7 @@
                 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"获取到了文章: %s"</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span> <span class="o">||</span> <span class="nx">item</span><span class="p">.</span><span class="nx">description</span><span class="p">)</span>
             <span class="p">}</span>
     <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>效果是一样</p>
 
@@ -232,24 +226,24 @@
 
 <p>例如下列伪代码：</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">len</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
     <span class="nx">dataStack</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
     <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="nx">timer</span><span class="p">();</span>
 <span class="p">})</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
     <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="nx">timer</span><span class="p">();</span>
 <span class="p">})</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
     <span class="nx">dataStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="nx">timer</span><span class="p">();</span>
@@ -261,8 +255,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这种方法不是不行，但是并不优雅，或许我们可以尝试另外一种方法</p>
 
@@ -272,18 +265,18 @@
 
 <p>将上面的代码转换成eventproxy方式</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">eventproxy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"eventproxy"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">eventproxy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"eventproxy"</span><span class="p">),</span>
     <span class="nx">ep</span>         <span class="o">=</span> <span class="k">new</span> <span class="nx">eventproxy</span><span class="p">();</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"国内Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">})</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"国外Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">})</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"社会Rss"</span><span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">})</span>
 
@@ -292,8 +285,7 @@
 <span class="nx">ep</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="s2">"get_event"</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">handleData</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>希望大家详细的了解一下这个模块</p>
 
@@ -301,47 +293,45 @@
 
 <p>我们首先建立一个简单的文件路径</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">.</span><span class="o">/</span>
  <span class="o">|</span>
-  <span class="err">`</span><span class="o">--</span><span class="nx">database</span>
-        <span class="o">|</span>
-         <span class="err">`</span><span class="o">--</span><span class="nx">dao</span><span class="p">.</span><span class="nx">js</span>
+  <span class="s2">`--database
+        |
+         `</span><span class="o">--</span><span class="nx">dao</span><span class="p">.</span><span class="nx">js</span>
  <span class="o">|</span>
-  <span class="err">`</span><span class="o">--</span><span class="nx">app</span><span class="p">.</span><span class="nx">js</span>
+  <span class="s2">`--app.js
+ |
+  `</span><span class="o">--</span><span class="nx">service</span><span class="p">.</span><span class="nx">js</span>
  <span class="o">|</span>
-  <span class="err">`</span><span class="o">--</span><span class="nx">service</span><span class="p">.</span><span class="nx">js</span>
- <span class="o">|</span>
-  <span class="err">`</span><span class="o">--</span><span class="kr">package</span><span class="p">.</span><span class="nx">Json</span>
+  <span class="s2">`--package.Json
 
-</code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>package.Json 如下</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"name"</span><span class="err">:</span> <span class="s2">"get_info"</span><span class="p">,</span>
-  <span class="s2">"version"</span><span class="err">:</span> <span class="s2">"1.0.0"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="err">:</span> <span class="s2">"get_info by superagent, cheerio, eventproxy and mongoDB"</span><span class="p">,</span>
-  <span class="s2">"main"</span><span class="err">:</span> <span class="s2">"index.js"</span><span class="p">,</span>
-  <span class="s2">"scripts"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"test"</span><span class="err">:</span> <span class="s2">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span><span class="p">,</span>
-    <span class="s2">"build"</span><span class="err">:</span> <span class="s2">"babel index.js -d dist -s | node dist/index.js"</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"get_info"</span><span class="p">,</span>
+  <span class="s2">"version"</span><span class="p">:</span> <span class="s2">"1.0.0"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"get_info by superagent, cheerio, eventproxy and mongoDB"</span><span class="p">,</span>
+  <span class="s2">"main"</span><span class="p">:</span> <span class="s2">"index.js"</span><span class="p">,</span>
+  <span class="s2">"scripts"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"test"</span><span class="p">:</span> <span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span>
+    <span class="s2">"build"</span><span class="p">:</span> <span class="s2">"babel index.js -d dist -s | node dist/index.js"</span>
   <span class="p">},</span>
-  <span class="s2">"author"</span><span class="err">:</span> <span class="s2">"你的名儿"</span><span class="p">,</span>
-  <span class="s2">"dependencies"</span> <span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"eventproxy"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"superagent"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"superagent-charset"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"feedparser"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"iconv-lite"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"mongoose"</span><span class="err">:</span> <span class="s2">""</span>
+  <span class="s2">"author"</span><span class="p">:</span> <span class="s2">"你的名儿"</span><span class="p">,</span>
+  <span class="s2">"dependencies"</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"eventproxy"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"superagent"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"superagent-charset"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"feedparser"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"iconv-lite"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"mongoose"</span><span class="p">:</span> <span class="s2">""</span>
   <span class="p">},</span>
-  <span class="s2">"license"</span><span class="err">:</span> <span class="s2">"MIT"</span>
+  <span class="s2">"license"</span><span class="p">:</span> <span class="s2">"MIT"</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>service.js 用于实际的获取数据</p>
 
 <p>app.js 是入口文件可以用来消费数据（这里暂时不涉及消费数据，所以app逻辑比较简单）</p>
@@ -354,8 +344,8 @@
 
 <p>首先在 service 中我们可以新建一个class (开始涉及一点Es6语法),然后</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">class</span> <span class="nx">service</span> <span class="p">{</span>
-   <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">service</span> <span class="p">{</span>
+   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 数据暂存</span>
    <span class="p">}</span> 
 
@@ -367,12 +357,11 @@
 
    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>主要逻辑是getData 和 saveData，我们先来比较简单的app.js</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>              <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span>              <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"fs"</span><span class="p">),</span>
     <span class="nx">service</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"./service.js"</span><span class="p">)</span>
 
 <span class="kd">var</span> <span class="nx">DataPort</span> <span class="o">=</span> <span class="p">[</span>
@@ -397,8 +386,7 @@
   <span class="nx">$self</span><span class="p">.</span><span class="nx">saveData</span><span class="p">();</span>
 <span class="p">})</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>很简单就是简单的引入模块，执行函数</p>
 
@@ -408,9 +396,9 @@
 
 <p>获取数据很简单，我们使用上文的方式处理就行了，我这次换成流的方式来写</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedParser</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedParser</span><span class="p">();</span>
 
-<span class="nx">superAgent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+<span class="nx">superAgent</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== 获取数据失败 ====="</span><span class="p">)</span> 
@@ -438,8 +426,7 @@
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"===== 已解析完数据 ====="</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>上面的code 展示了获取单个数据的情况</p>
 
@@ -457,7 +444,7 @@
 
 <p>只需要在流入fp前 进行转码即可：</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">iconv</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"iconv-lite"</span><span class="p">)</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">iconv</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"iconv-lite"</span><span class="p">)</span>
 
 <span class="p">...</span>
 
@@ -465,8 +452,7 @@
 <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">iconv</span><span class="p">.</span><span class="nx">encodeStream</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span>
 <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">iconv</span><span class="p">.</span><span class="nx">decodeStream</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>再来就是 将superAgent 的文件修改编码</p>
 
@@ -474,19 +460,17 @@
 
 <p>将superAgent 重新配置一下</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">request</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">request</span>         <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"superagent"</span><span class="p">),</span>
     <span class="nx">charsetCompoent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'superagent-charset'</span><span class="p">),</span>
     <span class="nx">superagent</span>      <span class="o">=</span> <span class="nx">charsetCompoent</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后在发送请求之前</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">superagent</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">superagent</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">charset</span><span class="p">(</span><span class="s1">'gb2312'</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="s2">"xml"</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>将编码设置为GB2312</p>
 
@@ -500,7 +484,7 @@
 
 <p>一开始写的是</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">();</span>
 
 <span class="nx">DataPort</span> <span class="o">=</span> <span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">superAgent</span>
@@ -509,20 +493,18 @@
 
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>解决完后是</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">DataPort</span> <span class="o">=</span> <span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DataPort</span> <span class="o">=</span> <span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">fp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">feedparser</span><span class="p">();</span>
     <span class="nx">superAgent</span>
         <span class="p">.</span><span class="nx">xxx</span>
         <span class="p">.</span><span class="nx">xxx</span>
 
         <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">fp</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>因为 superAgent 获取数据是异步的，而单个fp解析能力是有限的</p>
 
@@ -535,7 +517,7 @@
 
 <p>我们再来看saveData</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">$self</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">$self</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 存储数据</span>
     <span class="nx">ep</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">"save_Data"</span><span class="p">);</span>
 
@@ -545,8 +527,7 @@
 <span class="nx">ep</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="s2">"save_Data"</span><span class="p">,</span> <span class="nx">$self</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">db</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span> <span class="c1">// 关闭数据库</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>很简单的逻辑</p>
 
@@ -628,13 +609,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -685,14 +666,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -706,16 +687,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="如何制作水球动画图？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="如何制作水球动画图？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="如何制作水球动画图？-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="如何制作水球动画图？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -96,11 +96,10 @@
 
 <p>首先我们尝试一下画出一个标准的Sin曲线</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"c"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"c"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+</code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"c"</span><span class="p">);</span>
 <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">"2d"</span><span class="p">);</span>
 
 <span class="c1">// 初始化Math 函数集</span>
@@ -155,8 +154,7 @@
 <span class="p">}</span>
 
 <span class="nx">drawSine</span><span class="p">();</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="http://numerhero.github.io/assets/img/sin3.jpg" alt="pic" />;</p>
 
@@ -164,9 +162,8 @@
 
 <p>然后让我们 给画好的图形添加一定的振幅</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p><img src="http://numerhero.github.io/assets/img/sin4.jpg" alt="pic" /></p>
 
@@ -178,7 +175,7 @@
 
 <p>这时候，上文提到的 周期 就派上用处了，只要x + 从一定的周期偏移 就能不断的改变我们看到的曲线</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">sp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 添加一个周期变量</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 添加一个周期变量</span>
 
 <span class="c1">// 设置一个渲染函数</span>
 <span class="kd">function</span> <span class="nx">render</span> <span class="p">()</span> <span class="p">{</span>
@@ -188,12 +185,11 @@
   <span class="nx">drawSine</span><span class="p">(</span><span class="nx">sp</span><span class="p">);</span>
   <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">render</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>X + 偏移量</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 <span class="nx">x</span> <span class="o">=</span> <span class="nx">sp</span> <span class="c1">// 起始点改为 偏移量</span>
 <span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="nx">Sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
@@ -201,8 +197,7 @@
 <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">xoffset</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span> <span class="nx">xoffset</span> <span class="o">+</span> <span class="nx">axisLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="mi">20</span><span class="o">/</span><span class="nx">axisLength</span><span class="p">)</span> <span class="p">{</span>
 <span class="nx">x</span> <span class="o">=</span> <span class="nx">sp</span> <span class="o">+</span> <span class="p">(</span><span class="nx">xoffset</span> <span class="o">+</span> <span class="nx">i</span><span class="p">)</span> <span class="o">/</span> <span class="nx">unit</span><span class="p">;</span> <span class="c1">// 每个轨迹点都添加上偏移量</span>
 <span class="p">...</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这时候我们就可以得到一个运动的水波动画
 <img src="http://numerhero.github.io/assets/img/sin5.gif" alt="pic" /></p>
@@ -212,21 +207,19 @@
 <p>我们需要对水波的高低进行控制，控制的参数就是 传入的数据百分比 
 重点是找好 比例和 高度的逻辑关系 然后控制 y 点坐标值就ok 了</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dy</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nx">cR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">nowdata</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">r</span> <span class="o">-</span> <span class="nx">cR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">unit</span> <span class="o">*</span> <span class="nx">y</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dy</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nx">cR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">nowdata</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">r</span> <span class="o">-</span> <span class="nx">cR</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nx">unit</span> <span class="o">*</span> <span class="nx">y</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h2 id="圆形裁切">圆形裁切</h2>
 
 <p>我们这时候使用clip 将不想展示的部分裁切掉，就可以得到一个圆形的水波轮廓</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>  
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>  
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span> <span class="nx">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">PI</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">restore</span><span class="p">()</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">clip</span><span class="p">();</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="其他补充">其他补充</h2>
 
@@ -317,13 +310,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -374,14 +367,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -395,16 +388,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="安利贴：如何使用protobuf-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="安利贴：如何使用protobuf,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="安利贴：如何使用protobuf-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="安利贴：如何使用protobuf,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -106,7 +106,7 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 
 <p>server.js 为发送端，它将数据发送给 client客户端</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * mock dataes
  */</span>
 
@@ -139,9 +139,9 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 
 <span class="cm">/**  ****  ****  ****  ****  ****  ****  **/</span>
 
-<span class="kr">const</span> <span class="nx">dgram</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dgram'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">protobuf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'protobufjs'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">SEND_PORT</span> <span class="o">=</span> <span class="mi">8081</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">dgram</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dgram'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">protobuf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'protobufjs'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">SEND_PORT</span> <span class="o">=</span> <span class="mi">8081</span><span class="p">;</span>
 
 <span class="c1">// 建立udp连接</span>
 <span class="kd">let</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">dgram</span><span class="p">.</span><span class="nx">createSocket</span><span class="p">({</span>
@@ -182,14 +182,13 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'done'</span><span class="p">);</span>	
 	<span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>client客户端 为接收端， 它根据和server端同样的 schema 。将接收到的数据解码出来，逻辑相对简单</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">dgram</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dgram'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">protobuf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'protobufjs'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="mi">8081</span><span class="p">;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">dgram</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dgram'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">protobuf</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'protobufjs'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="mi">8081</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">dgram</span><span class="p">.</span><span class="nx">createSocket</span><span class="p">({</span>
 	<span class="na">type</span><span class="p">:</span> <span class="s1">'udp4'</span>
@@ -218,12 +217,11 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 <span class="p">});</span>
 
 <span class="nx">socket</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="mi">8081</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这是我们事先定义好的.proto 文件</p>
 
-<div class="language-proto highlighter-rouge"><pre class="highlight"><code><span class="c1">// package 为命名空间
+<div class="language-proto highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// package 为命名空间
 </span><span class="kn">package</span> <span class="nn">user_message</span><span class="p">;</span>
 
 <span class="na">syntax</span> <span class="o">=</span> <span class="s">"proto3"</span><span class="p">;</span>
@@ -258,14 +256,13 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 	<span class="k">repeated</span> <span class="n">firend</span> <span class="na">myFirend</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
 	<span class="n">map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">int32</span><span class="err">&gt;</span> <span class="na">foo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>	
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>下面我们重点介绍，proto 转 js对象 类型的一一对应</p>
 
 <p>我们看定义的 data</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="na">name</span><span class="p">:</span> <span class="s1">'Owen'</span><span class="p">,</span>
 	<span class="na">age</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
 	<span class="na">skills</span><span class="p">:</span> <span class="p">{</span>
@@ -290,25 +287,23 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 		<span class="s1">'acc'</span><span class="p">:</span> <span class="mi">456</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这是转化出来的结果</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
 	<span class="nl">myFirend</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'风清扬'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">45</span> <span class="p">},</span>
      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'pony me'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">50</span> <span class="p">},</span>
      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'robin lea'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">60</span> <span class="p">}</span> <span class="p">],</span>
-  	<span class="nx">foo</span><span class="err">:</span> <span class="p">{</span> <span class="nl">abc</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="nx">acc</span><span class="err">:</span> <span class="mi">456</span> <span class="p">},</span>
-  	<span class="nx">name</span><span class="err">:</span> <span class="s1">'Owen'</span><span class="p">,</span>
-  	<span class="nx">age</span><span class="err">:</span> <span class="mi">21</span><span class="p">,</span>
-  	<span class="nx">grender</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
-  	<span class="nx">list</span><span class="err">:</span> <span class="s1">'WEB'</span><span class="p">,</span>
-  	<span class="nx">skills</span><span class="err">:</span> <span class="p">{</span> <span class="nl">hobby</span><span class="p">:</span> <span class="p">[</span> <span class="s1">'listen music'</span><span class="p">,</span> <span class="s1">'ride'</span> <span class="p">],</span> <span class="nx">favorite</span><span class="err">:</span> <span class="s1">'eat'</span> <span class="p">},</span>
-  	<span class="nx">nickName</span><span class="err">:</span> <span class="s1">'bilibiliou'</span>
+  	<span class="nx">foo</span><span class="p">:</span> <span class="p">{</span> <span class="nl">abc</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="nx">acc</span><span class="p">:</span> <span class="mi">456</span> <span class="p">},</span>
+  	<span class="nx">name</span><span class="p">:</span> <span class="s1">'Owen'</span><span class="p">,</span>
+  	<span class="nx">age</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+  	<span class="nx">grender</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  	<span class="nx">list</span><span class="p">:</span> <span class="s1">'WEB'</span><span class="p">,</span>
+  	<span class="nx">skills</span><span class="p">:</span> <span class="p">{</span> <span class="nl">hobby</span><span class="p">:</span> <span class="p">[</span> <span class="s1">'listen music'</span><span class="p">,</span> <span class="s1">'ride'</span> <span class="p">],</span> <span class="nx">favorite</span><span class="p">:</span> <span class="s1">'eat'</span> <span class="p">},</span>
+  	<span class="nx">nickName</span><span class="p">:</span> <span class="s1">'bilibiliou'</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>不难发现，其中</p>
 
@@ -335,20 +330,18 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 
 <p>此外，而有些时候，我们的数据结构可能是这样的</p>
 
-<div class="language-proto highlighter-rouge"><pre class="highlight"><code><span class="n">map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="k">repeated</span> <span class="kt">string</span><span class="err">&gt;</span>
-</code></pre>
-</div>
+<div class="language-proto highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="k">repeated</span> <span class="kt">string</span><span class="err">&gt;</span>
+</code></pre></div></div>
 
 <p>但是 map 类型并不支持这样构造数据， 所以我们需要曲线救国一下，用以下的方式替代</p>
 
-<div class="language-proto highlighter-rouge"><pre class="highlight"><code><span class="kd">message</span> <span class="nc">MapFieldEntry</span> <span class="p">{</span>
+<div class="language-proto highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">message</span> <span class="nc">MapFieldEntry</span> <span class="p">{</span>
   <span class="n">key_type</span> <span class="na">key</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
   <span class="k">repeated</span> <span class="n">value_type</span> <span class="na">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">repeated</span> <span class="n">MapFieldEntry</span> <span class="na">map_field</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="oneof">oneof</h3>
 
@@ -358,19 +351,17 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 
 <p>作用是，如果一个message中，某一项有多种不同类型的值就使用oneof 取其一。</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">myFakeName</span><span class="err">:</span> <span class="s1">'nickName'</span>  <span class="c1">// 首先要声明所需存储的key名</span>
-<span class="nl">nickName</span><span class="p">:</span> <span class="s1">'bilibiliou'</span>  <span class="c1">// key 所对应的value</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myFakeName</span><span class="p">:</span> <span class="s1">'nickName'</span>  <span class="c1">// 首先要声明所需存储的key名</span>
+<span class="nx">nickName</span><span class="p">:</span> <span class="s1">'bilibiliou'</span>  <span class="c1">// key 所对应的value</span>
+</code></pre></div></div>
 
 <p>如果是JSON存储这样，就避免了相关的数据冗余，为数据瘦身</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="err">nickName:</span><span class="w"> </span><span class="err">'bilibiliou',</span><span class="w">
-	</span><span class="err">petName:</span><span class="w"> </span><span class="err">''</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="err">nickName</span><span class="p">:</span><span class="w"> </span><span class="err">'bilibiliou'</span><span class="p">,</span><span class="w">
+	</span><span class="err">petName</span><span class="p">:</span><span class="w"> </span><span class="err">''</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 
             <!-- 上下篇 -->
@@ -446,13 +437,13 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -503,14 +494,14 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -524,16 +515,16 @@ JSON 通过JSON.stringify从对象编码为字符串，JSON 通过JSON.parse从�
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

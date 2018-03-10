@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Thinking in React-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="Thinking in React,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="Thinking in React-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Thinking in React,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -66,14 +66,13 @@
 <img src="http://fightingm.github.io/blog/dist/img/thinking-in-react-mock.png" alt="shootpic" />
 后台返回的数据应该是这样的:</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">[</span>	<span class="p">{</span><span class="na">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="s2">"$49.99"</span><span class="p">,</span> <span class="na">stocked</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Football"</span><span class="p">}</span>
-	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="nx">price</span><span class="err">:</span> <span class="s2">"$9.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="err">:</span> <span class="s2">"Baseball"</span><span class="p">}</span>
-	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="nx">price</span><span class="err">:</span> <span class="s2">"$29.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">name</span><span class="err">:</span> <span class="s2">"Basketball"</span><span class="p">}</span>
-	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="err">:</span> <span class="s2">"$99.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="err">:</span> <span class="s2">"iPod Touch"</span><span class="p">}</span>
-	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="err">:</span> <span class="s2">"$399.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">name</span><span class="err">:</span> <span class="s2">"iPhone 5"</span><span class="p">}</span>
-	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="err">:</span> <span class="s2">"$199.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="err">:</span> <span class="s2">"Nexus 7"</span><span class="p">}];</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>	<span class="p">{</span><span class="na">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="s2">"$49.99"</span><span class="p">,</span> <span class="na">stocked</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Football"</span><span class="p">}</span>
+	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="s2">"$9.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s2">"Baseball"</span><span class="p">}</span>
+	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Sporting Goods"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="s2">"$29.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s2">"Basketball"</span><span class="p">}</span>
+	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="s2">"$99.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s2">"iPod Touch"</span><span class="p">}</span>
+	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="s2">"$399.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s2">"iPhone 5"</span><span class="p">}</span>
+	<span class="p">{</span><span class="nl">category</span><span class="p">:</span> <span class="s2">"Electronics"</span><span class="p">,</span> <span class="nx">price</span><span class="p">:</span> <span class="s2">"$199.99"</span><span class="p">,</span> <span class="nx">stocked</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="s2">"Nexus 7"</span><span class="p">}];</span>
+</code></pre></div></div>
 
 <h3 id="第一步把视图拆分成一个个组件">第一步：把视图拆分成一个个组件</h3>
 
@@ -104,7 +103,7 @@
 
 <h3 id="第二步-用react写一个静态版本">第二步 用React写一个静态版本</h3>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ProductCategoryRow</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ProductCategoryRow</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;&lt;</span><span class="nx">th</span> <span class="nx">colSpan</span><span class="o">=</span><span class="s2">"2"</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">category</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/th&gt;&lt;/</span><span class="nx">tr</span><span class="o">&gt;</span><span class="p">);</span>
   <span class="p">}</span>
@@ -184,8 +183,7 @@
   <span class="o">&lt;</span><span class="nx">FilterableProductTable</span> <span class="nx">products</span><span class="o">=</span><span class="p">{</span><span class="nx">PRODUCTS</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">,
 </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">\</span><span class="nx">container</span><span class="err">\</span><span class="p">)</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>现在我们已经写好了自己的组件结构，我们可以运行我们的程序了，但是目前我们的程序仅仅把数据渲染到页面上
 并没有实现交互功能，所有的数据都是通过props传入的，而props是不可变的，所以我们需要为我们的app添加一下交互功能
@@ -197,7 +195,7 @@
 我们不应该将所有的数据都保存为state变量，只需要找出构建应用所需要的最少的state数据
 首先思考应用中的所有数据：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>* &amp;emsp;最初的products列表
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* &amp;emsp;最初的products列表
 * &amp;emsp;用户的输入
 * &amp;emsp;用户的勾选
 *  &amp;emsp;过滤后的products列表
@@ -206,8 +204,7 @@
 
 * &amp;emsp;用户的输入
 * &amp;emsp;用户的勾选
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="第四步-确认state的生命周期">第四步 确认state的生命周期</h3>
 
@@ -232,7 +229,7 @@
 
 <p>所以只需要把我们的静态版本中对应部分进行更改</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">FilterableProductTable</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">FilterableProductTable</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="na">getInitialState</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="na">filterText</span><span class="p">:</span> <span class="s1">''</span>
@@ -255,12 +252,11 @@
 </span>    <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后是searchBar组件</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">SearchBar</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">SearchBar</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span> 
       <span class="o">&lt;</span><span class="nx">form</span><span class="o">&gt;</span>
@@ -274,16 +270,14 @@
 </span>    <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>接着在ProductTable里面加上入户输入的过滤</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">filterText</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="nx">product</span><span class="p">.</span><span class="nx">stocked</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">inStockOnly</span><span class="p">))</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">filterText</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="nx">product</span><span class="p">.</span><span class="nx">stocked</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">inStockOnly</span><span class="p">))</span> <span class="p">{</span>
     <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>注意，这里需要手动绑定this到当前组件</p>
 
@@ -297,7 +291,7 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
 虽然这听起来有很多内容，但是实际上仅仅需要几行代码。并且关于数据在应用中如何流动真的非常清晰明确。
 首先在FilterableProductTable组件中写一个handleUserInput事件，并将事件传递给SearchBar组件中</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">handleUserInput</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">filterText</span><span class="p">,</span> <span class="nx">inStockOnly</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">handleUserInput</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">filterText</span><span class="p">,</span> <span class="nx">inStockOnly</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
       <span class="na">filterText</span><span class="p">:</span> <span class="nx">filterText</span><span class="p">,</span>
       <span class="na">inStockOnly</span><span class="p">:</span> <span class="nx">inStockOnly</span>
@@ -308,12 +302,11 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
   <span class="nx">inStockOnly</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">inStockOnly</span><span class="p">}</span>
   <span class="nx">onUserInput</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserInput</span><span class="p">}</span>
 <span class="sr">/</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>然后在SearchBar组件中调用这个事件来改变state</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">handleChange</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">handleChange</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onUserInput</span><span class="p">(</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">refs</span><span class="p">.</span><span class="nx">filterTextInput</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">refs</span><span class="p">.</span><span class="nx">inStockOnlyInput</span><span class="p">.</span><span class="nx">checked</span>
@@ -326,8 +319,7 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
   <span class="nx">ref</span><span class="o">=</span><span class="s2">"filterTextInput"</span>
   <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span>
 <span class="sr">/</span><span class="err">&gt;
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>现在我们的程序就可以根据用户的操作来显示对应的数据了</p>
 
@@ -405,13 +397,13 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -462,14 +454,14 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -483,16 +475,16 @@ React 让这种数据流动非常明确，从而很容易理解应用是如何�
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

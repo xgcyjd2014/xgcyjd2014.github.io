@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="详解promise-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="详解promise,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="详解promise-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="详解promise,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -70,7 +70,7 @@
 
 <p>于是乎，我们应该能马上写出这样的程序：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">callback</span> <span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 实现一些功能</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -111,8 +111,7 @@
     <span class="p">})</span>
 <span class="p">})</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>上面实现了，简单的以回调机制 加 setTimeout 模拟异步编程（加setTimeout 是为了让大家能够看的更加清晰）</p>
 
@@ -130,7 +129,7 @@
 
 <p>而且正好最近看了部电影 《杀死比尔》 挺不错的， 所以我也试着自己实现了一下新娘杀死比尔的过程，</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">M</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">M</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">M</span><span class="p">.</span><span class="nx">random</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">bride</span> <span class="o">=</span> <span class="p">{</span>
@@ -181,8 +180,7 @@
         <span class="p">}</span>
     <span class="p">})</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>上文这种方法的本质就是，不断的将下一需要完成的事件进行递归调用，但是众所周知，递归调用十分占用内存，这样弄，需要实现的功能一旦多起来，也是不太可取的。</p>
 
@@ -202,16 +200,15 @@
 
 <p>我们可以这样声明一个Promise的实例</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-<span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 这里是代码</span>
 
 
     <span class="nx">resolve</span><span class="p">(</span><span class="s2">"成功的结果"</span><span class="p">);</span>
     <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">"xxxx"</span><span class="p">));</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>其中，resolve 和 reject 是两个用于传递结果的函数</p>
 
@@ -234,9 +231,9 @@
 
 <p>当一个Promise 里面的程序执行完成之后，状态就会改变，于是Promise会根据状态来决定后续使用then还是catch</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
       <span class="c1">//x  // 如果将x 解注释 就会出现错误， 走catch 那条路线</span>
       <span class="nx">resolve</span><span class="p">(</span><span class="s2">"程序成功进行"</span><span class="p">);</span>
       <span class="nx">reject</span><span class="p">();</span>
@@ -247,8 +244,7 @@
     <span class="p">});</span>
 <span class="p">})</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then 和 catch 都会返回一个新的Promise 对象，新的Promise 对象又继续使用then 和 catch 处理后续程序</p>
 
@@ -256,9 +252,8 @@
 
 <p>因为then 是可以传递的两个参数的，名字分别叫 onfulfilled 和 onRejected</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">then</span><span class="p">(</span> <span class="nx">onfulfilled</span> <span class="p">[,</span> <span class="nx">onRejected</span><span class="p">]</span> <span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">then</span><span class="p">(</span> <span class="nx">onfulfilled</span> <span class="p">[,</span> <span class="nx">onRejected</span><span class="p">]</span> <span class="p">)</span>
+</code></pre></div></div>
 
 <p>onfulfilled 必须填写，确定成功之后做的事</p>
 
@@ -266,7 +261,7 @@
 
 <p>所以我们可以这样的使用 then 来替代 catch的工作</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nx">then</span><span class="p">(</span><span class="kc">null</span> <span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 <span class="p">});</span>
@@ -277,8 +272,7 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 <span class="p">})</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>但是，并不建议使用then 替代catch，长的丑</p>
 
@@ -287,7 +281,7 @@
 <p>then 和 catch 调用结束后会返回一个新的 promise 实例,所以我们可以使用链式的方式来处理
 异步需求</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>// 例如这样的代码
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 例如这样的代码
 
 then()
 .then()
@@ -295,12 +289,11 @@ then()
 
 。。。
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then 内的匿名函数的返回值会被添加到 then 返回Promise 中,以达到迭代的效果</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 // 伪代码
 
 then(function ( ) {
@@ -313,13 +306,12 @@ then(function ( ) {
     console.log(val + b); // a + b
 })
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>来看个累加的小栗子</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
             <span class="nx">y</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> 
 
@@ -339,14 +331,13 @@ then(function ( ) {
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"sum result is "</span> <span class="o">+</span><span class="nx">val</span><span class="p">)</span> <span class="c1">// 28</span>
     <span class="p">});</span>
 <span class="p">})()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then 除了链式调用法外，还可以这样调用</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"天才第一步"</span><span class="p">);</span>
         <span class="nx">resolve</span><span class="p">(</span><span class="s2">"      ————Owen 代言"</span><span class="p">);</span>
     <span class="p">});</span>
@@ -365,8 +356,7 @@ then(function ( ) {
     <span class="p">})</span>
 <span class="p">})()</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这种方法无需显示的使用return 将每一步计算的结果返回，只要修改val 就可以</p>
 
@@ -374,11 +364,11 @@ then(function ( ) {
 
 <p>光介绍定义挺没意思的，让我们来个Owen告白的小栗子,并且简单的分析一下Promise的执行过程</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="s2">"use strict"</span><span class="p">;</span>
 
     <span class="c1">// 新建一个promise </span>
-    <span class="kd">var</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resovle</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resovle</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Owen 想对 Zyz 说 I love Zyz"</span><span class="p">);</span>
         
         <span class="c1">// 执行无误 状态由pending态 转为fulfilled</span>
@@ -403,8 +393,7 @@ then(function ( ) {
         <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">"告白 "</span> <span class="o">+</span> <span class="nx">val</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
     <span class="p">});</span>
 <span class="p">})()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这个程序中，是需要实现三个功能</p>
 
@@ -441,15 +430,15 @@ then(function ( ) {
 
 <p>例如这个例子：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"success..."</span><span class="p">);</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="s2">"process"</span><span class="p">);</span>
         <span class="p">}</span> <span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
     <span class="p">});</span>
 
-    <span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"loading..."</span><span class="p">);</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="c1">// 此时p 并没有执行完，所以p2就会一直等待</span>
@@ -466,8 +455,7 @@ then(function ( ) {
         <span class="p">},</span><span class="mi">1000</span><span class="p">);</span>
     <span class="p">})</span>
 <span class="p">})()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>从上面的栗子，我们已经可以看出，<code class="highlighter-rouge">若传递的是process 实例</code> ，那么传递的process 实例，会影响之后的promise 的使用</p>
 
@@ -479,12 +467,11 @@ then(function ( ) {
 
 <p>例如这个 Promise.resolve 就会把，传入的普通类型的参数，返回出来一个Process 实例</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">"Owen"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">"Owen"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">createPromise</span><span class="p">)</span> 
 <span class="c1">// Promise {[[PromiseStatus]]: "resolved", [[PromiseValue]]: "Owen"}}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>可以看出，Promise.resolve 的作用是实例化将一个promise对象 并将状态立即转为 resolved</p>
 
@@ -492,19 +479,18 @@ then(function ( ) {
 
 <p>所以上面的代码 ，就等同于这样</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">"Owen"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">"Owen"</span><span class="p">);</span>
 
 <span class="c1">// 等同于</span>
 
-<span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolved</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">createPromise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolved</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">resolved</span><span class="p">(</span><span class="s2">"Owen"</span><span class="p">);</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>有了这个函数，我们就可以这样写代码了</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="o">++</span><span class="nx">val</span><span class="p">;</span> 
     <span class="p">})</span>
@@ -517,12 +503,11 @@ then(function ( ) {
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">++</span><span class="nx">val</span><span class="p">);</span> 
     <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>除此之外，Promise.resolve 还有一个功能，就是接受 一个带有 then 方法的对象</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
         <span class="na">then</span> <span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -533,14 +518,13 @@ then(function ( ) {
     <span class="p">}</span>
 
 
-    <span class="nx">p</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+    <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
     <span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">c</span> <span class="o">*</span> <span class="nx">val</span> <span class="p">);</span> <span class="c1">// 9</span>
     <span class="p">})</span>
 <span class="p">}()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这个功能的两个限制条件</p>
 
@@ -549,7 +533,7 @@ then(function ( ) {
 
 <p>所以，像如下代码，是无法使用这个功能的</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">+</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">then</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -559,7 +543,7 @@ then(function ( ) {
 
     <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">then</span><span class="p">];</span>
 
-    <span class="nx">p</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+    <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
     <span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">c</span> <span class="o">*</span> <span class="nx">val</span> <span class="p">);</span> <span class="c1">// NaN</span>
@@ -579,14 +563,13 @@ then(function ( ) {
     <span class="p">}</span>
 
 
-    <span class="nx">p</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+    <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
     <span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">c</span> <span class="o">*</span> <span class="nx">val</span> <span class="p">);</span> <span class="c1">// NaN</span>
     <span class="p">})</span>
 <span class="p">}()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>caveats: <br /></p>
 
@@ -597,33 +580,32 @@ then(function ( ) {
 
 <p>和上面的 Promise.resolve 一样，相当于传递时reject</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s1">'出错了'</span><span class="p">);</span> <span class="c1">// Uncaught (in promise) 出错了</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s1">'出错了'</span><span class="p">);</span> <span class="c1">// Uncaught (in promise) 出错了</span>
 
 <span class="c1">////////// 等同于 //////////// </span>
 
-<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">reject</span><span class="p">(</span><span class="s1">'出错了'</span><span class="p">);</span>
 <span class="p">})</span>
 
 <span class="nx">p</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> 
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="promiseall-和-promiserace">Promise.all 和 Promise.race</h3>
 
 <p>Promise.all 可以处理多个传入的Promise 实例</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
     <span class="nx">resolve</span><span class="p">(</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="p">);</span>
 <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
         <span class="nx">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
     <span class="c1">// 如果其中一个发生了什么错误</span>
@@ -631,20 +613,19 @@ then(function ( ) {
     <span class="nx">reject</span><span class="p">(</span><span class="s2">"报错了"</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
         <span class="nx">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 
     <span class="nx">resolve</span><span class="p">(</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span> <span class="p">,</span> <span class="nx">p2</span> <span class="p">,</span> <span class="nx">p3</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span> <span class="p">,</span> <span class="nx">p2</span> <span class="p">,</span> <span class="nx">p3</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="c1">// [3, 7, 11]</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="c1">// 报错了</span>
 <span class="p">})</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>all 的意思就是等大家都到齐了，再继续执行下一步</p>
 
@@ -652,17 +633,16 @@ then(function ( ) {
 
 <p>当然，不一定传入的参数非要是promise 实例，即使不是promise实例，Promise.all也会按照Promise.resolve将传入的参数转化为 promise实例</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span> <span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span> <span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">value</span> <span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">p</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">p</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span> <span class="c1">// [4, 9, 25, 49, 121, 169]</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <blockquote>
   <p>摘录[阮一峰 Promise对象]：
@@ -670,7 +650,7 @@ then(function ( ) {
   Process.race 的话，会监听到底哪个参数率先变化了状态，并将那个变化状态了的promise 返回给then</p>
 </blockquote>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
@@ -681,7 +661,7 @@ then(function ( ) {
     
 <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
     
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
@@ -693,7 +673,7 @@ then(function ( ) {
 
 <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span> <span class="p">(</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span> <span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
@@ -704,14 +684,13 @@ then(function ( ) {
    
 <span class="p">});</span>
 
-<span class="nx">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p1</span> <span class="p">,</span> <span class="nx">p2</span> <span class="p">,</span> <span class="nx">p3</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p1</span> <span class="p">,</span> <span class="nx">p2</span> <span class="p">,</span> <span class="nx">p3</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="c1">// 3</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="c1">// 报错了</span>
 <span class="p">})</span> 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="模拟sleep函数">模拟Sleep函数</h2>
 
@@ -719,18 +698,17 @@ then(function ( ) {
 
 <p>但是我们可以使用promise对象来模拟sleep函数</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Sleep</span> <span class="p">(</span><span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Sleep</span> <span class="p">(</span><span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">();</span>
         <span class="p">},</span><span class="nx">timeout</span><span class="p">);</span>
     <span class="p">});</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>有了sleep函数我们做Css3的流程动画的时候就比较方便了</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nx">promise</span><span class="p">(</span><span class="kd">function</span> <span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">promise</span><span class="p">(</span><span class="kd">function</span> <span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// 动画一 修改类</span>
     
     <span class="nx">reslove</span><span class="p">();</span>
@@ -742,8 +720,7 @@ then(function ( ) {
     <span class="c1">// 动画三 修改类</span>
 
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="感谢">感谢</h2>
 
@@ -829,13 +806,13 @@ then(function ( ) {
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -886,14 +863,14 @@ then(function ( ) {
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -907,16 +884,16 @@ then(function ( ) {
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

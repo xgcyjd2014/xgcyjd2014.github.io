@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="如何制作霓虹灯动画？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="如何制作霓虹灯动画？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="如何制作霓虹灯动画？-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="如何制作霓虹灯动画？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -77,7 +77,7 @@
 
 <p>上、右上圆角、右、右下圆角、下、左下圆角、左、左上圆角</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawRoundedRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">bdWidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="nx">bdColor</span><span class="p">,</span><span class="nx">bgcolor</span><span class="p">){</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawRoundedRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">w</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">bdWidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="nx">bdColor</span><span class="p">,</span><span class="nx">bgcolor</span><span class="p">){</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">r</span><span class="p">,</span><span class="nx">y</span><span class="p">);</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">bdWidth</span><span class="p">;</span>
@@ -93,8 +93,7 @@
   <span class="p">};</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们通过这个函数，可以尝试先绘制出两个圆角矩形</p>
 
@@ -104,7 +103,7 @@
 
 <p>和绘制圆角矩形相同，我们需要获得灯泡的运动轨迹</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getTrail</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getTrail</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">sx</span> <span class="o">=</span> <span class="nx">fx</span> <span class="o">+</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">sy</span> <span class="o">=</span> <span class="nx">fy</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">w</span> <span class="o">=</span> <span class="nx">bw</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">h</span> <span class="o">=</span> <span class="nx">bh</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[],</span>
       <span class="nx">section</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">// 轨迹点间隔区间 </span>
       <span class="nx">csection</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="c1">// 圆轨迹区间</span>
@@ -167,8 +166,7 @@
   
   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> 
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>直线的轨迹点很好获取，通过循环长度就能获取，为了让动画不会掉帧，这里我们就设置的轨迹点间隔比较小（section = 2）当然你也试试其他值</p>
 
@@ -176,14 +174,13 @@
 
 <p>弄好以后我们可以将轨迹打印出来看一看</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
 <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
 <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">w</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">w</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="nx">w</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们可以清楚的看到，灯泡带 将会运动的红色轨迹</p>
 
@@ -195,7 +192,7 @@
 
 <p>实际上就是canvas 绘制圆</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCircle</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">bg</span><span class="o">=</span><span class="s2">"rgba(238,232,255,1)"</span> <span class="p">,</span> <span class="nx">isshadow</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCircle</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">bg</span><span class="o">=</span><span class="s2">"rgba(238,232,255,1)"</span> <span class="p">,</span> <span class="nx">isshadow</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="p">(</span><span class="nx">bw</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="nx">sw</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
@@ -216,8 +213,7 @@
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
   <span class="nx">ctx</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这里我加了一点shadow 模拟白光，用一个isshadow 判断灯泡是否开启， 如果灯泡是熄灭的，就不加阴影，并且给透明度为0.2</p>
 
@@ -231,7 +227,7 @@
 <p>在设置一个 变量 re 用来控制 每个灯泡间的间距。
 从 nowkey 开始 每隔 re 个点 绘制一个灯泡</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCricleGroup</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">drawCricleGroup</span> <span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">v</span><span class="p">,</span><span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// m 控制绘制灯的个数</span>
 
   <span class="c1">// 当 k 差不多累计一圈轨迹之后，停止循环</span>
@@ -259,8 +255,7 @@
     <span class="nx">k</span> <span class="o">+=</span> <span class="nx">re</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>效果如下</p>
 
@@ -273,11 +268,10 @@
 
 <p>每当 nowkey 走过了一个灯泡间距，就让 cflag 切换</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">nowkey</span> <span class="o">%</span> <span class="nx">re</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">nowkey</span> <span class="o">%</span> <span class="nx">re</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">cflag</span> <span class="o">^=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当 cflag 来回切换后，灯泡也会奇偶数进行开关闪烁了</p>
 
@@ -287,13 +281,12 @@
 
 <p>首先是 获取了 这个文档的宽</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">oW</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">oW</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>通过 gap 和 oW 自适应</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">gap</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>               <span class="c1">// 两边间距</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gap</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>               <span class="c1">// 两边间距</span>
 
 <span class="nx">fx</span> <span class="o">=</span> <span class="nx">gap</span><span class="p">;</span>               <span class="c1">// 大屏起始点坐标</span>
 <span class="nx">fy</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -306,8 +299,7 @@
 
 <span class="nx">sw</span> <span class="o">=</span> <span class="nx">bw</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>            <span class="c1">// 小屏宽</span>
 <span class="nx">sh</span> <span class="o">=</span> <span class="nx">bh</span> <span class="o">-</span> <span class="mi">20</span><span class="p">;</span>            <span class="c1">// 小屏高</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="源代码">源代码</h2>
 
@@ -389,13 +381,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -446,14 +438,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -467,16 +459,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

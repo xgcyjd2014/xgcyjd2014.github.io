@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Es6 对象Proxy-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="Es6 对象Proxy,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="Es6 对象Proxy-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Es6 对象Proxy,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -64,11 +64,10 @@
 
 <p>创建一个Proxy 很简单，如下代码即可</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-<span class="kd">var</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">handle</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">handle</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Proxy 有什么用呢？</p>
 
 <p>Proxy 英语意思是代理，其作用也是一种代理的效果</p>
@@ -77,12 +76,12 @@
 
 <p>栗子：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
-    <span class="nx">set</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
+    <span class="kd">set</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">100</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">});</span>
@@ -95,8 +94,7 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span> <span class="c1">// 3</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>由上面的例子我们可以看到，当我们设置obj.a 的值的时候,可以选择通过代理操作，也可以选择直接操控对象</p>
 
@@ -114,11 +112,11 @@
 
 <p>当我们通过代理来访问一个引用类型的属性的时候，就会激发get控制器</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">777</span><span class="p">,</span><span class="mi">345</span><span class="p">];</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">777</span><span class="p">,</span><span class="mi">345</span><span class="p">];</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">arr</span> <span class="p">,</span> <span class="p">{</span>
-    <span class="nx">get</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`您访问了数组</span> <span class="err">的</span> <span class="err">第</span> <span class="nx">$</span><span class="p">{</span><span class="o">~~</span><span class="nx">key</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span> <span class="err">位成员</span> <span class="err">它的值是</span> <span class="nx">$</span><span class="p">{</span><span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]}</span> <span class="err">`</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">arr</span> <span class="p">,</span> <span class="p">{</span>
+    <span class="kd">get</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`您访问了数组 的 第 </span><span class="p">${</span><span class="o">~~</span><span class="nx">key</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="s2"> 位成员 它的值是 </span><span class="p">${</span><span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]}</span><span class="s2"> `</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
 
         <span class="c1">// 需要注意的是，get控制器需要 显式的 return 获得的值，不然会默认返回underfined</span>
@@ -129,44 +127,41 @@
 
 <span class="c1">// 您访问了数组 的 第 2 位成员 它的值是 777 </span>
 <span class="c1">// 777</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当我们通过Proxy 操作了数组的时候，就会激发，proxy  get的操控器的代码。</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">get</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">get</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
     
 <span class="p">}</span>
 
 <span class="c1">// get 控制器传入两个参数，首参是被代理的引用对象，key是引用对象的成员索引 （数组里面就是下标）</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="set">set</h3>
 
 <p>当我们设置被代理对象的值的时候，就会激发set控制器</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-<span class="nx">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span> <span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span> <span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
     
 <span class="p">}</span>
 
-<span class="err">前两个参数和</span><span class="nx">get</span><span class="err">相同，</span><span class="nx">value</span> <span class="err">即是被设置的新值</span>
-</code></pre>
-</div>
+<span class="err">前两个参数和</span><span class="kd">get</span><span class="err">相同，</span><span class="nx">value</span> <span class="err">即是被设置的新值</span>
+</code></pre></div></div>
 
 <p>我们可用set 进行传入数据的筛选工作</p>
 
 <p>例如，在各大高校已经被讲烂的学生成绩系统…</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">let</span> <span class="nx">student</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">name</span><span class="p">:</span> <span class="s2">"Owen"</span><span class="p">,</span>
     <span class="na">id</span><span class="p">:</span> <span class="mi">10001</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">student</span> <span class="p">,</span> <span class="p">{</span>
-    <span class="nx">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span> <span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">student</span> <span class="p">,</span> <span class="p">{</span>
+    <span class="kd">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span> <span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">key</span> <span class="o">===</span> <span class="s2">"score"</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">switch</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">case</span> <span class="nx">value</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="o">&gt;=</span><span class="mi">85</span><span class="p">:</span> 
@@ -192,8 +187,7 @@
 <span class="c1">//  id: 10001, </span>
 <span class="c1">//  grade: "优秀", </span>
 <span class="c1">//  score: 88}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>值得注意的是，使用了set控制器的时候，需要显式的为被代理的对象赋值</p>
 
 <h3 id="has">has</h3>
@@ -201,7 +195,7 @@
 
 <p>用起来也是小白级操作</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">name</span><span class="p">:</span> <span class="s2">"Zyz"</span><span class="p">,</span>
     <span class="na">age</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
     <span class="na">score</span><span class="p">:</span> <span class="mi">81</span> 
@@ -223,8 +217,8 @@
    <span class="p">}</span> 
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">oproxy2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj2</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">oproxy1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">oproxy2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj2</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
 
 <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">a</span> <span class="k">in</span> <span class="nx">oproxy1</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oproxy1</span><span class="p">[</span><span class="nx">a</span><span class="p">]);</span>
@@ -233,61 +227,57 @@
 <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">b</span> <span class="k">in</span> <span class="nx">oproxy2</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oproxy2</span><span class="p">[</span><span class="nx">b</span><span class="p">])</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>in 操作符的另外一个作用就是检查成员是否在对象中（实例或原型）
 如果，实例中成员存在，就会忽略原型中成员的存在</p>
 
 <p>我们也可以使用has 激发此次操作</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">has</span> <span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">key</span><span class="p">}</span> <span class="err">确实存在，值是</span><span class="nx">$</span><span class="p">{</span><span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]}</span><span class="err">`</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2"> 确实存在，值是</span><span class="p">${</span><span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]}</span><span class="s2">`</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">key</span><span class="p">}</span> <span class="err">并不存在于被代理的对象中`</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2"> 并不存在于被代理的对象中`</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{</span> <span class="na">prop</span><span class="p">:</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="na">_bar</span><span class="p">:</span> <span class="s1">'baz'</span><span class="p">,</span> <span class="na">_prop</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">};</span>
-<span class="kd">var</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
 
 <span class="s2">"_bar"</span> <span class="k">in</span> <span class="nx">proxy</span><span class="p">;</span>
 <span class="s2">"+++prop"</span> <span class="k">in</span> <span class="nx">proxy</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="apply">apply</h3>
 
 <p>对于函数类型的引用对象，我们可以选用apply的控制器</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s2">"i am Owen"</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">func</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">func</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">apply</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="s2">"i am zyz"</span><span class="p">;</span>
     <span class="p">}</span>    
 <span class="p">});</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oproxy</span><span class="p">());</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>由上面的栗子，可以看出 apply 可以左右函数的执行</p>
 
 <p>apply 控制器可传入三个参数</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">apply</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">ctx</span> <span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">apply</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">ctx</span> <span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>target 即目标函数 <br /></p>
 
 <p>ctx 传入的是执行的上下文环境 <br /></p>
@@ -296,28 +286,27 @@
 
 <p>值得注意的是，ctx 需要显式的传入，所以我们使用 apply , call , bind 这些可以改变函数上下文的函数时，我们就可以接收到ctx</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"i am zyz"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">apply</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">});</span>
 
 <span class="nx">oproxy</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>args 是传入参数的集合，该集合并不是 arguments 这样的类数组对象，而是真真切切的数组（很欣慰）</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">let</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
         
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">func</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">func</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">apply</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">ctx</span> <span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(...</span><span class="nx">args</span><span class="p">);</span>
     <span class="p">}</span>   
@@ -325,8 +314,7 @@
 
 <span class="nx">oproxy</span><span class="p">(</span><span class="s2">"Owen"</span> <span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="construct">construct</h3>
 
@@ -334,15 +322,15 @@
 
 <p>当咱用new 构造一个对象的时候，construct 控制器就会起作用</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">I</span> <span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span> <span class="p">,</span> <span class="nx">gender</span> <span class="p">,</span> <span class="nx">from</span> <span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">I</span> <span class="p">(</span><span class="nx">name</span> <span class="p">,</span> <span class="nx">age</span> <span class="p">,</span> <span class="nx">gender</span> <span class="p">,</span> <span class="k">from</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="nx">gender</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">from</span> <span class="o">=</span> <span class="nx">from</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="k">from</span> <span class="o">=</span> <span class="k">from</span><span class="p">;</span>
 <span class="p">}</span>
 
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">I</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">I</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">construct</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nx">target</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="c1">// 一定要显式的返回一个构造对象</span>
@@ -352,16 +340,14 @@
 <span class="kd">let</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">oproxy</span><span class="p">(</span><span class="s2">"Owen"</span> <span class="p">,</span> <span class="mi">18</span> <span class="p">,</span> <span class="s2">"male"</span> <span class="p">,</span> <span class="s2">"ShenZhen"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Owen</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>值得注意的是，如果没有显式的返回一个创建的对象，那么就会报错~！</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>construct(target , args) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>construct(target , args) {
     
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>target 即被代理的目标 <br /></p>
 
 <p>args 即参与被构造的对象参数集合 <br /></p>
@@ -372,12 +358,12 @@
 
 <p>当我们使用 delete 来删除变量的时候，就会激发这个控制器</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">__a</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">__a</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">deleteProperty</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span> <span class="p">,</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">key</span> <span class="o">===</span> <span class="s2">"__a"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">key</span><span class="p">}</span> <span class="err">属性不能被删除！`</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2"> 属性不能被删除！`</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="k">delete</span> <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
         <span class="p">}</span>
@@ -389,8 +375,7 @@
 <span class="k">delete</span> <span class="nx">oproxy</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// Object {__a: 1}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们可以使用这个控制器来让带有__ 的属性禁止被删除</p>
 
@@ -404,13 +389,13 @@
 
 <p>栗子如下：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
     <span class="na">b</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
     <span class="na">c</span><span class="p">:</span><span class="mi">3</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"我被执行了"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span><span class="nx">key</span><span class="p">);</span>
@@ -422,15 +407,14 @@
 <span class="kd">let</span> <span class="nx">objProperty</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">oproxy</span><span class="p">,</span><span class="s2">"a"</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objProperty</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>由于博主才学疏浅，其具体用途暂时没能想到，(肯定有其妙用)</p>
 
 <h3 id="getprototypeof">getPrototypeOf</h3>
 
 <p>直接看栗子</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
 <span class="p">}</span>
@@ -443,17 +427,16 @@
 
 <span class="kd">let</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Owen"</span> <span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">Owen</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">oproxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">Owen</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">Owen</span> <span class="err">实例的原型被获取了`</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Owen 实例的原型被获取了`</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">Owen</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">});</span>
 
 <span class="kd">let</span> <span class="nx">proto</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">oproxy</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">proto</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="isextensible">isExtensible</h3>
 
@@ -475,7 +458,7 @@
 
 <p>Object.preventExtensions 封印了恶魔对象，恶魔对象只能运用仅存的力量，而不能获取新的力量</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
@@ -491,12 +474,11 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span><span class="s2">"a"</span><span class="p">));</span>
 <span class="c1">// Object {value: 2, writable: false, enumerable: true, configurable: true}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>但是恶魔能自己自爆，强行把自己的力量释放</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
@@ -505,13 +487,12 @@
 <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>Object.seal 的力量能把齐天大圣压在五指山下,同样也能封印恶魔的力量</p>
 
 <p>但是，seal 的强大力量，还能防止孙猴子和恶魔自爆</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
@@ -520,11 +501,10 @@
 <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// 无法被释放</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>而更加可怕的freeze 须弥大法将天地生灵完全冻结，剥夺各种生物对自身力量的控制</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
@@ -542,12 +522,11 @@
     <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">});</span>
 <span class="c1">// Cannot redefine property: a</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>freeze大法强烈的折磨天地生灵，让其求死不能</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
@@ -555,8 +534,7 @@
 
 <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>列个表格吧</p>
 
@@ -601,22 +579,21 @@
 
 <p>isExtensible 控制器很简单，即当使用Object.isExtensible 方法的时候会被激发</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 
 <span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
+<span class="kd">let</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="p">{</span>
     <span class="nx">isExtensible</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`探测了这个对象是否可以被扩展`</span><span class="p">)</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`探测了这个对象是否可以被扩展`</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">});</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">isExtensible</span><span class="p">(</span><span class="nx">proxy</span><span class="p">));</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="ownkeys">ownKeys</h3>
 
@@ -654,23 +631,21 @@ console.log(Object.keys(oproxy));
 
 <p>当我们需要一个可随时取消的代理对象的时候，我们就可以调用这个方法</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{};</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{};</span>
 <span class="kd">let</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">{};</span>
 
-<span class="kd">let</span> <span class="nx">revocableProxy</span> <span class="o">=</span> <span class="nx">Proxy</span><span class="p">.</span><span class="nx">revocable</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
-</code></pre>
-</div>
+<span class="kd">let</span> <span class="nx">revocableProxy</span> <span class="o">=</span> <span class="nb">Proxy</span><span class="p">.</span><span class="nx">revocable</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>使用这个方法 可以产生一个对象</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="nb">Object</span> <span class="p">{</span>
     <span class="nl">proxy</span><span class="p">:</span> <span class="nb">Object</span>
-    <span class="nl">revoke</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span>
+    <span class="nx">revoke</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这个对象包含两个成员，一个成员就是设置的代理对象</p>
 
@@ -678,18 +653,18 @@ console.log(Object.keys(oproxy));
 
 <p>我们可以使用对象的解构法来获取这两个对象成员</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">a</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">};</span>
 
 <span class="kd">let</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`我被设置了一个新值</span> <span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+    <span class="kd">set</span><span class="p">(</span><span class="nx">target</span> <span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`我被设置了一个新值 </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
         <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
     <span class="p">}</span>    
 <span class="p">};</span>
 
-<span class="kd">let</span> <span class="p">{</span><span class="nx">proxy</span> <span class="p">,</span> <span class="nx">revoke</span><span class="p">}</span> <span class="o">=</span> <span class="nx">Proxy</span><span class="p">.</span><span class="nx">revocable</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+<span class="kd">let</span> <span class="p">{</span><span class="nx">proxy</span> <span class="p">,</span> <span class="nx">revoke</span><span class="p">}</span> <span class="o">=</span> <span class="nb">Proxy</span><span class="p">.</span><span class="nx">revocable</span><span class="p">(</span><span class="nx">obj</span> <span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
 
 <span class="nx">proxy</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
@@ -698,8 +673,7 @@ console.log(Object.keys(oproxy));
 <span class="nx">proxy</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
 <span class="c1">// Uncaught TypeError: Cannot perform 'set' on a proxy that has been revoked</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="summery">Summery</h2>
 
@@ -783,13 +757,13 @@ console.log(Object.keys(oproxy));
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -840,14 +814,14 @@ console.log(Object.keys(oproxy));
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -861,16 +835,16 @@ console.log(Object.keys(oproxy));
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

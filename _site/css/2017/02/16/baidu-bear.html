@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="一起画只百度熊吧-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="一起画只百度熊吧,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="一起画只百度熊吧-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="一起画只百度熊吧,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -77,7 +77,7 @@
 
 <p>其实方潇仪 也提到了，就是利用svg 的filter标签，让两个圆高斯模糊后的边缘处虚化后再将两个源合并</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code> <span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">width=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;svg</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">width=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"0"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;defs&gt;</span>
         <span class="nt">&lt;filter</span> <span class="na">id=</span><span class="s">"gooey"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;feGaussianBlur</span> <span class="na">in=</span><span class="s">"SourceGraphic"</span> <span class="na">stdDeviation=</span><span class="s">"10"</span> <span class="na">result=</span><span class="s">"step1"</span><span class="nt">/&gt;</span>
@@ -90,8 +90,7 @@
         <span class="nt">&lt;/filter&gt;</span>
     <span class="nt">&lt;/defs&gt;</span>
 <span class="nt">&lt;/svg&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>其中 我们可以想像 每一步都是一个图层，每一个标签都是一个处理工具</p>
 
@@ -106,12 +105,11 @@
 
 <p>然后我们把处理过的图层对其进行引用</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.nose</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.nose</span> <span class="p">{</span>
   <span class="err">...</span>
   <span class="nl">filter</span><span class="p">:</span> <span class="sx">url(./baidu_beer.html#gooey)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>@彦子 同学 和 @大漠 老师对svg研究的十分透彻和深入 大家可以去看 w3cplus svg 标签下的相关内容</p>
 
@@ -121,7 +119,7 @@
 
 <p>如果设置过多的filter 又会使性能下降，所以我们将需要粘性变形的布局进行嵌套</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nose"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nose"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nose-be"</span><span class="nt">&gt;&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nose-mi"</span><span class="nt">&gt;&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nose-af"</span><span class="nt">&gt;&lt;/div&gt;</span>
@@ -153,8 +151,7 @@
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样布局的好处</p>
 
@@ -169,19 +166,18 @@
 
 <p>我们可以使用Promise 模拟一个 Sleep函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Sleep</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Sleep</span><span class="p">(</span><span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">();</span>
         <span class="p">},</span><span class="nx">timeout</span><span class="p">);</span>
     <span class="p">});</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样就可以使用Promise 很好的对动画进行控制</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">process</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">let</span> <span class="nx">process</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
 
   <span class="nx">process</span><span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="nx">oNose</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'show'</span><span class="p">);</span>
@@ -204,8 +200,7 @@
   <span class="p">})</span>
 
     <span class="p">...</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>大家可以看出， 通过 很多个then 将一个连续的动画分割成了很多小的部分,通过控制class并配合 transition 和 keyframes animation ，我们就能画出这只萌萌哒的百度熊</p>
 
@@ -289,13 +284,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -346,14 +341,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -367,16 +362,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

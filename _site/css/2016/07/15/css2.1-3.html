@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="读CSS2.1规范之需求和推荐标准（三）-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="读CSS2.1规范之需求和推荐标准（三）,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="读CSS2.1规范之需求和推荐标准（三）-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="读CSS2.1规范之需求和推荐标准（三）,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -193,35 +193,31 @@ prince-                        YesLogic
 
 <p>忽略含有未知属性的声明</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="nl">rotation</span><span class="p">:</span> <span class="m">70</span><span class="n">minutes</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="nl">rotation</span><span class="p">:</span> <span class="m">70</span><span class="n">minutes</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>解析为</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;}</span>
+</code></pre></div></div>
 
 <h3 id="非法值">非法值</h3>
 
 <p>用户代理必须忽略含有非法值的声明</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>       
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>       
 <span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="n">here</span> <span class="p">}</span>  
 <span class="nt">img</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="s1">"red"</span> <span class="p">}</span> 
 <span class="nt">img</span> <span class="p">{</span> <span class="nl">border-width</span><span class="p">:</span> <span class="m">3</span> <span class="p">}</span>   
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>解析为</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="p">{</span> <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span> <span class="p">}</span>
 <span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
 <span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
 <span class="nt">img</span> <span class="p">{</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="格式错误的声明">格式错误的声明</h3>
 
@@ -229,7 +225,7 @@ prince-                        YesLogic
 
 <p>一个格式错误的声明可能回缺少属性名，冒号(:)或者属性值</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span>
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="err">color</span> <span class="p">}</span>          
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="err">color;</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span>  
@@ -237,8 +233,7 @@ prince-                        YesLogic
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="nl">color</span><span class="p">:;</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span> <span class="p">}</span> 
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="err">color{;</span><span class="nl">color</span><span class="p">:</span><span class="no">maroon</span><span class="p">}</span> <span class="err">}</span> 
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>   <span class="err">color{;</span><span class="nl">color</span><span class="p">:</span><span class="no">maroon</span><span class="p">}</span><span class="o">;</span> <span class="nt">color</span><span class="nd">:green</span> <span class="err">}</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上声明都是等价的</p>
 
@@ -248,13 +243,12 @@ prince-                        YesLogic
 
 <p>一个格式错误的语句可能含有异常的右花括号或者@关键字</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
 <span class="nt">p</span> <span class="k">@here</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">}</span>     
 <span class="k">@foo</span> <span class="err">@</span><span class="n">bar</span><span class="p">;</span>               
 <span class="err">}}</span>                
 <span class="o">)</span> <span class="o">(</span> <span class="p">{}</span> <span class="o">)</span> <span class="nt">p</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上行都会被忽略</p>
 
@@ -262,7 +256,7 @@ prince-                        YesLogic
 
 <p>用户代理必须忽略一个非法的@关键字及其后面跟着的任何东西，直到包含非法@关键字的块结束，或者到下一个分号(;)（包括分号），或者到下一个块({…})，无论哪个先出现</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@three-dee</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@three-dee</span> <span class="p">{</span>
   <span class="k">@background-lighting</span> <span class="p">{</span>
     <span class="nl">azimuth</span><span class="p">:</span> <span class="m">30deg</span><span class="p">;</span>
     <span class="nl">elevation</span><span class="p">:</span> <span class="m">190deg</span><span class="p">;</span>
@@ -272,8 +266,7 @@ prince-                        YesLogic
 <span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
 <span class="err">因为</span><span class="k">@three-dee</span><span class="err">不是规范的一部分，所以解析为</span>
 <span class="n">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>@规则里的一些东西会因为非法而被忽略，例如@media规则中的一条非法声明，不会导致整个@规则非法</p>
 
@@ -281,34 +274,31 @@ prince-                        YesLogic
 
 <p>用户代理必须闭合样式表结尾的所有开放结构（例如：块，圆括号，方括号，规则，字符串和注释）</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
 <span class="k">@media</span> <span class="n">screen</span> <span class="p">{</span>
   <span class="py">p</span><span class="p">:</span><span class="n">before</span> <span class="err">{</span> <span class="n">content</span><span class="p">:</span> <span class="s2">'Hello
 解析为
 @media screen {
     p:before { content: '</span><span class="n">Hello</span><span class="err">'</span><span class="p">;</span> <span class="p">}</span>
 <span class="err">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="字符串异常结束">字符串异常结束</h3>
 
 <p>用户代理必须闭合行尾的字符串（也就是说，在一个未转义的换行，回车或者换页符之前），但接着要删除包含该字符串的结构（声明或者规则）</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span>
     <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
     <span class="nl">font-family</span><span class="p">:</span> <span class="err">'</span><span class="n">Courier</span> <span class="n">New</span> <span class="n">Times</span>
     <span class="n">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
     <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>解析为</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <h2 id="值">值</h2>
 
@@ -336,36 +326,32 @@ prince-                        YesLogic
 em: 相关字体的font-size
 ex: 相关字体的x-height</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5em</span> <span class="p">}</span>      
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5em</span> <span class="p">}</span>      
 <span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">1ex</span> <span class="p">}</span>        
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>‘em’单位等于应用该规则的元素的’font-size’属性的计算值。一种异常情况是当’em’出现在’font-size’属性本身的值中时，这种情况下参考父元素的字体大小。它可以用在竖直或者水平测量中
 ‘ex’单位是根据元素的第一个可用字体定义的。一种异常情况是当’ex’出现在’font-size’属性的值中，此时参考父元素的’ex’</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>表示”h1”元素的行高将比”h1”元素的字体大小大20%</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>表示”h1”元素的font-size将比”h1”元素继承得到的字体大小大20%
 当为文档树的根（例如，HTML中的”HTML”）指定（相对单位）时，’em’和’ex’参考该属性的初始值
 子元素不会继承为其父元素指定的相对值，而是继承计算值</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">eg</span><span class="o">:</span>
 <span class="nt">body</span> <span class="p">{</span>
 <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span><span class="p">;</span>
 <span class="nl">text-indent</span><span class="p">:</span> <span class="m">3em</span><span class="p">;</span>  
 <span class="p">}</span>
 <span class="nt">h1</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">15px</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>绝对单位
@@ -388,33 +374,30 @@ ex: 相关字体的x-height</p>
 
 <p>注意，这里像素单位和物理单位的定义与CSS之前版本不同。特别地，在CSS之前版本中，像素单位和物理单位与固定比例（fixed ratio）无关：物理单位总是与它们的物理测量紧密相关，而像素单位会变得最接近参考像素（出现这种变化是因为太多现有内容依赖96dpi的假设，而打破这个假设就会破坏这些内容）</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5in</span> <span class="p">}</span>      
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span> <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5in</span> <span class="p">}</span>      
 <span class="nt">h2</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">3cm</span> <span class="p">}</span>   
 <span class="nt">h3</span> <span class="p">{</span> <span class="nl">word-spacing</span><span class="p">:</span> <span class="m">4mm</span> <span class="p">}</span>  
 <span class="nt">h4</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">12pt</span> <span class="p">}</span>    
 <span class="nt">h4</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">1pc</span> <span class="p">}</span>     
 <span class="nt">p</span>  <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span> <span class="p">}</span>    
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="百分比">百分比</h3>
 
 <p>百分比值（本规范中<百分比>章节指出的）的格式是一个<数>后面紧跟着'%'
 百分比值总是和其它值有关，例如，长度。每个接受百分比的属性也定义了百分比所参考的值。该值可以是同一元素的另一个属性，祖先元素的属性或者来自格式化上下文（例如，一个包含块的宽度）的值。当给根元素的属性设置了一个百分比值时，并且百分比参照了一些属性的继承值，结果值是百分比乘以该属性的初始值</数></百分比></p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">10px</span> <span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">10px</span> <span class="p">}</span>
 <span class="nt">p</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">120%</span> <span class="p">}</span>  
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="url和uri">url和urI</h3>
 
 <p>本规范中，URI值（Uniform Resource Identifiers统一资源标识符，见[RFC3986]，包括URL，URN等等）在<uri>中出现。用来指定属性值中URI的函数标记是"url()"</uri></p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="sx">url("http://www.example.com/pinkish.png")</span> <span class="p">}</span> 
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="sx">url("http://www.example.com/pinkish.png")</span> <span class="p">}</span> 
 <span class="nt">li</span> <span class="p">{</span> <span class="nl">list-style</span><span class="p">:</span> <span class="sx">url(http://www.example.com/redball.png)</span> <span class="nb">disc</span> <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="计数器">计数器</h3>
 
@@ -422,11 +405,10 @@ ex: 相关字体的x-height</p>
 <code class="highlighter-rouge">counter(&lt;identifier&gt;)</code>或者<code class="highlighter-rouge">counter(&lt;identifier&gt;,&lt;'list-style-type'&gt;)</code>
 ，可以有可选的空白字符分隔这些token，默认样式是decimal。</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span><span class="nl">counter-increment</span><span class="p">:</span> <span class="n">par-num</span><span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span><span class="nl">counter-increment</span><span class="p">:</span> <span class="n">par-num</span><span class="p">}</span>
 <span class="nt">h1</span> <span class="p">{</span><span class="nl">counter-reset</span><span class="p">:</span> <span class="n">par-num</span><span class="p">}</span>
 <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span><span class="nl">content</span><span class="p">:</span> <span class="n">counter</span><span class="p">(</span><span class="n">par-num</span><span class="p">,</span> <span class="nb">upper-roman</span><span class="p">)</span> <span class="s1">". "</span><span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>颜色</li>
@@ -438,7 +420,7 @@ navy，olive，orange，purple，red，silver，teal，white和yellow</p>
 
 <p>除了这些颜色关键字，在用户环境中，用户还可以指定对应的用于某些对象的颜色关键字</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span> <span class="nl">background</span><span class="p">:</span> <span class="no">white</span> <span class="p">}</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span><span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span> <span class="nl">background</span><span class="p">:</span> <span class="no">white</span> <span class="p">}</span>
 <span class="nt">h1</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">maroon</span> <span class="p">}</span>
 <span class="nt">h2</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">olive</span> <span class="p">}</span>
 
@@ -446,19 +428,17 @@ navy，olive，orange，purple，red，silver，teal，white和yellow</p>
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#ff0000</span> <span class="p">}</span>           
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span> <span class="p">}</span>      
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">100%</span><span class="p">,</span> <span class="m">0%</span><span class="p">,</span> <span class="m">0%</span><span class="p">)</span> <span class="p">}</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>RGB值格式的函数标记是’rgb(‘后面跟着一个逗号分隔的3个数值（要么是3个整数，要么是3个百分比值）和’)’。整数值255对应100%和十六进制表示法中的F或者FF：rgb(255,255,255) = rgb(100%,100%,100%) = #FFF。数值前后可以有空白字符</p>
 
 <p>下面的规则是等价的</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span> <span class="p">}</span>       
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span> <span class="p">}</span>       
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">300</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span> <span class="p">}</span>       
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">-10</span><span class="p">,</span><span class="m">0</span><span class="p">)</span> <span class="p">}</span>     
 <span class="nt">em</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">110%</span><span class="p">,</span> <span class="m">0%</span><span class="p">,</span> <span class="m">0%</span><span class="p">)</span> <span class="p">}</span>  
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="字符串">字符串</h3>
 
@@ -470,11 +450,10 @@ navy，olive，orange，purple，red，silver，teal，white和yellow</p>
 字符串不能直接包含换行（newline）。为了在字符串中包含换行，可以ISO-10646 (U+000A)中的换行符的转义表示法，例如”\A”或者”\00000a”。这个字符在CSS中表示”换行”的一般概念
 下面的选择器是相同的</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">a</span><span class="o">[</span><span class="nt">title</span><span class="o">=</span><span class="s1">"a not s\
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="o">[</span><span class="nt">title</span><span class="o">=</span><span class="s1">"a not s\
 o very long title"</span><span class="o">]</span> <span class="p">{}</span>
 <span class="nt">a</span><span class="o">[</span><span class="nt">title</span><span class="o">=</span><span class="s1">"a not so very long title"</span><span class="o">]</span> <span class="p">{}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>不支持的值</li>
@@ -482,12 +461,11 @@ o very long title"</span><span class="o">]</span> <span class="p">{}</span>
 
 <p>如果UA不支持某个特殊值，解析样式表时就应该忽略该值。就像该值是一个非法值例如：</p>
 
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h3</span> <span class="p">{</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h3</span> <span class="p">{</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">inline</span><span class="p">;</span>
     <span class="nl">display</span><span class="p">:</span> <span class="n">run-in</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>支持’display’为’run-in’值的UA将接受第一个display声明，然后用第二个display声明的值“重写”它。不支持’run-in’值的UA将处理第一个display声明并忽略第二个display声明</p>
 
@@ -565,13 +543,13 @@ o very long title"</span><span class="o">]</span> <span class="p">{}</span>
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -622,14 +600,14 @@ o very long title"</span><span class="o">]</span> <span class="p">{}</span>
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -643,16 +621,16 @@ o very long title"</span><span class="o">]</span> <span class="p">{}</span>
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

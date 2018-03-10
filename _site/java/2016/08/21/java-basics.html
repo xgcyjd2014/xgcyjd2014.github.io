@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Java知识集锦-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="Java知识集锦,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="Java知识集锦-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Java知识集锦,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -64,20 +64,19 @@
 
 <h3 id="如何进行整型赋值">如何进行整型赋值</h3>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kt">byte</span>  <span class="kt">short</span>   <span class="kt">int</span>   <span class="kt">long</span>  <span class="err">符号位</span><span class="o">(</span><span class="mi">1</span><span class="o">)+</span><span class="err">数值位</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">byte</span>  <span class="kt">short</span>   <span class="kt">int</span>   <span class="kt">long</span>  <span class="err">符号位</span><span class="o">(</span><span class="mi">1</span><span class="o">)+</span><span class="err">数值位</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span>
    <span class="mi">8</span>     <span class="mi">16</span>   <span class="mi">32</span>    <span class="mi">64</span>
    <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>         <span class="c1">//10进制赋值            DEC</span>
-   <span class="n">Int</span> <span class="n">num2</span><span class="o">=</span><span class="mi">025</span><span class="err">；</span>        <span class="c1">//8进制赋值             OCT</span>
+   <span class="n">Int</span> <span class="n">num2</span><span class="o">=</span><span class="mo">025</span><span class="err">；</span>        <span class="c1">//8进制赋值             OCT</span>
    <span class="n">Int</span> <span class="n">num3</span><span class="o">=</span><span class="mh">0x25</span>         <span class="c1">//16进制赋值            HEX</span>
-   <span class="n">Int</span> <span class="n">num4</span><span class="o">=</span><span class="mi">0</span><span class="n">b1011</span>       <span class="c1">//2进制赋值 jdk7.0       BIN</span>
-</code></pre>
-</div>
+   <span class="n">Int</span> <span class="n">num4</span><span class="o">=</span><span class="mb">0b1011</span>       <span class="c1">//2进制赋值 jdk7.0       BIN</span>
+</code></pre></div></div>
 
 <h3 id="如何进行浮点型赋值">如何进行浮点型赋值</h3>
 
 <p>浮点型 包括符号位+幂指位+数值位</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kt">float</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span>
   <span class="mi">32</span><span class="o">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">8</span><span class="o">+</span><span class="mi">32</span><span class="o">)</span>                       <span class="n">F</span><span class="o">/</span><span class="n">f</span>
 <span class="n">Double</span>
   <span class="mi">64</span><span class="o">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">11</span><span class="o">+</span><span class="mi">52</span><span class="o">)</span>                       <span class="n">D</span><span class="o">/</span><span class="n">d</span>
@@ -86,11 +85,10 @@
      <span class="err">整数部分：</span><span class="mi">64</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">=</span><span class="mi">1000011</span>
      <span class="err">小数部分：</span><span class="mf">0.01</span>
      <span class="mf">1000011.01</span><span class="o">=&gt;</span><span class="err">科学计数法</span><span class="o">:</span><span class="mf">1.00001101</span><span class="o">*</span><span class="mi">2</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span>
-<span class="err">幂指位：</span><span class="mi">01111111</span><span class="o">=</span><span class="mi">127</span><span class="o">+</span><span class="mi">6</span> <span class="o">=</span><span class="mi">133</span><span class="o">=</span><span class="mi">128</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="o">=</span><span class="mi">10000101</span>
-<span class="err">数值位</span><span class="mi">23</span><span class="err">：</span><span class="mi">00001101000000000000000</span>
-<span class="mi">0</span> <span class="mi">10000101</span>  <span class="mi">00001101000000000000000</span>
-</code></pre>
-</div>
+<span class="err">幂指位：</span><span class="mo">01111111</span><span class="o">=</span><span class="mi">127</span><span class="o">+</span><span class="mi">6</span> <span class="o">=</span><span class="mi">133</span><span class="o">=</span><span class="mi">128</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="o">=</span><span class="mi">10000101</span>
+<span class="err">数值位</span><span class="mi">23</span><span class="err">：</span><span class="mo">00001101000000000000000</span>
+<span class="mi">0</span> <span class="mi">10000101</span>  <span class="mo">00001101000000000000000</span>
+</code></pre></div></div>
 
 <p>看完上面的知识，我们来分析一个小问题</p>
 
@@ -106,52 +104,47 @@
 
 <p>下面是一个按位运算的实例</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="mi">8</span><span class="o">&amp;</span><span class="mi">5</span><span class="o">=&gt;</span><span class="mi">0</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">8</span><span class="o">&amp;</span><span class="mi">5</span><span class="o">=&gt;</span><span class="mi">0</span>
 <span class="mi">1000</span>
-<span class="o">&amp;</span><span class="mi">0101</span>
-<span class="mi">0000</span>
-</code></pre>
-</div>
+<span class="o">&amp;</span><span class="mo">0101</span>
+<span class="mo">0000</span>
+</code></pre></div></div>
 
 <p>下面是按位运算需要注意的一些细节和问题</p>
 
 <p>1.当一个正数%2的n次方数的时候 将完全等价于&amp;（这个2的n次方数-1）</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">%</span><span class="mi">2</span>        <span class="o">%</span><span class="mi">4</span>     <span class="o">&amp;</span><span class="mi">8</span>     <span class="o">%</span><span class="mi">16</span>        <span class="o">%</span><span class="mi">32</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="mi">2</span>        <span class="o">%</span><span class="mi">4</span>     <span class="o">&amp;</span><span class="mi">8</span>     <span class="o">%</span><span class="mi">16</span>        <span class="o">%</span><span class="mi">32</span>
 <span class="o">&amp;</span><span class="mi">1</span>        <span class="o">&amp;</span><span class="mi">3</span>     <span class="o">&amp;</span><span class="mi">7</span>     <span class="o">&amp;</span><span class="mi">15</span>        <span class="o">&amp;</span><span class="mi">31</span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>2.当实现权限控制模块的时候</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nl">Unix:</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">Unix:</span>
      <span class="mi">1</span> <span class="err">代表执行权限</span>
      <span class="mi">2</span> <span class="err">代表写入权限</span>
      <span class="mi">3</span> <span class="err">代表读取权限</span>
 <span class="n">Java</span><span class="err">当中修饰符：</span><span class="kd">public</span><span class="o">=</span><span class="mi">1</span> <span class="kd">static</span> <span class="mi">8</span>     <span class="kd">public</span> <span class="kd">static</span>  <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">8</span>  <span class="kd">static</span> <span class="kd">public</span> <span class="o">=</span> <span class="mi">8</span><span class="o">+</span><span class="mi">1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>3.如何不借助第三块空间交换两个变量的值</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="n">Int</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">Int</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span>
 <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="o">;</span>
 <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="o">;</span>
 <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="o">;</span>
 <span class="c1">//a=5  b=3</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>4.计算机当中如何最高效的求出2的3次方</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="mi">2</span>     <span class="o">*</span><span class="mi">4</span>      <span class="o">*</span><span class="mi">8</span>     <span class="o">*</span><span class="mi">16</span>       <span class="o">*</span><span class="mi">32</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="mi">2</span>     <span class="o">*</span><span class="mi">4</span>      <span class="o">*</span><span class="mi">8</span>     <span class="o">*</span><span class="mi">16</span>       <span class="o">*</span><span class="mi">32</span>
 <span class="o">&lt;&lt;</span><span class="mi">1</span>    <span class="o">&lt;&lt;</span><span class="mi">2</span>      <span class="o">&lt;&lt;</span><span class="mi">3</span>    <span class="o">&lt;&lt;</span><span class="mi">4</span>      <span class="o">&lt;&lt;</span><span class="mi">5</span>
 <span class="o">/</span><span class="mi">2</span>     <span class="o">/</span><span class="mi">4</span>       <span class="o">/</span><span class="mi">8</span>      <span class="o">/</span><span class="mi">16</span>       <span class="o">/</span><span class="mi">32</span>
 <span class="o">&gt;&gt;</span><span class="mi">1</span>     <span class="o">&gt;&gt;</span><span class="mi">2</span>     <span class="o">&gt;&gt;</span><span class="mi">3</span>    <span class="o">&gt;&gt;</span><span class="mi">4</span>       <span class="o">&gt;&gt;</span><span class="mi">5</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="基础细节">基础细节</h3>
 
@@ -305,23 +298,21 @@
 
 <p>具体实现:</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">demo</span><span class="o">(){}</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">demo</span><span class="o">(){}</span>
 <span class="kd">public</span> <span class="nf">demo</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">){}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="jcf集合框架">JCF集合框架</h2>
 
 <p>JCF实例演示：</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">//java当中的集合只允许存放引用类型对象</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//java当中的集合只允许存放引用类型对象</span>
  <span class="n">Boolean</span> <span class="n">data1</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
  <span class="kt">boolean</span> <span class="n">data2</span><span class="o">=</span><span class="n">data1</span><span class="o">;</span>  <span class="c1">//data1.booleanValue();</span>
  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data1</span><span class="o">);</span>
                 <span class="nl">Email:</span> <span class="mi">669688</span><span class="nd">@qq</span><span class="o">.</span><span class="na">com</span>   
                  <span class="mi">963363</span><span class="o">:</span><span class="err">公益式</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="arraylist">ArrayList</h3>
 
@@ -331,7 +322,7 @@
 
 <p>如何消除ArrayList多余的空间</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">//再添加 元素完成之后   底层的数组元素个数  未必和实际元素个数相同   所以学会使用list.trimToSize()。</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//再添加 元素完成之后   底层的数组元素个数  未必和实际元素个数相同   所以学会使用list.trimToSize()。</span>
 
 <span class="n">nanoTime</span><span class="o">();</span> <span class="c1">//纳秒为单位。</span>
 
@@ -342,13 +333,12 @@
 <span class="c1">// Foreach 的底层还是用迭代器实现的,在使用迭代器遍历ArrayList的过程当中   绝对不允许对集合整体进行任何添加删除操作（除了未遂的）</span>
 
 <span class="c1">//ConcurrentModificationException =&gt;并发修改异常</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>在使用迭代器遍历ArrayList的过程当中 <br />
 绝对不允许对集合整体进行任何添加删除操作（除了未遂的）</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Import</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.*;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.*;</span>
 <span class="n">Import</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.*;</span>
 
 <span class="c1">//ConcurrentModificationException =&gt;并发修改异常</span>
@@ -371,12 +361,11 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>jdk8 lmbda 实现</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">//jdk8 lmbda</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//jdk8 lmbda</span>
 <span class="n">Import</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.*</span>
 <span class="n">Public</span> <span class="kd">class</span> <span class="nc">TestArrayList8</span><span class="o">{</span>
 <span class="n">Public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
@@ -385,8 +374,7 @@
      <span class="n">List</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">e</span><span class="o">&gt;=</span><span class="mi">60</span><span class="o">).</span><span class="na">sorted</span><span class="o">((</span><span class="n">Integer</span> <span class="n">i1</span><span class="o">,</span><span class="n">Integer</span> <span class="n">i2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">i2</span> <span class="o">-</span><span class="n">i1</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">)</span>
 <span class="o">}</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="linkedlist">LinkedList</h3>
 
@@ -407,10 +395,9 @@
 
 <p>其实 HashSet 判定唯一根本不是两个步骤  而是三个步骤</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="n">hashCode</span><span class="o">()</span> <span class="o">==</span> <span class="n">equals</span><span class="o">()</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="n">hashCode</span><span class="o">()</span> <span class="o">==</span> <span class="n">equals</span><span class="o">()</span>
 <span class="n">hashCode</span><span class="o">&amp;&amp;(==||</span> <span class="n">equals</span><span class="o">())</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>需要注意的是：</p>
 
@@ -596,13 +583,13 @@ HashSet 哈希表 -&gt; Hashtable -&gt;散列表</p>
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -653,14 +640,14 @@ HashSet 哈希表 -&gt; Hashtable -&gt;散列表</p>
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -674,16 +661,16 @@ HashSet 哈希表 -&gt; Hashtable -&gt;散列表</p>
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

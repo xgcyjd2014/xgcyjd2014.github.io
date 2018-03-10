@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Es2017 将会给我们带来什么？-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="Es2017 将会给我们带来什么？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="Es2017 将会给我们带来什么？-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Es2017 将会给我们带来什么？,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -64,13 +64,12 @@
 
 <p>最简单的方式是</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code> <span class="nx">A</span><span class="p">(</span><span class="nx">B</span><span class="p">(</span><span class="nx">C</span><span class="p">()))</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">A</span><span class="p">(</span><span class="nx">B</span><span class="p">(</span><span class="nx">C</span><span class="p">()))</span>
+</code></pre></div></div>
 
 <p>面向对象的话可以</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">value</span><span class="p">:</span> <span class="k">void</span> <span class="mi">0</span><span class="p">,</span>
     <span class="nx">A</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -90,16 +89,14 @@
   <span class="p">.</span><span class="nx">A</span><span class="p">()</span>
   <span class="p">.</span><span class="nx">B</span><span class="p">()</span>
   <span class="p">.</span><span class="nx">C</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果在node端我们还可以使用.pipe</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">A</span><span class="p">())</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">A</span><span class="p">())</span>
   <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">B</span><span class="p">())</span>
   <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">C</span><span class="p">())</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="基本使用">基本使用</h3>
 
@@ -107,7 +104,7 @@
 
 <p>例如如下三个函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doubleSay</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">doubleSay</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">str</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nx">str</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">capitalize</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
@@ -116,46 +113,41 @@
 <span class="kd">function</span> <span class="nx">exclaim</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">str</span> <span class="o">+</span> <span class="s1">'!'</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// 原来的方式</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 原来的方式</span>
 <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">exclaim</span><span class="p">(</span><span class="nx">capitalize</span><span class="p">(</span><span class="nx">doubleSay</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)));</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nx">Hello</span><span class="p">,</span> <span class="nx">hello</span><span class="o">!</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// 使用管道函数重构</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 使用管道函数重构</span>
 <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">"hello"</span>
   <span class="o">|&gt;</span> <span class="nx">doubleSay</span>
   <span class="o">|&gt;</span> <span class="nx">capitalize</span>
   <span class="o">|&gt;</span> <span class="nx">exclaim</span><span class="p">;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nx">Hello</span><span class="p">,</span> <span class="nx">hello</span><span class="o">!</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>同时，我们可以借助箭头函数在流的中间截获中间值</p>
 
 <p>例如另外一个函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bilibliousStringFunction</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="s1">', BiLi'</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bilibliousStringFunction</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="s1">', BiLi'</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后我们改写一下我们的函数</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">'hello'</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">'hello'</span>
   <span class="o">|&gt;</span> <span class="nx">doubleSay</span>
   <span class="o">|&gt;</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">bilibliousStringFunction</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
   <span class="o">|&gt;</span> <span class="nx">exclaim</span><span class="p">;</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nx">HELLO</span><span class="p">,</span> <span class="nx">HELLO</span><span class="p">,</span> <span class="nx">BiLi</span><span class="o">!</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="柯里化">柯里化</h3>
 
@@ -163,10 +155,10 @@
 
 <p>首先我们来复习一下柯里化</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">arg</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">arg</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kr">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">newarg</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arg</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">newarg</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arg</span><span class="p">,</span> <span class="kr">arguments</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">newarg</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -177,12 +169,11 @@
 <span class="p">},</span><span class="mi">1</span><span class="p">);</span>
 
 <span class="nx">addCurry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>ok, 接下来我们可以使用pipeline-operator重写上述逻辑</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(...</span><span class="nx">params1</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(...</span><span class="nx">params1</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">(...</span><span class="nx">params2</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">params1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">params2</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">?</span> <span class="nx">payload</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">b</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">n</span><span class="p">)</span> <span class="p">:</span> <span class="nx">payload</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
@@ -193,8 +184,7 @@
   <span class="o">|&gt;</span> <span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
 <span class="nx">result</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">6</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>也是比较优雅的</p>
 
@@ -202,7 +192,7 @@
 
 <p>我们也可以在对象继承方面做一些文章</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// 基础对象</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 基础对象</span>
 <span class="kd">function</span> <span class="nx">Person</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span> <span class="p">};</span>
 <span class="p">}</span>
@@ -245,8 +235,7 @@
   <span class="k">return</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="nx">Walk</span> <span class="o">|&gt;</span> <span class="nx">Talk</span> <span class="o">|&gt;</span> <span class="nx">Eat</span><span class="p">;</span>
 <span class="p">}</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样我们就能很轻松的搭配我们所需的功能函数，拼装为具体能实现的实例</p>
 
@@ -254,7 +243,7 @@
 
 <p>同时，关于数据检验，我们现在可以这样玩</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bounded</span> <span class="p">(</span><span class="nx">prop</span><span class="p">,</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bounded</span> <span class="p">(</span><span class="nx">prop</span><span class="p">,</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">prop</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">min</span> <span class="o">||</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">prop</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">max</span> <span class="p">)</span> <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'out of bounds'</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
@@ -285,8 +274,7 @@
 <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s1">'Your Name or Age was illegal!'</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="bind-operator">bind-operator</h2>
 
@@ -296,55 +284,50 @@
 
 <p>栗子如下：</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Owen</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">year</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
     <span class="nx">getValue</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">year</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kr">const</span> <span class="nx">bilibiliou</span> <span class="o">=</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">bilibiliou</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">year</span><span class="p">:</span> <span class="mi">21</span>
 <span class="p">}</span>
 
 <span class="nl">bilibiliou</span><span class="p">::</span><span class="nx">Owen</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>  <span class="c1">// &gt;&gt;&gt; 21</span>
 <span class="c1">// 等效于 Owen.getValue.call(bilibiliou)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果不指定左值，则绑定默认的上下文</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">::</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">::</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span>
 <span class="c1">// console.log.bind(console);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们可以发现，对于函数，如果 有执行符 <code class="highlighter-rouge">()</code> 则被编译为call，如果没有则会编译为bind</p>
 
 <p>如果我们传递了多个参数，则会被编译为apply</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">foo</span><span class="err">::</span><span class="nx">bar</span><span class="p">(...[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">foo</span><span class="p">::</span><span class="nx">bar</span><span class="p">(...[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
 <span class="c1">// bar.apply(foo, 1,2,3);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>bind-operator 为我们带来了很多便利，首先就是React 中需要绑定this域的场景</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>我们完全可以使用bind-operator 进行改写</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span> <span class="o">=</span> <span class="err">::</span><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span> <span class="o">=</span> <span class="p">::</span><span class="k">this</span><span class="p">.</span><span class="nx">somethingHandle</span>
+</code></pre></div></div>
 
 <p>同时对于一些类数组，我们的操作也可以变得更加优雅</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">oBtns</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.button'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">oBtns</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.button'</span><span class="p">);</span>
 
-<span class="nl">oBtns</span><span class="p">:</span><span class="err">:</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nl">oBtns</span><span class="p">::</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// to do something</span>
 <span class="p">});</span>
 
@@ -353,12 +336,11 @@
 <span class="p">[].</span><span class="nx">map</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">oBthns</span><span class="p">,</span> <span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// to do something</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当我们对数据需要进行一系列处理的时候，我们还可以这么玩</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">function</span> <span class="nx">extentionFunction1</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">blabla</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
   <span class="p">}</span>
@@ -370,16 +352,15 @@
 
   <span class="k">return</span> <span class="nx">data</span>
       <span class="p">.</span><span class="nx">dataHandle1</span><span class="p">()</span>
-      <span class="err">::</span><span class="nx">extentionFunction1</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+      <span class="p">::</span><span class="nx">extentionFunction1</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">dataHandle2</span><span class="p">()</span>
-      <span class="err">::</span><span class="nx">extentionFunction2</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
+      <span class="p">::</span><span class="nx">extentionFunction2</span><span class="p">(</span><span class="mi">456</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>等价于</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>  <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
       <span class="p">.</span><span class="nx">dataHandle1</span><span class="p">()</span>
         <span class="p">.</span><span class="nx">dataHandle2</span><span class="p">()</span>
      
@@ -387,42 +368,39 @@
      <span class="nx">data</span> <span class="o">=</span> <span class="nx">extentionFunction2</span><span class="p">(</span><span class="mi">456</span><span class="p">);</span>
      
      <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="objectentries-和-objectvalues">Object.entries 和 Object.values</h2>
 
 <p>在此之前我们就能通过 Object.keys 将对象的key转为数组，如今，TC39为我们扩展了这类的方法</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">retcode</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="na">msg</span><span class="p">:</span> <span class="s1">'Success'</span><span class="p">,</span>
     <span class="na">data</span><span class="p">:</span> <span class="s1">'blabla'</span>
 <span class="p">}</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// [0, 'Success', 'blabla']</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如上，我们可以使用values输入一个对象内的所有values</p>
 
 <p>我们还可以使用 entries 输出每一个键值对</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">retcode</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="na">msg</span><span class="p">:</span> <span class="s1">'Success'</span><span class="p">,</span>
     <span class="na">data</span><span class="p">:</span> <span class="s1">'blabla'</span>
 <span class="p">}</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// [['retcode', 0], ['msg', 'Success'], ['data', 'blabla']]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="string-padding">String Padding</h2>
 
 <p>string 扩展了两个方法</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// padStart</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// padStart</span>
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padStart</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>         <span class="c1">// "       abc"</span>
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padStart</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">);</span>  <span class="c1">// "foofoofabc"</span>
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padStart</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="s2">"123465"</span><span class="p">);</span> <span class="c1">// "123abc"</span>
@@ -433,46 +411,41 @@
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padEnd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">);</span>   <span class="c1">// "abcfoofoof"</span>
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padEnd</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s2">"123456"</span><span class="p">);</span> <span class="c1">// "abc123"</span>
 <span class="s1">'abc'</span><span class="p">.</span><span class="nx">padEnd</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>           <span class="c1">// "abc"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>未来我们可以更好的处理字符串了</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sayHi</span> <span class="p">(</span><span class="nx">userFirstName</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sayHi</span> <span class="p">(</span><span class="nx">userFirstName</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">Hello</span> <span class="o">=</span> <span class="s1">' 大爷，您可来了，小的这就给您斟茶倒水，招呼菊仙姑娘'</span><span class="p">;</span>
   <span class="k">return</span> <span class="nx">userFirstName</span><span class="p">.</span><span class="nx">padEnd</span><span class="p">(</span><span class="nx">userFirstName</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">Hello</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">Hello</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="nx">sayHi</span><span class="p">(</span><span class="s1">'bilibiliou'</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="逗号不会抛错">逗号不会抛错</h2>
 
 <p>有些时候（复制多个对象）可能后面不小心会留下一个小逗号</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="mi">1</span><span class="p">,</span>
   <span class="mi">2</span><span class="p">,</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>又或者 写函数入参的时候</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hi</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">a</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">b</span><span class="p">}</span><span class="err">`</span><span class="p">)</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hi</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">a</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">b</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="nx">hi</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">,</span> <span class="s1">'World'</span><span class="p">,);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>还有可能是数组</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,]</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,]</span>
+</code></pre></div></div>
 
 <p>当代码复杂且代码被混淆|压缩|编译|转义的时候，可能一个逗号的Error也要查半天，断点调
 在Es8的规范中，能够忽视这种错误，让程序正常的跑起来</p>
@@ -487,74 +460,65 @@
 
 <p>我们可以通过new Worker(‘calc.js’) 来开辟一个子进程</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">"calc.js"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s2">"calc.js"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>如果主线程和子线程需要通讯的话，主要使用 postMessage 和 onmessage</p>
 
 <p>主线程</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">w</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">"hi"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">w</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s2">"hi"</span><span class="p">);</span>
 <span class="nx">w</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ev</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>子线程</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ev</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
   <span class="nx">postMessage</span><span class="p">(</span><span class="s2">"ho"</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>而现在我们可以开辟一定大小的存储空间，进行线程间数据共享</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedArrayBuffer</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>  <span class="c1">// 1KB 的共享内存</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">sab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedArrayBuffer</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>  <span class="c1">// 1KB 的共享内存</span>
+</code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">w</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">sab</span><span class="p">)</span>   <span class="c1">// 通过postMessage 将指针发送给子线程</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">w</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">sab</span><span class="p">)</span>   <span class="c1">// 通过postMessage 将指针发送给子线程</span>
+</code></pre></div></div>
 
 <p>子线程直接从全局获取到指针，并写入数据，完成内存共享</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sab</span><span class="p">;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sab</span><span class="p">;</span>
 <span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
    <span class="nx">sab</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>下面是一个素数生成器的例子</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedArrayBuffer</span><span class="p">(</span><span class="nx">Int32Array</span><span class="p">.</span><span class="nx">BYTES_PER_ELEMENT</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">);</span> <span class="c1">// 100000 个素数</span>
-<span class="kd">var</span> <span class="nx">ia</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Int32Array</span><span class="p">(</span><span class="nx">sab</span><span class="p">);</span>  <span class="c1">// ia.length == 100000</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedArrayBuffer</span><span class="p">(</span><span class="nb">Int32Array</span><span class="p">.</span><span class="nx">BYTES_PER_ELEMENT</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">);</span> <span class="c1">// 100000 个素数</span>
+<span class="kd">var</span> <span class="nx">ia</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Int32Array</span><span class="p">(</span><span class="nx">sab</span><span class="p">);</span>  <span class="c1">// ia.length == 100000</span>
 <span class="kd">var</span> <span class="nx">primes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PrimeGenerator</span><span class="p">();</span> <span class="c1">// 伪代码，素数生成器网上有对应实现</span>
 <span class="k">for</span> <span class="p">(</span> <span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">ia</span><span class="p">.</span><span class="nx">length</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span>
    <span class="nx">ia</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">primes</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 <span class="nx">w</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">ia</span><span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ia</span><span class="p">;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">ia</span><span class="p">;</span>
 <span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">ia</span> <span class="o">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>        <span class="c1">// ia.length == 100000</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ia</span><span class="p">[</span><span class="mi">37</span><span class="p">]);</span> <span class="c1">// 第38位素数 163</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>值得注意的是，在共享内存内两个线程都能够修改数据</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ia</span><span class="p">[</span><span class="mi">37</span><span class="p">]);</span>  <span class="c1">// 163</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ia</span><span class="p">[</span><span class="mi">37</span><span class="p">]);</span>  <span class="c1">// 163</span>
 <span class="nx">ia</span><span class="p">[</span><span class="mi">37</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span> <span class="c1">// 最后为 123456</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>所以，应该有合理的机制来保证共享内存的合理使用</p>
 
@@ -572,16 +536,15 @@
 
 <p>以前在写动画的时候，经常这么操作</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">M</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">;</span>
-<span class="kr">const</span> <span class="p">{</span> <span class="nl">pow</span><span class="p">:</span> <span class="nx">Pow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">M</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">M</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">;</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="na">pow</span><span class="p">:</span> <span class="nx">Pow</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">M</span><span class="p">;</span>
+</code></pre></div></div>
 
 <p>现在 新规范为我们推出了 (**) 求幂运算。</p>
 
 <p>我们可以直接这样</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1">// &gt;&gt;&gt; 25</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1">// &gt;&gt;&gt; 25</span>
 
 <span class="c1">// 等同于 Math.pow(5, 2)</span>
 
@@ -589,8 +552,7 @@
 <span class="nx">num</span> <span class="o">**=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
 <span class="c1">// &gt;&gt;&gt; num 25</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
             <!-- 上下篇 -->
@@ -661,13 +623,13 @@
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -718,14 +680,14 @@
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -739,16 +701,16 @@
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

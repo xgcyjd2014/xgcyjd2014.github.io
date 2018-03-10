@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="DIY 一个自己的 REPL 工具-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="DIY 一个自己的 REPL 工具,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="DIY 一个自己的 REPL 工具-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="DIY 一个自己的 REPL 工具,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -79,7 +79,7 @@
 
 <p>比如一个计算机的小程序</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 输入： add 1 1     
 
 计算机分析求值
@@ -94,8 +94,7 @@
 
 ... (loop)
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>以上三个步骤 分别对应 read 、eval、 print</p>
 
@@ -119,41 +118,39 @@
 
 <p>我们使用start 方法，可以开启一个repl 工具</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
       <span class="nx">pid</span>  <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">pid</span>
 
 <span class="kd">let</span> <span class="nx">replServer</span> <span class="o">=</span> <span class="nx">repl</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
-        <span class="na">prompt</span><span class="p">:</span> <span class="err">`</span><span class="nx">process</span> <span class="nx">$</span><span class="p">{</span><span class="nx">pid</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="err">`</span>
+        <span class="na">prompt</span><span class="p">:</span> <span class="s2">`process </span><span class="p">${</span><span class="nx">pid</span><span class="p">}</span><span class="s2"> is running &gt;&gt;&gt; `</span>
     <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当开启了这个工具后，当前进程就被阻塞了，我们可以输入一些node 指令来试试</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
-process 5392 is running &gt;&gt;&gt; 1 + 1
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> 1 + 1
 2
-process 5392 is running &gt;&gt;&gt; Math.PI / 2
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.PI / 2
 1.5707963267948966
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 5
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 4
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 3
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 4
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 2
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 2
-process 5392 is running &gt;&gt;&gt; Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> Math.floor<span class="o">(</span>Math.random<span class="o">()</span> <span class="k">*</span> 5 + 1<span class="o">)</span><span class="p">;</span>
 4
-process 5392 is running &gt;&gt;&gt; console.log<span class="o">(</span><span class="s2">"i am Owen"</span><span class="o">)</span>;
+process 5392 is running <span class="o">&gt;&gt;&gt;</span> console.log<span class="o">(</span><span class="s2">"i am Owen"</span><span class="o">)</span><span class="p">;</span>
 i am Owen
 undefined
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>不难可以发现，repl 每一次都一定会有一个输出值，如果执行一个函数，没有设定return 那么返回值就是 undefined</p>
 
@@ -169,12 +166,12 @@ undefined
 <p>context 是一个对象，他下面的成员可以保存各种类型的值，当我们在命令行中输入成员名，
 就能返回这些值</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
       <span class="nx">test</span> <span class="o">=</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">),</span>
       <span class="nx">pid</span>  <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">pid</span>
 
 <span class="kd">let</span> <span class="nx">replServer</span> <span class="o">=</span> <span class="nx">repl</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
-        <span class="na">prompt</span><span class="p">:</span> <span class="err">`</span><span class="nx">process</span> <span class="nx">$</span><span class="p">{</span><span class="nx">pid</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="err">`</span><span class="p">,</span>
+        <span class="na">prompt</span><span class="p">:</span> <span class="s2">`process </span><span class="p">${</span><span class="nx">pid</span><span class="p">}</span><span class="s2"> is running &gt;&gt;&gt; `</span><span class="p">,</span>
         <span class="na">writer</span><span class="p">:</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="o">===</span> <span class="s2">"[object String]"</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="nx">param</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
@@ -184,7 +181,7 @@ undefined
         <span class="p">}</span>
     <span class="p">})</span>
 
-<span class="kr">const</span> <span class="nx">setContext</span> <span class="o">=</span> <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">setContext</span> <span class="o">=</span> <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="k">switch</span> <span class="p">(</span><span class="nx">test</span><span class="p">(</span><span class="nx">param</span><span class="p">))</span> <span class="p">{</span>
         <span class="k">case</span> <span class="s2">"[object Array]"</span><span class="p">:</span> 
             <span class="nx">param</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -202,24 +199,22 @@ undefined
     <span class="na">value</span><span class="p">:</span> <span class="s2">"HELLO HELLO HELLO"</span>
 <span class="p">},</span> <span class="p">{</span>
     <span class="na">command</span><span class="p">:</span> <span class="s2">"calc"</span><span class="p">,</span>
-    <span class="na">value</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="err">`</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="err">`</span>
+    <span class="na">value</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s2">`1 + 1 = </span><span class="p">${</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span><span class="s2">`</span>
 <span class="p">}])</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们设定了一个 命令 “m” 当我们在命令行中输入m 的时候 会将我们设定值
 “HELLO HELLO HELLO” 返回</p>
 
 <p>我们还设定了一个命令 calc 当我们在命令行中输入calc() 的时候能将计算额值返回</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
-process 8336 is running &gt;&gt;&gt; m
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
+process 8336 is running <span class="o">&gt;&gt;&gt;</span> m
 hello hello hello
-process 8336 is running &gt;&gt;&gt; calc<span class="o">()</span>
+process 8336 is running <span class="o">&gt;&gt;&gt;</span> calc<span class="o">()</span>
 1 + 1 <span class="o">=</span> 2
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这里有一个细节，就是在 start 传递的 设置对象中，我们可以设置 writer 函数</p>
 
@@ -257,45 +252,42 @@ process 8336 is running &gt;&gt;&gt; calc<span class="o">()</span>
 
 <p>其中不得不提 简单提提save 和 load 命令</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">process</span> <span class="mi">13548</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="nx">m</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">process</span> <span class="mi">13548</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="nx">m</span>
 <span class="nx">hello</span> <span class="nx">hello</span> <span class="nx">hello</span>
 <span class="nx">process</span> <span class="mi">13548</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="nx">process</span> <span class="mi">13548</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
 <span class="mf">0.3750397499375657</span>
 <span class="nx">process</span> <span class="mi">13548</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">.</span><span class="nx">save</span> <span class="nx">lang</span>
-<span class="nx">Session</span> <span class="nx">saved</span> <span class="nx">to</span><span class="err">:</span><span class="nx">lang</span>
-</code></pre>
-</div>
+<span class="nx">Session</span> <span class="nx">saved</span> <span class="nx">to</span><span class="p">:</span><span class="nx">lang</span>
+</code></pre></div></div>
 
 <p>当我们执行完一系列的命令后，可以使用save 保存到lang 文件中</p>
 
 <p>让我们看看lang 文件中存了什么？</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>1 + 1
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 + 1
 Math.random
 m
 1 + 1
 Math.random()
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>我们再用load lang试试？</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
-process 12632 is running &gt;&gt;&gt; .load lang
-process 12632 is running &gt;&gt;&gt; 1 + 1
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:<span class="se">\N</span>odeJs<span class="se">\t</span>est<span class="se">\r</span>epl&gt;node diy_repl.js
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> .load lang
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> 1 + 1
 2
-process 12632 is running &gt;&gt;&gt; Math.random
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> Math.random
 <span class="k">function </span>random<span class="o">()</span> <span class="o">{</span> <span class="o">[</span>native code] <span class="o">}</span>
-process 12632 is running &gt;&gt;&gt; m
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> m
 hello hello hello
-process 12632 is running &gt;&gt;&gt; 1 + 1
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> 1 + 1
 2
-process 12632 is running &gt;&gt;&gt; Math.random<span class="o">()</span>
+process 12632 is running <span class="o">&gt;&gt;&gt;</span> Math.random<span class="o">()</span>
 0.4068562508475533
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>自动将我们刚刚执行的命令又执行了一遍</p>
 
@@ -303,35 +295,34 @@ process 12632 is running &gt;&gt;&gt; Math.random<span class="o">()</span>
 
 <p>我们可以来自己试着定义一个 defineCommand</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">replServer</span><span class="p">.</span><span class="nx">defineCommand</span><span class="p">(</span><span class="s2">"cls"</span><span class="p">,</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">replServer</span><span class="p">.</span><span class="nx">defineCommand</span><span class="p">(</span><span class="s2">"cls"</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">help</span><span class="p">:</span> <span class="s2">"我是勤劳的清屏方法"</span><span class="p">,</span>
     <span class="na">action</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">stdout</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/^win/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"\033[2J"</span><span class="p">;</span>
+            <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"</span><span class="err">\</span><span class="s2">033[2J"</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="kd">let</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">getWindowSize</span><span class="p">()[</span><span class="mi">1</span><span class="p">];</span>
 
             <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">lines</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"\r\n"</span><span class="p">;</span>
+                <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"</span><span class="err">\</span><span class="s2">r</span><span class="err">\</span><span class="s2">n"</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="c1">// Reset cursur</span>
-        <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"\033[0f"</span><span class="p">;</span>
+        <span class="nx">stdout</span> <span class="o">+=</span> <span class="s2">"</span><span class="err">\</span><span class="s2">033[0f"</span><span class="p">;</span>
 
         <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">stdout</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这个方法可实现 cls 清屏的效果，因为系统默认并没有给我们提供.cls 方法</p>
 
 <p>其中传递了两个参数 help 和 action</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>process 6872 is running &gt;&gt;&gt; .help
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>process 6872 is running <span class="o">&gt;&gt;&gt;</span> .help
 <span class="nb">break   </span>Sometimes you get stuck, this gets you out
 clear   Break, and also clear the <span class="nb">local </span>context
 cls     我是勤劳的清屏方法
@@ -339,8 +330,7 @@ cls     我是勤劳的清屏方法
 <span class="nb">help    </span>Show repl options
 load    Load JS from a file into the REPL session
 save    Save all evaluated commands <span class="k">in </span>this REPL session to a file
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>当我们使用默认的.help 方法后不难发现 我们定义的 help 提示出现在了列表中</p>
 
@@ -356,25 +346,25 @@ save    Save all evaluated commands <span class="k">in </span>this REPL session 
 
 <p>所以我们可以自己弄一个自动安装模块的工具，基于REPL</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">repl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"repl"</span><span class="p">),</span>
       <span class="nx">child</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"child_process"</span><span class="p">),</span>
       <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"path"</span><span class="p">),</span>
       <span class="nx">test</span> <span class="o">=</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">),</span>
       <span class="nx">pid</span>  <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">pid</span>
 
 <span class="kd">let</span> <span class="nx">replServer</span> <span class="o">=</span> <span class="nx">repl</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
-        <span class="na">prompt</span><span class="p">:</span> <span class="err">`</span><span class="nx">process</span> <span class="nx">$</span><span class="p">{</span><span class="nx">pid</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">running</span> <span class="o">&gt;&gt;&gt;</span> <span class="err">`</span>
+        <span class="na">prompt</span><span class="p">:</span> <span class="s2">`process </span><span class="p">${</span><span class="nx">pid</span><span class="p">}</span><span class="s2"> is running &gt;&gt;&gt; `</span>
     <span class="p">})</span>
 
 
 <span class="nx">replServer</span><span class="p">.</span><span class="nx">defineCommand</span><span class="p">(</span><span class="s2">"babel"</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">help</span><span class="p">:</span> <span class="s2">"我是勤劳的自动安装babel 的各种模块的方法"</span><span class="p">,</span>
     <span class="na">action</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">execute</span> <span class="o">=</span> <span class="sr">/^win/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="p">)</span> <span class="p">?</span> 
+        <span class="kd">const</span> <span class="nx">execute</span> <span class="o">=</span> <span class="sr">/^win/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="p">)</span> <span class="p">?</span> 
             <span class="s2">"npm.cmd"</span> <span class="p">:</span>
             <span class="s2">"npm"</span><span class="p">;</span>
 
-        <span class="kr">const</span> <span class="nx">which</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"install"</span><span class="p">,</span> <span class="s2">"babel-preset-es2015"</span><span class="p">,</span> <span class="s2">"babel-preset-react"</span><span class="p">,</span> <span class="s2">"--save"</span><span class="p">]</span>
+        <span class="kd">const</span> <span class="nx">which</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"install"</span><span class="p">,</span> <span class="s2">"babel-preset-es2015"</span><span class="p">,</span> <span class="s2">"babel-preset-react"</span><span class="p">,</span> <span class="s2">"--save"</span><span class="p">]</span>
 
         <span class="kd">let</span> <span class="nx">cp</span> <span class="o">=</span> <span class="nx">child</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(</span><span class="nx">execute</span><span class="p">,</span> <span class="nx">which</span><span class="p">,</span> <span class="p">{</span>
                 <span class="na">env</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">,</span>
@@ -384,18 +374,17 @@ save    Save all evaluated commands <span class="k">in </span>this REPL session 
         <span class="p">)</span>    
 
         <span class="nx">cp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">child_process</span> <span class="nx">has</span> <span class="nx">some</span> <span class="nx">Errors</span> <span class="err">\</span><span class="nx">n</span> <span class="o">&gt;&gt;&gt;</span> <span class="nx">$</span><span class="p">{</span><span class="nx">err</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`child_process has some Errors \n &gt;&gt;&gt; </span><span class="p">${</span><span class="nx">err</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
         <span class="p">})</span>   
 
         <span class="nx">cp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"exit"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">child_process</span> <span class="nx">has</span> <span class="nx">finished</span> <span class="o">^</span><span class="nx">_</span><span class="o">^</span><span class="err">`</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`child_process has finished ^_^`</span><span class="p">);</span>
         <span class="p">})</span>
 
         <span class="k">return</span> <span class="s2">"Executing install babel command now !"</span>
     <span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这里我们开辟了一个子进程，在子进程里面 install babel 下的各种模块</p>
 
@@ -485,13 +474,13 @@ save    Save all evaluated commands <span class="k">in </span>this REPL session 
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -542,14 +531,14 @@ save    Save all evaluated commands <span class="k">in </span>this REPL session 
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -563,16 +552,16 @@ save    Save all evaluated commands <span class="k">in </span>this REPL session 
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

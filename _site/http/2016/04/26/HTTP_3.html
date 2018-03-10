@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="浏览器缓存-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="浏览器缓存,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="浏览器缓存-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="浏览器缓存,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -70,7 +70,7 @@
 <h2 id="二指定资源的过期日期-expires-和-cache-control-">二:指定资源的过期日期。（ Expires 和 Cache-Control ）</h2>
 <p>  服务器用HTTP/1.0+ 的 Expires 首部 或者 HTTP/1.1的Cache-Control:max-age 响应首部来指定过期日期。Expires首部和Cache-Control:max-age 首部本质上是一样的，但由于Cache-Control首部使用的是相对时间而不是绝对日期，所以我们更倾向于使用比较新的Cache-Control首部。( Cache-Control的优先级高于Expires )</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>我们在服务器告知浏览器120秒后对应的请求过期
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>我们在服务器告知浏览器120秒后对应的请求过期
 response.setHeader("Control-Cache","max-age=120"); #
 #对应的响应首部字段:
 Cache-Control:"max-age=120"
@@ -78,8 +78,7 @@ Cache-Control:"max-age=120"
 #在120秒之内，对同一资源的请求将直接从浏览器缓存中取得，对应的HTTP状态码如下:
 #表明对此资源的请求成功，但 是直接获取的缓存。
 HTTP/1.1 200(from cache) OK    
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="二服务器再验证">二:服务器再验证。</h2>
 <p>  仅仅是已缓存文档过期了并不意味着它和原始服务器上目前处于活跃状态的文档有实际的区别；这只是意味着到了要进行核对的时间了。这种情况被称为“服务器再验证”，说明缓存需要询问原始服务器文档是否发生了变化。</p>
@@ -100,9 +99,8 @@ HTTP/1.1 200(from cache) OK
 <h2 id="1if-modified-since"> 1:If-Modified-Since:<data></data></h2>
 <p>  在进行缓存再验证时，”条件GET”会有一条 If-Modified-Since 的首部字段，其值一般为上一次请求此资源时得到的 Last-Modified 的值。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>If-Modified-Since: Tue, 26 Apr 2016 13:22:25 GMT
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If-Modified-Since: Tue, 26 Apr 2016 13:22:25 GMT
+</code></pre></div></div>
 
 <p>  服务器会拿着这个日期与要请求的资源的最后修改日期对比，</p>
 
@@ -114,15 +112,13 @@ HTTP/1.1 200(from cache) OK
 
 <p>  当客户端初次请求一个资源时，会在响应字段中附加上此文档的实体标签(ETag)。首部字段ETag是一种可将资源以字符串形式作为唯一性标识的方式。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> ETag: "a8df4773ac9fd11:121f"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ETag: "a8df4773ac9fd11:121f"
+</code></pre></div></div>
 
 <p>  这样，当缓存进行再验证时，会附加 If-None-Match:<ETag> 条件请求。</ETag></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>If-None-Match:"a8df4773ac9fd11:121f"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If-None-Match:"a8df4773ac9fd11:121f"
+</code></pre></div></div>
 
 <p>  同理，如果服务器上的实体标记与 If-None-Modified 的值(缓存中资源的ETag)不一样，说明资源已经改变，就会执行 200 响应并发送新的内容和新的ETag；反之直接返回304。</p>
 
@@ -210,13 +206,13 @@ HTTP/1.1 200(from cache) OK
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -267,14 +263,14 @@ HTTP/1.1 200(from cache) OK
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -288,16 +284,16 @@ HTTP/1.1 200(from cache) OK
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

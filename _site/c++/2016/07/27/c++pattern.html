@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="C++语言与C语言的区别-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="C++语言与C语言的区别,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="C++语言与C语言的区别-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="C++语言与C语言的区别,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -68,7 +68,7 @@
 但是这种设计方法在编写一般的小项目时非常方便。
 C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在这种面向过程的设计方法上面增加了一些机制，即使在编写C++程序时不使用C++增加的机制，也可以完全用C的设计方法和C的语法来编写C++程序。这也是我们所说的C++向下兼容C。在编写小的项目时，用从C继承下来这种方法编写程序特别方便灵活，运行效率也仅仅次于汇编语言。</p>
 
-<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
 	<span class="n">a</span> <span class="o">=</span> <span class="mi">987</span><span class="p">;</span>
@@ -76,14 +76,13 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 	<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span><span class="o">:</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">);</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="2模块化开发">2:模块化开发</h3>
 
 <p>C语言开发项目时，常常把程序功能模块化，既便于项目管理，又能为程序功能提供清晰的逻辑，还减少了大量重复代码。最常见的就是函数的定义和调用:把主函数里重复用到的功能和一些复杂的功能封装成一个个函数，再在主函数里调用。如果功能复杂，还能再把功能函数里的功能细分下去。如上述，C++继承于C，也支持这种设计模式。</p>
 
-<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">);</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">);</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -98,14 +97,13 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 <span class="p">{</span>
 	<span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span><span class="o">:</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="3基于对象开发之struct">3:基于对象开发之struct</h3>
 
 <p>C语言里提供了基础的常用类型，如char, int, double等，但这些数据类型满足不了开发需要，于是提供了struct, enum, union等关键词让我们定义方便自己使用的数据类型,最长用的就是struct,可以线性排列任意多个相同类型或不同类型的数据成员的结构体。于是C语言开发时，可以定义很多方便自己开发的结构体，再提供一些专门用于操作结构体的功能函数，用这种方法使编程更加丰富有趣。</p>
 
-<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;cmath&gt;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;cmath&gt;
 </span><span class="k">struct</span> <span class="n">Point</span><span class="p">{</span>
 	<span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">};</span>
@@ -123,16 +121,15 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 
 <span class="kt">double</span> <span class="nf">distance</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">)</span>
 <span class="p">{</span>
-	<span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pow</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">m</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">2</span><span class="p">));</span><span class="c1">//勾股定理
-</span><span class="p">}</span>
-</code></pre>
-</div>
+	<span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pow</span><span class="p">(</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">m</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="mi">2</span><span class="p">));</span><span class="c1">//勾股定理</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="4基于对象开发之class">4:基于对象开发之class</h3>
 
 <p>C++扩展了C语言的基于对象，具体形式是，扩充了用户自定义结构体的机制，从此用户自定义的类型可以做到和基础的原始类型使用起来几乎一模一样。在这里C++主要扩充了数据成员和成员函数机制，成员保护和类接口机制，操作符重载机制，友元机制，构造析构机制，静态成员机制等。有了这些机制，用户可以制作出表现行为和系统提供的基础类型一模一样的用户自定义类型和对象。这也是面向对象的基础。程序员原本注重流程，从这里开始，程序员就应该把注意力从流程上移开，来更加关注对象。标准库里的string就是一个很好的例子。</p>
 
-<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;string&gt;
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;string&gt;
 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">"my name is"</span><span class="p">;</span>
@@ -141,8 +138,7 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="5面向对象开发">5:面向对象开发</h3>
 
@@ -239,13 +235,13 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -296,14 +292,14 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -317,16 +313,16 @@ C++继承了C的这种特性，没有舍弃这种程序设计方法。只是在�
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="requireJs使用心得-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="requireJs使用心得,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="requireJs使用心得-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="requireJs使用心得,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -64,21 +64,18 @@
 
 <p>写过java 或者 C的同学都知道这么几条语句</p>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.XXX</span>
-</code></pre>
-</div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.XXX</span>
+</code></pre></div></div>
 
 <p>或者是C的</p>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
-</span></code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+</span></code></pre></div></div>
 
 <p>当然新出的ecmascript6 也有相应的模块机制</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">xxx</span> <span class="nx">from</span> <span class="s1">'./xx.js'</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">xxx</span> <span class="k">from</span> <span class="s1">'./xx.js'</span>
+</code></pre></div></div>
 
 <p>很简单，将一些模块（轮子、库、框架、组件、balabala）导入当前编写的文件中，方便我们更好的开发</p>
 
@@ -87,16 +84,14 @@
 <p>在现在比较通用的es5中，是没有模块化机制的，所以如果要使用js的话
 以前我们应该都是这么干</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"xxx.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"xxx.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>如果，我有一个c.js想要用到的一个b库的话，就需要在引用c前先引入b</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"b.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"b.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"c.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果很多页面都需要b库呢？</p>
 
@@ -132,9 +127,8 @@
 
 <p>大家不要被什么规范啊，英文吓到了，因为AMD规范只有一句话…</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">define</span><span class="p">([</span><span class="nx">module</span><span class="o">-</span><span class="nx">name</span><span class="p">?],</span> <span class="p">[</span><span class="nx">array</span><span class="o">-</span><span class="nx">of</span><span class="o">-</span><span class="nx">dependencies</span><span class="p">?],</span> <span class="p">[</span><span class="nx">module</span><span class="o">-</span><span class="nx">factory</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">object</span><span class="p">]);</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">([</span><span class="nx">module</span><span class="o">-</span><span class="nx">name</span><span class="p">?],</span> <span class="p">[</span><span class="nx">array</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="nx">dependencies</span><span class="p">?],</span> <span class="p">[</span><span class="nx">module</span><span class="o">-</span><span class="nx">factory</span><span class="o">-</span><span class="nx">or</span><span class="o">-</span><span class="nx">object</span><span class="p">]);</span>
+</code></pre></div></div>
 
 <p>什么意思呢？</p>
 
@@ -157,7 +151,7 @@
 
 <p>例如如下目录结构</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">test</span><span class="p">.</span><span class="nx">html</span>             
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">test</span><span class="p">.</span><span class="nx">html</span>             
 <span class="nx">js</span>                    
  <span class="o">|</span><span class="nx">_</span>                   
  <span class="o">|</span>	<span class="nx">main</span><span class="p">.</span><span class="nx">js</span>           
@@ -175,8 +169,7 @@
          <span class="o">|</span>  <span class="nx">jquery</span><span class="p">.</span><span class="nx">pjax</span><span class="p">.</span><span class="nx">js</span> 
 		 <span class="o">|</span><span class="nx">_</span>                
 		    <span class="nx">util</span><span class="p">.</span><span class="nx">js</span>       
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>main.js就是这个项目的主函数，类比C函数的主函数</p>
 
 <p>有3中方式设置根路径</p>
@@ -186,18 +179,16 @@
 <p>②. 如果设置了<code class="highlighter-rouge">data-main=js/main</code>那么默认根目录路径就是main.js所在的路径
 也就是js文件夹下</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">data-main=</span><span class="s">"js/main"</span> <span class="na">src=</span><span class="s">"js/require.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">data-main=</span><span class="s">"js/main"</span> <span class="na">src=</span><span class="s">"js/require.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>③. 如果我们硬性的设定根目录的位置也是可以的
 在main模块__开头__我们这样设置</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">baseUrl</span> <span class="p">:</span> <span class="s2">"xxx/xxx/xx"</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>caveat :</strong> require.config 是requireJS给我们设置的一个配置接口通过传入一个对象来对一些参数配置，关于一些其他的参数配置，我们留在下文介绍</p>
 
@@ -215,7 +206,7 @@
 
 <p>在define中，我们可以定义一个符合AMD规范的模块，并且用return可以吧结果输出来</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">define</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="cm">/* 计算后结果假设等于1 */</span>
 	<span class="kd">var</span> <span class="nx">calcresult</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
@@ -223,8 +214,7 @@
 		<span class="na">r</span> <span class="p">:</span> <span class="nx">calcresult</span>
 	<span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后我们在main函数中，将a.js导入，首先先根据根节点来获取a</p>
 
@@ -232,7 +222,7 @@
 
 <p>路径的话，全部默认的是.js文件，所以我们不用自己加后缀，也不能加后缀</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"a"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">],</span> <span class="c1">// 不能加.js后缀</span>
 	<span class="p">},</span> 
@@ -241,8 +231,7 @@
 <span class="nx">require</span><span class="p">(</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">r</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="第三方组件模块化">第三方组件模块化</h2>
 
@@ -255,7 +244,7 @@
 <p>在主函数main中我们这样写
 (shim: 垫子 ，加个垫子，能让这个component够得着的意思么？)</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"util"</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">"common/util"</span><span class="p">]</span>
 	<span class="p">},</span> 
@@ -270,14 +259,13 @@
 	 <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">u</span><span class="p">();</span>
 	 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">getToday</span><span class="p">());</span> <span class="c1">// 2016-03-12</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这样我们就完成了将util.js的模块化并使用</p>
 
 <p>而jquery在函数内部已经为我们实现了AMD规范了,所以我们可以直接正常使用</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"util"</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">"common/util"</span><span class="p">],</span>
 		<span class="s2">"jquery"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"common/common/jquery"</span><span class="p">]</span>
@@ -295,14 +283,13 @@
 
 	 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">);</span> <span class="c1">// jquery init</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>但是基于jQuery的很多第三方插件并没有AMD规范化的，他们又和jquery有依赖关系，怎么办呢？</p>
 
 <p>还是shim来解决</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"util"</span>  <span class="p">:</span> <span class="p">[</span><span class="s2">"common/util"</span><span class="p">],</span>
 		<span class="s2">"jquery"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"common/jquery"</span><span class="p">],</span>
@@ -324,14 +311,12 @@
 	 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">);</span> <span class="c1">// jquery init</span>
 	 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">pjax</span><span class="p">)</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>也可以简写为：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"pjax"</span> <span class="err">:</span> <span class="p">[</span><span class="s2">"jquery"</span><span class="p">]</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"pjax"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"jquery"</span><span class="p">]</span>
+</code></pre></div></div>
 
 <p>这样，最基本的requireJs 功能我们就懂了，快去和小伙伴们试试吧</p>
 
@@ -343,7 +328,7 @@
 
 <p>当然js代码不一定是标准的，也可以是单纯的json</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">define</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">({</span>
 	<span class="s2">"Owen"</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"age"</span>  <span class="p">:</span> <span class="s2">"20"</span><span class="p">,</span>
 		<span class="s2">"gender"</span> <span class="p">:</span> <span class="s2">"boy"</span>
@@ -353,8 +338,7 @@
 		<span class="s2">"gender"</span> <span class="p">:</span> <span class="s2">"girl"</span>	
 	<span class="p">}</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>再来我们来看看如何引入依赖</p>
 
@@ -364,7 +348,7 @@
 
 <p>main.js:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"util"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"common/util"</span><span class="p">],</span>
 		<span class="s2">"data"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"common/data"</span><span class="p">]</span>
@@ -374,19 +358,17 @@
 <span class="nx">require</span><span class="p">([</span><span class="s2">"data"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">D</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">D</span><span class="p">.</span><span class="nx">r</span><span class="p">);</span> <span class="c1">// 2016-03-13</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>data.js中调用主函数中已经确定好了依赖，获取今天的日期，并返回</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">define</span><span class="p">([</span><span class="s2">"util"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">u</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">([</span><span class="s2">"util"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">u</span><span class="p">)</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">u</span><span class="p">();</span>
 	<span class="k">return</span> <span class="p">{</span>
 		<span class="na">r</span> <span class="p">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getToday</span><span class="p">()</span>
 	<span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>caveat: 一个js文件里面只能有一个define函数,不然会提示<code class="highlighter-rouge">Mismatched anonymous define() module:</code></p>
 
@@ -402,13 +384,12 @@
 
 <p>我们可以在body前面插入一个<code class="highlighter-rouge">alert</code>来测试domReady</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"owen love zyz!"</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>		
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"owen love zyz!"</span><span class="p">)</span><span class="nt">&lt;/script&gt;</span>		
+</code></pre></div></div>
 
 <p>当alert执行时，dom还未加载，执行后，完成加载，并在console.log中打印出内容</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"domReady"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"tool/domready"</span><span class="p">]</span>
 	<span class="p">}</span>
@@ -422,27 +403,25 @@
 	<span class="p">});</span>
 
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>这里还有一个作者留的小技巧</p>
 
 <p>如果不设置paths参数，并且吧domready.js保存在根目录下，那么就能像这样直接使用</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"domReady!"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Doc</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"domReady!"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Doc</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Doc</span><span class="p">);</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"I will run after dom is ready!"</span><span class="p">);</span>
 
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>注意这是带个感叹号的，返回值是<code class="highlighter-rouge">document</code></p>
 
 <p>如果你希望把domreadyjs保存在其他目录下， 例如<code class="highlighter-rouge">tool/domready</code>
 你也可以使用这个感叹号的方法</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"dr"</span> <span class="p">:</span> <span class="s2">"根目录/tool/domready"</span>
 	<span class="p">}</span>
@@ -452,8 +431,7 @@
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Doc</span><span class="p">);</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"I will run after dom is ready!"</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="text">text</h3>
 
@@ -462,7 +440,7 @@
 <p>text plugin 是一个用来加载文本的插件，底层采用的还是Ajax
 和domready 不太一样， text貌似只能使用！的方式加载</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"t"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"tool/text"</span><span class="p">]</span>
 	<span class="p">}</span>
@@ -471,8 +449,7 @@
 <span class="nx">require</span><span class="p">([</span><span class="s2">"t!review.txt"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">review</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">review</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>流程是先根据paths路径找到text.js 然后在__该路径下__找到review.txt</p>
 
@@ -484,22 +461,20 @@
 
 <p>当然JSON也可以</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"text!../text/foo.json"</span><span class="p">],</span><span class="kd">function</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> 
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"text!../text/foo.json"</span><span class="p">],</span><span class="kd">function</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">foo</span><span class="p">));</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">foo</span><span class="p">))</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>但是JSON数据会出现同名缓存的问题，解决这个问题，我们可以使用!bust参数</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"text!../text/foo.json"</span> <span class="p">,</span> <span class="s2">"text!../text/foo.json!bust"</span><span class="p">],</span><span class="kd">function</span> <span class="p">(</span><span class="nx">foo</span> <span class="p">,</span> <span class="nx">foo1</span><span class="p">)</span> <span class="p">{</span> 
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">([</span><span class="s2">"text!../text/foo.json"</span> <span class="p">,</span> <span class="s2">"text!../text/foo.json!bust"</span><span class="p">],</span><span class="kd">function</span> <span class="p">(</span><span class="nx">foo</span> <span class="p">,</span> <span class="nx">foo1</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo1</span><span class="p">)</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="o">==</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">foo1</span><span class="p">));</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="image">Image</h3>
 
@@ -509,7 +484,7 @@
 
 <p>使用方法和text差不多</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="na">image</span> <span class="p">:</span> <span class="s2">"tool/image"</span>
 	<span class="p">}</span>
@@ -518,8 +493,7 @@
 <span class="nx">require</span><span class="p">([</span><span class="s2">"image!img/cat.jpg"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cat</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cat</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>但是和text.js不同的是，加载imagejs后所返回的路径并不是当前js文件的路径
 而是html文件所在的路径，</p>
@@ -540,7 +514,7 @@
 
 <p>栗子酱：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="na">paths</span> <span class="p">:</span> <span class="p">{</span>
 		<span class="na">image</span> <span class="p">:</span> <span class="s2">"tool/image"</span>
 	<span class="p">}</span>
@@ -549,8 +523,7 @@
 <span class="nx">require</span><span class="p">([</span><span class="s2">"image!img/cat.jpg!bust"</span> <span class="p">,</span> <span class="s2">"image!img/cat.jpg!bust"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cat1</span> <span class="p">,</span> <span class="nx">cat2</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cat1</span> <span class="o">===</span> <span class="nx">cat2</span><span class="p">);</span> <span class="c1">//false</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>从上文来看 虽然加载的图片路径相同的，但是cat1明显不等于cat2 说明两张图片是不同的</p>
 
@@ -577,7 +550,7 @@
 
 <p>栗子：</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
 	<span class="s2">"text"</span> <span class="p">:</span> <span class="p">[</span><span class="nx">tool</span><span class="o">/</span><span class="nx">text</span><span class="p">],</span>
 	<span class="s2">"md"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"tool/mdown"</span><span class="p">],</span>
 	<span class="s2">"markdownConverter"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"tool/Markdown.Converter"</span><span class="p">]</span>
@@ -586,8 +559,7 @@
 <span class="nx">require</span><span class="p">([</span><span class="s2">"md!../text/foo.md"</span><span class="p">]</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">foo</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"body"</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
 <span class="p">})</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>如果单纯只是需要markdown的原文件而不需要转换成html
 只需要加一个参数就行</p>
@@ -681,13 +653,13 @@ md这个插件实际上就是将text和markdownConverter这两个插件结合在
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -738,14 +710,14 @@ md这个插件实际上就是将text和markdownConverter这两个插件结合在
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -759,16 +731,16 @@ md这个插件实际上就是将text和markdownConverter这两个插件结合在
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

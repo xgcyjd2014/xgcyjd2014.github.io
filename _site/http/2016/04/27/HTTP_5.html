@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="内容编码和传输编码-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="内容编码和传输编码,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="内容编码和传输编码-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="内容编码和传输编码,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -77,7 +77,7 @@
 
 <p>  3.客户端浏览器得到编码后的报文，进行解码，获得原始报文。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>#原始内容.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#原始内容.
 Content-Type: text/html
 Content-Length: 12480
 
@@ -85,8 +85,7 @@ Content-Length: 12480
 Content-type: text/html
 Content-length: 3907
 Conent-encoding: gzip
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>  上面的例子显示了当进行了gzip编码之后报文实体的数据将变小。</p>
 
@@ -99,24 +98,21 @@ Conent-encoding: gzip
 
 <p>Chrome浏览器默认会对每一个请求都加一条这样的首部:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Accept-Encoding:gzip, deflate, sdch
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Accept-Encoding:gzip, deflate, sdch
+</code></pre></div></div>
 
 <h2 id="五tomcat-配置">五.Tomcat 配置.</h2>
 <p>  tomcat中默认是关闭内容编码的，我们需要在config/server.xml文件中进行配置.在server.xml文件中找到	关于Connector的配置。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" /&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" /&gt;
+</code></pre></div></div>
 
 <p> 修改为如下即可开启.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1"
 			compression="on" compressionMinSize="2048"
 			compressableMimeType="text/html, text/xml, text/css", text/javascript"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>  说明:compressableMimeType 用来指定要对什么类型的资源进行压缩。使用MIME媒体类型来指定。</p>
 
@@ -130,7 +126,7 @@ Conent-encoding: gzip
 
 <p>  分块编码报文的基本结构:它由起始的HTTP响应首部块开始，随后就是一系列分块。每个分块包含一个长度值和该分块的数据。长度值是十六进制形式并将CRLF与数据分割开。最后一个块有点特别，它的长度值为0，表示”主体结束”。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 200 OK&lt;CR&gt;&lt;LF&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK&lt;CR&gt;&lt;LF&gt;
 Content-Type: text/plain&lt;CR&gt;&lt;LF&gt;
 Transfer-encoding: chunked&lt;CR&gt;&lt;LF&gt;
 &lt;CR&gt;&lt;LF&gt;
@@ -142,8 +138,7 @@ We hold these truths to be self-evident&lt;CR&gt;&lt;LF&gt;
 , that all men are created equal, that&lt;CR&gt;&lt;LF&gt;
 
 0&lt;CR&gt;&lt;LF&gt;    #最后一块.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 
@@ -220,13 +215,13 @@ We hold these truths to be self-evident&lt;CR&gt;&lt;LF&gt;
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -277,14 +272,14 @@ We hold these truths to be self-evident&lt;CR&gt;&lt;LF&gt;
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -298,16 +293,16 @@ We hold these truths to be self-evident&lt;CR&gt;&lt;LF&gt;
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4

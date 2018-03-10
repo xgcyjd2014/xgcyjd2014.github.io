@@ -8,23 +8,23 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-							<!-- 
+							<!--
 							信管创业基地 head-post.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
-<!-- 
+
+<!--
 	文章内容head
  -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="简单理解洋葱模型-2015信管创业基地-愿景:用心铸造 卓越Offer" />
-<meta name="keywords" content="简单理解洋葱模型,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,veu.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+<meta name="description" content="简单理解洋葱模型-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="简单理解洋葱模型,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
 
-<title>Web开发 | 2015信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
@@ -82,7 +82,7 @@
 
 <p>这不是redux 的源码，只是我基于个这个思想，自己写的一个简单的demo</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea1'</span><span class="p">);</span>
         <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="o">++</span><span class="p">;</span>
@@ -112,7 +112,7 @@
 
 <span class="kd">function</span> <span class="nx">dispatch</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// emit dataes</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc \n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc </span><span class="err">\</span><span class="s1">n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">midWares</span><span class="p">)</span> <span class="p">{</span>
@@ -136,12 +136,11 @@
 
 <span class="kd">let</span> <span class="nx">somedata</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>输出</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea1</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea1</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea2</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea3</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">some</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">meanwhile</span> <span class="nx">i</span> <span class="nx">emit</span> <span class="nx">the</span> <span class="nx">data</span> <span class="nx">after</span> <span class="nx">mid</span> <span class="nx">wares</span> <span class="nx">calc</span> 
@@ -149,8 +148,7 @@
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea3</span>
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea2</span>
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>其中 dispatch 就是那个最核心的事件，每一个中间件以next 作为分界， 
 next 之上的操作为触发核心事件前的操作， next之下的操作为触发核心事件后的操作</p>
@@ -171,8 +169,8 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 
 <p>我们添加一个特殊的中间件 thunk 来实现异步处理。</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'&gt;&gt;&gt; waitting judge'</span><span class="p">);</span>
         <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span>
@@ -182,8 +180,7 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
         <span class="nx">next</span><span class="p">({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">,</span> <span class="na">judge</span><span class="p">:</span> <span class="nx">rwn</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'crime'</span><span class="p">:</span> <span class="s1">'kind'</span><span class="p">});</span>
     <span class="p">});</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>很明白的看出， thunk 会对传进来的数据进行处理， 
 如果是一个函数，那么就不会向下一步深入洋葱，而是先处理函数，将next 以传参的形式传递给函数，
@@ -191,8 +188,8 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 
 <p>例如我们传递一个thunkfunc</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// 随机判断</span>
         <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
@@ -201,32 +198,29 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
         <span class="nx">next</span><span class="p">({</span><span class="na">data</span><span class="p">:</span> <span class="nx">somedata</span><span class="p">,</span> <span class="na">judge</span><span class="p">:</span> <span class="nx">rwn</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="s1">'crime'</span><span class="p">:</span> <span class="s1">'kind'</span><span class="p">});</span>
     <span class="p">});</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后把上文的somedata 替换为thunkfunc，并添加特殊的thunk中间件</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">,</span> <span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))(</span><span class="nx">thunkfunc</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">main</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">,</span> <span class="nx">fea1</span><span class="p">,</span> <span class="nx">fea2</span><span class="p">,</span> <span class="nx">fea3</span><span class="p">))(</span><span class="nx">thunkfunc</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>执行结果</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nx">waitting</span> <span class="nx">judge</span> <span class="c1">// 执行异步操作</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nx">waitting</span> <span class="nx">judge</span> <span class="c1">// 执行异步操作</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea1</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea2</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">fea3</span>
 <span class="nx">i</span> <span class="nx">execute</span> <span class="nx">some</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">meanwhile</span> <span class="nx">i</span> <span class="nx">emit</span> <span class="nx">the</span> <span class="nx">data</span> <span class="nx">after</span> <span class="nx">mid</span> <span class="nx">wares</span> <span class="nx">calc</span> 
- <span class="nb">Object</span> <span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="mf">1.3333333333333333</span><span class="p">,</span> <span class="nx">judge</span><span class="err">:</span> <span class="s2">"kind"</span><span class="p">}</span> <span class="c1">// 返回异步操作后的结果 'kind'</span>
+ <span class="nb">Object</span> <span class="p">{</span><span class="nl">data</span><span class="p">:</span> <span class="mf">1.3333333333333333</span><span class="p">,</span> <span class="nx">judge</span><span class="p">:</span> <span class="s2">"kind"</span><span class="p">}</span> <span class="c1">// 返回异步操作后的结果 'kind'</span>
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea3</span>
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea2</span>
 <span class="nx">i</span> <span class="nx">end</span> <span class="nx">fea1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="最终源码">最终源码</h2>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fea1</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute fea1'</span><span class="p">);</span>
         <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="o">++</span><span class="p">;</span>
@@ -256,7 +250,7 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 
 <span class="kd">function</span> <span class="nx">dispatch</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// emit dataes</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc \n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'i execute some action, meanwhile i emit the data after mid wares calc </span><span class="err">\</span><span class="s1">n'</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">main</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">midWares</span><span class="p">)</span> <span class="p">{</span>
@@ -281,7 +275,7 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 <span class="kd">let</span> <span class="nx">somedata</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">thunkfunc</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'&gt;&gt;&gt; waitting judge'</span><span class="p">);</span>
         <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="nx">resolve</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">-</span> <span class="p">.</span><span class="mi">5</span><span class="p">);</span>
@@ -304,8 +298,7 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
             <!-- 上下篇 -->
@@ -381,13 +374,13 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
     </section>
 
 	<footer>
-								<!-- 
+								<!--
 							信管创业基地 footer.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
 							Github: http://github.com/niyungang
 						 -->
-						 
+
 <footer class="footer">
 	<div class="footer-top">
 		<ul class="ul1">
@@ -438,14 +431,14 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 	<div class="copyright">
 		<p>
 			<span>
-				Copyright © 2002-2017
+				Copyright © 2002-2018
 				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 			</span>
 			<span>
-				网站作者: <a href="http://www.niyungang.github.io">倪云港</a>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 			</span>
 			<span>
-				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://www.niyungang.github.io">倪云港</a>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 			</span>
 			<span>
 				当前呈现版本: V1.4
@@ -459,16 +452,16 @@ next 之上的操作为触发核心事件前的操作， next之下的操作为�
 
 <footer class="footer-mob">
 	<p>
-		Copyright © 2002-2017 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
 	</p>
 	<p>
 		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
 	</p>
 	<p>
-		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="http://niyungang.github.io">倪云港</a>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
 	</p>
 	<p>
-		网站作者: <a href="http://niyungang.github.io">倪云港</a>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
 	</p>
 	<p>
 		当前呈现版本: V1.4
