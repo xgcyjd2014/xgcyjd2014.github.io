@@ -1,0 +1,164 @@
+---
+layout: post
+title: 'Emmet'
+author: 庞云龙
+tagpic: 'http://oy6bua0oj.bkt.clouddn.com/20150829085008_6683.jpg'
+description: Emmet
+category: other 
+---
+
+# Emmet #
+
+###Emmet (前身为 Zen Coding) 是一个能大幅度提高前端开发效率的一个工具Emmet把片段这个概念提高到了一个新的层次：你可以设置CSS形式的能够动态被解析的表达式，然后根据你所输入的缩写来得到相应的内容。Emmet是很成熟的并且非常适用于编写HTML/XML 和 CSS 代码的前端开发人员，但也可以用于编程语言.###
+
+### 语法 ###
+
+----------
+后代:>
+
+缩写:nav>ul>li
+    
+    <nav>
+    	<ul>
+    		<li></li>
+    	</ul>
+    </nav>
+
+兄弟:+
+
+缩写:div+p+bq
+
+    <div></div>
+    <p></p>
+    <blockquote></blockquote>
+
+分组：()
+
+缩写：div>(header>ul>li*2>a)+footer>p
+
+    <div>
+	    <header>
+		    <ul>
+			    <li><a href=""></a></li>
+			    <li><a href=""></a></li>
+		    </ul>
+	    </header>
+	    <footer>
+	    	<p></p>
+	    </footer>
+    </div>
+       
+乘法：*
+
+缩写：ul>li*5
+
+    <ul>
+	    <li></li>
+	    <li></li>
+	    <li></li>
+	    <li></li>
+	    <li></li>
+    </ul>
+    
+自增符号：$
+
+缩写：ul>li.item$*5
+
+    <ul>
+	    <li class="item1"></li>
+	    <li class="item2"></li>
+	    <li class="item3"></li>
+	    <li class="item4"></li>
+	    <li class="item5"></li>
+    </ul>
+缩写：h$[title=item$]{Header $}*3
+
+    <h1 title="item1">Header 1</h1>
+    <h2 title="item2">Header 2</h2>
+    <h3 title="item3">Header 3</h3>
+缩写：ul>li.item$$$*5
+
+    <ul>
+	    <li class="item001"></li>
+	    <li class="item002"></li>
+	    <li class="item003"></li>
+	    <li class="item004"></li>
+	    <li class="item005"></li>
+    </ul>
+    
+ID和类属性
+
+缩写：#header
+
+    <div id="header"></div>
+缩写：.title
+
+    <div class="title"></div>
+缩写：form#search.wide
+
+    <form id="search" class="wide"></form>
+缩写：p.class1.class2.class3
+
+    <p class="class1 class2 class3"></p>
+
+自定义属性
+
+缩写：p[title="Hello world"]
+
+    <p title="Hello world"></p>
+
+文本：{}
+
+缩写：a{Click me}
+
+    <a href="">Click me</a>
+
+所有未知的缩写都会转换成标签，例如，
+
+foo → `<foo></foo>`
+
+缩写：a:link
+
+<a href="http://"></a>
+缩写：a:mail
+
+    <a href="mailto:"></a>
+ 
+
+    <link rel="stylesheet" href="" />
+缩写：link:css
+    
+    <link rel="stylesheet" href="style.css" />
+缩写：link:print
+
+    <link rel="stylesheet" href="print.css" media="print" />
+缩写：link:favicon
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+缩写：link:touch
+
+    <link rel="apple-touch-icon" href="favicon.png" />
+缩写：link:rss
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml" />
+缩写：link:atom
+    
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="atom.xml" />
+
+缩写：meta:utf
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+缩写：meta:win
+
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1251" />
+缩写：meta:vp
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+缩写：meta:compat
+
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+## 以上仅为部分常用API及示例,HTML标签均可智能提示,格式同上 ##
+[<h2>Emmet官网</h2>](https://docs.emmet.io/)
+
+[<h2>API列表</h2>](http://oy6bua0oj.bkt.clouddn.com/CheatSheet.jpg "七牛云存储")
