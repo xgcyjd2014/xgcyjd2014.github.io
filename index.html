@@ -1,8 +1,5 @@
----
-layout: default
-title: 首页
----
-						<!--
+--- layout: default title: 首页 ---
+<!--
 							信管创业基地 index.html
 							Design And Build By 倪云港
 							Email: yungangni@gmail.com
@@ -10,58 +7,62 @@ title: 首页
 						 -->
 
 <section class="body-title">
-	<p class="no-select liuguang">文章 | Article</p>
+    <p class="no-select liuguang">文章 | Article</p>
 </section>
 
 <section class="article">
-	<!-- 文章 -->
-	<ul class="passage">
-		{% for post in paginator.posts %}
-		<li class="passage-li">
-			<div class="passage-url-tagpic">
-				<a href="{{ post.url }}" target="_blank">
-					<img src="/assets/img/index/passage-list-imgs/{{ post.tagpic }}" alt="22">
-				</a>
-			</div>
-			<div class="passage-description">
-				<h1 class="passage-url-title">
-					<a class="liuguang" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
-				</h1>
-				<h2 class="passage-author-date">
-					<a href="javascript:;" target="_blank">{{ post.author }}</a>
-					<span class="yishu">{{ post.date | date: "%B %-d, %Y" }}</span>
-				</h2>
-				<p class="passage-category yishu no-select">{{ post.category }}</p>
-			</div>
-		</li>
-		{% endfor %}
-	</ul>
+    <!-- 文章 -->
+    <ul class="passage">
+        {% for post in paginator.posts %}
+        <li class="passage-li">
+            <div class="passage-url-tagpic">
+                <a href="{{ post.url }}" target="_blank">
+                    {%if post.bgpic%}
+                    <img src="{{ post.bgpic }}" alt="22">
+                    {% endif %}
+                    <img src="/assets/img/index/passage-list-imgs/{{ post.tagpic }}" alt="22">
+                </a>
+            </div>
+            <div class="passage-description">
+                <h1 class="passage-url-title">
+                    <a class="liuguang" href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+                </h1>
+                <h2 class="passage-author-date">
+                    <a href="javascript:;" target="_blank">{{ post.author }}</a>
+                    <span class="yishu">{{ post.date | date: "%B %-d, %Y" }}</span>
+                </h2>
+                <p class="passage-category yishu no-select">{{ post.category }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
 
 
-	<!-- 侧边 -->
-	<section class="sidebar">
+    <!-- 侧边 -->
+    <section class="sidebar">
 
-		<!-- 权益声明 -->
-		<h1 class="sidebar-title liuguang yishu">权益声明</h1>
-		<h1 class="sidebar-title liuguang yishu">Content Licensing</h1>
-		<div class="bync">
-			欢迎光临信管创业基地文章聚合, 这里所有资源均全部由信管创业基地提供。 所有资源全部服从 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可, 所有资源转载必须署名, 并禁止商用！
-			<hr>
-			Welcome to ImWeb, Every knowledge assests in this site by xgcyjd(imWeb) is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">Create Commons 4.0 License</a>, If you want to reprint, Please observe this license. Every assests must sign signature and mustn't use for commercial!
-		</div>
+        <!-- 权益声明 -->
+        <h1 class="sidebar-title liuguang yishu">权益声明</h1>
+        <h1 class="sidebar-title liuguang yishu">Content Licensing</h1>
+        <div class="bync">
+            欢迎光临信管创业基地文章聚合, 这里所有资源均全部由信管创业基地提供。 所有资源全部服从 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎
+                4.0 国际许可协议</a> 进行许可, 所有资源转载必须署名, 并禁止商用！
+            <hr> Welcome to ImWeb, Every knowledge assests in this site by xgcyjd(imWeb) is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">Create
+                Commons 4.0 License</a>, If you want to reprint, Please observe this license. Every assests must sign signature and mustn't use for commercial!
+        </div>
 
-		<!-- 二维码 -->
-		<br>
-		<h1 class="sidebar-title liuguang yishu">二维码</h1>
-		<h1 class="sidebar-title liuguang yishu">QR Code</h1>
-		<div class="qr">
-			<img src="/assets/img/qr.png" class="qr-img"></img>
-		</div>
+        <!-- 二维码 -->
+        <br>
+        <h1 class="sidebar-title liuguang yishu">二维码</h1>
+        <h1 class="sidebar-title liuguang yishu">QR Code</h1>
+        <div class="qr">
+            <img src="/assets/img/qr.png" class="qr-img"></img>
+        </div>
 
-		<!-- 友情链接 -->
-		<br>
-		<h1 class="sidebar-title liuguang yishu">友情链接</h1>
-		<h1 class="sidebar-title liuguang yishu">Friendship Link</h1>
+        <!-- 友情链接 -->
+        <br>
+        <h1 class="sidebar-title liuguang yishu">友情链接</h1>
+        <h1 class="sidebar-title liuguang yishu">Friendship Link</h1>
         <div class="friendship-link">
             <a href="http://niyungang.github.io/" target="__blank">倪云港的博客</a>
             <a href="http://getElement.github.io" target="__blank">Yancey's Blog</a>
@@ -74,20 +75,18 @@ title: 首页
             <a href="http://www.ocselected.org/" target="__blank">ovirt-china</a>
         </div>
 
-	</section>
+    </section>
 
-	<!-- 上下页 -->
-	{% if paginator.total_pages > 1 %}
-	<div class="more">
-	    {% if paginator.previous_page %}
-	    <a class="more_previous" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"> &larr; Newer Posts</a>
-	    {% endif %}
-
-	    {% if paginator.next_page %}
-	    <a class="more_next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr; </a>
-	    {% endif %}
-	</div>
-	{% endif %}
+    <!-- 上下页 -->
+    {% if paginator.total_pages > 1 %}
+    <div class="more">
+        {% if paginator.previous_page %}
+        <a class="more_previous" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            &larr; Newer Posts</a> {% endif %} {% if paginator.next_page %}
+        <a class="more_next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older
+            Posts &rarr; </a> {% endif %}
+    </div>
+    {% endif %}
 
 </section>
 
