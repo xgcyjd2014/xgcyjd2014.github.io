@@ -6,9 +6,6 @@ description: JAVAWeb
 tagpic: other.jpg
 category: other 
 ---
-
-
-
 html/css/javascript前端 （静态网页）
 静态网站：只包含静态网页
 动态网站：既有静态网页也有动态网页
