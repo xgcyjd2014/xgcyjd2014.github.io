@@ -3,6 +3,7 @@ layout: post
 title: 'Emmet'
 author: 庞云龙
 description: Emmet
+bgpic: http://oy6bua0oj.bkt.clouddn.com/20150829085008_6683.jpg
 category: other 
 ---
 

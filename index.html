@@ -20,7 +20,12 @@ title: 首页
         <li class="passage-li">
             <div class="passage-url-tagpic">
                 <a href="{{ post.url }}" target="_blank">
+                    {% if post.bgpic %}
+                    <img src="{{ post.bgpic }}" alt="22">
+                    {% endif %}
+                    {% if post.tagpic %}
                     <img src="/assets/img/index/passage-list-imgs/{{ post.tagpic }}" alt="22">
+                    {% endif %}
                 </a>
             </div>
             <div class="passage-description">
