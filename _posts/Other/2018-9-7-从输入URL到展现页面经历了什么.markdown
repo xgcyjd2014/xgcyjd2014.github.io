@@ -3,7 +3,7 @@ layout: post
 title: '浏览器从输入URL到页面展现都经过了什么'
 author: 庞云龙
 description: HTTP
-bgpic: http://oy6bua0oj.bkt.clouddn.com/9302-106.jpg
+bgpic: https://farm5.staticflickr.com/4906/45209290884_0cc9f4afa9_o.jpg
 category: other 
 ---
 # 浏览器从输入URL到页面展现都经过了什么 #
