@@ -1,0 +1,78 @@
+/*
+* @Author: hi-craft
+* @Email: asd1097132@gmail.com
+* @Date: 2018-12-1 15:50:00
+* @usefor: 移动端适配
+*/
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    #logo-stage>svg,
+    .can>canvas {
+        display: none;
+    }
+    .can {
+        height: 200px;
+    }
+    .passage {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .passage-li {
+        margin: 10px;
+    }
+    .body-title {
+        width: 100%;
+    }
+    .more {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .more_previous,
+    .more_next {
+        margin: 0;
+    }
+    #menu-bar {
+        display: inline-block !important;
+        cursor: pointer;
+        /* line-height: 80px;
+        margin-top: 25px; */
+        transition: all 1s ease;
+        margin-right: 10%;
+        order: 3;
+    }
+    .mainNav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mainNav .navUl {
+        display: flex;
+        flex-direction: column;
+        transition: all 1s;
+        background-color: #0557b7;
+        height: 330px;
+        width: 110px;
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        margin: 0;
+    }
+    .mainNav .navUl li {
+        margin: 10px;
+    }
+    .mainNav .navUlshow {
+        right: 0;
+    }
+    .fixedNav_ul {
+        top: 40px !important;
+    }
+    .mainNav .navUl li {
+        float: none;
+        height: 35px;
+        transition: all 1s;
+    }
+}

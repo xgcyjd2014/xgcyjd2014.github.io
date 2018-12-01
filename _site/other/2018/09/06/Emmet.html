@@ -1,0 +1,398 @@
+                        <!-- 
+                            信管创业基地 post.html
+                            Design And Build By 倪云港
+                            Email: yungangni@gmail.com
+                            Github: http://github.com/niyungang
+                         -->
+<!-- 文章内容 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+							<!--
+							信管创业基地 head-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+
+<!--
+	文章内容head
+ -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Emmet-2018信管创业基地-愿景:用心铸造 卓越Offer" />
+<meta name="keywords" content="Emmet,信管创业基地,ImWeb,哈尔滨,黑龙江大学,前端技术,后端技术,jekyll,html5,css3,github,node.js,vue.js,java,技术交流,Sublime3 Text,CreateJs,Ajax" />
+
+<title>Web开发 | 2018信管创业基地官方博客 | 愿景:用心铸造卓越offer </title>
+
+<!-- <link rel="stylesheet" type="text/css" href="/assets/css/main.min.css"> -->
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/rouge.min.css">
+
+</head>
+
+<body>
+    <!-- Post Header -->
+    <a class="post-logo" href="/index.html">
+        <img src="/assets/img/logo.png" alt="logo">
+        <div class="logo-name liuguang">信管创业基地</div>
+    </a>
+
+	<header class="post-header">
+		<img id="post-img" class="post-img">
+		<section class="post-title">
+			<h1 class="article-title">
+				Emmet
+			</h1>
+			<section class="article-category">
+				other
+			</section>
+	        <section class="article-info">
+	        	Posted by 庞云龙 on September 6, 2018
+	        </section>
+		</section>
+	</header>
+
+    <!-- Post Box -->
+    <section class="post-box">
+        <article class="post-body">
+            <h1 id="emmet">Emmet</h1>
+
+<h3 id="emmet-前身为-zen-coding-是一个能大幅度提高前端开发效率的一个工具emmet把片段这个概念提高到了一个新的层次你可以设置css形式的能够动态被解析的表达式然后根据你所输入的缩写来得到相应的内容emmet是很成熟的并且非常适用于编写htmlxml-和-css-代码的前端开发人员但也可以用于编程语言">Emmet (前身为 Zen Coding) 是一个能大幅度提高前端开发效率的一个工具Emmet把片段这个概念提高到了一个新的层次：你可以设置CSS形式的能够动态被解析的表达式，然后根据你所输入的缩写来得到相应的内容。Emmet是很成熟的并且非常适用于编写HTML/XML 和 CSS 代码的前端开发人员，但也可以用于编程语言.</h3>
+<h1 id="httpoy6bua0ojbktclouddncom20150829085008_6683jpg">http://oy6bua0oj.bkt.clouddn.com/20150829085008_6683.jpg</h1>
+<h3 id="语法">语法</h3>
+
+<hr />
+<p>后代:&gt;</p>
+
+<p>缩写:nav&gt;ul&gt;li</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<p>兄弟:+</p>
+
+<p>缩写:div+p+bq</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+</code></pre></div></div>
+
+<p>分组：()</p>
+
+<p>缩写：div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;
+    &lt;header&gt;
+	    &lt;ul&gt;
+		    &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+		    &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+	    &lt;/ul&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+    	&lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>乘法：*</p>
+
+<p>缩写：ul&gt;li*5</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div></div>
+
+<p>自增符号：$</p>
+
+<p>缩写：ul&gt;li.item$*5</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ul&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt; 缩写：h$[title=item$]{Header $}*3
+
+&lt;h1 title="item1"&gt;Header 1&lt;/h1&gt;
+&lt;h2 title="item2"&gt;Header 2&lt;/h2&gt;
+&lt;h3 title="item3"&gt;Header 3&lt;/h3&gt; 缩写：ul&gt;li.item$$$*5
+
+&lt;ul&gt;
+    &lt;li class="item001"&gt;&lt;/li&gt;
+    &lt;li class="item002"&gt;&lt;/li&gt;
+    &lt;li class="item003"&gt;&lt;/li&gt;
+    &lt;li class="item004"&gt;&lt;/li&gt;
+    &lt;li class="item005"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div></div>
+
+<p>ID和类属性</p>
+
+<p>缩写：#header</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="header"&gt;&lt;/div&gt; 缩写：.title
+
+&lt;div class="title"&gt;&lt;/div&gt; 缩写：form#search.wide
+
+&lt;form id="search" class="wide"&gt;&lt;/form&gt; 缩写：p.class1.class2.class3
+
+&lt;p class="class1 class2 class3"&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>自定义属性</p>
+
+<p>缩写：p[title=”Hello world”]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p title="Hello world"&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>文本：{}</p>
+
+<p>缩写：a{Click me}</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href=""&gt;Click me&lt;/a&gt;
+</code></pre></div></div>
+
+<p>所有未知的缩写都会转换成标签，例如，</p>
+
+<p>foo → <code class="highlighter-rouge">&lt;foo&gt;&lt;/foo&gt;</code></p>
+
+<p>缩写：a:link</p>
+
+<p><a href="http://"></a>
+缩写：a:mail</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="mailto:"&gt;&lt;/a&gt;
+ 
+
+&lt;link rel="stylesheet" href="" /&gt; 缩写：link:css
+
+&lt;link rel="stylesheet" href="style.css" /&gt; 缩写：link:print
+
+&lt;link rel="stylesheet" href="print.css" media="print" /&gt; 缩写：link:favicon
+
+&lt;link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /&gt; 缩写：link:touch
+
+&lt;link rel="apple-touch-icon" href="favicon.png" /&gt; 缩写：link:rss
+
+&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml" /&gt; 缩写：link:atom
+
+&lt;link rel="alternate" type="application/atom+xml" title="Atom" href="atom.xml" /&gt;
+</code></pre></div></div>
+
+<p>缩写：meta:utf</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt; 缩写：meta:win
+
+&lt;meta http-equiv="Content-Type" content="text/html;charset=windows-1251" /&gt; 缩写：meta:vp
+
+&lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" /&gt; 缩写：meta:compat
+
+&lt;meta http-equiv="X-UA-Compatible" content="IE=7" /&gt;
+</code></pre></div></div>
+
+<h2 id="以上仅为部分常用api及示例html标签均可智能提示格式同上">以上仅为部分常用API及示例,HTML标签均可智能提示,格式同上</h2>
+<p><a href="https://docs.emmet.io/">&lt;h2&gt;Emmet官网&lt;/h2&gt;</a></p>
+
+<p><a href="http://oy6bua0oj.bkt.clouddn.com/CheatSheet.jpg" title="七牛云存储">&lt;h2&gt;API列表&lt;/h2&gt;</a></p>
+
+
+            <!-- 上下篇 -->
+            <div class="pager">
+                
+                <a class="previous" href="/js/2017/08/24/es7.html" data-toggle="tooltip" data-placement="top" title="Es2017 将会给我们带来什么？">
+                上一篇<br>
+                <span>Es2017 将会给我们带来什么？</span>
+                </a>
+                
+                
+                <a class="next" href="/other/2018/09/07/JAVAWeb-%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5%E5%BC%80%E5%8F%91.html" data-toggle="tooltip" data-placement="top" title="JAVAWeb-动态网页开发">
+                下一篇<br>
+                <span>JAVAWeb-动态网页开发</span>
+                </a>
+                
+            </div>
+
+            <!-- 分享 -->
+            <ul class="share">
+                <li>
+                    <span>分享到:</span>
+                </li>
+                <li>
+                    <a class="qzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://xgcyjd2014.github.io/other/2018/09/06/Emmet.html&title=《Emmet》 作者：庞云龙 发布日期：2018-09-06 00:00:00 +0800&desc=&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到QQ空间"></a>
+                </li>
+                <li class="ml">
+                    <a class="weibo" href="http://service.weibo.com/share/share.php?url=http://xgcyjd2014.github.io/other/2018/09/06/Emmet.html&title=《Emmet》 作者：庞云龙 发布日期：2018-09-06 00:00:00 +0800  &pic=http://xgcyjd2014.github.io/assets/img/share-logo.png&site=http://xgcyjd2014.github.io" target="__blank" title="分享到微博"></a>
+                </li>
+                <li class="ml">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url=http://xgcyjd2014.github.io/other/2018/09/06/Emmet.html&text=《Emmet》 作者：庞云龙 发布日期：2018-09-06 00:00:00 +0800  " target="__blank" title="分享到推特"></a>
+                </li>
+                <li class="ml">
+                    <a class="qq" href="http://connect.qq.com/widget/shareqq/index.html?url=http://xgcyjd2014.github.io/other/2018/09/06/Emmet.html&pics=http://xgcyjd2014.github.io/assets/img/share-logo.png&title=《Emmet》 作者：庞云龙 发布日期：2018-09-06 00:00:00 +0800&summary=" target="__blank" title="分享到推特"></a>
+                </li>
+            </ul>
+
+            <div class="youyan">
+                <!-- UY BEGIN -->
+<!-- <div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2129068"></script> -->
+<!-- UY END -->
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMDQxMi82OTY2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+        </article>
+
+        <!-- 书签目录 -->
+        <section class="catalog">
+            <div class="catalog-title">- CATALOG -</div>
+            <div class="catalog-box">
+                <ul class="catalog-list"></ul>
+            </div>
+        </section>
+
+    </section>
+
+	<footer>
+								<!--
+							信管创业基地 footer.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+
+<footer class="footer">
+	<div class="footer-top">
+		<ul class="ul1">
+			<p>
+				网站相关
+			</p>
+			<li>
+				<a href="/pages/about.html">关于我们</a>
+			</li>
+			<li>
+				<a href="/pages/join.html">加入我们</a>
+			</li>
+			<li>
+				<a href="https://github.com/xgcyjd2014/xgcyjd2014.github.io">关于本站</a>
+			</li>
+		</ul>
+
+		<ul>
+			<p>
+				友情链接
+			</p>
+			<li>
+				<a href="http://www.hlju.edu.cn/">黑龙江大学</a>
+			</li>
+			<li>
+				<a href="http://xyw.hlju.edu.cn/">校园信息门户</a>
+			</li>
+			<li>
+				<a href="http://my.hlju.edu.cn/">校园应用门户</a>
+			</li>
+		</ul>
+
+
+		<ul class="footer-xk">
+			<p>
+				内容许可
+			</p>
+			<li>
+				除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+			</li>
+		</ul>
+
+		<ul class="footer-img">
+		</ul>
+
+	</div>
+
+	<div class="copyright">
+		<p>
+			<span>
+				Copyright © 2002-2018
+				<a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+			</span>
+			<span>
+				网站作者: <a href="https://niyungang.github.io/">倪云港</a>
+			</span>
+			<span>
+				维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
+			</span>
+			<span>
+				当前呈现版本: V1.4
+			</span>
+		</p>
+	</div>
+
+</footer>
+
+
+
+<footer class="footer-mob">
+	<p>
+		Copyright © 2002-2018 <a href="http://www.xgcyjd.com">黑龙江大学信管创业基地</a>
+	</p>
+	<p>
+		除特别说明外，用户内容均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+	</p>
+	<p>
+		维护支持: <a href="http://www.xgcyjd.com">信管创业基地</a> & <a href="https://hi-craft.github.io/">庞云龙</a>
+	</p>
+	<p>
+		网站作者: <a href="https://niyungang.github.io/">倪云港</a>
+	</p>
+	<p>
+		当前呈现版本: V1.4
+	</p>
+</footer>
+	</footer>
+</body>
+    						<!-- 
+							信管创业基地 script-post.html
+							Design And Build By 倪云港
+							Email: yungangni@gmail.com
+							Github: http://github.com/niyungang
+						 -->
+						 
+<!-- 
+	文章主体
+ -->
+
+<!-- 文章内容 -->
+
+<script src="/assets/js/jquery-3.1.1.min.js"></script>
+<script src="/assets/js/post.js"></script>
+<script src="/assets/js/main.js"></script>
+</html>
