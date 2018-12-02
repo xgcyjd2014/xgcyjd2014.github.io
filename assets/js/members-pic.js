@@ -142,6 +142,7 @@ var $window = $(window),
     oImWebLogo = $(".imweb-logo"),
     oImWebFont = $(".imweb-font"),
     oJoinUs = $(".join-us");
+stageCover = $('.scroll-wrap li .first-stage-cover')
 oCircles.css("transform", "rotate(0) translateY(0)");
 $(function() {
     function resizeHandle() {
@@ -166,8 +167,10 @@ $(function() {
             oSecondStage.css("transform", "scale(1,1)");
             oSecondStage.css("opacity", "1");
             oCircles.removeAttr("style");
+            stageCover.addClass('first-stage-cover-end-index');
             setTimeout(function() {
                 oImWeb.css("transform", "scale(1,1)")
+
             }, 2000)
         }
         oScrollWrap.css("marginTop", iNow * -oH)
