@@ -1,9 +1,9 @@
 							/*--------------------------------------------*\
-																																																			  	  信管创业基地 main.js
-																																																	   		   Design And Build By 倪云港
-																																																	   		   Email: yungangni@gmail.com
-																																																	     Github: http://github.com/niyungang
-																																																	\*--------------------------------------------*/
+																																																																	  	  信管创业基地 main.js
+																																																															   		   Design And Build By 倪云港
+																																																															   		   Email: yungangni@gmail.com
+																																																															     Github: http://github.com/niyungang
+																																																															\*--------------------------------------------*/
 
 							//鼠标点击特效
 							function beautiful() {
@@ -38,7 +38,7 @@
 							beautiful();
 
 
-							// console
+							// 来自东方的神秘力量
 							window.console && console.log && console.log([
 							    "                   _ooOoo_",
 							    "                  o8888888o",
